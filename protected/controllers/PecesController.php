@@ -28,7 +28,7 @@ class PecesController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('index','view', 'inicio', 'resultado', 'filtros', 'borrafiltros'),
+						'actions'=>array('index','view', 'inicio', 'resultado', 'filtros', 'borrafiltros', 'migracion'),
 						'users'=>array('*'),
 				),
 				/*array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -152,6 +152,14 @@ class PecesController extends Controller
 		$this->render('admin',array(
 				'model'=>$model,
 		));
+	}
+	
+	public function actionMigracion(){
+		Yii::import('ext.PDO.*');
+		$this->layout=false;
+		$db = new mysql();
+		$this->render('migracion',array(
+				'db'=>$db));
 	}
 
 	/**
