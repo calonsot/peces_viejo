@@ -2,7 +2,7 @@
 class mysql
 {
 	public $db;
-	private $dbname = 'peces';
+	private $dbname = 'mydb';
 	private $host = 'localhost';
 	private $username = 'root';
 	private $password = 'root';
@@ -71,14 +71,17 @@ class mysql
 			return 0;
 	}
 	
-	public function get_id($table, $cond){
-		$sql = 'SELECT id FROM '.$table.' WHERE '.$cond;
+	public function get_id($table, $campo, $cond){
+		$sql = 'SELECT '.$campo.' FROM '.$table.' WHERE '.$cond;
+		echo "<br>SQL: ".$sql."<br>";
 		$query = $this->db->query($sql);
+		
 		if ($query){
-						
+			//echo "----- ENTRO AL QUERY-----<br>";
 			foreach ($query->fetchAll(PDO::FETCH_OBJ) as $k => $field)
 			{
-				return '<p>'.$field->id.'</p>';
+				//echo "field-campo: ".$field->$campo."<br>";
+				return '<p>'.$field->$campo.'</p>';
 			}
 		}
 		else{ 
