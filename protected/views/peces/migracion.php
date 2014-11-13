@@ -1,11 +1,20 @@
 <?php
 
 header('Content-Type: text/html; charset=UTF-8');
-
 //Se calcula el número de líneas que tiene tal archivo para iterar
-$n = system("wc -l protected/data/BD_PECES_NORMAL.csv | awk '{print $1}'");
+
+system("mysql -h localhost -u root -proot mydb < protected/data/carta_nacional.sql");
+system("mysql -h localhost -u root -proot mydb < protected/data/distribucion.sql");
+system("mysql -h localhost -u root -proot mydb < protected/data/edo_cons.sql");
+system("mysql -h localhost -u root -proot mydb < protected/data/grupo.sql");
+system("mysql -h localhost -u root -proot mydb < protected/data/tipo_capturas.sql");
+system("mysql -h localhost -u root -proot mydb < protected/data/tipo_veda.sql");
+
+$n = system("wc -l BD_PECES_NORMAL.csv | awk '{print $1}'");
 system("echo \"INSERT INTO peces(nombre_comun,nombre_ingles,nombre_cientifico,clase,orden,familia,grupo_id,nacional_importado,tipo_imagen,imagen,triptico,talla_captura,arte_pesca,tipo_veda_id,veda,generalidades,descripcion_distribucion,cultivado_capturado,comercio,pais_importacion) VALUES \" > protected/data/tabla_peces_STD.sql");
+
 for($i=2;$i<=$n;$i++){
+	echo $i."<br>";
 	//Se extrae campo grupo de la línea especificada
 	$cad = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print ""$11"" }\' protected/data/BD_PECES_NORMAL.csv';
 	//Se extrae el id del nombre del grupo
@@ -233,5 +242,17 @@ for($i=2;$i<=$n;$i++){
 	}
 
 }
+system("cat tabla_pez_carta_nacional.sql | sed '\$s/.\$//' > aux.txt");
+system("cat aux.txt > tabla_pez_carta_nacional.sql");
+
+system("cat tabla_pez_distribucion.sql | sed '\$s/.\$//' > aux.txt");
+system("cat aux.txt > tabla_pez_distribucion.sql");
+
+system("cat tabla_pez_estado_conservacion.sql | sed '\$s/.\$//' > aux.txt");
+system("cat aux.txt > tabla_pez_estado_conservacion.sql");
+
+system("cat tabla_pez_tipo_capturas.sql | sed '\$s/.\$//' > aux.txt");
+system("cat aux.txt > tabla_pez_tipo_capturas.sql");
+
 
 ?>
