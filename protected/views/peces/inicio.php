@@ -720,7 +720,11 @@
 			</ul>
 		</td>
 		<td width="288" align="left" valign="top" bgcolor="#D2CEB9"
-			class="txt_reforesta"><p class="txt_reforesta"><strong class="Utexconceptos"><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgConsumidor_03.png" width="204" height="33" /></strong></p>
+			class="txt_reforesta">
+			<p align="center" class="Utexconceptos"><strong>Nuevo cartel. Peces comerciales de M&eacute;xico: Golfo y Caribe</strong></p>
+<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_golfo_web.png" width="250" height="167" /> 
+<div align="center" class="datospagprin">Disponible en nuestro <a href="http://www.biodiversidad.gob.mx/publicaciones/publicaciones.php" target="_blank" style="color: #323D2C">cat&aacute;logo de publicaciones</a></div>
+			<p class="txt_reforesta"><strong class="Utexconceptos"><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgConsumidor_03.png" width="204" height="33" /></strong></p>
           <p class="txt_reforesta"><strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6" height="6" /></strong> <strong>&iquest;Qu&eacute; especie est&aacute;s comprando?<br />
             <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6" height="6" /> &iquest;De qu&eacute; lugar proviene?<br />
             <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6" height="6" /> &iquest;Si es mexicana o importada?<br />
