@@ -2,26 +2,26 @@
 
 header('Content-Type: text/html; charset=ISO-8859-1');
 //Se calcula el número de líneas que tiene tal archivo para iterar
-/*system("mysql -h localhost -u root -proot mydb < protected/data/carta_nacional.sql");
-system("mysql -h localhost -u root -proot mydb < protected/data/distribucion.sql");
-system("mysql -h localhost -u root -proot mydb < protected/data/edo_cons.sql");
-system("mysql -h localhost -u root -proot mydb < protected/data/grupo.sql");
-system("mysql -h localhost -u root -proot mydb < protected/data/tipo_capturas.sql");
-system("mysql -h localhost -u root -proot mydb < protected/data/tipo_veda.sql");*/
+system("mysql -h localhost -u root -proot usos < protected/data/carta_nacional.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/distribucion.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/edo_cons.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/grupo.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/tipo_capturas.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/tipo_veda.sql");
 echo utf8_decode($db->get_id('carta_nacional', 'Nombre','id=1'));
 
 $n = system("wc -l protected/data/BD_PECES_NORMAL.csv | awk '{print $1}'");
-system("echo \"INSERT INTO peces(nombre_comun,nombre_ingles,nombre_cientifico,clase,orden,familia,grupo_id,nacional_importado,tipo_imagen,imagen,triptico,talla_captura,arte_pesca,tipo_veda_id,veda,generalidades,descripcion_distribucion,cultivado_capturado,comercio,pais_importacion) VALUES \" > protected/data/tabla_peces_STD.sql");
+system("echo \"INSERT INTO peces(nombre_comun,nombre_ingles,nombre_cientifico,clase,orden,familia,grupo_id,nacional_importado,tipo_imagen,imagen,triptico,talla_captura,arte_pesca,tipo_veda_id,veda,generalidades,descripcion_distribucion,cultivado_capturado,comercio,pais_importacion) VALUES \" > protected/data/tabla_peces_STD_2.sql");
 echo "valor de n: ".$n."<br>";
 for($i=2;$i<=$n;$i++){
-	echo $i."<br>";
 	//Se extrae campo grupo de la línea especificada
+	echo $i."<br>";
 	$cad = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print ""$11"" }\' protected/data/BD_PECES_NORMAL.csv';
 	//Se extrae el id del nombre del grupo
 	$grupo = utf8_decode($db->get_id('grupo', 'id','nombre="'.system($cad).'"'));
 	//Si no existe grupo, por default asigna id: 0
 	if(!$grupo)
-		$grupo = 0;
+		$grupo = "NULL";
 	//Da formato al id de grupo
 	$formato_grupo = strip_tags($grupo);
 	//Se extrae campo tipo_veda de la línea especificada
@@ -29,16 +29,18 @@ for($i=2;$i<=$n;$i++){
 	//Se extrae el id del tipo_veda
 	$veda = utf8_decode($db->get_id('tipo_veda', 'id','nombre="'.system($cad).'"'));
 	//Si no existe tipo_veda, por default asigna id: 0
+	//echo "El tipo de veda es: ".$veda."<br>";
 	if(!$veda)
-		$veda = 0;
+		$veda = "NULL";
 	//Da formato al id tipo_veda
 	$formato_veda = strip_tags($veda);
 	
+	echo "Formato veda: ".$formato_veda."<br>";
 	//Se extraen los campos que requiere la tabla peces para ser creados y realiza un append en el archivo especificado
 	if($i==$n)
-		$cmd = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print "(\""$1"\",\""$2"\",\""$3"\",\""$4"\",\""$5"\",\""$6"\",'.$formato_grupo.',\""$12"\",\""$18"\",\"\",\""$19"\",\""$20"\",\""$22"\",'.$formato_veda.',\""$27"\",\""$28"\",\""$29"\",\""$30"\",\""$31"\",\""$32"\")" }\' protected/data/BD_PECES_NORMAL.csv >> protected/data/tabla_peces_STD.sql';
+		$cmd = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print "(\""$1"\",\""$2"\",\""$3"\",\""$4"\",\""$5"\",\""$6"\",'.$formato_grupo.',\""$12"\",\""$18"\",\"\",\""$19"\",\""$20"\",\""$22"\",'.$formato_veda.',\""$27"\",\""$28"\",\""$29"\",\""$30"\",\""$31"\",\""$32"\")" }\' protected/data/BD_PECES_NORMAL.csv >> protected/data/tabla_peces_STD_2.sql';
 	else
-		$cmd = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print "(\""$1"\",\""$2"\",\""$3"\",\""$4"\",\""$5"\",\""$6"\",'.$formato_grupo.',\""$12"\",\""$18"\",\"\",\""$19"\",\""$20"\",\""$22"\",'.$formato_veda.',\""$27"\",\""$28"\",\""$29"\",\""$30"\",\""$31"\",\""$32"\")," }\' protected/data/BD_PECES_NORMAL.csv >> protected/data/tabla_peces_STD.sql';
+		$cmd = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print "(\""$1"\",\""$2"\",\""$3"\",\""$4"\",\""$5"\",\""$6"\",'.$formato_grupo.',\""$12"\",\""$18"\",\"\",\""$19"\",\""$20"\",\""$22"\",'.$formato_veda.',\""$27"\",\""$28"\",\""$29"\",\""$30"\",\""$31"\",\""$32"\")," }\' protected/data/BD_PECES_NORMAL.csv >> protected/data/tabla_peces_STD_2.sql';
 	//Se imprime la inserción
 	echo $cmd."<br>";
 	//Se efectua el comando
@@ -46,7 +48,7 @@ for($i=2;$i<=$n;$i++){
 }
 
 //Se agrega la tabla a MySQL
-system("mysql -h localhost -u root -proot mydb < protected/data/tabla_peces_STD.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/tabla_peces_STD_2.sql");
 
 system("echo \"INSERT INTO pez_distribucion(peces_especie_id,distribucion_id) VALUES \" > protected/data/tabla_pez_distribucion.sql");
 system("echo \"INSERT INTO pez_tipo_capturas(peces_especie_id,tipo_capturas_id) VALUES \" > protected/data/tabla_pez_tipo_capturas.sql");
@@ -237,19 +239,19 @@ for($i=2;$i<=$n;$i++){
 }
 system("cat protected/data/tabla_pez_carta_nacional.sql | sed '\$s/.\$//' > protected/data/aux_CN.txt");
 system("cat protected/data/aux_CN.txt > protected/data/tabla_pez_carta_nacional.sql");
-system("mysql -h localhost -u root -proot mydb < protected/data/tabla_pez_carta_nacional.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/tabla_pez_carta_nacional.sql");
 
 system("cat protected/data/tabla_pez_distribucion.sql | sed '\$s/.\$//' > protected/data/aux_D.txt");
 system("cat protected/data/aux_D.txt > protected/data/tabla_pez_distribucion.sql");
-system("mysql -h localhost -u root -proot mydb < protected/data/tabla_pez_distribucion.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/tabla_pez_distribucion.sql");
 
 system("cat protected/data/tabla_pez_estado_conservacion.sql | sed '\$s/.\$//' > protected/data/aux_EC.txt");
 system("cat protected/data/aux_EC.txt > protected/data/tabla_pez_estado_conservacion.sql");
-system("mysql -h localhost -u root -proot mydb < protected/data/tabla_pez_estado_conservacion.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/tabla_pez_estado_conservacion.sql");
 
 system("cat protected/data/tabla_pez_tipo_capturas.sql | sed '\$s/.\$//' > protected/data/aux_TP.txt");
 system("cat protected/data/aux_TP.txt > protected/data/tabla_pez_tipo_capturas.sql");
-system("mysql -h localhost -u root -proot mydb < protected/data/tabla_pez_tipo_capturas.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/tabla_pez_tipo_capturas.sql");
 
 
 ?>
