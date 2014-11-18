@@ -11,7 +11,7 @@ if (!isset($vacio))
 		$cont = 0;
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
-		echo utf8_decode($pez["especie_id"])."<br>";
+		echo "ID: ".utf8_decode($pez["especie_id"])."<br>";
 		
 		echo "<table style='width:1000px;background:silver;'>";
 		
@@ -24,7 +24,7 @@ if (!isset($vacio))
 		echo "<tr><td colspan='2' align='center'>";
 		if(!empty($pez["tipo_imagen"]) & utf8_decode($pez["tipo_imagen"])=="Silueta"){
 				//echo "<b>Imagen: </b>".utf8_decode($pez["imagen"])."<br>";
-				echo '<img width="547" height="301" alt="Peces" src="../../imagenes/siluetas/'.utf8_decode($pez["imagen"]).'"></img>';
+				echo '<img width="800" height="400" alt="Peces" src="../../imagenes/siluetas/'.utf8_decode($pez["imagen"]).'"></img>';
 		}
 		echo "</td></tr>";
 		//echo "<tr><td colspan='2' align='center'>";
@@ -73,33 +73,33 @@ if (!isset($vacio))
 		}
 		echo "</td>";
 		$cont = 0;
-		if(!empty($pez["talla_captura"])){
-			echo "<td>";
+		echo "<td>";
+		if(!empty($pez["talla_captura"]))
 				echo "<b>Talla Capturada: </b>".utf8_decode($pez["talla_captura"])."<br>";
-			echo "</td>";
-		}
+		echo "</td>";
 		echo "</tr>";
 		
 		echo "<tr>";
-		
-		if(!empty($pezobj->tipoVeda->Nombre)){
-			echo "<td>";
+		echo "<td>";
+		if(!empty($pezobj->tipoVeda->Nombre))
 			echo "<b>Tipo de Veda: </b>".utf8_decode($pezobj->tipoVeda->Nombre)."<br>";
-			echo "</td>";
-		}
-		if(!empty($pez["veda"])){
-			echo "<td>";
+		echo "</td>";
+		echo "<td>";
+		if(!empty($pez["veda"]))
 			echo "<b>Veda: </b>".utf8_decode($pez["veda"])."<br>";
-			echo "</td>";
-		}
+		echo "</td>";
 		echo "</tr>";
 		
 		echo "<tr>";
-		if(!empty($pez["arte_pesca"])){
-			echo "<td colspan='2'>";
+		echo "<td>";
+		if(!empty($pez["arte_pesca"]))
 			echo "<b>Arte de pesca: </b>".utf8_decode($pez["arte_pesca"])."<br>";
-			echo "</td>";
-		}
+		echo "</td>";
+		
+		echo "<td>";
+		if(!empty($pez["tipo_captura"]))
+		echo "<b>Tipo de Captura: </b>".utf8_decode($pez["tipo_captura"])."<br>";
+		echo "</td>";
 		echo "</tr>";
 
 		foreach($pezobj->estadoConservacions as $j){
@@ -186,6 +186,6 @@ if (!isset($vacio))
 </div>
 
 <?php 	
-} else
+	} else
 	echo $vacio;
 ?>

@@ -29,11 +29,11 @@
 		
 		<tr>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="buscador_amigable" id="buscador_amigable">
+					type="checkbox" name="buscador_captura_selectiva" id="buscador_captura_selectiva">
 					Pesca selectiva
 			</span></td>
 			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="buscador_no_amigable" id="buscador_no_amigable">
+					type="checkbox" name="buscador_captura_noselectiva" id="buscador_captura_noselectiva">
 					Pesca no selectiva 
 			</span></td>
 		</tr>

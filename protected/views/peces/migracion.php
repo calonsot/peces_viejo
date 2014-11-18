@@ -8,6 +8,7 @@ system("mysql -h localhost -u root -proot usos < protected/data/edo_cons.sql");
 system("mysql -h localhost -u root -proot usos < protected/data/grupo.sql");
 system("mysql -h localhost -u root -proot usos < protected/data/tipo_capturas.sql");
 system("mysql -h localhost -u root -proot usos < protected/data/tipo_veda.sql");
+
 echo utf8_decode($db->get_id('carta_nacional', 'Nombre','id=1'));
 
 $n = system("wc -l protected/data/BD_PECES_NORMAL.csv | awk '{print $1}'");
@@ -38,9 +39,9 @@ for($i=2;$i<=$n;$i++){
 	echo "Formato veda: ".$formato_veda."<br>";
 	//Se extraen los campos que requiere la tabla peces para ser creados y realiza un append en el archivo especificado
 	if($i==$n)
-		$cmd = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print "(\""$1"\",\""$2"\",\""$3"\",\""$4"\",\""$5"\",\""$6"\",'.$formato_grupo.',\""$12"\",\""$18"\",\"\",\""$19"\",\""$20"\",\""$22"\",'.$formato_veda.',\""$27"\",\""$28"\",\""$29"\",\""$30"\",\""$31"\",\""$32"\")" }\' protected/data/BD_PECES_NORMAL.csv >> protected/data/tabla_peces_STD_2.sql';
+		$cmd = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print "(\""$1"\",\""$2"\",\""$3"\",\""$4"\",\""$5"\",\""$6"\",'.$formato_grupo.',\""$12"\",\""$18"\",\""$44"\",\""$19"\",\""$20"\",\""$22"\",'.$formato_veda.',\""$27"\",\""$28"\",\""$29"\",\""$30"\",\""$31"\",\""$32"\")" }\' protected/data/BD_PECES_NORMAL_v2.csv >> protected/data/tabla_peces_STD_2.sql';
 	else
-		$cmd = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print "(\""$1"\",\""$2"\",\""$3"\",\""$4"\",\""$5"\",\""$6"\",'.$formato_grupo.',\""$12"\",\""$18"\",\"\",\""$19"\",\""$20"\",\""$22"\",'.$formato_veda.',\""$27"\",\""$28"\",\""$29"\",\""$30"\",\""$31"\",\""$32"\")," }\' protected/data/BD_PECES_NORMAL.csv >> protected/data/tabla_peces_STD_2.sql';
+		$cmd = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print "(\""$1"\",\""$2"\",\""$3"\",\""$4"\",\""$5"\",\""$6"\",'.$formato_grupo.',\""$12"\",\""$18"\",\""$44"\",\""$19"\",\""$20"\",\""$22"\",'.$formato_veda.',\""$27"\",\""$28"\",\""$29"\",\""$30"\",\""$31"\",\""$32"\")," }\' protected/data/BD_PECES_NORMAL_v2.csv >> protected/data/tabla_peces_STD_2.sql';
 	//Se imprime la inserción
 	echo $cmd."<br>";
 	//Se efectua el comando

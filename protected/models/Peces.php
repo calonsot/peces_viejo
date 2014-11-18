@@ -65,11 +65,11 @@ class Peces extends CActiveRecord
 		return array(
 			array('nombre_comun, nombre_cientifico, grupo_id, tipo_veda_id, veda, fecha_creacion', 'required'),
 			array('grupo_id, tipo_veda_id', 'numerical', 'integerOnly'=>true),
-			array('nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, veda, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion', 'length', 'max'=>255),
+			array('nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, tipo_captura, veda, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion', 'length', 'max'=>255),
 			array('arte_pesca, generalidades', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('especie_id, nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, grupo_id, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, arte_pesca, tipo_veda_id, veda, generalidades, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion, fecha_creacion', 'safe', 'on'=>'search'),
+			array('especie_id, nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, grupo_id, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, tipo_captura, arte_pesca, tipo_veda_id, veda, generalidades, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion, fecha_creacion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -109,6 +109,7 @@ class Peces extends CActiveRecord
 			'imagen' => 'Imagen',
 			'triptico' => 'Triptico',
 			'talla_captura' => 'Talla Captura',
+			'tipo_captura' => 'Tipo Captura',
 			'arte_pesca' => 'Arte Pesca',
 			'tipo_veda_id' => 'Tipo Veda',
 			'veda' => 'Veda',
@@ -145,6 +146,7 @@ class Peces extends CActiveRecord
 		$criteria->compare('imagen',$this->imagen,true);
 		$criteria->compare('triptico',$this->triptico,true);
 		$criteria->compare('talla_captura',$this->talla_captura,true);
+		$criteria->compare('tipo_captura',$this->tipo_captura,true);
 		$criteria->compare('arte_pesca',$this->arte_pesca,true);
 		$criteria->compare('tipo_veda_id',$this->tipo_veda_id);
 		$criteria->compare('veda',$this->veda,true);
