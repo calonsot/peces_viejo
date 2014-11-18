@@ -4,23 +4,36 @@
  * This is the model class for table "peces".
  *
  * The followings are the available columns in table 'peces':
- * @property integer $id
+ * @property integer $especie_id
  * @property string $nombre_comun
- * @property string $nombre_cientifico
  * @property string $nombre_ingles
- * @property string $grupo
+ * @property string $nombre_cientifico
+ * @property string $clase
+ * @property string $orden
  * @property string $familia
- * @property string $lugar
+ * @property integer $grupo_id
+ * @property string $nacional_Importado
+ * @property string $tipo_imagen
+ * @property string $imagen
+ * @property string $triptico
  * @property string $talla_captura
- * @property string $aprovechamiento
- * @property string $lista_roja_iucn
+ * @property string $arte_pesca
+ * @property integer $tipo_veda_id
  * @property string $veda
- * @property string $arte_de_pesca
- * @property string $tipo_arte_pesca
  * @property string $generalidades
- * @property string $distribucion
- * @property string $foto
- * @property string $html
+ * @property string $descripcion_distribucion
+ * @property string $cultivado_capturado
+ * @property string $comercio
+ * @property string $pais_importacion
+ * @property string $fecha_creacion
+ *
+ * The followings are the available model relations:
+ * @property TipoVeda $tipoVeda
+ * @property Grupo $grupo
+ * @property CartaNacional[] $cartaNacionals
+ * @property Distribucion[] $distribucions
+ * @property EstadoConservacion[] $estadoConservacions
+ * @property TipoCapturas[] $tipoCapturases
  */
 class Peces extends CActiveRecord
 {
@@ -50,12 +63,13 @@ class Peces extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre_comun, nombre_cientifico, nombre_ingles, grupo, familia, lugar, talla_captura, aprovechamiento, arte_de_pesca, tipo_arte_pesca, generalidades, distribucion, foto', 'required'),
-			array('nombre_comun, nombre_cientifico, nombre_ingles, grupo, familia, lugar, talla_captura, aprovechamiento, lista_roja_iucn, veda, arte_de_pesca, foto', 'length', 'max'=>255),
-			array('html', 'safe'),
+			array('nombre_comun, nombre_cientifico, grupo_id, tipo_veda_id, veda, fecha_creacion', 'required'),
+			array('grupo_id, tipo_veda_id', 'numerical', 'integerOnly'=>true),
+			array('nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, tipo_captura, veda, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion', 'length', 'max'=>255),
+			array('arte_pesca, generalidades', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, nombre_comun, nombre_cientifico, nombre_ingles, grupo, familia, lugar, talla_captura, aprovechamiento, lista_roja_iucn, veda, arte_de_pesca, tipo_arte_pesca, generalidades, distribucion, foto, html', 'safe', 'on'=>'search'),
+			array('especie_id, nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, grupo_id, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, tipo_captura, arte_pesca, tipo_veda_id, veda, generalidades, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion, fecha_creacion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +81,12 @@ class Peces extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'tipoVeda' => array(self::BELONGS_TO, 'TipoVeda', 'tipo_veda_id'),
+			'grupo' => array(self::BELONGS_TO, 'Grupo', 'grupo_id'),
+			'cartaNacionals' => array(self::MANY_MANY, 'CartaNacional', 'pez_carta_nacional(peces_especie_id, carta_nacional_id)'),
+			'distribucions' => array(self::MANY_MANY, 'Distribucion', 'pez_distribucion(peces_especie_id, distribucion_id)'),
+			'estadoConservacions' => array(self::MANY_MANY, 'EstadoConservacion', 'pez_estado_conservacion(peces_especie_id, estado_conservacion_id)'),
+			'tipoCapturases' => array(self::MANY_MANY, 'TipoCapturas', 'pez_tipo_capturas(peces_especie_id, tipo_capturas_id)'),
 		);
 	}
 
@@ -76,23 +96,29 @@ class Peces extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'nombre_comun' => 'Nombre común',
-			'nombre_cientifico' => 'Nombre Cientifico',
+			'especie_id' => 'Especie',
+			'nombre_comun' => 'Nombre Comun',
 			'nombre_ingles' => 'Nombre Ingles',
-			'grupo' => 'Grupo',
+			'nombre_cientifico' => 'Nombre Cientifico',
+			'clase' => 'Clase',
+			'orden' => 'Orden',
 			'familia' => 'Familia',
-			'lugar' => 'Lugar',
+			'grupo_id' => 'Grupo',
+			'nacional_Importado' => 'Nacional Importado',
+			'tipo_imagen' => 'Tipo Imagen',
+			'imagen' => 'Imagen',
+			'triptico' => 'Triptico',
 			'talla_captura' => 'Talla Captura',
-			'aprovechamiento' => 'Aprovechamiento',
-			'lista_roja_iucn' => 'Lista Roja Iucn',
+			'tipo_captura' => 'Tipo Captura',
+			'arte_pesca' => 'Arte Pesca',
+			'tipo_veda_id' => 'Tipo Veda',
 			'veda' => 'Veda',
-			'arte_de_pesca' => 'Arte De Pesca',
-			'tipo_arte_pesca' => 'Tipo Arte Pesca',
 			'generalidades' => 'Generalidades',
-			'distribucion' => 'Distribucion',
-			'foto' => 'Foto',
-			'html' => 'Html',
+			'descripcion_distribucion' => 'Descripcion Distribucion',
+			'cultivado_capturado' => 'Cultivado Capturado',
+			'comercio' => 'Comercio',
+			'pais_importacion' => 'Pais Importacion',
+			'fecha_creacion' => 'Fecha Creacion',
 		);
 	}
 
@@ -107,25 +133,30 @@ class Peces extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
+		$criteria->compare('especie_id',$this->especie_id);
 		$criteria->compare('nombre_comun',$this->nombre_comun,true);
-		$criteria->compare('nombre_cientifico',$this->nombre_cientifico,true);
 		$criteria->compare('nombre_ingles',$this->nombre_ingles,true);
-		$criteria->compare('grupo',$this->grupo,true);
+		$criteria->compare('nombre_cientifico',$this->nombre_cientifico,true);
+		$criteria->compare('clase',$this->clase,true);
+		$criteria->compare('orden',$this->orden,true);
 		$criteria->compare('familia',$this->familia,true);
-		$criteria->compare('lugar',$this->lugar,true);
+		$criteria->compare('grupo_id',$this->grupo_id);
+		$criteria->compare('nacional_Importado',$this->nacional_Importado,true);
+		$criteria->compare('tipo_imagen',$this->tipo_imagen,true);
+		$criteria->compare('imagen',$this->imagen,true);
+		$criteria->compare('triptico',$this->triptico,true);
 		$criteria->compare('talla_captura',$this->talla_captura,true);
-		$criteria->compare('aprovechamiento',$this->aprovechamiento,true);
-		$criteria->compare('lista_roja_iucn',$this->lista_roja_iucn,true);
+		$criteria->compare('tipo_captura',$this->tipo_captura,true);
+		$criteria->compare('arte_pesca',$this->arte_pesca,true);
+		$criteria->compare('tipo_veda_id',$this->tipo_veda_id);
 		$criteria->compare('veda',$this->veda,true);
-		$criteria->compare('arte_de_pesca',$this->arte_de_pesca,true);
-		$criteria->compare('tipo_arte_pesca',$this->tipo_arte_pesca,true);
 		$criteria->compare('generalidades',$this->generalidades,true);
-		$criteria->compare('distribucion',$this->distribucion,true);
-		$criteria->compare('foto',$this->foto,true);
-		$criteria->compare('html',$this->html,true);
+		$criteria->compare('descripcion_distribucion',$this->descripcion_distribucion,true);
+		$criteria->compare('cultivado_capturado',$this->cultivado_capturado,true);
+		$criteria->compare('comercio',$this->comercio,true);
+		$criteria->compare('pais_importacion',$this->pais_importacion,true);
+		$criteria->compare('fecha_creacion',$this->fecha_creacion,true);
 
-		$criteria->order('nombre_comun ASC');
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

@@ -170,7 +170,7 @@ class PecesController extends Controller
 		$condiciones='';
 		$params = $_GET;
 		$es_intermedio = false;
-
+		$pezobj = Peces::model()->findByPk("especie_id");
 		if (isset($params['buscador_nombre_comun']) && !empty($params['buscador_nombre_comun']))
 		{
 			$condiciones.="nombre_comun LIKE '%".$params['buscador_nombre_comun']."%'";
@@ -184,39 +184,41 @@ class PecesController extends Controller
 		if (isset($params['buscador_grupo']) && !empty($params['buscador_grupo']))
 		{
 			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="grupo LIKE '".$params['buscador_grupo']."%'";
+			$condiciones.="grupo_id = ".$params['buscador_grupo']-1;
+			echo "Imprimo condiciones: ".$condiciones."<br>";
 		}
-		if (isset($params['buscador_sustentabilidad']) && !empty($params['buscador_sustentabilidad']))
-		{
-			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="aprovechamiento='".$params['buscador_sustentabilidad']."'";
-		}
+// 		if (isset($params['buscador_sustentabilidad']) && !empty($params['buscador_sustentabilidad']))
+// 		{
+// 			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
+// 			$condiciones.="aprovechamiento='".$params['buscador_sustentabilidad']."'";
+// 		}
 		if (isset($params['buscador_golfo']) && $params['buscador_golfo'] == "on")
 		{
 			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="lugar LIKE 'Golfo de México y Mar Caribe%'";
+			$condiciones.="distribucion.nombre LIKE 'Golfo%'";
 		}
 		if (isset($params['buscador_pacifico']) && $params['buscador_pacifico'] == "on")
 		{
 			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
 			$condiciones.="lugar LIKE 'Pacífico%'";
 		}
-		if (isset($params['buscador_amigable']) && $params['buscador_amigable'] == "on")
+		if (isset($params['buscador_captura_selectiva']) && $params['buscador_captura_selectiva'] == "on")
 		{
 			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="arte_de_pesca='Amigable'";
+			$condiciones.="tipo_captura='Selectiva'";
 		}
-		if (isset($params['buscador_no_amigable']) && $params['buscador_no_amigable'] == "on")
+		if (isset($params['buscador_captura_noselectiva']) && $params['buscador_captura_noselectiva'] == "on")
 		{
 			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="arte_de_pesca='No amigable'";
+			$condiciones.="tipo_captura='No selectiva'";
 		}
 
 		if (empty($condiciones)) 
 		{
 			$this->redirect(Yii::app()->request->baseUrl.'/index.php/peces/inicio');
 		} else {
-			$peces=Peces::model()->findAll(array('condition' => $condiciones, 'order' => 'nombre_comun ASC'));
+			echo "Imprimo condiciones totales: ".$condiciones."<br>";
+			$peces=Peces::model()->findAll(array('condition' => $condiciones, 'order' => 'especie_id ASC'));
 			$cuantos = count($peces);
 			
 			if ($cuantos == 1)

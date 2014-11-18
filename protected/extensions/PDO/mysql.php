@@ -47,9 +47,9 @@ class mysql
 			return 0;
 	} 
 	
-	public function select ($table, $fields = '*', $cond = NULL, $order = NULL) 
+	public function select ($table, $fields = '*', $cond = NULL, $order = NULL, $join = NULL) 
 	{
-		$sql = empty($cond) ? 'SELECT '.$fields.' FROM '.$table : 'SELECT '.$fields.' FROM '.$table.' WHERE '.$cond;
+		$sql = empty($cond) ? 'SELECT '.$fields.' FROM '.$table : 'SELECT '.$fields.' FROM '.$table.' '.$join.' WHERE '.$cond;
 		if (!empty($order))
 			$sql.= ' ORDER BY '.$order;	
 		$query = $this->db->query($sql);
