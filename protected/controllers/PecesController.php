@@ -184,7 +184,8 @@ class PecesController extends Controller
 		if (isset($params['buscador_grupo']) && !empty($params['buscador_grupo']))
 		{
 			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="grupo LIKE '".$params['buscador_grupo']."%'";
+			$condiciones.="grupo_id = ".$params['buscador_grupo']-1;
+			echo "Imprimo condiciones: ".$condiciones."<br>";
 		}
 		if (isset($params['buscador_sustentabilidad']) && !empty($params['buscador_sustentabilidad']))
 		{
@@ -216,7 +217,8 @@ class PecesController extends Controller
 		{
 			$this->redirect(Yii::app()->request->baseUrl.'/index.php/peces/inicio');
 		} else {
-			$peces=Peces::model()->findAll(array('condition' => $condiciones, 'order' => 'nombre_comun ASC'));
+			echo "Imprimo condiciones totales: ".$condiciones."<br>";
+			$peces=Peces::model()->findAll(array('condition' => $condiciones, 'order' => 'especie_id ASC'));
 			$cuantos = count($peces);
 			
 			if ($cuantos == 1)

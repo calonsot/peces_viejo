@@ -10,7 +10,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Grupo </span>
-				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'), 
+				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'),
 				array('id'=>'buscador_grupo', 'prompt'=>'---Todos---')); ?></td>
 		</tr>
 		
@@ -47,17 +47,6 @@
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
 					type="checkbox" name="buscador_golfo" id="buscador_golfo"> Golfo de
 					M&eacute;xico
-			</span></td>
-		</tr>
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
-			<input
-					type="checkbox" name="buscador_caribe" id="buscador_caribe">
-					Mar Caribe
-			</span></td>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
-			<input type="checkbox" name="buscador_fuera" id="buscador_fuera"> 
-					Fuera del Pa&iacute;s
 			</span></td>
 		</tr>
 		<tr>
