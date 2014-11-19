@@ -125,7 +125,7 @@ class PecesController extends Controller
 		$dataProvider=new CActiveDataProvider('Peces', array(
 				'criteria' => array ('order'=>'nombre_comun ASC'),
 		));
-		
+
 		$this->render('index',array(
 				'dataProvider'=>$dataProvider,
 		));
@@ -153,7 +153,7 @@ class PecesController extends Controller
 				'model'=>$model,
 		));
 	}
-	
+
 	public function actionMigracion(){
 		Yii::import('ext.PDO.*');
 		$this->layout=false;
@@ -168,39 +168,21 @@ class PecesController extends Controller
 	public function actionResultado()
 	{
 		$condiciones='';
+		$joins='';
 		$params = $_GET;
-		$es_intermedio = false;
+		$select = 'SELECT * FROM peces p ';
 		$pezobj = Peces::model()->findByPk("especie_id");
+
 		if (isset($params['buscador_nombre_comun']) && !empty($params['buscador_nombre_comun']))
-		{
-			$condiciones.="nombre_comun LIKE '%".$params['buscador_nombre_comun']."%'";
-			$es_intermedio = true;
-		}
+			$condiciones.="nombre_comun LIKE '%".$params['buscador_nombre_comun']."%' AND ";
 		if (isset($params['buscador_nombre_cientifico']) && !empty($params['buscador_nombre_cientifico']))
-		{
-			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="nombre_cientifico LIKE '%".$params['buscador_nombre_cientifico']."%'";
-		}
+			$condiciones.="nombre_cientifico LIKE '%".$params['buscador_nombre_cientifico']."%' AND ";
 		if (isset($params['buscador_grupo']) && !empty($params['buscador_grupo']))
+			$condiciones.="grupo_id = ".$params['buscador_grupo']." AND ";
+		if (isset($params['distribucion']) && count($params['distribucion']) > 0)
 		{
-			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="grupo_id = ".$params['buscador_grupo']-1;
-			echo "Imprimo condiciones: ".$condiciones."<br>";
-		}
-// 		if (isset($params['buscador_sustentabilidad']) && !empty($params['buscador_sustentabilidad']))
-// 		{
-// 			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-// 			$condiciones.="aprovechamiento='".$params['buscador_sustentabilidad']."'";
-// 		}
-		if (isset($params['buscador_golfo']) && $params['buscador_golfo'] == "on")
-		{
-			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="distribucion.nombre LIKE 'Golfo%'";
-		}
-		if (isset($params['buscador_pacifico']) && $params['buscador_pacifico'] == "on")
-		{
-			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="lugar LIKE 'Pacífico%'";
+			$joins.= PezDistribucion::join();
+			$condiciones.= "pd.distribucion_id IN (".implode(',', $params['distribucion']).") AND ";
 		}
 		if (isset($params['buscador_captura_selectiva']) && $params['buscador_captura_selectiva'] == "on")
 		{
@@ -213,21 +195,19 @@ class PecesController extends Controller
 			$condiciones.="tipo_captura='No selectiva'";
 		}
 
-		if (empty($condiciones)) 
-		{
-			$this->redirect(Yii::app()->request->baseUrl.'/index.php/peces/inicio');
-		} else {
-			echo "Imprimo condiciones totales: ".$condiciones."<br>";
-			$peces=Peces::model()->findAll(array('condition' => $condiciones, 'order' => 'especie_id ASC'));
-			$cuantos = count($peces);
-			
-			if ($cuantos == 1)
-				$this->redirect(Yii::app()->request->baseUrl.'/index.php/peces/'.$peces[0]->id);
-			elseif ($cuantos > 1)
-			$this->render('resultado',array('params'=>$condiciones, 'peces' => $peces, 'cuantos' => $cuantos));
-			else
-				$this->render('resultado',array('params'=>$condiciones, 'vacio' => '<b>Tu búsqueda no dió ningún resultado</b>'));
-		}
+		//decide cual tipo de busqueda es
+		if (!empty($joins))
+			$resultados=Yii::app()->db->createCommand($select.$joins.' WHERE '.substr($condiciones, 0, -5))->queryAll();
+		elseif (!empty($condiciones))
+			$resultados=Yii::app()->db->createCommand($select.' WHERE '.substr($condiciones, 0, -5))->queryAll();
+		else //para ver todos los peces
+			$resultados=Yii::app()->db->createCommand($select)->queryAll();
+
+		
+		if (count($resultados) > 1)
+			$this->render('resultado',array('peces' => $resultados));
+		else
+			$this->render('resultado',array('vacio' => '<b>Tu búsqueda no dió ningún resultado</b>'));
 	}
 
 	/**
@@ -273,7 +253,7 @@ class PecesController extends Controller
 
 		return $filtro;
 	}
-	
+
 	/**
 	 * Borra el registro de los filtros
 	 */

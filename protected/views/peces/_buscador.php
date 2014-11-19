@@ -40,23 +40,23 @@
 		
 		<tr>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="buscador_pacifico" id="buscador_pacifico">
+					type="checkbox" name="distribucion[]" id="buscador_pacifico" value="3">
 					Pac&iacute;fico
 			</span></td>
 			<span class="txt_reforesta">
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="buscador_golfo" id="buscador_golfo"> Golfo de
+					type="checkbox" name="distribucion[]" id="buscador_golfo" value="1"> Golfo de
 					M&eacute;xico
 			</span></td>
 		</tr>
 		<tr>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
 			<input
-					type="checkbox" name="buscador_caribe" id="buscador_caribe">
+					type="checkbox" name="distribucion[]" id="buscador_caribe" value="2">
 					Mar Caribe
 			</span></td>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
-			<input type="checkbox" name="buscador_fuera" id="buscador_fuera"> 
+			<input type="checkbox" name="distribucion[]" id="buscador_fuera" value="4"> 
 					Fuera del Pa&iacute;s
 			</span></td>
 		</tr>
