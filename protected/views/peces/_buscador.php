@@ -5,9 +5,15 @@
 		<tr>
 			<td colspan="2" bgcolor="#C2BDA0" class="txt_reforesta"><div
 					align="center" class="intro_vecinosVerdes">
-					<strong>Peces comerciales de mayor importancia</strong>
+					<strong>Peces marinos comerciales</strong>
 				</div></td>
 		</tr>
+		<tr>
+			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Grupo </span>
+				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'),
+				array('id'=>'buscador_grupo', 'prompt'=>'---Todos---')); ?></td>
+		</tr>
+		
 		<tr>
 			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Nombre
 					<input type="text" name="buscador_nombre_comun"
@@ -20,35 +26,38 @@
 					name="buscador_nombre_cientifico" id="buscador_nombre_cientifico">
 			</span></td>
 		</tr>
-		<tr>
-			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Grupo </span>
-				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_grupo', null, CHtml::listData(Peces::model()->findAll(array('order'=>'grupo ASC', 'group'=>'grupo')), 'grupo', 'grupo'), 
-				array('id'=>'buscador_grupo', 'prompt'=>'---Todos---')); ?></td>
-		</tr>
-		<tr>
-			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Sustentabilidad
-					pesquera </span> <label for="select"></label> <?php echo CHtml::dropDownList('buscador_sustentabilidad', null, CHtml::listData(Peces::model()->findAll(array('order'=>'aprovechamiento ASC', 'group'=>'aprovechamiento')), 'aprovechamiento', 'aprovechamiento'), 
-				array('id'=>'buscador_sustentabilidad', 'prompt'=>'---Todos---')); ?>
-			</td>
-		</tr>
+		
 		<tr>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="buscador_amigable" id="buscador_amigable">
+					type="checkbox" name="buscador_captura_selectiva" id="buscador_captura_selectiva">
 					Pesca selectiva
 			</span></td>
 			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="buscador_no_amigable" id="buscador_no_amigable">
+					type="checkbox" name="buscador_captura_noselectiva" id="buscador_captura_noselectiva">
 					Pesca no selectiva 
 			</span></td>
 		</tr>
+		
 		<tr>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="buscador_pacifico" id="buscador_pacifico">
+					type="checkbox" name="distribucion[]" id="buscador_pacifico" value="3">
 					Pac&iacute;fico
 			</span></td>
-			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="buscador_golfo" id="buscador_golfo"> Golfo de
-					M&eacute;xico y Mar Caribe
+			<span class="txt_reforesta">
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="checkbox" name="distribucion[]" id="buscador_golfo" value="1"> Golfo de
+					M&eacute;xico
+			</span></td>
+		</tr>
+		<tr>
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
+			<input
+					type="checkbox" name="distribucion[]" id="buscador_caribe" value="2">
+					Mar Caribe
+			</span></td>
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
+			<input type="checkbox" name="distribucion[]" id="buscador_fuera" value="4"> 
+					Fuera del Pa&iacute;s
 			</span></td>
 		</tr>
 	</table>
