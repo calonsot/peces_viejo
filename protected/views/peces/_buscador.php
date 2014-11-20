@@ -7,13 +7,7 @@
 					align="center" class="intro_vecinosVerdes">
 					<strong>Peces marinos comerciales</strong>
 				</div></td>
-		</tr>
-		<tr>
-			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Grupo </span>
-				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'),
-				array('id'=>'buscador_grupo', 'prompt'=>'---Todos---')); ?></td>
-		</tr>
-		
+		</tr>		
 		<tr>
 			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Nombre
 					<input type="text" name="buscador_nombre_comun"
@@ -27,8 +21,13 @@
 			</span></td>
 		</tr>
 		<tr>
+			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Grupo </span>
+				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'),
+				array('id'=>'buscador_grupo', 'prompt'=>'---Todos---')); ?></td>
+		</tr>
+		<tr>
 			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Conservacion </span>
-				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_edo', null, CHtml::listData(EstadoConservacion::model()->findAll(array('order'=>'Nivel1 ASC')), 'id', 'nombre'),
+				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_edo', null, CHtml::listData(EstadoConservacion::model()->options(), 'id', 'nombre', 'grupo'),
 				array('id'=>'buscador_edo', 'prompt'=>'---Elija---')); ?></td>
 		</tr>
 		<tr>

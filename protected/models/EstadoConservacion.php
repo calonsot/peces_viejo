@@ -97,4 +97,41 @@ class EstadoConservacion extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	//Para poner subcategorias en el dropdownlist
+	public function options()
+	{
+		$options = array();
+		$n = $this->findAllByAttributes(array('Nivel1' => 3), "Nivel2 > 0");
+		$i = $this->findAllByAttributes(array('Nivel1' => 1), "Nivel2 > 0");
+		$c = $this->findAllByAttributes(array('Nivel1' => 2), "Nivel2 > 0");
+		
+		foreach ($n as $r)
+		{
+			$nom = array();
+			$nom['id'] = $r['id'];
+			$nom['nombre'] = utf8_decode($r['nombre']);
+			$nom['grupo'] = 'NOM';
+			array_push($options, $nom);
+		}
+		
+		foreach ($i as $r)
+		{
+			$iucn = array();
+			$iucn['id'] = $r['id'];
+			$iucn['nombre'] = utf8_decode($r['nombre']);
+			$iucn['grupo'] = 'IUCN';
+			array_push($options, $iucn);
+		}
+		
+		foreach ($c as $r)
+		{
+			$cites = array();
+			$cites['id'] = $r['id'];
+			$cites['nombre'] = utf8_decode($r['nombre']);
+			$cites['grupo'] = 'CITES';
+			array_push($options, $cites);
+		}
+		return $options;
+	}
 }

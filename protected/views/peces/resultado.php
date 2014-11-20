@@ -3,186 +3,144 @@
 /* @var $model Peces */
 if (!isset($vacio))
 {
-	//echo "<h3 style='left;font-family:verdana;color:#033B42;'>".$cuantos." peces con mayor importancia comercial</h3>";
+	//echo count($peces);
 ?>
 
 <div class="view">
 	<?php foreach ($peces as $k => $pez) {
-		$cont = 0;
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
-		echo "ID: ".utf8_decode($pez["especie_id"])."<br>";
+		//echo "ID: ".$pezobj->especie_id."<br>";		
+		echo "<table style='width:1000px;background:#C2BDA0;'>";
 		
-		echo "<table style='width:1000px;background:silver;'>";
 		
-		echo "<tr><td colspan='2'>";
-		if(!empty($pez["nombre_comun"])){
-				echo "<b>Nombre Común: </b>".utf8_decode($pez["nombre_comun"])."<br>";
-		}
-		echo "</td></tr>";
-		
-		echo "<tr><td colspan='2' align='center'>";
-		if(!empty($pez["tipo_imagen"]) & utf8_decode($pez["tipo_imagen"])=="Silueta"){
-				//echo "<b>Imagen: </b>".utf8_decode($pez["imagen"])."<br>";
-				echo '<img width="800" height="400" alt="Peces" src="../../imagenes/siluetas/'.utf8_decode($pez["imagen"]).'"></img>';
-		}
-		if(!empty($pez["tipo_imagen"]) & utf8_decode($pez["tipo_imagen"])=="Cartel"){
-			//echo "<b>Imagen: </b>".utf8_decode($pez["imagen"])."<br>";
-			echo '<img width="800" height="400" alt="Peces" src="../../imagenes/peces/'.utf8_decode($pez["imagen"]).'"></img>';
-		}
-		echo "</td></tr>";
-		//echo "<tr><td colspan='2' align='center'>";
-		//echo '<img width="547" height="301" alt="Peces" src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPeces.png"></img>';
-		//echo "</td></tr>";
-		
-		echo "<tr>";
-		if(!empty($pez["nombre_ingles"])){
-			echo "<td>";
-				echo "<b>Nombre en Inglés: </b>".utf8_decode($pez["nombre_ingles"])."<br>";
-			echo "</td>";
-		}
-		if(!empty($pez["nombre_cientifico"])){
-			echo "<td>";
-				echo "<b>Nombre Científico: </b>".utf8_decode($pez["nombre_cientifico"])."<br>";
-			echo "</td>";
-		}
-		echo "</tr>";
-		
-		echo "<tr>";
-		if(!empty($pezobj->grupo->nombre)){
-			echo "<td>";
-				echo "<b>Grupo: </b>".utf8_decode($pezobj->grupo->nombre)."<br>";
-			echo "</td>";
-		}
-		echo "<td>";
-		foreach($pezobj->distribucions as $j){
-			$cont++;
-			if($cont > 1)
-				echo ", ".utf8_decode($j->Nombre);
+		//Parte de los datos principales
+		echo "<tr><td>";		
+		if(!empty($pezobj->nombre_comun))
+		{
+			if (!empty($pezobj->nombre_ingles))
+				echo "<span style=\"color:#323D2C;\"><b>".utf8_decode($pezobj->nombre_comun).", ".utf8_decode($pezobj->nombre_ingles)."</b></span> <i>(".$pezobj->nombre_cientifico.")</i>";
 			else
-				echo "<b>Distribucion: </b>".utf8_decode($j->Nombre);
-		}
-		echo "</td>";
-		echo "</tr>";
-		$cont = 0;
-
-		echo "<tr>";
-		echo "<td>";
-		foreach($pezobj->tipoCapturases as $j){
-			$cont++;
-			if($cont > 1)
-				echo ", ".utf8_decode($j->nombre);
-			else
-				echo "<b>Captura: </b>".utf8_decode($j->nombre);
-		}
-		echo "</td>";
-		$cont = 0;
-		echo "<td>";
-		if(!empty($pez["talla_captura"]))
-				echo "<b>Talla Capturada: </b>".utf8_decode($pez["talla_captura"])."<br>";
-		echo "</td>";
-		echo "</tr>";
-		
-		echo "<tr>";
-		echo "<td>";
-		if(!empty($pezobj->tipoVeda->Nombre))
-			echo "<b>Tipo de Veda: </b>".utf8_decode($pezobj->tipoVeda->Nombre)."<br>";
-		echo "</td>";
-		echo "<td>";
-		if(!empty($pez["veda"]))
-			echo "<b>Veda: </b>".utf8_decode($pez["veda"])."<br>";
-		echo "</td>";
-		echo "</tr>";
-		
-		echo "<tr>";
-		echo "<td>";
-		if(!empty($pez["arte_pesca"]))
-			echo "<b>Arte de pesca: </b>".utf8_decode($pez["arte_pesca"])."<br>";
+				echo "<span style=\"color:#323D2C;\"><b>".utf8_decode($pezobj->nombre_comun)."</b></span> <i>(".$pezobj->nombre_cientifico.")</i>";
+		} elseif (!empty($pezobj->nombre_ingles))
+			echo "<span style=\"color:#323D2C;\"><b>".utf8_decode($pezobj->ingles)."</b></span> <i>(".$pezobj->nombre_cientifico.")</i>";
+		else
+			echo $pezobj->nombre_cientifico;				
 		echo "</td>";
 		
-		echo "<td>";
-		if(!empty($pez["tipo_captura"]))
-		echo "<b>Tipo de Captura: </b>".utf8_decode($pez["tipo_captura"])."<br>";
-		echo "</td>";
-		echo "</tr>";
-
-		foreach($pezobj->estadoConservacions as $j){
-			if($j->Nivel1==1){
-				echo "<tr>";
-				echo "<td colspan='2'>";
-				echo "<b>Especie en riesgo mundialmente (Lista Roja UICN): </b>".utf8_decode($j->nombre)."<br>";
-				echo "</td>";
-				echo "</tr>";
-			}
-			if($j->Nivel1==2){
-				echo "<tr>";
-				echo "<td colspan='2'>";
-				echo "<b>Especie que requiere permiso para comercio internacional (CITES): </b>".utf8_decode($j->nombre)."<br>";
-				echo "</td>";
-				echo "</tr>";
-			}
-			if($j->Nivel1==3){
-				echo "<tr>";
-				echo "<td colspan='2'>";
-				echo "<b>Especie en riesgo en Mèxico (NOM-059-SEMARNAT-2010): </b>".utf8_decode($j->nombre)."<br>";
-				echo "</td>";
-				echo "</tr>";
-			}
-		}
 		
-		echo "<tr>";		
-		if(!empty($pez["generalidades"])){
-			echo "<td colspan='2'>";
-			echo "<b>Generalidades: </b>".utf8_decode($pez["generalidades"])."<br>";
+		//Parte del grupo
+		if (!empty($pezobj->grupo->nombre)) {
+			echo "<td>Grupo ".$pezobj->grupo->nombre."</td>";
 			echo "</td>";
 		}
 		echo "</tr>";
 		
 		
+		//Estados de conservacion
+		$estados_conservacion = array();
+		foreach($pezobj->estadoConservacions as $j)
+		{
+			if($j->Nivel1==1)
+				array_push($estados_conservacion, utf8_decode($j->nombre).CHtml::link(' (IUCN)', "http://www.iucnredlist.org/about/introduction", array("style"=>"color:#584B05;font-size:10px;", "target" => "_blank")));
+				
+			if($j->Nivel1==2)
+				array_push($estados_conservacion, utf8_decode($j->nombre).CHtml::link(' (CITES)', "http://www.cites.org/esp/app/index.phpn", array("style"=>"color:#584B05;font-size:10px;", "target" => "_blank")));
+				
+			if($j->Nivel1==3)
+				array_push($estados_conservacion, utf8_decode($j->nombre).CHtml::link(' (NOM)', "http://www.biodiversidad.gob.mx/especies/catRiesMexico.html", array("style"=>"color:#584B05;font-size:10px;", "target" => "_blank")));
+		}
+		
+		
+		//Distribucion
+		$distribuciones = array();
+		foreach($pezobj->distribucions as $j)
+			array_push($distribuciones, utf8_decode($j->Nombre));
+		if (!empty($estados_conservacion))
+			if(!empty($distribuciones))
+				echo "<tr><td>".implode(', ', $estados_conservacion)."</td><td>Distribuci&oacute;n en ".implode(', ', $distribuciones)."</td></tr>";
+			else
+				echo "<tr><td>".implode(', ', $estados_conservacion)."</td></tr>";
+		else { //Distribucion
+			
+			echo "<tr><td>Distribuci&oacute;n en ".implode(', ', $distribuciones)."</td></tr>";
+		}
+		
+				
+		//Imagenes
+		if ($pezobj->tipo_imagen == 'Cartel')
+			echo "<tr><td>".CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".utf8_decode($pezobj->imagen), $pezobj->nombre_cientifico, array('width'=>'860px;'))."</td></tr>";
+		elseif ($pezobj->tipo_imagen == 'Silueta')
+			echo "<tr><td>".CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".utf8_decode($pezobj->imagen), $pezobj->nombre_cientifico, array('width'=>'860px;'))."</td></tr>";
+		
+
+		//Capturas
+		$capturas = array();
+		foreach($pezobj->tipoCapturases as $j)
+			array_push($capturas, utf8_decode($j->nombre));			
+		if (!empty($capturas))
+		{
+			if (!empty($pezobj->talla_captura))
+				echo "<tr><td>Captura: ".implode(', ', $capturas)."</td><td>Talla de captura ".utf8_decode($pezobj->talla_captura)." cm</td></tr>";
+			else
+				echo "<tr><td>Captura: ".implode(', ', $capturas)."</td></tr>";
+		} elseif (!empty($pezobj->talla_captura)) //Talla captura
+			echo "<tr><td>Talla captura ".utf8_decode($pezobj->talla_captura)." cm</td></tr>";	
+
+		
+		//Veda
+		if (!empty($pezobj->veda))
+		{
+			if (!empty($pezobj->tipoVeda->Nombre))
+				echo "<tr><td>Veda ".utf8_decode($pezobj->veda)."</td><td>Tipo de veda ".utf8_decode($pezobj->tipoVeda->Nombre)."</td></tr>";
+			else
+				echo "<tr><td>Veda ".utf8_decode($pezobj->veda)."</td></tr>";
+		} elseif (!empty($pezobj->tipoVeda->Nombre)) //Tipo de veda
+			echo "<tr><td>Tipo de veda ".utf8_decode($pezobj->tipoVeda->Nombre)."</td></tr>";
+
+		
+		//Arte de pesca
+		if (!empty($pezobj->arte_pesca)) 
+		{
+			if(!empty($pezobj->tipo_captura))
+				echo "<tr><td>Arte de pesca: ".utf8_decode($pezobj->arte_pesca)."</td><td>Tipo de captura ".utf8_decode($pezobj->tipo_captura)."</td></tr>";
+			else
+				echo "<tr><td>Arte de pesca: ".utf8_decode($pezobj->arte_pesca)."</td></tr>";			
+		} elseif (!empty($pezobj->tipo_captura)) //Tipo de captura
+			echo "<tr><td>Tipo de captura ".utf8_decode($pezobj->tipo_captura)."</td></tr>";
+		
+		
+		//Generalidades
+		if (!empty($pezobj->generalidades))
+			echo "<tr><td>Generalidades: ".utf8_decode($pezobj->generalidades)."</td></tr>";
+		
+		
+		//Carta nacional
+		$cartas_nacionales = '';
 		foreach($pezobj->cartaNacionals as $j){
-			if($j->Nivel1==1){
-				echo "<tr>";
-				echo "<td colspan='2'>";
-				echo "<b>Carta Nacional Pesquera (2012) Pacífico zona 1: </b>".utf8_decode($j->Nombre)."<br>";
-				echo "</td>";
-				echo "</tr>";
-			}
-			if($j->Nivel1==2){
-				echo "<tr>";
-				echo "<td colspan='2'>";
-				echo "<b>Carta Nacional Pesquera (2012) Pacífico zona 2: </b>".utf8_decode($j->Nombre)."<br>";
-				echo "</td>";
-				echo "</tr>";
-			}
-			if($j->Nivel1==3){
-				echo "<tr>";
-				echo "<td colspan='2'>";
-				echo "<b>Carta Nacional Pesquera (2012) Pacífico zona 3: </b>".utf8_decode($j->Nombre)."<br>";
-				echo "</td>";
-				echo "</tr>";
-			}
-			if($j->Nivel1==4){
-				echo "<tr>";
-				echo "<td colspan='2'>";
-				echo "<b>Carta Nacional Pesquera (2012) Golfo Mex y Caribe zona 1: </b>".utf8_decode($j->Nombre)."<br>";
-				echo "</td>";
-				echo "</tr>";
-			}
-			if($j->Nivel1==5){
-				echo "<tr>";
-				echo "<td colspan='2'>";
-				echo "<b>Carta Nacional Pesquera (2012) Golfo Mex y Caribe zona 2: </b>".utf8_decode($j->Nombre)."<br>";
-				echo "</td>";
-				echo "</tr>";
-			}
-			if($j->Nivel1==6){
-				echo "<tr>";
-				echo "<td colspan='2'>";
-				echo "<b>Carta Nacional Pesquera (2012) Golfo Mex y Caribe zona 3: </b>".utf8_decode($j->Nombre)."<br>";
-				echo "</td>";
-				echo "</tr>";
-			}
+			if($j->Nivel1==1)
+				$cartas_nacionales.= "<li>Pacífico zona 1: ".utf8_decode($j->Nombre)."</li>";
+			
+			if($j->Nivel1==2)
+				$cartas_nacionales.= "<li>Pacífico zona 2: ".utf8_decode($j->Nombre)."</li>";
+			
+			if($j->Nivel1==3)
+				$cartas_nacionales.= "<li>Pacífico zona 3: ".utf8_decode($j->Nombre)."</li>";
+			
+			if($j->Nivel1==4)
+				$cartas_nacionales.= "<li>Golfo Mex y Caribe zona 1: ".utf8_decode($j->Nombre)."</li>";
+			
+			if($j->Nivel1==5)
+				$cartas_nacionales.= "<li>Golfo Mex y Caribe zona 2: ".utf8_decode($j->Nombre)."</li>";
+			
+			if($j->Nivel1==6)
+				$cartas_nacionales.= "<li>Golfo Mex y Caribe zona 3: ".utf8_decode($j->Nombre)."</li>";
+			
 		}
+		if (!empty($cartas_nacionales))
+			echo "<tr><td><br>Carta Nacional Pesquera (2012): <ul style=\"font: Arial,Helvetica,sans-serif;color:black;font-size:16px;\">".$cartas_nacionales."</ul></td></tr>";
+		
+		
 		echo "</table>";
 		?>
 	<br/>
