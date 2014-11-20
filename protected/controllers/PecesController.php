@@ -182,13 +182,10 @@ class PecesController extends Controller
 		if (isset($params['buscador_grupo']) && !empty($params['buscador_grupo']))
 			$condiciones.="grupo_id = ".$params['buscador_grupo']." AND ";
 		
-		
-		
 		if (isset($params['buscador_edo']) && !empty($params['buscador_edo'])){
 			$joins.= PezEstadoConservacion::join();
 			$condiciones.="pec.estado_conservacion_id = ".$params['buscador_edo']." AND ";
 		}
-		
 		
 		if (isset($params['distribucion']) && count($params['distribucion']) > 0)
 		{
@@ -210,8 +207,10 @@ class PecesController extends Controller
 			$joins.= PezTipoCapturas::join();
 			$condiciones.= "ptc.tipo_capturas_id IN (".implode(',', $params['captura']).") AND ";
 		}
-		$union = " UNION SELECT * FROM peces WHERE tipo_imagen = 'Silueta' UNION SELECT * FROM peces WHERE tipo_imagen = ''";
 		$condiciones.= "tipo_imagen = 'Cartel' AND ";
+		$union = " UNION ".$select.$joins.' WHERE '.$condiciones." tipo_imagen = 'Silueta'";
+		$union .= " UNION ".$select.$joins.' WHERE '.$condiciones." tipo_imagen = ''";
+		//$union.= "UNION SELECT * FROM peces WHERE tipo_imagen = ''";
 		//decide cual tipo de busqueda es
 		if (!empty($joins))
 			$resultados=Yii::app()->db->createCommand($select.$joins.' WHERE '.substr($condiciones, 0, -5).$union)->queryAll();
