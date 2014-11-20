@@ -55,11 +55,6 @@ class PezDistribucion extends CActiveRecord
 		);
 	}
 
-	public static function busqueda_join()
-	{
-		$sql = "LEFT JOIN pez_distribucion as pd ON pd.peces_especie_id = peces.especie_id";
-	}
-	
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -70,6 +65,11 @@ class PezDistribucion extends CActiveRecord
 			'peces_especie_id' => 'Peces Especie',
 			'distribucion_id' => 'Distribucion',
 		);
+	}
+	
+	public static function join()
+	{
+		return ' LEFT JOIN pez_distribucion pd ON pd.peces_especie_id=p.especie_id ';	
 	}
 
 	/**

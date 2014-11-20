@@ -67,6 +67,11 @@ class PezTipoCapturas extends CActiveRecord
 		);
 	}
 
+	public static function join()
+	{
+		return ' LEFT JOIN pez_tipo_capturas ptc ON ptc.peces_especie_id=p.especie_id ';
+	}
+	
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.

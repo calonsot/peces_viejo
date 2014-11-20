@@ -26,6 +26,10 @@ if (!isset($vacio))
 				//echo "<b>Imagen: </b>".utf8_decode($pez["imagen"])."<br>";
 				echo '<img width="800" height="400" alt="Peces" src="../../imagenes/siluetas/'.utf8_decode($pez["imagen"]).'"></img>';
 		}
+		if(!empty($pez["tipo_imagen"]) & utf8_decode($pez["tipo_imagen"])=="Cartel"){
+			//echo "<b>Imagen: </b>".utf8_decode($pez["imagen"])."<br>";
+			echo '<img width="800" height="400" alt="Peces" src="../../imagenes/peces/'.utf8_decode($pez["imagen"]).'"></img>';
+		}
 		echo "</td></tr>";
 		//echo "<tr><td colspan='2' align='center'>";
 		//echo '<img width="547" height="301" alt="Peces" src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPeces.png"></img>';
