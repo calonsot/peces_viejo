@@ -26,7 +26,16 @@
 					name="buscador_nombre_cientifico" id="buscador_nombre_cientifico">
 			</span></td>
 		</tr>
-		
+		<tr>
+			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Conservacion </span>
+				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_edo', null, CHtml::listData(EstadoConservacion::model()->findAll(array('order'=>'Nivel1 ASC')), 'id', 'nombre'),
+				array('id'=>'buscador_edo', 'prompt'=>'---Elija---')); ?></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<label style="font-size:12px;"> Captura</label>
+			</td>
+		</tr>
 		<tr>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
 					type="checkbox" name="buscador_captura_selectiva" id="buscador_captura_selectiva">
@@ -37,7 +46,11 @@
 					Pesca no selectiva 
 			</span></td>
 		</tr>
-		
+		<tr>
+			<td colspan="2">
+				<label style="font-size:12px;"> Distribuci&oacute;n</label>
+			</td>
+		</tr>
 		<tr>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
 					type="checkbox" name="distribucion[]" id="buscador_pacifico" value="3">
@@ -58,6 +71,37 @@
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
 			<input type="checkbox" name="distribucion[]" id="buscador_fuera" value="4"> 
 					Fuera del Pa&iacute;s
+			</span></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<label style="font-size:12px;"> Tipo de captura</label>
+			</td>
+		</tr>
+		<tr>
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="checkbox" name="captura[]" id="buscador_objetivo" value="1">
+					Objetivo
+			</span></td>
+			<span class="txt_reforesta">
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="checkbox" name="captura[]" id="buscador_incidental" value="2">
+					Incidental
+			</span></td>
+		</tr>
+		<tr>
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
+			<input type="checkbox" name="captura[]" id="buscador_deportiva" value="3">
+					Deportiva
+			</span></td>
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
+			<input type="checkbox" name="captura[]" id="buscador_fomento" value="4"> Fomento
+			</span></td>
+		</tr>
+		<tr>
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
+			<input type="checkbox" name="captura[]" id="buscador_cultivada" value="5">
+					Cultivada
 			</span></td>
 		</tr>
 	</table>
