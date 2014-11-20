@@ -171,14 +171,24 @@ class PecesController extends Controller
 		$joins='';
 		$params = $_GET;
 		$select = 'SELECT * FROM peces p ';
-		$pezobj = Peces::model()->findByPk("especie_id");
 
 		if (isset($params['buscador_nombre_comun']) && !empty($params['buscador_nombre_comun']))
 			$condiciones.="nombre_comun LIKE '%".$params['buscador_nombre_comun']."%' AND ";
+		
 		if (isset($params['buscador_nombre_cientifico']) && !empty($params['buscador_nombre_cientifico']))
 			$condiciones.="nombre_cientifico LIKE '%".$params['buscador_nombre_cientifico']."%' AND ";
+		
 		if (isset($params['buscador_grupo']) && !empty($params['buscador_grupo']))
 			$condiciones.="grupo_id = ".$params['buscador_grupo']." AND ";
+		
+		
+		
+		if (isset($params['buscador_edo']) && !empty($params['buscador_edo'])){
+			$joins.= PezEstadoConservacion::join();
+			$condiciones.="pec.estado_conservacion_id = ".$params['buscador_edo']." AND ";
+		}
+		
+		
 		if (isset($params['distribucion']) && count($params['distribucion']) > 0)
 		{
 			$joins.= PezDistribucion::join();
@@ -186,13 +196,18 @@ class PecesController extends Controller
 		}
 		if (isset($params['buscador_captura_selectiva']) && $params['buscador_captura_selectiva'] == "on")
 		{
-			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="tipo_captura='Selectiva'";
+			//$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
+			$condiciones.="tipo_captura='Selectiva' AND ";
 		}
 		if (isset($params['buscador_captura_noselectiva']) && $params['buscador_captura_noselectiva'] == "on")
 		{
-			$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="tipo_captura='No selectiva'";
+			//$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
+			$condiciones.="tipo_captura='No Selectiva' AND ";
+		}
+		if (isset($params['captura']) && count($params['captura']) > 0)
+		{
+			$joins.= PezTipoCapturas::join();
+			$condiciones.= "ptc.tipo_capturas_id IN (".implode(',', $params['captura']).") AND ";
 		}
 
 		//decide cual tipo de busqueda es
