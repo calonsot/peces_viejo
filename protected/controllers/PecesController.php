@@ -168,6 +168,7 @@ class PecesController extends Controller
 	public function actionResultado()
 	{
 		$condiciones='';
+		$union='';
 		$joins='';
 		$params = $_GET;
 		$select = 'SELECT * FROM peces p ';
@@ -209,14 +210,15 @@ class PecesController extends Controller
 			$joins.= PezTipoCapturas::join();
 			$condiciones.= "ptc.tipo_capturas_id IN (".implode(',', $params['captura']).") AND ";
 		}
-
+		$union = " UNION SELECT * FROM peces WHERE tipo_imagen = 'Silueta' UNION SELECT * FROM peces WHERE tipo_imagen = ''";
+		$condiciones.= "tipo_imagen = 'Cartel' AND ";
 		//decide cual tipo de busqueda es
 		if (!empty($joins))
-			$resultados=Yii::app()->db->createCommand($select.$joins.' WHERE '.substr($condiciones, 0, -5))->queryAll();
+			$resultados=Yii::app()->db->createCommand($select.$joins.' WHERE '.substr($condiciones, 0, -5).$union)->queryAll();
 		elseif (!empty($condiciones))
-			$resultados=Yii::app()->db->createCommand($select.' WHERE '.substr($condiciones, 0, -5))->queryAll();
+			$resultados=Yii::app()->db->createCommand($select.' WHERE '.substr($condiciones, 0, -5).$union)->queryAll();
 		else //para ver todos los peces
-			$resultados=Yii::app()->db->createCommand($select)->queryAll();
+			$resultados=Yii::app()->db->createCommand($select.' WHERE tipo_imagen = "Cartel"'.$union)->queryAll();
 
 		
 		if (count($resultados) > 1)
