@@ -107,5 +107,5 @@
 </form>
 
 <button type="button" id="limpiar">Limpiar</button>
-<span style="float: right;"><?php echo CHtml::link('[Ver todos los peces]', Yii::app()->request->baseUrl.'/index.php/peces', array("style"=>"color:black;font-size:12px;")); ?>
+<span style="float: right;"><?php echo CHtml::link('[Ver todos los peces]', Yii::app()->request->baseUrl.'/index.php/peces/resultado', array("style"=>"color:black;font-size:12px;")); ?>
 </span>

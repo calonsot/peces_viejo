@@ -24,7 +24,9 @@
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
-
+<link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.qtip.min.css" />
+	
 <script type="text/javascript">
 var YII_PATH = "<?php echo Yii::app()->request->baseUrl; ?>";
 </script>
@@ -33,6 +35,8 @@ var YII_PATH = "<?php echo Yii::app()->request->baseUrl; ?>";
 	src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript"
 	src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/buscador.js"></script>
+<script type="text/javascript"
+	src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/jquery.qtip.min.js"></script>
 <link href="/css/estilosgral.css" rel="stylesheet" type="text/css">
 
 <script type="text/javascript">
