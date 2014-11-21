@@ -15,7 +15,7 @@ if (!isset($vacio))
 		
 		
 		//Parte de los datos principales
-		echo "<tr><td>";		
+		echo "<tr><td width=\"500px\">";		
 		if(!empty($pezobj->nombre_comun))
 		{
 			if (!empty($pezobj->nombre_ingles))
@@ -31,8 +31,7 @@ if (!isset($vacio))
 		
 		//Parte del grupo
 		if (!empty($pezobj->grupo->nombre)) {
-			echo "<td>Grupo ".utf8_decode($pezobj->grupo->nombre)."</td>";
-			echo "</td>";
+			echo "<td width=\"500px\">Grupo ".utf8_decode($pezobj->grupo->nombre)."</td>";
 		}
 		echo "</tr>";
 		
@@ -58,7 +57,7 @@ if (!isset($vacio))
 			array_push($distribuciones, utf8_decode($j->Nombre));
 		if (!empty($estados_conservacion))
 			if(!empty($distribuciones))
-				echo "<tr><td>".implode(', ', $estados_conservacion)."</td><td>Distribuci&oacute;n en ".implode(', ', $distribuciones)."</td></tr>";
+				echo "<tr><td width=\"500px\">".implode(', ', $estados_conservacion)."</td><td width=\"500px\">Distribuci&oacute;n en ".implode(', ', $distribuciones)."</td></tr>";
 			else
 				echo "<tr><td>".implode(', ', $estados_conservacion)."</td></tr>";
 		else { //Distribucion
@@ -66,6 +65,8 @@ if (!isset($vacio))
 			echo "<tr><td>Distribuci&oacute;n en ".implode(', ', $distribuciones)."</td></tr>";
 		}
 		
+		echo "</table>"; // Termina primera tabla
+		echo "<table style='width:1000px;background:#d2ceb9;'>";  // Empieza segunda
 				
 		//Imagenes
 		if ($pezobj->tipo_imagen == 'Cartel')
@@ -73,7 +74,9 @@ if (!isset($vacio))
 		elseif ($pezobj->tipo_imagen == 'Silueta')
 			echo "<tr><td>".CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".utf8_decode($pezobj->imagen), $pezobj->nombre_cientifico, array('width'=>'860px;'))."</td></tr>";
 		
-
+		echo "</table>"; //Termina segunda tabla
+		echo "<table style='width:1000px;background:#d2ceb9;' cellpadding='10px' cellspacing='3px'>";  //Empieza tercera
+		
 		//Capturas
 		$capturas = array();
 		foreach($pezobj->tipoCapturases as $j)
@@ -81,7 +84,7 @@ if (!isset($vacio))
 		if (!empty($capturas))
 		{
 			if (!empty($pezobj->talla_captura))
-				echo "<tr><td>Captura: ".implode(', ', $capturas)."</td><td>Talla de captura ".utf8_decode($pezobj->talla_captura)." cm</td></tr>";
+				echo "<tr><td width=\"500px\">Captura: ".implode(', ', $capturas)."</td><td width=\"500px\">Talla de captura ".utf8_decode($pezobj->talla_captura)." cm</td></tr>";
 			else
 				echo "<tr><td>Captura: ".implode(', ', $capturas)."</td></tr>";
 		} elseif (!empty($pezobj->talla_captura)) //Talla captura
@@ -92,7 +95,7 @@ if (!isset($vacio))
 		if (!empty($pezobj->veda))
 		{
 			if (!empty($pezobj->tipoVeda->Nombre))
-				echo "<tr><td>Veda ".utf8_decode($pezobj->veda)."</td><td>Tipo de veda ".utf8_decode($pezobj->tipoVeda->Nombre)."</td></tr>";
+				echo "<tr><td width=\"500px\">Veda ".utf8_decode($pezobj->veda)."</td><td width=\"500px\">Tipo de veda ".utf8_decode($pezobj->tipoVeda->Nombre)."</td></tr>";
 			else
 				echo "<tr><td>Veda ".utf8_decode($pezobj->veda)."</td></tr>";
 		} elseif (!empty($pezobj->tipoVeda->Nombre)) //Tipo de veda
@@ -103,7 +106,7 @@ if (!isset($vacio))
 		if (!empty($pezobj->arte_pesca)) 
 		{
 			if(!empty($pezobj->tipo_captura))
-				echo "<tr><td>Arte de pesca: ".utf8_decode($pezobj->arte_pesca)."</td><td>Tipo de captura ".utf8_decode($pezobj->tipo_captura)."</td></tr>";
+				echo "<tr><td width=\"500px\">Arte de pesca: ".utf8_decode($pezobj->arte_pesca)."</td><td width=\"500px\">Tipo de captura ".utf8_decode($pezobj->tipo_captura)."</td></tr>";
 			else
 				echo "<tr><td>Arte de pesca: ".utf8_decode($pezobj->arte_pesca)."</td></tr>";			
 		} elseif (!empty($pezobj->tipo_captura)) //Tipo de captura

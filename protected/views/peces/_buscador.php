@@ -10,25 +10,25 @@
 		</tr>		
 		<tr>
 			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Nombre
-					<input type="text" name="buscador_nombre_comun"
+					<input type="text" name="nombre_comun"
 					id="buscador_nombre_comun">
 			</span></td>
 		</tr>
 		<tr>
 			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Nombre
 					cient&iacute;fico <input type="text"
-					name="buscador_nombre_cientifico" id="buscador_nombre_cientifico">
+					name="nombre_cientifico" id="buscador_nombre_cientifico">
 			</span></td>
 		</tr>
 		<tr>
 			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Grupo </span>
-				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'),
+				<label for="select"></label> <?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'),
 				array('id'=>'buscador_grupo', 'prompt'=>'---Todos---')); ?></td>
 		</tr>
 		<tr>
 			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Conservacion </span>
-				<label for="select"></label> <?php echo CHtml::dropDownList('buscador_edo', null, CHtml::listData(EstadoConservacion::model()->options(), 'id', 'nombre', 'grupo'),
-				array('id'=>'buscador_edo', 'prompt'=>'---Elija---')); ?></td>
+				<label for="select"></label> <?php echo CHtml::dropDownList('estado_conservacion', null, CHtml::listData(EstadoConservacion::model()->options(), 'id', 'nombre', 'grupo'),
+				array('id'=>'buscador_estado_conservacion', 'prompt'=>'---Elija---')); ?></td>
 		</tr>
 		<tr>
 			<td colspan="2">
@@ -37,11 +37,11 @@
 		</tr>
 		<tr>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="buscador_captura_selectiva" id="buscador_captura_selectiva">
+					type="checkbox" name="tipo_captura[]" id="buscador_selectiva" value="Selectiva">
 					Pesca selectiva
 			</span></td>
 			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="buscador_captura_noselectiva" id="buscador_captura_noselectiva">
+					type="checkbox" name="tipo_captura[]" id="buscador_no_selectiva" value="No Selectiva">
 					Pesca no selectiva 
 			</span></td>
 		</tr>
@@ -68,8 +68,8 @@
 					Mar Caribe
 			</span></td>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
-			<input type="checkbox" name="distribucion[]" id="buscador_fuera" value="4"> 
-					Fuera del Pa&iacute;s
+			<input type="checkbox" name="distribucion[]" id="buscador_importado" value="4"> 
+					Importado
 			</span></td>
 		</tr>
 		<tr>
@@ -79,8 +79,8 @@
 		</tr>
 		<tr>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="captura[]" id="buscador_objetivo" value="1">
-					Objetivo
+					type="checkbox" name="captura[]" id="buscador_objetiva" value="1">
+					Objetiva
 			</span></td>
 			<span class="txt_reforesta">
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input

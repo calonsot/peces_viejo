@@ -173,18 +173,22 @@ class PecesController extends Controller
 		$params = $_GET;
 		$select = 'SELECT * FROM peces p ';
 
-		if (isset($params['buscador_nombre_comun']) && !empty($params['buscador_nombre_comun']))
-			$condiciones.="nombre_comun LIKE '%".$params['buscador_nombre_comun']."%' AND ";
+		if (isset($params['nombre_comun']) && !empty($params['nombre_comun']))
+			$condiciones.="nombre_comun LIKE '%".$params['nombre_comun']."%' AND ";
 		
-		if (isset($params['buscador_nombre_cientifico']) && !empty($params['buscador_nombre_cientifico']))
-			$condiciones.="nombre_cientifico LIKE '%".$params['buscador_nombre_cientifico']."%' AND ";
+		if (isset($params['nombre_cientifico']) && !empty($params['nombre_cientifico']))
+			$condiciones.="nombre_cientifico LIKE '%".$params['nombre_cientifico']."%' AND ";
 		
-		if (isset($params['buscador_grupo']) && !empty($params['buscador_grupo']))
-			$condiciones.="grupo_id = ".$params['buscador_grupo']." AND ";
+		if (isset($params['grupo']) && !empty($params['grupo']))
+			$condiciones.="grupo_id = ".$params['grupo']." AND ";
 		
-		if (isset($params['buscador_edo']) && !empty($params['buscador_edo'])){
+		if (isset($params['tipo_captura']) && count($params['tipo_captura']) > 0)
+			$condiciones.= "tipo_captura IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
+		
+		if (isset($params['estado_conservacion']) && !empty($params['estado_conservacion']))
+		{
 			$joins.= PezEstadoConservacion::join();
-			$condiciones.="pec.estado_conservacion_id = ".$params['buscador_edo']." AND ";
+			$condiciones.="pec.estado_conservacion_id = ".$params['estado_conservacion']." AND ";
 		}
 		
 		if (isset($params['distribucion']) && count($params['distribucion']) > 0)
@@ -192,22 +196,13 @@ class PecesController extends Controller
 			$joins.= PezDistribucion::join();
 			$condiciones.= "pd.distribucion_id IN (".implode(',', $params['distribucion']).") AND ";
 		}
-		if (isset($params['buscador_captura_selectiva']) && $params['buscador_captura_selectiva'] == "on")
-		{
-			//$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="tipo_captura='Selectiva' AND ";
-		}
-		if (isset($params['buscador_captura_noselectiva']) && $params['buscador_captura_noselectiva'] == "on")
-		{
-			//$es_intermedio ? $condiciones.=" AND " : $es_intermedio=true;
-			$condiciones.="tipo_captura='No Selectiva' AND ";
-		}
+		
 		if (isset($params['captura']) && count($params['captura']) > 0)
 		{
 			$joins.= PezTipoCapturas::join();
 			$condiciones.= "ptc.tipo_capturas_id IN (".implode(',', $params['captura']).") AND ";
 		}
-
+		
 		//decide cual tipo de busqueda es
 		if (!empty($joins)){
 			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".$condiciones." tipo_imagen = 'Cartel'  
@@ -237,22 +232,20 @@ class PecesController extends Controller
 	public function actionFiltros()
 	{
 		$params = $_POST;
-		$filtro=Filtros::model()->findByAttributes(array('sesion'=>Yii::app()->getSession()->getSessionId()));
+		$sesion = Yii::app()->getSession()->getSessionId();
+		$filtro=Filtros::model()->findByAttributes(array('sesion'=>$sesion));
 
 		if (isset($params['accion']) && $params['accion'] == "guarda")
 		{
 			if (count($filtro) == 1)
 			{
 				$filtro_asigno = $this->asignaCampos($params, $filtro);
-				$filtro_asigno->save();
-				return print_r($filtro_asigno->buscador_pacifico);
 			} else {
 				$f=new Filtros();
 				$filtro_asigno = $this->asignaCampos($params, $f);
-				$filtro_asigno->ip = $_SERVER['REMOTE_ADDR'];
-				$filtro_asigno->sesion = Yii::app()->getSession()->getSessionId();
-				$filtro_asigno->save();
+				$filtro_asigno->sesion = $sesion;
 			}
+			$filtro_asigno->save();
 		} elseif (isset($params['accion']) && $params['accion'] == "leer" && isset($filtro->id)) {
 			echo $filtro->aJSON();
 		} else
