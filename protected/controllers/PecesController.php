@@ -207,7 +207,7 @@ class PecesController extends Controller
 			$joins.= PezTipoCapturas::join();
 			$condiciones.= "ptc.tipo_capturas_id IN (".implode(',', $params['captura']).") AND ";
 		}
-		$condiciones.= "tipo_imagen = 'Cartel' AND ";
+
 		//decide cual tipo de busqueda es
 		if (!empty($joins)){
 			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".$condiciones." tipo_imagen = 'Cartel'  

@@ -3,7 +3,7 @@
 /* @var $model Peces */
 if (!isset($vacio))
 {
-	//echo count($peces);
+	echo "Mostrando ".count($peces)." resultados";
 ?>
 
 <div class="view">
@@ -31,7 +31,7 @@ if (!isset($vacio))
 		
 		//Parte del grupo
 		if (!empty($pezobj->grupo->nombre)) {
-			echo "<td>Grupo ".$pezobj->grupo->nombre."</td>";
+			echo "<td>Grupo ".utf8_decode($pezobj->grupo->nombre)."</td>";
 			echo "</td>";
 		}
 		echo "</tr>";
