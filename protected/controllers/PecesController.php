@@ -208,18 +208,23 @@ class PecesController extends Controller
 			$condiciones.= "ptc.tipo_capturas_id IN (".implode(',', $params['captura']).") AND ";
 		}
 		$condiciones.= "tipo_imagen = 'Cartel' AND ";
-		$union = " UNION ".$select.$joins.' WHERE '.$condiciones." tipo_imagen = 'Silueta'";
-		$union .= " UNION ".$select.$joins.' WHERE '.$condiciones." tipo_imagen = ''";
-		//$union.= "UNION SELECT * FROM peces WHERE tipo_imagen = ''";
 		//decide cual tipo de busqueda es
-		if (!empty($joins))
-			$resultados=Yii::app()->db->createCommand($select.$joins.' WHERE '.substr($condiciones, 0, -5).$union)->queryAll();
-		elseif (!empty($condiciones))
-			$resultados=Yii::app()->db->createCommand($select.' WHERE '.substr($condiciones, 0, -5).$union)->queryAll();
-		else //para ver todos los peces
-			$resultados=Yii::app()->db->createCommand($select.' WHERE tipo_imagen = "Cartel"'.$union)->queryAll();
+		if (!empty($joins)){
+			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".$condiciones." tipo_imagen = 'Cartel'  
+					UNION ".$select.$joins." WHERE ".$condiciones." tipo_imagen = 'Silueta' UNION ".
+					$select.$joins." WHERE ".$condiciones." tipo_imagen = ''")->queryAll();
+		}
+		elseif (!empty($condiciones)){
+			$resultados=Yii::app()->db->createCommand($select." WHERE ".$condiciones." tipo_imagen = 'Cartel'  
+					UNION ".$select." WHERE ".$condiciones." tipo_imagen = 'Silueta' UNION ".
+					$select." WHERE ".$condiciones." tipo_imagen = ''")->queryAll();
+		}
+		else{ //para ver todos los peces
+			$resultados=Yii::app()->db->createCommand($select." WHERE tipo_imagen = 'Cartel'  
+					UNION ".$select." WHERE tipo_imagen = 'Silueta' UNION ".
+					$select." WHERE tipo_imagen = ''")->queryAll();
+		}
 
-		
 		if (count($resultados) > 1)
 			$this->render('resultado',array('peces' => $resultados));
 		else
