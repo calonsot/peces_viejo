@@ -11,7 +11,7 @@ if (!isset($vacio))
 		$cont = 0;
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
-		echo "ID: ".utf8_decode($pez["especie_id"])."<br>";
+		//echo "ID: ".utf8_decode($pez["especie_id"])."<br>";
 		
 		echo "<table style='width:1000px;background:silver;'>";
 		
@@ -22,11 +22,11 @@ if (!isset($vacio))
 		echo "</td></tr>";
 		
 		echo "<tr><td colspan='2' align='center'>";
-		if(!empty($pez["tipo_imagen"]) & utf8_decode($pez["tipo_imagen"])=="Silueta"){
+		if(!empty($pez["tipo_imagen"]) & utf8_decode($pez["tipo_imagen"])=="2"){
 				//echo "<b>Imagen: </b>".utf8_decode($pez["imagen"])."<br>";
 				echo '<img width="800" height="400" alt="Peces" src="../../imagenes/siluetas/'.utf8_decode($pez["imagen"]).'"></img>';
 		}
-		if(!empty($pez["tipo_imagen"]) & utf8_decode($pez["tipo_imagen"])=="Cartel"){
+		if(!empty($pez["tipo_imagen"]) & utf8_decode($pez["tipo_imagen"])=="1"){
 			//echo "<b>Imagen: </b>".utf8_decode($pez["imagen"])."<br>";
 			echo '<img width="800" height="400" alt="Peces" src="../../imagenes/peces/'.utf8_decode($pez["imagen"]).'"></img>';
 		}

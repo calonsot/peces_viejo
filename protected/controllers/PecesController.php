@@ -168,7 +168,6 @@ class PecesController extends Controller
 	public function actionResultado()
 	{
 		$condiciones='';
-		$union='';
 		$joins='';
 		$params = $_GET;
 		$select = 'SELECT * FROM peces p ';
@@ -182,10 +181,13 @@ class PecesController extends Controller
 		if (isset($params['buscador_grupo']) && !empty($params['buscador_grupo']))
 			$condiciones.="grupo_id = ".$params['buscador_grupo']." AND ";
 		
+		
+		
 		if (isset($params['buscador_edo']) && !empty($params['buscador_edo'])){
 			$joins.= PezEstadoConservacion::join();
 			$condiciones.="pec.estado_conservacion_id = ".$params['buscador_edo']." AND ";
 		}
+		
 		
 		if (isset($params['distribucion']) && count($params['distribucion']) > 0)
 		{
@@ -207,24 +209,16 @@ class PecesController extends Controller
 			$joins.= PezTipoCapturas::join();
 			$condiciones.= "ptc.tipo_capturas_id IN (".implode(',', $params['captura']).") AND ";
 		}
-		$condiciones.= "tipo_imagen = 'Cartel' AND ";
-		//decide cual tipo de busqueda es
-		if (!empty($joins)){
-			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".$condiciones." tipo_imagen = 'Cartel'  
-					UNION ".$select.$joins." WHERE ".$condiciones." tipo_imagen = 'Silueta' UNION ".
-					$select.$joins." WHERE ".$condiciones." tipo_imagen = ''")->queryAll();
-		}
-		elseif (!empty($condiciones)){
-			$resultados=Yii::app()->db->createCommand($select." WHERE ".$condiciones." tipo_imagen = 'Cartel'  
-					UNION ".$select." WHERE ".$condiciones." tipo_imagen = 'Silueta' UNION ".
-					$select." WHERE ".$condiciones." tipo_imagen = ''")->queryAll();
-		}
-		else{ //para ver todos los peces
-			$resultados=Yii::app()->db->createCommand($select." WHERE tipo_imagen = 'Cartel'  
-					UNION ".$select." WHERE tipo_imagen = 'Silueta' UNION ".
-					$select." WHERE tipo_imagen = ''")->queryAll();
-		}
 
+		//decide cual tipo de busqueda es
+		if (!empty($joins))
+			$resultados=Yii::app()->db->createCommand($select.$joins.' WHERE '.substr($condiciones, 0, -5).' ORDER BY tipo_imagen, nombre_cientifico ASC')->queryAll();
+		elseif (!empty($condiciones))
+			$resultados=Yii::app()->db->createCommand($select.' WHERE '.substr($condiciones, 0, -5).' ORDER BY tipo_imagen, nombre_cientifico ASC')->queryAll();
+		else //para ver todos los peces
+			$resultados=Yii::app()->db->createCommand($select.' ORDER BY tipo_imagen, nombre_cientifico ASC')->queryAll();
+
+		
 		if (count($resultados) > 1)
 			$this->render('resultado',array('peces' => $resultados));
 		else
