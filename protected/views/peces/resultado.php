@@ -3,7 +3,7 @@
 /* @var $model Peces */
 if (!isset($vacio))
 {
-	echo "Mostrando ".count($peces)." resultados";
+	echo "<span style=\"color:#323D2C;\"><b>Mostrando ".count($peces)." resultados</b></span>";
 ?>
 
 <div class="view">
