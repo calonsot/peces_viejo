@@ -224,8 +224,8 @@ input.gsc-search-button {
 											cellspacing="0">
 											<tr>
 												<td width="591" bgcolor="#C2BDA0">
-												<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/titPeces_02.png", "Aguacate", array("width"=>40, "height"=>301, "border"=>0, "id"=>"Aguacate", "name"=>"Aguacate", "style"=>"position:absolute;")), Yii::app()->request->baseUrl); ?>
-													<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPeces.png", "Peces", array("width"=>547, "height"=>301)), Yii::app()->request->baseUrl); ?>
+												<?php //echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/titPeces_02.png", "Aguacate", array("width"=>40, "height"=>301, "border"=>0, "id"=>"Aguacate", "name"=>"Aguacate", "style"=>"position:absolute;")), Yii::app()->request->baseUrl); ?>
+													<?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/img_pecesComerciales.png", "Peces"), Yii::app()->request->baseUrl); ?>
 													</td>
 												<td width="320" bgcolor="#D2CEB9"><?php 
 												$this->renderPartial('/peces/_buscador');
