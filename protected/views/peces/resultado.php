@@ -171,9 +171,9 @@ if (!isset($vacio))
 		echo "<table style='width:1000px;background:#d2ceb9;'>";  // Empieza segunda
 				
 		//Imagenes
-		if ($pezobj->tipo_imagen == 'Cartel')
+		if ($pezobj->tipo_imagen == 1)
 			echo "<tr><td>".CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".utf8_decode($pezobj->imagen), $pezobj->nombre_cientifico, array('width'=>'860px;'))."</td></tr>";
-		elseif ($pezobj->tipo_imagen == 'Silueta')
+		elseif ($pezobj->tipo_imagen == 2)
 			echo "<tr><td>".CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".utf8_decode($pezobj->imagen), $pezobj->nombre_cientifico, array('width'=>'860px;'))."</td></tr>";
 		
 		echo "</table>"; //Termina segunda tabla
