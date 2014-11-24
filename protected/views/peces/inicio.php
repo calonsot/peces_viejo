@@ -720,16 +720,20 @@
 			</ul>
 		</td>
 		<td width="288" align="left" valign="top" bgcolor="#D2CEB9"
-			class="txt_reforesta"><p class="txt_reforesta"><strong class="Utexconceptos">Cuando compras pescado</strong></p>
-          <p class="txt_reforesta"><strong><img src="../images/balazo_tiposUsos.png" width="6" height="6" /></strong> <span class="datospagprin">&iquest;Sabes que especie te est&aacute;n vendiendo?<br />
-            <strong><img src="../images/balazo_tiposUsos.png" width="6" height="6" /></strong> &iquest;Sabes  de qu&eacute; lugar proviene?<br />
-            <strong><img src="../images/balazo_tiposUsos.png" width="6" height="6" /></strong> &iquest;Sabes  si fue capturado legal o ilegalmente?<br />
-            <strong><img src="../images/balazo_tiposUsos.png" width="6" height="6" /></strong> &iquest;Sabes  si es un producto mexicano o es importado?<br />
-            <strong><img src="../images/balazo_tiposUsos.png" width="6" height="6" /></strong> &iquest;Sabes c&oacute;mo fue capturado? <br />
-            <strong><img src="../images/balazo_tiposUsos.png" width="6" height="6" /></strong> &iquest;Sabes si el arte de pesca es selectiva con el ambiente?</span></p>
-          <p class="datospagprin">* Recuerda que cuando compras un producto del mar lo que  t&uacute; elijas y compres en los mercados y supermercados tiene un efecto directo  positivo o negativo en la biodiversidad marina. <strong>&ldquo;Conoci&eacute;ndolos  saben mejor&rdquo;</strong></p>
+			class="txt_reforesta">
+			<p align="center" class="Utexconceptos"><strong>Nuevo cartel. Peces comerciales de M&eacute;xico: Golfo y Caribe</strong></p>
+<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_golfo_web.png" width="250" height="167" /> 
+<div align="center" class="datospagprin">Disponible en nuestro <a href="http://www.biodiversidad.gob.mx/publicaciones/publicaciones.php" target="_blank" style="color: #323D2C">cat&aacute;logo de publicaciones</a></div>
+			<p class="txt_reforesta"><strong class="Utexconceptos"><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgConsumidor_03.png" width="204" height="33" /></strong></p>
+          <p class="txt_reforesta"><strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6" height="6" /></strong> <strong>&iquest;Qu&eacute; especie est&aacute;s comprando?<br />
+            <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6" height="6" /> &iquest;De qu&eacute; lugar proviene?<br />
+            <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6" height="6" /> &iquest;Si es mexicana o importada?<br />
+          <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6" height="6" /> &iquest;C&oacute;mo fue capturada?<br />
+          <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6" height="6" /> &iquest;Si es de una pequer&iacute;a legal?</span></strong></p>
+          <p class="txt_reforesta"><strong>Conviertete en un </strong><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgConsumidor_07.png" width="156" height="118" /></p>
+          * Recuerda que cuando compras un producto del mar lo que  t&uacute; elijas y compres en los mercados y supermercados tiene un efecto directo  positivo o negativo en la biodiversidad marina. <strong>&ldquo;Conoci&eacute;ndolos  saben mejor&rdquo;</strong>
           <p>&nbsp;
-				</p>
+          </p>
 		  <p><?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgMeroCriollo.png", "Mero de Caribe", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/12'); ?>
 				<br>
 				Mero del Caribe<br> <em class="datospagprin">(Epinephelus striatus)</em><br>

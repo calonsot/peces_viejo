@@ -161,4 +161,16 @@ class Peces extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	/**
+	 * Para poder hacer la clausula IN con strings
+	 */
+	public static function junta_attributos_escapados ($atributos)
+	{
+		$sql = '';
+		foreach ($atributos as $att)
+			$sql.= "'".$att."',";
+		return substr($sql, 0, -1);
+			
+	}
 }

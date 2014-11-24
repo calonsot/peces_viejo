@@ -6,7 +6,6 @@
  * The followings are the available columns in table 'filtros':
  * @property integer $id
  * @property string $sesion
- * @property string $ip
  * @property string $buscador_nombre_comun
  * @property string $buscador_nombre_cientifico
  * @property string $buscador_grupo
@@ -42,11 +41,17 @@ class Filtros extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('sesion, ip', 'required'),
-			array('sesion, ip, buscador_nombre_comun, buscador_nombre_cientifico, buscador_grupo, buscador_golfo, buscador_pacifico', 'length', 'max'=>45),
+			array('sesion', 'required'),
+			array('sesion, buscador_nombre_comun, buscador_nombre_cientifico, buscador_grupo, buscador_estado_conservacion, 
+					buscador_selectiva, buscador_no_selectiva, buscador_pacifico, buscador_golfo, buscador_caribe, 
+					buscador_importado, buscador_objetiva, buscador_incidental, buscador_deportiva, buscador_fomento, 
+					buscador_cultivada', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, sesion, ip, buscador_nombre_comun, buscador_nombre_cientifico, buscador_grupo, buscador_golfo, buscador_pacifico, fecha_uso', 'safe', 'on'=>'search'),
+			array('id, sesion, buscador_nombre_comun, buscador_nombre_cientifico, buscador_grupo, buscador_estado_conservacion, 
+					buscador_selectiva, buscador_no_selectiva, buscador_pacifico, buscador_golfo, buscador_caribe, 
+					buscador_importado, buscador_objetiva, buscador_incidental, buscador_deportiva, buscador_fomento, 
+					buscador_cultivada, fecha_uso', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,7 +84,6 @@ class Filtros extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'sesion' => 'Sesion',
-			'ip' => 'Ip',
 			'buscador_nombre_comun' => 'Buscador Nombre Comun',
 			'buscador_nombre_cientifico' => 'Buscador Nombre Cientifico',
 			'buscador_grupo' => 'Buscador Grupo',
@@ -102,7 +106,6 @@ class Filtros extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('sesion',$this->sesion,true);
-		$criteria->compare('ip',$this->ip,true);
 		$criteria->compare('buscador_nombre_comun',$this->buscador_nombre_comun,true);
 		$criteria->compare('buscador_nombre_cientifico',$this->buscador_nombre_cientifico,true);
 		$criteria->compare('buscador_grupo',$this->buscador_grupo,true);
