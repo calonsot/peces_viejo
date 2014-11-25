@@ -112,8 +112,12 @@ if (!isset($vacio))
 	<?php foreach ($peces as $k => $pez) {
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
+<<<<<<< HEAD
+		//echo "ID: ".utf8_decode($pez["especie_id"])."<br>";
+=======
 		//echo "ID: ".$pezobj->especie_id."<br>";		
 		echo "<table style='width:1000px;background:#C2BDA0;'>";
+>>>>>>> upstream/master
 		
 		
 		//Parte de los datos principales
@@ -130,10 +134,37 @@ if (!isset($vacio))
 			echo $pezobj->nombre_cientifico;				
 		echo "</td>";
 		
+<<<<<<< HEAD
+		echo "<tr><td colspan='2' align='center'>";
+		if(!empty($pez["tipo_imagen"]) & utf8_decode($pez["tipo_imagen"])=="2"){
+				//echo "<b>Imagen: </b>".utf8_decode($pez["imagen"])."<br>";
+				echo '<img width="800" height="400" alt="Peces" src="../../imagenes/siluetas/'.utf8_decode($pez["imagen"]).'"></img>';
+		}
+		if(!empty($pez["tipo_imagen"]) & utf8_decode($pez["tipo_imagen"])=="1"){
+			//echo "<b>Imagen: </b>".utf8_decode($pez["imagen"])."<br>";
+			echo '<img width="800" height="400" alt="Peces" src="../../imagenes/peces/'.utf8_decode($pez["imagen"]).'"></img>';
+		}
+		echo "</td></tr>";
+		//echo "<tr><td colspan='2' align='center'>";
+		//echo '<img width="547" height="301" alt="Peces" src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPeces.png"></img>';
+		//echo "</td></tr>";
+		
+		echo "<tr>";
+		if(!empty($pez["nombre_ingles"])){
+			echo "<td>";
+				echo "<b>Nombre en Inglés: </b>".utf8_decode($pez["nombre_ingles"])."<br>";
+			echo "</td>";
+		}
+		if(!empty($pez["nombre_cientifico"])){
+			echo "<td>";
+				echo "<b>Nombre Científico: </b>".utf8_decode($pez["nombre_cientifico"])."<br>";
+			echo "</td>";
+=======
 		
 		//Parte del grupo
 		if (!empty($pezobj->grupo->nombre)) {
 			echo "<td width=\"500px\">Grupo ".utf8_decode($pezobj->grupo->nombre)."</td>";
+>>>>>>> upstream/master
 		}
 		echo "</tr>";
 		
