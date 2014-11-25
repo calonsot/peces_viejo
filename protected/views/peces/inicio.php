@@ -1,3 +1,14 @@
+<style>
+.faltantes {display: none;}
+</style>
+<script>
+$(document).ready(function(){
+	$("#despliega_estado_conservacion").click(function() {
+		$('.faltantes').toggle();
+	});
+});
+</script>
+
 <table width="870" border="0" align="center" cellpadding="8"
 	cellspacing="0">
 	<tr>
@@ -336,8 +347,9 @@
 						</p>
 					</td>
 				</tr>
+				<?php $contador = 0; ?>
 				<?php foreach (PezEstadoConservacion::nom_cites_iucn() as $res) { ?>
-				<tr>
+				<tr class="<?php echo $contador > 10 ? "faltantes" : "sobrantes"; ?>">
 					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
 							<span class="txt_reforesta"><?php echo $res["nombre"]; ?> </span>
 						</p>
@@ -356,8 +368,13 @@
 						</p>
 					</td>
 				</tr>
-				<?php } ?>
+				<?php
+					$contador++; 
+					} 
+					?>
 			</table>
+			<strong><?php echo CHtml::link('Ver todos', NULL, array("id"=>"despliega_estado_conservacion", "style" => "color:#584B05;")); ?></strong>
+			
 			<p class="txt_reforesta">
 				<strong class="Utexconceptos">Vedas</strong><br> Con el fin de
 				optimizar el aprovechamiento de la pesca desde un punto de vista
@@ -572,36 +589,36 @@
           * Recuerda que cuando compras un producto del mar lo que  t&uacute; elijas y compres en los mercados y supermercados tiene un efecto directo  positivo o negativo en la biodiversidad marina. <strong>&ldquo;Conoci&eacute;ndolos  saben mejor&rdquo;</strong>
           <p>&nbsp;
           </p>
-		  <p><?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgMeroCriollo.png", "Mero de Caribe", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/12'); ?>
+		  <p><?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgMeroCriollo.png", "Mero de Caribe", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=405'); ?>
 				<br>
 				Mero del Caribe<br> <em class="datospagprin">(Epinephelus striatus)</em><br>
 				<br> <br>
-					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgTiburonAletaCarton.png", "Tiburon aleta de carton", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/43'); ?>
+					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgTiburonAletaCarton.png", "Tiburon aleta de carton", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=75'); ?>
 					<br> Tibur&oacute;n aleta de cart&oacute;n<br>
 				<em class="datospagprin">Carcharhinus plumbeus<br> <br> <br>
 				</em>
-					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgSierraGolfina.png", "sierra del golfo de cortes", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/79'); ?>
+					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgSierraGolfina.png", "sierra del golfo de cortes", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=343'); ?>
 					<br> Sierra del Golfo de Cort&eacute;s<br> <em
 					class="datospagprin">Scomberomorus concolor</em><br> <br> <br> <em>
-				<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgCornuda.png", "Cornuda", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/83'); ?>
+				<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgCornuda.png", "Cornuda", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=442'); ?>
 				</em><br> Cornuda<br> <em class="datospagprin">Sphyrna zygaena</em><br>
 				<br> <br> <em>
-					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgatun.png", "Atun aleta amarilla", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/36'); ?>
+					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgatun.png", "Atun aleta amarilla", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=328'); ?>
 				</em><br> At&uacute;n aleta amarilla<br> <em class="datospagprin">Thunnus
 					albacares</em><br> <br> <br>
-					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgTiburonToro.png", "Tiburon toro", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/5'); ?>
+					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgTiburonToro.png", "Tiburon toro", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=71'); ?>
 					<br>
 				Tibur&oacute;n toro<br> <em class="datospagprin">Carcharhinus leucas</em><br>
 				<br> <br> 
-					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgRhinoptera.png", "Tecolote", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/76'); ?>
+					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgRhinoptera.png", "Tecolote", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=246'); ?>
 					<br> Tecolote<br> <em class="datospagprin">Rhinoptera
 					steindachneri</em><br> <br> <br>
-					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgSierraPacifico.png", "Sierra del pacifico", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/80'); ?>
+					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgSierraPacifico.png", "Sierra del pacifico", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=345'); ?>
 					<br>
 				Sierra del Pac&iacute;fico<br> <em class="datospagprin">Scomberomorus
 					sierra<br> <br>
 				</em>
-					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgMeroE_Morio.png", "Mero", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/11'); ?>
+					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgMeroE_Morio.png", "Mero", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=404'); ?>
 					<br> Mero<br> <em class="datospagprin">Epinephelus
 					morio</em><em class="datospagprin"><br> <br> </em></p>
 		  <hr>

@@ -110,7 +110,7 @@ class EstadoConservacion extends CActiveRecord
 		{
 			$nom = array();
 			$nom['id'] = $r['id'];
-			$nom['nombre'] = utf8_decode($r['nombre']);
+			$nom['nombre'] = $r['nombre'];
 			$nom['grupo'] = 'NOM';
 			array_push($options, $nom);
 		}
@@ -119,7 +119,7 @@ class EstadoConservacion extends CActiveRecord
 		{
 			$iucn = array();
 			$iucn['id'] = $r['id'];
-			$iucn['nombre'] = utf8_decode($r['nombre']);
+			$iucn['nombre'] = $r['nombre'];
 			$iucn['grupo'] = 'IUCN';
 			array_push($options, $iucn);
 		}
@@ -128,7 +128,7 @@ class EstadoConservacion extends CActiveRecord
 		{
 			$cites = array();
 			$cites['id'] = $r['id'];
-			$cites['nombre'] = utf8_decode($r['nombre']);
+			$cites['nombre'] = $r['nombre'];
 			$cites['grupo'] = 'CITES';
 			array_push($options, $cites);
 		}
