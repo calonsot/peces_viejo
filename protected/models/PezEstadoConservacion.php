@@ -91,4 +91,31 @@ class PezEstadoConservacion extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	/**
+	 * Regresa todos los peces que tengan NOM, IUCN o CITES
+	 */
+	public static function nom_cites_iucn()
+	{
+		$peces = array();
+		$resultados=Yii::app()->db->createCommand("SELECT peces_especie_id FROM pez_estado_conservacion GROUP BY peces_especie_id ORDER BY peces_especie_id ASC")->queryAll();
+		foreach ($resultados as $res)
+		{
+			$pez_array = array();
+			$pez = Peces::model()->findByPk($res["peces_especie_id"]);
+			if (!empty($pez->nombre_comun))
+				$pez_array["nombre"] = $pez->nombre_comun." <i>(".$pez->nombre_cientifico.")</i>";
+			else
+				$pez_array["nombre"] = "<i>".$pez->nombre_cientifico."</i>";
+			
+			foreach ($pez->estadoConservacions as $rel)
+			{
+				$rel->Nivel1 == 3 ? $pez_array["NOM"] = $rel->nombre : $pez_array["NOM"] = "";
+				$rel->Nivel1 == 2 ? $pez_array["CITES"] = $rel->nombre : $pez_array["CITES"] = "";
+				$rel->Nivel1 == 1 ? $pez_array["IUCN"] = $rel->nombre : $pez_array["IUCN"] = "";
+			}
+			array_push($peces, $pez_array);
+		}
+		return $peces;
+	}
 }

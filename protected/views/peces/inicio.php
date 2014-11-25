@@ -5,77 +5,46 @@
 				<strong><span class="txt_cont_menusup">Los peces </span>
 				</strong>constituyen un poco m&aacute;s de la mitad de todos los
 				vertebrados del mundo. Se han registrado alrededor de 30,000
-				especies de peces, que incluyen tiburones, rayas y quimeras, peces
-				&oacute;seos y lampreas. En M&eacute;xico se conocen cerca de 2,250
-				especies marinas y 500 dulceacu&iacute;colas lo que equivale el 9.8%
-				del total de los peces en el mundo.
+				especies, que incluyen tiburones, rayas, quimeras, peces
+				&oacute;seos y lampreas. M&eacute;xico tiene cerca de 2,250
+				peces marinos y 500 dulceacu&iacute;colas.
 			</p>
 			<p class="txt_reforesta">
-				En el Pac&iacute;fico mexicano se conocen <strong>1,121 </strong>especies
-				y el Golfo de California es la zona con mayor diversidad. De estas,
-				alrededor de <strong>238</strong> especies son aprovechadas
-				comercialmente.
+				El Pac&iacute;fico mexicano se conocen cerca de <strong>1,120 </strong>especies,
+				el 20% son aprovechadas comercialmente, y el Golfo de California tiene la mayor
+				diversidad de especies.
 			</p>
 			<p class="txt_reforesta">
-				En el Golfo de M&eacute;xico y Mar Caribe se conocen <strong>2,057</strong>
-				especies y el Golfo de M&eacute;xico es el que tiene el mayor
-				n&uacute;mero de especies, de las que se aprovechan <strong>233</strong>
-				especies. De todas las especies marinas de peces que hay en
-				M&eacute;xico, el 17% (<strong>551</strong> especies) son
-				aprovechadas de manera comercial.
-			</p>
+				En el Golfo de México y Caribe mexicano se conocen cerca de <strong>2,057 </strong> 
+				especies de estas el 11% son aprovechadas  y el Golfo de México tiene el mayor número.
+			</p>			
 			<p class="txt_reforesta">
-				La mayor parte de las especies capturadas (475 especies) son <a
-					href="http://www.biodiversidad.gob.mx/especies/gran_familia/animales/peces/peces.html"
-					style="color: #323D2C"><strong>peces &oacute;seos</strong>
-				</a> (Osteictio), seguidos por <a
-					href="http://www.biodiversidad.gob.mx/especies/gran_familia/animales/tiburones_rayas/tiburones_rayas.html"
-					style="color: #323D2C"><strong>tiburones y rayas</strong>
-				</a> (76 especies) o peces cartilaginosos (Condrictios).
+				De las 32 entidades federativas que hay en el país, 17 de ellas tienen apertura al mar, 
+				11 en el Pacífico y 6 en el Golfo de México y mar Caribe. De estos estados costeros 
+				se extraen cerca de  1.2 millones de toneladas de peces anualmente. El 80% de la captura 
+				proviene del Pacífico, principalmente el Golfo de California.
 			</p>
-			<p class="txt_reforesta">De ambos litorales se extrae alrededor de
-				1.5 millones de toneladas de peces anualmente. Cerca del 85% de esta
-				captura se lleva a cabo en el Pac&iacute;fico y Golfo de California,
-				el resto en el Golfo de M&eacute;xico y Mar Caribe.</p>
-			<p class="txt_reforesta">
-				<strong><br> <span class="Utexconceptos">Tendencias</span>
-				</strong>
-			</p>
-			<p align="center" class="txt_reforesta">
-				<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/graficaPeces.png" width="580" height="345"><br> <span
-					class="datospagprin"><strong>Relaci&oacute;n de pesca total contra
-						la cantidad de embarcaciones de hace 20 a&ntilde;os</strong>
-				</span><span class="txt_reforesta"><br clear="ALL"> </span><span
-					class="datospagprin"
-					data-mce-style="font-size: 11.0pt; line-height: 115%; font-family: 'Calibri','sans-serif';">Anuario
-					Estad&iacute;stico de Acuacultura y Pesca 2011</span>
-			</p>
-			<p class="txt_reforesta">
-				<br> <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12">
-				Estados pesqueros en M&eacute;xico junto con sus vol&uacute;menes de
-				pesca (peso vivo en toneladas) del 2011. <span class="datospagprin">(Conapesca,
-					Sagarpa. Anuario Estad&iacute;stico de Acuacultura y Pesca 2011).</span>
-			</p>
+									
 			<table width="580" border="0" align="center" cellpadding="3"
 				cellspacing="1">
 				<tr>
 					<td width="145" align="center" nowrap bgcolor="#E3E1CE"><span
-						class="txt_reforesta"><strong>Pac&iacute;fico&nbsp;&nbsp; </strong>
+						class="txt_reforesta"><strong>Pac&iacute;fico mexicano</strong>
 					</span>
 					</td>
 					<td width="128" align="center" nowrap bgcolor="#E3E1CE"><span
-						class="txt_reforesta">&nbsp;<strong>Toneladas<br> en peso vivo
+						class="txt_reforesta">&nbsp;<strong>Toneladas<br> de peso desembarcado
 						</strong>
 					</span>
 					</td>
 					<td width="148" align="center" nowrap bgcolor="#E3E1CE"><span
-						class="txt_reforesta"><strong>Golfo de M&eacute;xico <br> y Mar
+						class="txt_reforesta"><strong>Golfo de M&eacute;xico y<br> Mar
 								Caribe
 						</strong>
 					</span>
 					</td>
 					<td width="130" align="center" nowrap bgcolor="#E3E1CE"><span
-						class="txt_reforesta">&nbsp;<strong>Toneladas <br> en peso vivo
+						class="txt_reforesta">&nbsp;<strong>Toneladas <br> de peso desembarcado
 						</strong>
 					</span>
 					</td>
@@ -85,13 +54,13 @@
 						class="txt_reforesta">Sonora</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">610,706 </span>
+						class="txt_reforesta">487,047 </span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
 						class="txt_reforesta">Veracruz</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">79,268 </span>
+						class="txt_reforesta">42,650 </span>
 					</td>
 				</tr>
 				<tr>
@@ -99,13 +68,13 @@
 						class="txt_reforesta">Sinaloa</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">337,864 </span>
+						class="txt_reforesta">236,687 </span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">Campeche</span>
+						class="txt_reforesta">Tamaulipas</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">43,226 </span>
+						class="txt_reforesta">26,078 </span>
 					</td>
 				</tr>
 				<tr>
@@ -113,13 +82,13 @@
 						class="txt_reforesta">Baja California Sur </span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">151,186 </span>
+						class="txt_reforesta">114,561 </span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">Tamaulipas</span>
+						class="txt_reforesta">Campeche</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">38,902 </span>
+						class="txt_reforesta">24,791 </span>
 					</td>
 				</tr>
 				<tr>
@@ -127,41 +96,13 @@
 						class="txt_reforesta">Baja California &nbsp;</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">135,619 </span>
+						class="txt_reforesta">87,050 </span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
 						class="txt_reforesta">Tabasco</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">37,998 </span>
-					</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">Nayarit</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">37,869 </span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">Yucat&aacute;n</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">34,965 </span>
-					</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">Colima </span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">32,487 </span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">Quintana Roo</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">4,828 </span>
+						class="txt_reforesta">21,821 </span>
 					</td>
 				</tr>
 				<tr>
@@ -169,17 +110,35 @@
 						class="txt_reforesta">Chiapas</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">29,873 </span>
+						class="txt_reforesta">31,106 </span>
 					</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+					<td align="center" nowrap bgcolor="#EBE9DB"><span
+						class="txt_reforesta">Yucat&aacute;n</span>
+					</td>
+					<td align="center" nowrap bgcolor="#EBE9DB"><span
+						class="txt_reforesta">17,599 </span>
+					</td>
 				</tr>
 				<tr>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">Jalisco</span>
+						class="txt_reforesta">Colima </span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">14,454 </span>
+						class="txt_reforesta">29,524 </span>
+					</td>
+					<td align="center" nowrap bgcolor="#EBE9DB"><span
+						class="txt_reforesta">Quintana Roo</span>
+					</td>
+					<td align="center" nowrap bgcolor="#EBE9DB"><span
+						class="txt_reforesta">2,511 </span>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" nowrap bgcolor="#EBE9DB"><span
+						class="txt_reforesta">Nayarit</span>
+					</td>
+					<td align="center" nowrap bgcolor="#EBE9DB"><span
+						class="txt_reforesta">23,093 </span>
 					</td>
 					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
 					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
@@ -189,17 +148,17 @@
 						class="txt_reforesta">Michoac&aacute;n</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">10,833 </span>
+						class="txt_reforesta">15,434 </span>
 					</td>
 					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
 					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
 				</tr>
 				<tr>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">Oaxaca</span>
+						class="txt_reforesta">Jalisco</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">10,148 </span>
+						class="txt_reforesta">9,351 </span>
 					</td>
 					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
 					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
@@ -209,7 +168,17 @@
 						class="txt_reforesta">Guerrero</span>
 					</td>
 					<td align="center" nowrap bgcolor="#EBE9DB"><span
-						class="txt_reforesta">8,954 </span>
+						class="txt_reforesta">7,635 </span>
+					</td>
+					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+				</tr>
+				<tr>
+					<td align="center" nowrap bgcolor="#EBE9DB"><span
+						class="txt_reforesta">Oaxaca</span>
+					</td>
+					<td align="center" nowrap bgcolor="#EBE9DB"><span
+						class="txt_reforesta">5,902 </span>
 					</td>
 					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
 					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
@@ -220,14 +189,14 @@
 					</span>
 					</td>
 					<td align="center" nowrap bgcolor="#E3E1CE"><span
-						class="txt_reforesta">1,379,993 </span>
+						class="txt_reforesta">1,047,398 </span>
 					</td>
 					<td align="center" nowrap bgcolor="#E3E1CE"><span
 						class="txt_reforesta">&nbsp;&nbsp;<strong>Total</strong>
 					</span>
 					</td>
 					<td align="center" nowrap bgcolor="#E3E1CE"><span
-						class="txt_reforesta">239,187 </span>
+						class="txt_reforesta">135,454 </span>
 					</td>
 				</tr>
 				<tr>
@@ -235,18 +204,62 @@
 				</tr>
 			</table>
 			<p class="txt_reforesta">
-				<br> <strong class="Utexconceptos">Sustentabilidad pesquera</strong>
-				<br> A pesar de que pareciera que el mar que es una fuente de
-				alimento inagotable, en los &uacute;ltimos 20 a&ntilde;os se ha
-				provocado la sobreexplotaci&oacute;n de las poblaciones de peces.
-				Adem&aacute;s de la sobreexplotaci&oacute;n de las especies
-				&ldquo;objetivo&rdquo; tambi&eacute;n contribuye a este deterioro la
-				captura incidental de especies &ldquo;no objetivo&rdquo; o sin valor
-				comercial (tortugas, delfines y aves), llevando poco a poco a un
-				deterioro ambiental especialmente en las zonas costeras.
+				<br> <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12">
+				Estados pesqueros en M&eacute;xico junto con sus vol&uacute;menes de
+				pesca (peso vivo en toneladas) del 2011. <span class="datospagprin">(Conapesca,
+					Sagarpa. Anuario Estad&iacute;stico de Acuacultura y Pesca 2011).</span>
 			</p>
-			<p class="txt_reforesta">Actualmente en M&eacute;xico las poblaciones
-				de las cerca de 500 especies de peces comerciales se encuentran:</p>
+			
+			<p class="txt_reforesta">
+				<br> <strong class="Utexconceptos">Estado de conservaci&oacute;n</strong>
+				<br> La actividad pesquera en el pa&iacute;s comenz&oacute; su auge en los a&ntilde;os 40, y en un principio la explotaci&oacute;n 
+				pesquera ten&iacute;a como objetivo el extraer los mayores vol&uacute;menes posibles de peces sin considerar la 
+				capacidad de renovaci&oacute;n de las especies, lo que result&oacute; en que muchas de las poblaciones de estos 
+				peces empezaran a tener una sobreexplotaci&oacute;n. Bajo este escenario se crea La Carta Nacional Pesquera (CNP) 
+				y publicada en el Diario de la Federaci&oacute;n el 18 de agosto del a&ntilde;o 2000. 
+			</p>
+			
+			<p class="txt_reforesta">
+				<strong class="Utexconceptos">Carta Nacional Pesquera (CNP)</strong>
+				<br> Es el &uacute;nico documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos 
+				marinos comerciales en M&eacute;xico, adem&aacute;s plantea restricciones y limites en algunas pesquer&iacute;as.<br>
+				En base a estudios cient&iacute;ficos la carta agrupa en tres categor&iacute;as a los grupos de peces explotados:
+				<br><br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> En deterioro:</strong> El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminuci&oacute;n 
+					notable en la biomasa y una capacidad reducida de reclutamiento.<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> M&aacute;ximo aprovechamiento permisible:</strong> El nivel de utilizaci&oacute;n de las poblaciones de peces se considera &oacute;ptimo y 
+					no es posible aumentar la captura sin sobreexplotaci&oacute;n.<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Con potencial de desarrollo:</strong> Existe la posibilidad de aumentar las capturas de las poblaciones de peces, 
+					incrementando el esfuerzo pesquero, siempre y cuando se realice de manera precautoria y controlada.<br><br>
+				
+				De acuerdo a los sitios de pesca de cada especie, la carta nacional ha regionalizado los sitios de acuerdo a zonas y n&uacute;meros:
+				<strong>Pac&iacute;fico</strong><br> 
+				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Zona 1:</strong> Pen&iacute;nsula de Baja California (Costa del Pac&iacute;fico de Baja California y Baja California Norte
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Zona 2:</strong> Golfo de California (Baja California, Baja California Sur, Sonora, Sinaloa, Nayarit)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Zona 3:</strong> Pac&iacute;fico centro-sur (Jalisco, Colima, Michoac&aacute;n, Guerrero, Oaxaca, Chiapas)
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Zona 4:</strong> Archipi&eacute;lago de las Islas Revillagigedo.
+
+				<br><br><strong>Golfo de M&eacute;xico y Caribe</strong><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Zona 1:</strong> Tamaulipas y Veracruz
+				<br><strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Zona 2:</strong> Tabasco, Campeche y Yucat&aacute;n
+				<br><strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Zona 3:</strong> Quintana Roo				
+			</p>
+			
+			<p class="txt_reforesta">
+				<br> <strong class="Utexconceptos">Sustentabilidad pesquera</strong>
+				<br> Diversos estudios e investigadores indican que las poblaciones de cerca de 500 especies de peces comerciales 
+				actualmente se encuentran en las siguientes condiciones:
+			</p>
 			<table width="595" border="0" cellpadding="1" cellspacing="1">
 				<tr>
 					<td width="17" bgcolor="#E3E1CE"><span class="txt_reforesta"><img
@@ -278,291 +291,98 @@
 					</td>
 				</tr>
 			</table>
+						
 			<p class="txt_reforesta">
-				<br> <strong class="Utexconceptos">Especies en riesgo</strong><br>
-				En la <a
+				<strong class="Utexconceptos">Peces comerciales en riesgo</strong><br>
+				Adem&aacute;s de La Carta Nacional Pesquera y sus regulaciones, existen otros convenios y normas de car&aacute;cter 
+				nacional e internacional, estas regulan y protegen a especies en riesgo. Entre ellas est&aacute;n:<br><br>    
+				<strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> La Norma Mexicana de Especies en Riesgo</strong> (<a
 					href="http://www.biodiversidad.gob.mx/especies/catRiesMexico.html"
-					target="_blank" style="color: #323D2C">Norma Mexicana de Especies
-					en Riesgo</a> (NOM-059-SEMARNAT-2010)(), no se incluye ninguna
-				especie comercial de pez. Sin embargo, la <a
-					href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html"
-					target="_blank" style="color: #323D2C">Lista Roja</a> de la
-				Uni&oacute;n Internacional para la Conservaci&oacute;n de la
-				Naturaleza (UICN) incluye a 15 peces comerciales de M&eacute;xico.
-			</p>
-			<p class="txt_reforesta">
-				<strong>Lista de especies de peces mexicanos incluidos en la Lista
-					Roja</strong> de la Uni&oacute;n Internacional para la
-				Conservaci&oacute;n de la Naturaleza.
+					target="_blank" style="color: #323D2C">NOM-059-SEMARNAT-2010</a> ), y contiene dentro de sus
+					categorias a <strong>4</strong> peces de importancia comercial.<br>
+					<strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> La Convenci&oacute;n Internacional sobre el Comercio de Especies Amenazadas de Fauna y Flora</strong> 
+					(<a href="http://www.biodiversidad.gob.mx/planeta/cites/index.html"
+					target="_blank" style="color: #323D2C">CITES</a>) incluye <strong>5</strong> especies de peces de
+					importancia comercial.<br>
+					<strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> La lista roja de la Uni&oacute;n Internacional para la Conservaci&oacute;n de la Naturaleza</strong> 
+					(<a href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html"
+					target="_blank" style="color: #323D2C">IUCN</a>),
+					 tiene a <strong>64</strong> especies de peces en las categor&iacute;as de mayor riesgo. 
 			</p>
 			<table width="580" border="0" align="center" cellpadding="3"
 				cellspacing="1">
 				<tr>
-					<td width="187" bgcolor="#E3E1CE"><p>
-							<span class="txt_reforesta"><strong>Nombre</strong>
+					<td max-width="200" bgcolor="#E3E1CE"><p>
+							<span class="txt_reforesta"><strong>Especie</strong>
 							</span>
 						</p>
 					</td>
-					<td width="208" bgcolor="#E3E1CE"><p>
-							<span class="txt_reforesta"><strong>Nombre cient&iacute;fico</strong>
+					<td max-width="100" bgcolor="#E3E1CE"><p>
+							<span class="txt_reforesta"><strong>NOM-059 <br>SEMARNAT 2010</strong>
 							</span>
 						</p>
 					</td>
-					<td width="163" bgcolor="#E3E1CE"><p>
-							<span class="txt_reforesta"><strong>Categor&iacute;a (UICN)</strong>
+					<td max-width="100" bgcolor="#E3E1CE"><p>
+							<span class="txt_reforesta"><strong>CITES</strong>
+							</span>
+						</p>
+					</td>
+					<td max-width="100" bgcolor="#E3E1CE"><p>
+							<span class="txt_reforesta"><strong>IUCN</strong>
 							</span>
 						</p>
 					</td>
 				</tr>
+				<?php foreach (PezEstadoConservacion::nom_cites_iucn() as $res) { ?>
 				<tr>
 					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Mero negro </span>
+							<span class="txt_reforesta"><?php echo $res["nombre"]; ?> </span>
 						</p>
 					</td>
 					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Hyporthudus nigritus</em>
+							<span class="txt_reforesta"><em><?php echo $res["NOM"]; ?></em>
 							</span>
 						</p>
 					</td>
 					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">En peligro cr&iacute;tico (CR)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Mero del Caribe</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Epinephelus striatus</em>
-							</span>
+							<span class="txt_reforesta"><?php echo $res["CITES"]; ?></span>
 						</p>
 					</td>
 					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">En peligro (EN)</span>
+							<span class="txt_reforesta"><?php echo $res["IUCN"]; ?></span>
 						</p>
 					</td>
 				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Extraviado</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Hyporthodus flavolimbatus</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Vulnerable (VU)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Pargo criollo</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Lutjanus analis</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Vulnerable (VU)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Tibur&oacute;n aleta de cart&oacute;n</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Carcharhinus plumbeus</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Vulnerable (VU)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Corvina golfina</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Cynoscion othonopterus</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Vulnerable (VU)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Tibur&oacute;n mako</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Isurus oxyrinchus</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Vulnerable (VU)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Sierra del Golfo de Cort&eacute;s</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Scomberomorus concolor</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Vulnerable (VU)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Cornuda</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Sphyrna zygaena</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Vulnerable (VU)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">At&uacute;n aleta amarilla</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Thunnus albacares</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Casi amenazada (NT)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Caz&oacute;n canguay</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Carcharhinus acronotus</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Casi amenazada (NT)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Mero</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Epinephelus morio</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Casi amenazada (NT)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Tibur&oacute;n toro</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Carcharhinus leucas</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Casi amenazada (NT)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Tecolote</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Rhinoptera steindachneri</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Casi amenazada (NT)</span>
-						</p>
-					</td>
-				</tr>
-				<tr>
-					<td width="187" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Tibur&oacute;n martillo</span>
-						</p>
-					</td>
-					<td width="208" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta"><em>Sphyrna corona</em>
-							</span>
-						</p>
-					</td>
-					<td width="163" valign="bottom" nowrap bgcolor="#EBE9DB"><p>
-							<span class="txt_reforesta">Casi amenazada (NT)</span>
-						</p>
-					</td>
-				</tr>
+				<?php } ?>
 			</table>
 			<p class="txt_reforesta">
 				<strong class="Utexconceptos">Vedas</strong><br> Con el fin de
 				optimizar el aprovechamiento de la pesca desde un punto de vista
 				biol&oacute;gico y socioecon&oacute;mico, la Comisi&oacute;n
-				Nacional de Acuacultura y Pesca (CONAPESCA) ha establecido vedas
-				para la captura de especies en condiciones de deterioro y de esta
-				forma protegerlas durante periodos cr&iacute;ticos de
-				reproducci&oacute;n o crecimiento. De las cerca de <strong>551</strong>
-				especies de peces marinos que son aprovechas en M&eacute;xico, 97
-				especies tienen alg&uacute;n tipo de veda.
+				Nacional de Acuacultura y Pesca (CONAPESCA) ha establecido regulaciones
+				y actos administrativos para proteger a las especies comerciales.<br>
+				Las vedas consisten en prohibiciones de pesca durante periodos de
+				tiempo o sitios espec&iacute;ficos mediante acuerdos o normas oficiales, estas 
+				tienen la finalidad de proteger a una o varias especies durante los periodos 
+				de reproducci&oacute;n o crianza.<br><br>
+				
+				<strong>Tipos de veda en M&eacute;xico:</strong><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Veda permanente:</strong> La especie no puede ser explotada en ningún momento del a&ntilde;o de forma indefinida.<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Veda temporal fija:</strong> Se establece en un periodo definido y se repite anualmente.<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					height="6"> Veda temporal variable:</strong> Se establece por un periodo definido pero es actualizada anualmente.<br>
 			</p>
+			
 			<p class="txt_reforesta">
-				Se han decretado vedas indefinidas para especies con muy bajas
-				poblaciones como la totoaba (<em>Cynoscion magdonaldi</em>), algunas
-				especies de mantarrayas (<em>Manta birostris, Mobula japonica y
-					Mobula lucasana</em>), y picudos o marlines (<em>Makaira spp,
-					Kajikia spp, Tetrapturus angustirostris, Xiphias gladius y
-					Istiophorus platypterus</em>).
-			</p>
-			<p class="txt_reforesta">
-				<strong class="Utexconceptos">Artes de pesca</strong><br> Los
-				distintos m&eacute;todos de pesca, se conocen como &ldquo;artes de
-				pesca&rdquo; y se clasifican en cuatro tipos:
+				<strong class="Utexconceptos">Artes de pesca</strong><br> 
+				Las artes de pesca son los diferentes métodos de captura o técnicas con las que los peces son atrapados.  
+				Existen 4 tipos principales de arte y de cada uno de ellos tienen variables y combinaciones diferentes:
+				
 			</p>
 			<p class="txt_reforesta">
 				<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
@@ -592,12 +412,11 @@
 				trampa langostera, casitas cubanas, trampa para bacalao, trampa para
 				pulpo.
 			</p>
-			<p class="txt_reforesta">Algunas artes de pesca pueden tener un
-				fuerte impacto sobre la biodiversidad marina, por lo que es
-				determinante que el consumidor conozca la informaci&oacute;n sobre
-				el tipo de arte que es utilizado, si es selectiva con el ambiente y
-				selectiva con las especies extra&iacute;das, si no lo es, o si tiene
-				una alta tasa de captura incidental.</p>
+			
+			<p class="txt_reforesta"><strong class="Utexconceptos">Tipos de artes de pesca</strong><br> 
+			Algunas de las artes de pesca tienen un fuerte impacto sobre la biodiversidad marina 
+			y su ambiente y otras no lo tienen, por lo que es determinante que el consumidor conozca la informaci&oacute;n sobre 
+			el tipo de arte que es utilizado por especie, para esto se han separado las artes de pesca en dos grupos:</p>
 			<p class="txt_reforesta">
 				<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesAmigable.png" width="17" height="17"><strong>
 					Selectiva</strong> &nbsp;<br> Algunos tipos de artes de
@@ -612,13 +431,32 @@
 				palangre para at&uacute;n: Golfo de M&eacute;xico y Caribe.
 			</p>
 			<p class="txt_reforesta">
-				<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesNoAmigable.png" width="17" height="17"> <strong>No selectiva</strong> <br> Algunos tipos de artes de
+				<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesNoAmigable.png" width="17" height="17"> 
+				<strong>No selectiva</strong> <br> 
+				Se capturan diferentes especies y tama&ntilde;os que no son el objetivo. Puede afectar delfines, tortugas y 
+				aves, da&ntilde;ar el ambiente y destruir los ecosistemas marinos.<br> 
+				Algunos tipos de artes de
 				pesca de alto impacto para el ambiente son el chinchorro playero,
 				red de enmalle para tiburones y rayas en embarcaciones menores, red
 				agallera para escama pel&aacute;gica, red agallera para escama de
 				fondo, red agallera para esteros y l&iacute;nea de costa, palangre
 				para embalses, palangre escama de esteros, palangre para especies de
 				fondo, palangre para tibur&oacute;n oce&aacute;nico y pez espada.
+			</p>
+			
+			<p class="txt_reforesta"> 
+				<strong class="Utexconceptos">Pesca Ribere&ntilde;a y de altura</strong> <br> 
+				En el país la pesca en sus litorales se divide en dos grandes grupos:<br><br> 
+				<strong>Pesca ribereña</strong> 
+				Se lleva a cabo en ecosistemas costeros, no se realiza m&aacute;s all&aacute; de los 100 metros de profundidad y 
+				generalmente est&aacute; ligada a comunidades de pescadores que usan embarcaciones peque&ntilde;as y medianas como 
+				pangas, lanchas, etc. Representa el 30 % del volumen de pesca a nivel nacional y el 98% de las especies 
+				comerciales capturadas.<br><br> 
+
+				<strong>Pesca de altura o industrial</strong> 
+				 Se realiza principalmente en alta mar por lo que usan barcos grandes. Su principal objetivo es la captura del 
+				 at&uacute;n, anchoveta y sardina, es decir el 2% de las especies comerciales; sin embargo es la m&aacute;s importante de las 
+				 pesquer&iacute;as con el 70% del volumen de pesca. 
 			</p>
 			<hr>
 			<p>&nbsp;</p>
