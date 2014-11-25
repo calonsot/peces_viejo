@@ -2,11 +2,10 @@
 
 header('Content-Type: text/html; charset=ISO-8859-1');
 //Se calcula el número de líneas que tiene tal archivo para iterar
-system("mysql -h localhost -u root -proot usos < protected/data/filtros.sql");
-system("mysql -h localhost -u root -proot usos < protected/data/tabla_grupos.sql");
 system("mysql -h localhost -u root -proot usos < protected/data/carta_nacional.sql");
 system("mysql -h localhost -u root -proot usos < protected/data/distribucion.sql");
 system("mysql -h localhost -u root -proot usos < protected/data/edo_cons.sql");
+system("mysql -h localhost -u root -proot usos < protected/data/grupo.sql");
 system("mysql -h localhost -u root -proot usos < protected/data/tipo_capturas.sql");
 system("mysql -h localhost -u root -proot usos < protected/data/tipo_veda.sql");
 //echo utf8_decode($db->get_id('carta_nacional', 'Nombre','id=1'));
@@ -37,7 +36,6 @@ for($i=2;$i<=$n;$i++){
 	//Da formato al id tipo_veda
 	$formato_veda = strip_tags($veda);
 	
-	echo "Formato grupo: ".$formato_grupo."<br>";
 	echo "Formato veda: ".$formato_veda."<br>";
 	//Se extraen los campos que requiere la tabla peces para ser creados y realiza un append en el archivo especificado
 	if($i==$n)
@@ -57,23 +55,21 @@ system("echo \"INSERT INTO pez_distribucion(peces_especie_id,distribucion_id) VA
 system("echo \"INSERT INTO pez_tipo_capturas(peces_especie_id,tipo_capturas_id) VALUES \" > protected/data/tabla_pez_tipo_capturas.sql");
 system("echo \"INSERT INTO pez_estado_conservacion(peces_especie_id,estado_conservacion_id) VALUES \" > protected/data/tabla_pez_estado_conservacion.sql");
 system("echo \"INSERT INTO pez_carta_nacional(peces_especie_id,carta_nacional_id) VALUES \" > protected/data/tabla_pez_carta_nacional.sql");
-echo "El valor de n es: ".$n."<br>";
 for($i=2;$i<=$n;$i++){
-	//Inicia inserción para tablas multirelaciona 	les
+	//Inicia inserción para tablas multirelacionales
 	//Se extrae campo nombre_comun de la línea especificada
 	$cad = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print ""$3"" }\' protected/data/BD_PECES_NORMAL_V2.csv';
 	//Se extrae el id del nombre_comun de la tabla peces
 	//echo "La cadena es: ".$cad."<br>";
-	//$id_pez = utf8_decode($db->get_id('peces', 'especie_id','nombre_cientifico="'.system($cad).'"'));
+	$id_pez = utf8_decode($db->get_id('peces', 'especie_id','nombre_cientifico="'.system($cad).'"'));
 	//Imprime dicho id
 	//$id_pez = strip_tags($id_pez);
 	$id_pez = $i-1;
 	//if($i - $id_pez >= -1)
 		//$id_pez --;
-	echo "El valor de i es: ".$i."<br>";
-	echo "El id es: ".$id_pez."<br>";
-	if($id_pez == $n)
-		$id_pez -= 1;
+	//echo "El valor de i es: ".$i."<br>";
+	//echo "El id es: ".$id_pez."<br>";
+
 	
 //									SE LLENA TABLA: PEZ_DISTRIBUCION
 //-----------------------------------------------------------------------------------------------------------//
