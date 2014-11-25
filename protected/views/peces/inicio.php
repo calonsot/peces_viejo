@@ -273,22 +273,19 @@ $(document).ready(function(){
 			</p>
 			<table width="595" border="0" cellpadding="1" cellspacing="1">
 				<tr>
-					<td width="17" bgcolor="#E3E1CE"><span class="txt_reforesta"><img
-							src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesSobreexplota.png" width="17" height="17">
+					<td width="17" bgcolor="#E3E1CE"><span class="txt_reforesta">
 					</span>
 					</td>
 					<td width="157" bgcolor="#E3E1CE"><span class="txt_reforesta">sobreexplotadas:
 							20% </span>
 					</td>
-					<td width="18" bgcolor="#E3E1CE"><span class="txt_reforesta"><img
-							src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesAprovecha.png" width="17" height="17">
+					<td width="18" bgcolor="#E3E1CE"><span class="txt_reforesta">
 					</span>
 					</td>
 					<td width="229" bgcolor="#E3E1CE"><span class="txt_reforesta"> en
 							aprovechamiento m&aacute;ximo: 70% </span>
 					</td>
-					<td width="18" bgcolor="#E3E1CE"><span class="txt_reforesta"><img
-							src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesDesarrollo.png" width="17" height="17">
+					<td width="18" bgcolor="#E3E1CE"><span class="txt_reforesta">
 					</span>
 					</td>
 					<td width="137" bgcolor="#E3E1CE"><span class="txt_reforesta">en
