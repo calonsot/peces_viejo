@@ -3,6 +3,7 @@
 	<table width="320" border="0" align="center" cellpadding="8"
 		cellspacing="1">
 		<tr>
+			<input type="hidden" name="json" id="json" value="0">
 			<td colspan="2" bgcolor="#C2BDA0" class="txt_reforesta"><div
 					align="center" class="intro_vecinosVerdes">
 					<strong>Peces marinos comerciales</strong>
@@ -103,6 +104,7 @@
 					Cultivada
 			</span></td>
 		</tr>
+			
 	</table>
 </form>
 
