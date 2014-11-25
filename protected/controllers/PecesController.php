@@ -218,10 +218,26 @@ class PecesController extends Controller
 			$resultados=Yii::app()->db->createCommand($select." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
 		}
 
-		if (count($resultados) > 0)
-			$this->render('resultado',array('peces' => $resultados));
-		else
+		if (count($resultados) > 0){
+			if(isset($params['json']) && !empty($params['json']) && $params['json']==1){
+				header('Content-type: application/json');
+
+				$data = array();
+				
+				foreach($resultados as $k){
+					$json = array();
+					$pez = Peces::model()->findByPk($k["especie_id"]);
+					$json["peces"] = $pez;
+					$json["grupo"] = $pez->grupo;
+					array_push($data, $json);
+				}
+				echo CJSON::encode($data);
+			}else
+				$this->render('resultado',array('peces' => $resultados));
+		}
+		else{
 			$this->render('resultado',array('vacio' => '<b>Tu búsqueda no dió ningún resultado</b>'));
+		}
 	}
 
 	/**
@@ -304,3 +320,5 @@ class PecesController extends Controller
 		}
 	}
 }
+
+

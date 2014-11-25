@@ -20,7 +20,7 @@ for($i=2;$i<=$n;$i++){
 	echo $i."<br>";
 	$cad = 'awk \'BEGIN { FS = "|"}; NR == '.$i.' {print ""$11"" }\' protected/data/BD_PECES_NORMAL_V2.csv';
 	//Se extrae el id del nombre del grupo
-	$grupo = $db->get_id('grupo', 'id','nombre="'.system($cad).'"');
+	$grupo = $db->get_id('grupo', 'id','nombre="'.trim(system($cad)).'"');
 	//Si no existe grupo, por default asigna id: 0
 	if(!$grupo)
 		$grupo = "NULL";

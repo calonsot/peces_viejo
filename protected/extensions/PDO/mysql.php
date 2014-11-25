@@ -2,7 +2,7 @@
 class mysql
 {
 	public $db;
-	private $dbname = 'mydb';
+	private $dbname = 'usos';
 	private $host = 'localhost';
 	private $username = 'root';
 	private $password = 'root';
