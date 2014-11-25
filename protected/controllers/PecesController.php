@@ -173,34 +173,38 @@ class PecesController extends Controller
 		$params = $_GET;
 		$select = 'SELECT * FROM peces p ';
 
-		if (isset($params['nombre_comun']) && !empty($params['nombre_comun']))
-			$condiciones.="nombre_comun LIKE '%".$params['nombre_comun']."%' AND ";
-		
-		if (isset($params['nombre_cientifico']) && !empty($params['nombre_cientifico']))
-			$condiciones.="nombre_cientifico LIKE '%".$params['nombre_cientifico']."%' AND ";
-		
-		if (isset($params['grupo']) && !empty($params['grupo']))
-			$condiciones.="grupo_id = ".$params['grupo']." AND ";
-		
-		if (isset($params['tipo_captura']) && count($params['tipo_captura']) > 0)
-			$condiciones.= "tipo_captura IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
-		
-		if (isset($params['estado_conservacion']) && !empty($params['estado_conservacion']))
-		{
-			$joins.= PezEstadoConservacion::join();
-			$condiciones.="pec.estado_conservacion_id = ".$params['estado_conservacion']." AND ";
-		}
-		
-		if (isset($params['distribucion']) && count($params['distribucion']) > 0)
-		{
-			$joins.= PezDistribucion::join();
-			$condiciones.= "pd.distribucion_id IN (".implode(',', $params['distribucion']).") AND ";
-		}
-		
-		if (isset($params['captura']) && count($params['captura']) > 0)
-		{
-			$joins.= PezTipoCapturas::join();
-			$condiciones.= "ptc.tipo_capturas_id IN (".implode(',', $params['captura']).") AND ";
+		if(isset($params['especie_id']) && !empty($params['especie_id'])){
+			$condiciones="especie_id = ".$params['especie_id']." AND ";
+		}else{
+			if (isset($params['nombre_comun']) && !empty($params['nombre_comun']))
+				$condiciones.="nombre_comun LIKE '%".$params['nombre_comun']."%' AND ";
+			
+			if (isset($params['nombre_cientifico']) && !empty($params['nombre_cientifico']))
+				$condiciones.="nombre_cientifico LIKE '%".$params['nombre_cientifico']."%' AND ";
+			
+			if (isset($params['grupo']) && !empty($params['grupo']))
+				$condiciones.="grupo_id = ".$params['grupo']." AND ";
+			
+			if (isset($params['tipo_captura']) && count($params['tipo_captura']) > 0)
+				$condiciones.= "tipo_captura IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
+			
+			if (isset($params['estado_conservacion']) && !empty($params['estado_conservacion']))
+			{
+				$joins.= PezEstadoConservacion::join();
+				$condiciones.="pec.estado_conservacion_id = ".$params['estado_conservacion']." AND ";
+			}
+			
+			if (isset($params['distribucion']) && count($params['distribucion']) > 0)
+			{
+				$joins.= PezDistribucion::join();
+				$condiciones.= "pd.distribucion_id IN (".implode(',', $params['distribucion']).") AND ";
+			}
+			
+			if (isset($params['captura']) && count($params['captura']) > 0)
+			{
+				$joins.= PezTipoCapturas::join();
+				$condiciones.= "ptc.tipo_capturas_id IN (".implode(',', $params['captura']).") AND ";
+			}			
 		}
 		
 		//decide cual tipo de busqueda es
