@@ -159,12 +159,12 @@ if (!isset($vacio))
 			array_push($distribuciones, utf8_decode($j->Nombre));
 		if (!empty($estados_conservacion))
 			if(!empty($distribuciones))
-				echo "<tr><td width=\"500px\">".implode(', ', $estados_conservacion)."</td><td width=\"500px\">Distribuci&oacute;n en ".implode(', ', $distribuciones)."</td></tr>";
+				echo "<tr><td width=\"500px\">".implode(', ', $estados_conservacion)."</td><td width=\"500px\">Distribuci&oacute;n en: ".implode(', ', $distribuciones)."</td></tr>";
 			else
 				echo "<tr><td>".implode(', ', $estados_conservacion)."</td></tr>";
 		else { //Distribucion
 			
-			echo "<tr><td>Distribuci&oacute;n en ".implode(', ', $distribuciones)."</td></tr>";
+			echo "<tr><td>Distribuci&oacute;n en: ".implode(', ', $distribuciones)."</td></tr>";
 		}
 		
 		echo "</table>"; // Termina primera tabla
