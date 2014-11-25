@@ -2,7 +2,7 @@
 class mysql
 {
 	public $db;
-	private $dbname = 'mydb';
+	private $dbname = 'usos';
 	private $host = 'localhost';
 	private $username = 'root';
 	private $password = 'root';
@@ -77,10 +77,10 @@ class mysql
 		$query = $this->db->query($sql);
 		
 		if ($query){
-			//echo "----- ENTRO AL QUERY-----<br>";
+			echo "----- ENTRO AL QUERY-----<br>";
 			foreach ($query->fetchAll(PDO::FETCH_OBJ) as $k => $field)
 			{
-				//echo "field-campo: ".$field->$campo."<br>";
+				echo "field-campo: ".$field->$campo."<br>";
 				return '<p>'.$field->$campo.'</p>';
 			}
 		}
