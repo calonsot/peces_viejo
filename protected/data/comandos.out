@@ -6,3 +6,6 @@ mysql -h localhost -u calonso -p usos < insert_peces.sql
 
 para extraer de la base
 mysqldump -h localhost -u calonso -pRP#86.lq usos > usos_17_07_2014.sql
+
+para extraer las tablas necesarias de peces
+mysqldump -h localhost -u root -p usos carta_nacional distribucion estado_conservacion filtros grupo peces pez_carta_nacional pez_distribucion pez_estado_conservacion pez_tipo_capturas tipo_capturas tipo_veda > respaldo_usos.sql
