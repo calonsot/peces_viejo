@@ -229,6 +229,11 @@ class PecesController extends Controller
 					$pez = Peces::model()->findByPk($k["especie_id"]);
 					$json["peces"] = $pez;
 					$json["grupo"] = $pez->grupo;
+					$json["tipo_veda"] = $pez->tipoVeda;
+					$json["carta_nacional"] = $pez->cartaNacionals;
+					$json["distribucion"] = $pez->distribucions;
+					$json["estado_conservacion"] = $pez->estadoConservacions;
+					$json["tipo_captura"] = $pez->tipoCapturases;
 					array_push($data, $json);
 				}
 				echo CJSON::encode($data);
