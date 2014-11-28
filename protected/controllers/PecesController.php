@@ -172,10 +172,13 @@ class PecesController extends Controller
 		$joins='';
 		$params = $_GET;
 		$select = 'SELECT * FROM peces p ';
-
+		$flag_ficha = false;
+		
 		if(isset($params['especie_id']) && !empty($params['especie_id'])){
+			$flag_ficha = true;
 			$condiciones="especie_id = ".$params['especie_id']." AND ";
 		}else{
+			$flag_ficha = false;
 			if (isset($params['nombre_comun']) && !empty($params['nombre_comun']))
 				$condiciones.="nombre_comun LIKE '%".$params['nombre_comun']."%' AND ";
 			
@@ -220,13 +223,14 @@ class PecesController extends Controller
 
 		if (count($resultados) > 0){
 			if(isset($params['json']) && !empty($params['json']) && $params['json']==1){
-				header('Content-type: application/json');
+				header('Content-type: application/json; charset=UTF-8');
 
 				$data = array();
 				
 				foreach($resultados as $k){
 					$json = array();
 					$pez = Peces::model()->findByPk($k["especie_id"]);
+					$pez->imagen = "http://".gethostname()."/peces/imagenes/peces/".$pez->imagen;
 					$json["peces"] = $pez;
 					$json["grupo"] = $pez->grupo;
 					$json["tipo_veda"] = $pez->tipoVeda;
@@ -234,9 +238,13 @@ class PecesController extends Controller
 					$json["distribucion"] = $pez->distribucions;
 					$json["estado_conservacion"] = $pez->estadoConservacions;
 					$json["tipo_captura"] = $pez->tipoCapturases;
-					array_push($data, $json);
+					if(!$flag_ficha)
+						array_push($data, $json);
+					else 
+						echo CJSON::encode($json,JSON_UNESCAPED_UNICODE);
 				}
-				echo CJSON::encode($data);
+				if(!$flag_ficha)
+					echo CJSON::encode($data,JSON_UNESCAPED_UNICODE);
 			}else
 				$this->render('resultado',array('peces' => $resultados));
 		}
