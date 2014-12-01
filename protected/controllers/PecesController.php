@@ -172,10 +172,13 @@ class PecesController extends Controller
 		$joins='';
 		$params = $_GET;
 		$select = 'SELECT * FROM peces p ';
-
+		$flag_ficha = false;
+		
 		if(isset($params['especie_id']) && !empty($params['especie_id'])){
+			$flag_ficha = true;
 			$condiciones="especie_id = ".$params['especie_id']." AND ";
 		}else{
+			$flag_ficha = false;
 			if (isset($params['nombre_comun']) && !empty($params['nombre_comun']))
 				$condiciones.="nombre_comun LIKE '%".$params['nombre_comun']."%' AND ";
 			
@@ -220,18 +223,58 @@ class PecesController extends Controller
 
 		if (count($resultados) > 0){
 			if(isset($params['json']) && !empty($params['json']) && $params['json']==1){
-				header('Content-type: application/json');
+				header('Content-type: application/json; charset=UTF-8');
 
 				$data = array();
+				$arr_obj = array();
 				
 				foreach($resultados as $k){
 					$json = array();
 					$pez = Peces::model()->findByPk($k["especie_id"]);
-					$json["peces"] = $pez;
-					$json["grupo"] = $pez->grupo;
-					array_push($data, $json);
+					$pez->imagen = "http://".gethostname()."/peces/imagenes/peces/".$pez->imagen;
+					$json["peces"] = $pez->attributes;
+					$json["grupo"] = !empty($pez->grupo)?$pez->grupo->attributes:array();
+					$json["tipo_veda"] = !empty($pez->tipoVeda)?$pez->tipoVeda->attributes:array();
+					if($pez->cartaNacionals){
+						$aux = array();
+						foreach ($pez->cartaNacionals as $k){
+							array_push($aux, $k->attributes);
+						}
+						$json["carta_nacional"] = $aux; 
+					} 
+					if($pez->distribucions){
+						$aux = array();
+						foreach ($pez->distribucions as $k){
+							array_push($aux, $k->attributes);
+						}
+						$json["distribucion"] = $aux;
+					}
+					
+					if($pez->estadoConservacions){
+						$aux = array();
+						foreach ($pez->estadoConservacions as $k){
+							array_push($aux, $k->attributes);
+						}
+						$json["estado_conservacion"] = $aux;
+					}
+					
+					if($pez->tipoCapturases){
+						$aux = array();
+						foreach ($pez->tipoCapturases as $k){
+							array_push($aux, $k->attributes);
+						}
+						$json["tipo_captura"] = $aux;
+					}
+					if(!$flag_ficha)
+						array_push($data, $json);
+					else{
+						echo json_encode($json,JSON_UNESCAPED_UNICODE);
+					}
 				}
-				echo CJSON::encode($data);
+				if(!$flag_ficha){
+					echo json_encode($data,JSON_UNESCAPED_UNICODE);
+					
+				}
 			}else
 				$this->render('resultado',array('peces' => $resultados));
 		}
