@@ -226,25 +226,55 @@ class PecesController extends Controller
 				header('Content-type: application/json; charset=UTF-8');
 
 				$data = array();
+				$arr_obj = array();
 				
 				foreach($resultados as $k){
 					$json = array();
 					$pez = Peces::model()->findByPk($k["especie_id"]);
 					$pez->imagen = "http://".gethostname()."/peces/imagenes/peces/".$pez->imagen;
-					$json["peces"] = $pez;
-					$json["grupo"] = $pez->grupo;
-					$json["tipo_veda"] = $pez->tipoVeda;
-					$json["carta_nacional"] = $pez->cartaNacionals;
-					$json["distribucion"] = $pez->distribucions;
-					$json["estado_conservacion"] = $pez->estadoConservacions;
-					$json["tipo_captura"] = $pez->tipoCapturases;
+					$json["peces"] = $pez->attributes;
+					$json["grupo"] = !empty($pez->grupo)?$pez->grupo->attributes:array();
+					$json["tipo_veda"] = !empty($pez->tipoVeda)?$pez->tipoVeda->attributes:array();
+					if($pez->cartaNacionals){
+						$aux = array();
+						foreach ($pez->cartaNacionals as $k){
+							array_push($aux, $k->attributes);
+						}
+						$json["carta_nacional"] = $aux; 
+					} 
+					if($pez->distribucions){
+						$aux = array();
+						foreach ($pez->distribucions as $k){
+							array_push($aux, $k->attributes);
+						}
+						$json["distribucion"] = $aux;
+					}
+					
+					if($pez->estadoConservacions){
+						$aux = array();
+						foreach ($pez->estadoConservacions as $k){
+							array_push($aux, $k->attributes);
+						}
+						$json["estado_conservacion"] = $aux;
+					}
+					
+					if($pez->tipoCapturases){
+						$aux = array();
+						foreach ($pez->tipoCapturases as $k){
+							array_push($aux, $k->attributes);
+						}
+						$json["tipo_captura"] = $aux;
+					}
 					if(!$flag_ficha)
 						array_push($data, $json);
-					else 
-						echo CJSON::encode($json,JSON_UNESCAPED_UNICODE);
+					else{
+						echo json_encode($json,JSON_UNESCAPED_UNICODE);
+					}
 				}
-				if(!$flag_ficha)
-					echo CJSON::encode($data,JSON_UNESCAPED_UNICODE);
+				if(!$flag_ficha){
+					echo json_encode($data,JSON_UNESCAPED_UNICODE);
+					
+				}
 			}else
 				$this->render('resultado',array('peces' => $resultados));
 		}
