@@ -122,6 +122,7 @@ class PecesController extends Controller
 	 */
 	public function actionIndex()
 	{
+		
 		$dataProvider=new CActiveDataProvider('Peces', array(
 				'criteria' => array ('order'=>'nombre_comun ASC'),
 		));
@@ -129,6 +130,11 @@ class PecesController extends Controller
 		$this->render('index',array(
 				'dataProvider'=>$dataProvider,
 		));
+		/*
+		$dataProvider=new CActiveDataProvider('Peces');
+		$this->render('index',array(
+				'dataProvider'=>$dataProvider,
+		));*/
 	}
 
 	/**
@@ -213,12 +219,19 @@ class PecesController extends Controller
 		//decide cual tipo de busqueda es
 		if (!empty($joins)){
 			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+			
 		}
 		elseif (!empty($condiciones)){
 			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
 		}
 		else{ //para ver todos los peces
-			$resultados=Yii::app()->db->createCommand($select." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+			//$resultados=Yii::app()->db->createCommand($select." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+			$resultados=new CActiveDataProvider('Peces', array(
+				'criteria' => array ('order'=>'nombre_comun ASC', 'with'=>array('grupo','cartaNacionals'=>array('condition'=>'cartaNacionals.id=0')), 'condition'=>'grupo_id=1'),
+			));
+			
+			//$resultados = Peces::model()->findAllBySql($select." ORDER BY tipo_imagen, nombre_cientifico ASC");
+			
 		}
 
 		if (count($resultados) > 0){
@@ -279,7 +292,7 @@ class PecesController extends Controller
 				$this->render('resultado',array('peces' => $resultados));
 		}
 		else{
-			$this->render('resultado',array('vacio' => '<b>Tu búsqueda no dió ningún resultado</b>'));
+			$this->render('resultado',array('vacio' => '<b>Tu b��squeda no di�� ning��n resultado</b>'));
 		}
 	}
 

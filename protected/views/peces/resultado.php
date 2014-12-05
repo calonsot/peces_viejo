@@ -1,13 +1,26 @@
 <?php
 /* @var $this PecesController */
 /* @var $model Peces */
-if (!isset($vacio))
-{
-	echo "<span style=\"color:#323D2C;\"><b>Mostrando ".count($peces)." resultados</b></span>";
+//header('Content-type: application/json; charset=UTF-8');
+//header('Content-Type: text/html; charset=ISO-8859-1');
+//if (!isset($vacio))
+//{
+	//echo "<span style=\"color:#323D2C;\"><b>Mostrando ".count($peces)." resultados</b></span>";
 ?>
 
 <div class="view">
-	<?php foreach ($peces as $k => $pez) {
+
+
+	<?php 
+		/*echo '<pre>';
+		print_r($peces);
+		echo '</pre>';*/
+		$this->widget('zii.widgets.CListView', array(
+				'dataProvider'=>$peces,
+				'itemView'=>'_view',
+		));
+	
+		/*foreach ($peces as $k => $pez) {
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
 		//echo "ID: ".$pezobj->especie_id."<br>";		
@@ -95,7 +108,7 @@ if (!isset($vacio))
 		if (!empty($pezobj->veda))
 		{
 			if (!empty($pezobj->tipoVeda->Nombre))
-				echo "<tr><td width=\"500px\">Veda: ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."</td><td width=\"500px\">Tipo de veda: ".($pezobj->tipoVeda->Nombre)."</td></tr>";
+				e$pezobj cho "<tr><td width=\"500px\">Veda: ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."</td><td width=\"500px\">Tipo de veda: ".($pezobj->tipoVeda->Nombre)."</td></tr>";
 			else
 				echo "<tr><td>Veda: ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."</td></tr>";
 		} elseif (!empty($pezobj->tipoVeda->Nombre)) //Tipo de veda
@@ -122,13 +135,13 @@ if (!isset($vacio))
 		$cartas_nacionales = '';
 		foreach($pezobj->cartaNacionals as $j){
 			if($j->Nivel1==1)
-				$cartas_nacionales.= "<li>Pacífico zona 1: ".($j->Nombre)."</li>";
+				$cartas_nacionales.= "<li>Pac��fico zona 1: ".($j->Nombre)."</li>";
 			
 			if($j->Nivel1==2)
-				$cartas_nacionales.= "<li>Pacífico zona 2: ".($j->Nombre)."</li>";
+				$cartas_nacionales.= "<li>Pac��fico zona 2: ".($j->Nombre)."</li>";
 			
 			if($j->Nivel1==3)
-				$cartas_nacionales.= "<li>Pacífico zona 3: ".($j->Nombre)."</li>";
+				$cartas_nacionales.= "<li>Pac��fico zona 3: ".($j->Nombre)."</li>";
 			
 			if($j->Nivel1==4)
 				$cartas_nacionales.= "<li>Golfo Mex y Caribe zona 1: ".($j->Nombre)."</li>";
@@ -145,12 +158,12 @@ if (!isset($vacio))
 		
 		
 		echo "</table>";
-		?>
+		*/?>
 	<br/>
-	<?php } ?>
+	<?php //} ?>
 </div>
 
 <?php 	
-	} else
-	echo $vacio;
+	//} else
+	//echo $vacio;
 ?>
