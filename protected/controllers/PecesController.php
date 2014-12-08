@@ -1,5 +1,4 @@
 <?php
-
 class PecesController extends Controller
 {
 	/**
@@ -7,7 +6,6 @@ class PecesController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-
 	/**
 	 * @return array action filters
 	 */
@@ -18,7 +16,6 @@ class PecesController extends Controller
 				'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
-
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
@@ -44,7 +41,6 @@ class PecesController extends Controller
 				),
 		);
 	}
-
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -55,7 +51,6 @@ class PecesController extends Controller
 				'model'=>$this->loadModel($id),
 		));
 	}
-
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -63,22 +58,18 @@ class PecesController extends Controller
 	public function actionCreate()
 	{
 		$model=new Peces;
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Peces']))
 		{
 			$model->attributes=$_POST['Peces'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
 		$this->render('create',array(
 				'model'=>$model,
 		));
 	}
-
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -87,22 +78,18 @@ class PecesController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Peces']))
 		{
 			$model->attributes=$_POST['Peces'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
 		$this->render('update',array(
 				'model'=>$model,
 		));
 	}
-
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
@@ -111,12 +98,10 @@ class PecesController extends Controller
 	public function actionDelete($id)
 	{
 		$this->loadModel($id)->delete();
-
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
-
 	/**
 	 * Lists all models.
 	 */
@@ -126,7 +111,6 @@ class PecesController extends Controller
 		$dataProvider=new CActiveDataProvider('Peces', array(
 				'criteria' => array ('order'=>'nombre_comun ASC'),
 		));
-
 		$this->render('index',array(
 				'dataProvider'=>$dataProvider,
 		));
@@ -136,7 +120,6 @@ class PecesController extends Controller
 				'dataProvider'=>$dataProvider,
 		));*/
 	}
-
 	/**
 	 * La Introduccion de peces
 	 */
@@ -144,7 +127,6 @@ class PecesController extends Controller
 	{
 		$this->render('inicio');
 	}
-
 	/**
 	 * Manages all models.
 	 */
@@ -154,12 +136,10 @@ class PecesController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Peces']))
 			$model->attributes=$_GET['Peces'];
-
 		$this->render('admin',array(
 				'model'=>$model,
 		));
 	}
-
 	public function actionMigracion(){
 		Yii::import('ext.PDO.*');
 		$this->layout=false;
@@ -167,12 +147,12 @@ class PecesController extends Controller
 		$this->render('migracion',array(
 				'db'=>$db));
 	}
-
 	/**
 	 * Resulatdo de las busquedas
 	 */
 	public function actionResultado()
 	{
+		$page = (isset($_GET['page']) ? $_GET['page'] : 1);
 		$condiciones='';
 		$union='';
 		$joins='';
@@ -225,19 +205,29 @@ class PecesController extends Controller
 			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
 		}
 		else{ //para ver todos los peces
-			//$resultados=Yii::app()->db->createCommand($select." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
-			$resultados=new CActiveDataProvider('Peces', array(
-				'criteria' => array ('order'=>'nombre_comun ASC', 'with'=>array('grupo','cartaNacionals'=>array('condition'=>'cartaNacionals.id=0')), 'condition'=>'grupo_id=1'),
+			
+			$resultados=Yii::app()->db->createCommand($select." ORDER BY tipo_imagen, nombre_cientifico ASC LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+			$pages = new CPagination($count[0]["count"]);
+			//echo Yii::app()->params['listPerPage']."<br>";
+			$pages->setPageSize(50);
+			$this->render('resultado',array(
+					'resultados'=>$resultados,
+					'count'=>$count[0]["count"],
+					'page_size'=>50,
+					'pages'=>$pages,
 			));
+			//print_r($count);
+			//$resultados=new CActiveDataProvider('Peces', array(
+				//'criteria' => array ('order'=>'nombre_comun ASC', 'with'=>array('grupo','cartaNacionals'=>array('condition'=>'carta_nacional_id=7')), 'condition'=>'grupo_id=1'),
+			//));
 			
 			//$resultados = Peces::model()->findAllBySql($select." ORDER BY tipo_imagen, nombre_cientifico ASC");
 			
 		}
-
 		if (count($resultados) > 0){
 			if(isset($params['json']) && !empty($params['json']) && $params['json']==1){
 				header('Content-type: application/json; charset=UTF-8');
-
 				$data = array();
 				$arr_obj = array();
 				
@@ -288,14 +278,13 @@ class PecesController extends Controller
 					echo json_encode($data,JSON_UNESCAPED_UNICODE);
 					
 				}
-			}else
-				$this->render('resultado',array('peces' => $resultados));
+			}//else
+				//$this->render('resultado',array('peces' => $resultados));
 		}
 		else{
 			$this->render('resultado',array('vacio' => '<b>Tu b��squeda no di�� ning��n resultado</b>'));
 		}
 	}
-
 	/**
 	 * Guarda o lee los filtros
 	 */
@@ -304,7 +293,6 @@ class PecesController extends Controller
 		$params = $_POST;
 		$sesion = Yii::app()->getSession()->getSessionId();
 		$filtro=Filtros::model()->findByAttributes(array('sesion'=>$sesion));
-
 		if (isset($params['accion']) && $params['accion'] == "guarda")
 		{
 			if (count($filtro) == 1)
@@ -321,7 +309,6 @@ class PecesController extends Controller
 		} else
 			return NULL;
 	}
-
 	/**
 	 * Asigna los campos a los filtros indicados
 	 */
@@ -329,15 +316,12 @@ class PecesController extends Controller
 	{
 		unset($params['accion']);
 		$llaves = array_keys($params);
-
 		foreach ($llaves as $k => $llave)
 		{
 			$filtro->$llave = $params[$llave];
 		}
-
 		return $filtro;
 	}
-
 	/**
 	 * Borra el registro de los filtros
 	 */
@@ -347,7 +331,6 @@ class PecesController extends Controller
 		if (count($filtro) == 1)
 			$filtro->delete();
 	}
-
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -362,7 +345,6 @@ class PecesController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
-
 	/**
 	 * Performs the AJAX validation.
 	 * @param Peces $model the model to be validated
@@ -376,5 +358,3 @@ class PecesController extends Controller
 		}
 	}
 }
-
-

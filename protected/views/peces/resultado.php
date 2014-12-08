@@ -3,9 +3,9 @@
 /* @var $model Peces */
 //header('Content-type: application/json; charset=UTF-8');
 //header('Content-Type: text/html; charset=ISO-8859-1');
-//if (!isset($vacio))
-//{
-	//echo "<span style=\"color:#323D2C;\"><b>Mostrando ".count($peces)." resultados</b></span>";
+if (!isset($vacio))
+{
+	echo "<span style=\"color:#323D2C;\"><b>Mostrando ".count($resultados)." resultados</b></span>";
 ?>
 
 <div class="view">
@@ -15,12 +15,31 @@
 		/*echo '<pre>';
 		print_r($peces);
 		echo '</pre>';*/
-		$this->widget('zii.widgets.CListView', array(
-				'dataProvider'=>$peces,
-				'itemView'=>'_view',
+	
+		foreach($resultados as $q){} // loop to get data
+		
+		// the pagination widget with some options to mess
+		echo "currentPage: ".$pages->getCurrentPage()."<br>";
+		echo "itemCount: ".$count."<br>";
+		//print_r($count);
+		echo "pageSize: ".$page_size."<br>";
+		
+		$this->widget('CLinkPager', array(
+				'currentPage'=>$pages->getCurrentPage(),
+				'itemCount'=>$count,
+				'pageSize'=>$page_size,
+				'maxButtonCount'=>5,
+				//'nextPageLabel'=>'My text >',
+				'header'=>'',
+				'htmlOptions'=>array('class'=>'pager'),
 		));
 	
-		/*foreach ($peces as $k => $pez) {
+		/*$this->widget('zii.widgets.CListView', array(
+				'dataProvider'=>$peces,
+				'itemView'=>'_view',
+		));*/
+	
+		foreach ($resultados as $k => $pez) {
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
 		//echo "ID: ".$pezobj->especie_id."<br>";		
@@ -108,7 +127,7 @@
 		if (!empty($pezobj->veda))
 		{
 			if (!empty($pezobj->tipoVeda->Nombre))
-				e$pezobj cho "<tr><td width=\"500px\">Veda: ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."</td><td width=\"500px\">Tipo de veda: ".($pezobj->tipoVeda->Nombre)."</td></tr>";
+				echo "<tr><td width=\"500px\">Veda: ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."</td><td width=\"500px\">Tipo de veda: ".($pezobj->tipoVeda->Nombre)."</td></tr>";
 			else
 				echo "<tr><td>Veda: ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."</td></tr>";
 		} elseif (!empty($pezobj->tipoVeda->Nombre)) //Tipo de veda
@@ -158,12 +177,12 @@
 		
 		
 		echo "</table>";
-		*/?>
+		?>
 	<br/>
-	<?php //} ?>
+	<?php } ?>
 </div>
 
 <?php 	
-	//} else
-	//echo $vacio;
+	} else
+	echo $vacio;
 ?>
