@@ -198,11 +198,32 @@ class PecesController extends Controller
 		
 		//decide cual tipo de busqueda es
 		if (!empty($joins)){
-			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
-			
+			//$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ".$joins." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+			$pages = new CPagination($count[0]["count"]);
+			//echo Yii::app()->params['listPerPage']."<br>";
+			$pages->setPageSize(50);
+			$this->render('resultado',array(
+					'resultados'=>$resultados,
+					'count'=>$count[0]["count"],
+					'page_size'=>50,
+					'pages'=>$pages,
+			));
 		}
 		elseif (!empty($condiciones)){
-			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+			//$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+			$pages = new CPagination($count[0]["count"]);
+			//echo Yii::app()->params['listPerPage']."<br>";
+			$pages->setPageSize(50);
+			$this->render('resultado',array(
+					'resultados'=>$resultados,
+					'count'=>$count[0]["count"],
+					'page_size'=>50,
+					'pages'=>$pages,
+			));
 		}
 		else{ //para ver todos los peces
 			
