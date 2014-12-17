@@ -1,13 +1,41 @@
 <?php
 /* @var $this PecesController */
 /* @var $model Peces */
+//header('Content-type: application/json; charset=UTF-8');
+//header('Content-Type: text/html; charset=ISO-8859-1');
 if (!isset($vacio))
 {
-	echo "<span style=\"color:#323D2C;\"><b>Mostrando ".count($peces)." resultados</b></span>";
+	echo "<span style=\"color:#323D2C;\"><b>Mostrando ".count($resultados)." resultados</b></span>";
 ?>
 
 <div class="view">
-	<?php foreach ($peces as $k => $pez) {
+
+
+	<?php 
+		/*echo '<pre>';
+		print_r($peces);
+		echo '</pre>';*/
+	
+		foreach($resultados as $q){} // loop to get data
+		
+		// the pagination widget with some options to mess
+		//echo "currentPage: ".$pages->getCurrentPage()."<br>";
+		//echo "itemCount: ".$count."<br>";
+		//print_r($count);
+		//echo "pageSize: ".$page_size."<br>";
+		echo "<div style='margin-left:650px;'>";
+		$this->widget('CLinkPager', array(
+				'currentPage'=>$pages->getCurrentPage(),
+				'itemCount'=>$count,
+				'pageSize'=>$page_size,
+				'maxButtonCount'=>5,
+				///'nextPageLabel'=>'My text >',
+				'header'=>'',
+				'htmlOptions'=>array('class'=>'yiiPager'),
+		));
+		echo "</div><br><br>";
+		
+		foreach ($resultados as $k => $pez) {
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
 		//echo "ID: ".$pezobj->especie_id."<br>";		
@@ -117,18 +145,17 @@ if (!isset($vacio))
 		if (!empty($pezobj->generalidades))
 			echo "<tr><td>Generalidades: ".($pezobj->generalidades)."</td></tr>";
 		
-		
 		//Carta nacional
 		$cartas_nacionales = '';
 		foreach($pezobj->cartaNacionals as $j){
 			if($j->Nivel1==1)
-				$cartas_nacionales.= "<li>Pacífico zona 1: ".($j->Nombre)."</li>";
+				$cartas_nacionales.= "<li>Pac&iacute;fico zona 1: ".($j->Nombre)."</li>";
 			
 			if($j->Nivel1==2)
-				$cartas_nacionales.= "<li>Pacífico zona 2: ".($j->Nombre)."</li>";
+				$cartas_nacionales.= "<li>Pac&iacute;fico zona 2: ".($j->Nombre)."</li>";
 			
 			if($j->Nivel1==3)
-				$cartas_nacionales.= "<li>Pacífico zona 3: ".($j->Nombre)."</li>";
+				$cartas_nacionales.= "<li>Pac&iacute;fico zona 3: ".($j->Nombre)."</li>";
 			
 			if($j->Nivel1==4)
 				$cartas_nacionales.= "<li>Golfo Mex y Caribe zona 1: ".($j->Nombre)."</li>";
@@ -143,11 +170,21 @@ if (!isset($vacio))
 		if (!empty($cartas_nacionales))
 			echo "<tr><td><br>Carta Nacional Pesquera (2012): ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"carta_nacional"))."<ul style=\"font: Arial,Helvetica,sans-serif;color:black;font-size:16px;\">".$cartas_nacionales."</ul></td></tr>";
 		
-		
 		echo "</table>";
 		?>
 	<br/>
-	<?php } ?>
+	<?php } 
+	echo "<div style='margin-left:650px;'>";
+		$this->widget('CLinkPager', array(
+				'currentPage'=>$pages->getCurrentPage(),
+				'itemCount'=>$count,
+				'pageSize'=>$page_size,
+				'maxButtonCount'=>5,
+				///'nextPageLabel'=>'My text >',
+				'header'=>'',
+				'htmlOptions'=>array('class'=>'yiiPager'),
+		));
+		echo "</div>";?>
 </div>
 
 <?php 	
