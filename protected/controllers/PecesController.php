@@ -225,7 +225,11 @@ class PecesController extends Controller
 				foreach($resultados as $k){
 					$json = array();
 					$pez = Peces::model()->findByPk($k["especie_id"]);
-					$pez->imagen = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/peces/'.$pez->imagen));
+					if ($pez->tipo_imagen == 1)
+						$pez->imagen = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/peces/'.$pez->imagen));
+					elseif ($pez->tipo_imagen == 2)
+						$pez->imagen = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/siluetas/'.$pez->imagen));
+
 					$json["peces"] = $pez->attributes;
 					$json["grupo"] = !empty($pez->grupo)?$pez->grupo->attributes:array();
 					$json["tipo_veda"] = !empty($pez->tipoVeda)?$pez->tipoVeda->attributes:array();
