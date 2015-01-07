@@ -198,54 +198,24 @@ class PecesController extends Controller
 		
 		//decide cual tipo de busqueda es
 		if (!empty($joins)){
-			//$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
 			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ".$joins." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
 			$pages = new CPagination($count[0]["count"]);
-			//echo Yii::app()->params['listPerPage']."<br>";
 			$pages->setPageSize(50);
-			$this->render('resultado',array(
-					'resultados'=>$resultados,
-					'count'=>$count[0]["count"],
-					'page_size'=>50,
-					'pages'=>$pages,
-			));
 		}
 		elseif (!empty($condiciones)){
-			//$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
 			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
 			$pages = new CPagination($count[0]["count"]);
-			//echo Yii::app()->params['listPerPage']."<br>";
 			$pages->setPageSize(50);
-			$this->render('resultado',array(
-					'resultados'=>$resultados,
-					'count'=>$count[0]["count"],
-					'page_size'=>50,
-					'pages'=>$pages,
-			));
 		}
-		else{ //para ver todos los peces
-			
+		else{ //para ver todos los peces			
 			$resultados=Yii::app()->db->createCommand($select." ORDER BY tipo_imagen, nombre_cientifico ASC LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
 			$pages = new CPagination($count[0]["count"]);
-			//echo Yii::app()->params['listPerPage']."<br>";
-			$pages->setPageSize(50);
-			$this->render('resultado',array(
-					'resultados'=>$resultados,
-					'count'=>$count[0]["count"],
-					'page_size'=>50,
-					'pages'=>$pages,
-			));
-			//print_r($count);
-			//$resultados=new CActiveDataProvider('Peces', array(
-				//'criteria' => array ('order'=>'nombre_comun ASC', 'with'=>array('grupo','cartaNacionals'=>array('condition'=>'carta_nacional_id=7')), 'condition'=>'grupo_id=1'),
-			//));
-			
-			//$resultados = Peces::model()->findAllBySql($select." ORDER BY tipo_imagen, nombre_cientifico ASC");
-			
+			$pages->setPageSize(50);			
 		}
+		
 		if (count($resultados) > 0){
 			if(isset($params['json']) && !empty($params['json']) && $params['json']==1){
 				header('Content-type: application/json; charset=UTF-8');
@@ -299,11 +269,16 @@ class PecesController extends Controller
 					echo json_encode($data,JSON_UNESCAPED_UNICODE);
 					
 				}
-			}//else
-				//$this->render('resultado',array('peces' => $resultados));
+			}else
+				$this->render('resultado',array(
+					'resultados'=>$resultados,
+					'count'=>$count[0]["count"],
+					'page_size'=>50,
+					'pages'=>$pages,
+				));
 		}
 		else{
-			$this->render('resultado',array('vacio' => '<b>Tu b��squeda no di�� ning��n resultado</b>'));
+			$this->render('resultado',array('vacio' => '<b>Tu b&uacute;squeda no di&oacute; ning&uacute;n resultado</b>'));
 		}
 	}
 	/**
