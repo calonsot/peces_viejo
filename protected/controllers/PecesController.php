@@ -225,7 +225,7 @@ class PecesController extends Controller
 				foreach($resultados as $k){
 					$json = array();
 					$pez = Peces::model()->findByPk($k["especie_id"]);
-					$pez->imagen = "http://".gethostname()."/peces/imagenes/peces/".$pez->imagen;
+					$pez->imagen = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/peces/'.$pez->imagen));
 					$json["peces"] = $pez->attributes;
 					$json["grupo"] = !empty($pez->grupo)?$pez->grupo->attributes:array();
 					$json["tipo_veda"] = !empty($pez->tipoVeda)?$pez->tipoVeda->attributes:array();
@@ -259,17 +259,16 @@ class PecesController extends Controller
 						}
 						$json["tipo_captura"] = $aux;
 					}
+					
 					if(!$flag_ficha)
 						array_push($data, $json);
-					else{
-						echo json_encode($json,JSON_UNESCAPED_UNICODE);
+					else {
+						echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($json));
 					}
 				}
-				if(!$flag_ficha){
-					echo json_encode($data,JSON_UNESCAPED_UNICODE);
-					
-				}
-			}else
+				if(!$flag_ficha)
+					echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($data));
+			} else
 				$this->render('resultado',array(
 					'resultados'=>$resultados,
 					'count'=>$count[0]["count"],
