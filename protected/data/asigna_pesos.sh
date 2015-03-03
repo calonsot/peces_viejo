@@ -8,6 +8,7 @@ do
 	peso4=0
 	peso5=0
 	peso6=0
+	peso7=0
 	nombre_cientifico=$(echo $linea | awk -F'|' {'print $3'})
 	recomendacion=$(echo $linea | awk -F'|' {'print $45'})
 	if [ "$recomendacion" = "1" ]; then
@@ -15,10 +16,11 @@ do
 		echo "Nacional_Importado: "$nacional_importado
 		case "$nacional_importado" in
 			"Nacional")   let peso=peso+0
+			              let peso7=peso7-1
 			    ;;
-			"Importado")  let peso=peso+8
+			"Importado")  let peso7=peso7+8
 			    ;;
-			"Nacional e importado")  let peso=peso+8
+			"Nacional e importado")  let peso7=peso7+8
 			    ;;
 			*) echo "No se reconocio el pez"
 			    ;;
@@ -183,7 +185,41 @@ do
 			    ;;
 		esac
 
-		echo "UPDATE peces SET peso=\""$peso"/"$peso2"/"$peso3"/"$peso4"/"$peso5"/"$peso6"\" WHERE nombre_cientifico=\"$nombre_cientifico\";" >> $2
+		mayor=0
+                if expr "$peso" ">=" "$peso2";
+		then
+                        mayor=$peso
+                else
+                        mayor=$peso2
+                fi
+
+                if expr "$peso3" ">=" "$mayor";
+		then
+                        mayor=$peso3
+                fi
+
+                if expr "$peso4" ">=" "$mayor";
+		then
+                        mayor=$peso4
+                fi
+
+                if expr "$peso5" ">=" "$mayor";
+		then
+                        mayor=$peso5
+                fi
+
+                if expr "$peso6" ">=" "$mayor";
+		then
+                        mayor=$peso6
+                fi
+
+                if expr "$peso7" ">=" "$mayor";
+		then
+                        mayor=$peso7
+                fi
+
+		echo "UPDATE peces SET peso=\""$peso"/"$peso2"/"$peso3"/"$peso4"/"$peso5"/"$peso6"/"$peso7"\" WHERE nombre_cientifico=\"$nombre_cientifico\";" >> $2
+		echo "UPDATE peces SET peor_peso=\""$mayor"\" WHERE nombre_cientifico=\"$nombre_cientifico\";" >> $2
 		#echo $peso"/"$peso2"/"$peso3"/"$peso4"/"$peso5"/"$peso6
 	fi
 done < $1
