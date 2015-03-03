@@ -193,7 +193,7 @@ $(document).ready(function(){
 					<input type="text" name="nombre_comun"
 					id="buscador_nombre_comun">
 			</span></td>
-		</tr>
+		</tr>		
 		<tr>
 			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Nombre
 					cient&iacute;fico <input type="text"
@@ -213,12 +213,37 @@ $(document).ready(function(){
 		</tr>
 		<tr>
 			<td colspan="2">
-				<label style="font-size:12px;"> Tipo de pesca <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca", 'width' => '25px')); ?></label>
+				<label style="font-size:12px;"> Recomendaci&oacute;n</label>
 			</td>
 		</tr>
 		<tr>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="tipo_captura[]" id="buscador_selectiva" value="Selectiva">
+					type="radio" name="recomendacion[]" id="buscador_recomendable" value="0">
+					Recomendable
+			</span></td>
+			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="radio" name="recomendacion[]" id="buscador_poco_recomendable" value="1">
+					Poco recomendable 
+			</span></td>			
+		</tr>
+		<tr>
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="radio" name="recomendacion[]" id="buscador_no_recomendable" value="2">
+					No recomendable
+			</span></td>
+			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="radio" name="recomendacion[]" id="buscador_libre" value="3">
+					Sin recomendaci&oacute;n 
+			</span></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<label style="font-size:12px;"> Tipo de pesca <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca", 'width' => '25px')); ?></label>
+			</td>
+		</tr>		
+		<tr>
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="checkbox" name="tipo_captura[]" id="buscador_selectiva"	 value="Selectiva">
 					Pesca selectiva
 			</span></td>
 			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
@@ -275,7 +300,8 @@ $(document).ready(function(){
 					Deportiva
 			</span></td>
 			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
-			<input type="checkbox" name="captura[]" id="buscador_fomento" value="4"> Fomento
+			<input type="checkbox" name="captura[]" id="buscador_fomento" value="4"> 
+					Fomento
 			</span></td>
 		</tr>
 		<tr>
@@ -283,9 +309,8 @@ $(document).ready(function(){
 			<input type="checkbox" name="captura[]" id="buscador_cultivada" value="5">
 					Cultivada
 			</span></td>
-		</tr>
-			
-	</table>
+		</tr>			
+	</table>	
 </form>
 
 <button type="button" id="limpiar">Limpiar</button>

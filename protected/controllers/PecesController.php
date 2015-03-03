@@ -1,5 +1,4 @@
 <?php
-
 class PecesController extends Controller
 {
 	/**
@@ -7,7 +6,6 @@ class PecesController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-
 	/**
 	 * @return array action filters
 	 */
@@ -18,7 +16,6 @@ class PecesController extends Controller
 				'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
-
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
@@ -44,7 +41,6 @@ class PecesController extends Controller
 				),
 		);
 	}
-
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -55,7 +51,6 @@ class PecesController extends Controller
 				'model'=>$this->loadModel($id),
 		));
 	}
-
 	/**
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
@@ -63,22 +58,18 @@ class PecesController extends Controller
 	public function actionCreate()
 	{
 		$model=new Peces;
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Peces']))
 		{
 			$model->attributes=$_POST['Peces'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
 		$this->render('create',array(
 				'model'=>$model,
 		));
 	}
-
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -87,22 +78,18 @@ class PecesController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Peces']))
 		{
 			$model->attributes=$_POST['Peces'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
-
 		$this->render('update',array(
 				'model'=>$model,
 		));
 	}
-
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
@@ -111,12 +98,10 @@ class PecesController extends Controller
 	public function actionDelete($id)
 	{
 		$this->loadModel($id)->delete();
-
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
-
 	/**
 	 * Lists all models.
 	 */
@@ -125,12 +110,10 @@ class PecesController extends Controller
 		$dataProvider=new CActiveDataProvider('Peces', array(
 				'criteria' => array ('order'=>'nombre_comun ASC'),
 		));
-
 		$this->render('index',array(
 				'dataProvider'=>$dataProvider,
 		));
 	}
-
 	/**
 	 * La Introduccion de peces
 	 */
@@ -138,7 +121,6 @@ class PecesController extends Controller
 	{
 		$this->render('inicio');
 	}
-
 	/**
 	 * Manages all models.
 	 */
@@ -148,12 +130,10 @@ class PecesController extends Controller
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Peces']))
 			$model->attributes=$_GET['Peces'];
-
 		$this->render('admin',array(
 				'model'=>$model,
 		));
 	}
-
 	public function actionMigracion(){
 		Yii::import('ext.PDO.*');
 		$this->layout=false;
@@ -161,7 +141,6 @@ class PecesController extends Controller
 		$this->render('migracion',array(
 				'db'=>$db));
 	}
-
 	/**
 	 * Resulatdo de las busquedas
 	 */
@@ -189,7 +168,21 @@ class PecesController extends Controller
 				$condiciones.="grupo_id = ".$params['grupo']." AND ";
 			
 			if (isset($params['tipo_captura']) && count($params['tipo_captura']) > 0)
-				$condiciones.= "tipo_captura IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
+				$condiciones.= "selectiva_noselectiva IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
+
+			if (isset($params['recomendacion']) && count($params['recomendacion']) > 0){
+				$condiciones.= "recomendacion=1 AND ";
+				$condiciones.= "peor_peso!='NULL' AND ";
+				if($params['recomendacion']==0){
+					$condiciones.= "peor_peso=0 OR peor_peso=1 AND ";
+				}
+				if($params['recomendacion']==1){
+					$condiciones.= "peor_peso=2 OR peor_peso=3 AND ";	
+				}
+				if($params['recomendacion']==2){
+					$condiciones.= "peor_peso > 3 AND ";
+				}
+			}
 			
 			if (isset($params['estado_conservacion']) && !empty($params['estado_conservacion']))
 			{
@@ -220,11 +213,9 @@ class PecesController extends Controller
 		else{ //para ver todos los peces
 			$resultados=Yii::app()->db->createCommand($select." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
 		}
-
 		if (count($resultados) > 0){
 			if(isset($params['json']) && !empty($params['json']) && $params['json']==1){
 				header('Content-type: application/json; charset=UTF-8');
-
 				$data = array();
 				$arr_obj = array();
 				
@@ -282,7 +273,6 @@ class PecesController extends Controller
 			$this->render('resultado',array('vacio' => '<b>Tu búsqueda no dió ningún resultado</b>'));
 		}
 	}
-
 	/**
 	 * Guarda o lee los filtros
 	 */
@@ -291,7 +281,6 @@ class PecesController extends Controller
 		$params = $_POST;
 		$sesion = Yii::app()->getSession()->getSessionId();
 		$filtro=Filtros::model()->findByAttributes(array('sesion'=>$sesion));
-
 		if (isset($params['accion']) && $params['accion'] == "guarda")
 		{
 			if (count($filtro) == 1)
@@ -308,7 +297,6 @@ class PecesController extends Controller
 		} else
 			return NULL;
 	}
-
 	/**
 	 * Asigna los campos a los filtros indicados
 	 */
@@ -316,15 +304,12 @@ class PecesController extends Controller
 	{
 		unset($params['accion']);
 		$llaves = array_keys($params);
-
 		foreach ($llaves as $k => $llave)
 		{
 			$filtro->$llave = $params[$llave];
 		}
-
 		return $filtro;
 	}
-
 	/**
 	 * Borra el registro de los filtros
 	 */
@@ -334,7 +319,6 @@ class PecesController extends Controller
 		if (count($filtro) == 1)
 			$filtro->delete();
 	}
-
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -349,7 +333,6 @@ class PecesController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
-
 	/**
 	 * Performs the AJAX validation.
 	 * @param Peces $model the model to be validated
@@ -363,5 +346,4 @@ class PecesController extends Controller
 		}
 	}
 }
-
-
+?>
