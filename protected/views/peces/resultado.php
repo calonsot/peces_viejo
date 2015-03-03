@@ -117,7 +117,6 @@ if (!isset($vacio))
 				echo "<tr><td>Captura: ".implode(', ', $capturas)."</td></tr>";
 		} elseif (!empty($pezobj->talla_captura)) //Talla captura
 			echo "<tr><td>Talla captura ".($pezobj->talla_captura)." cm</td></tr>";	
-
 		
 		//Veda
 		if (!empty($pezobj->veda))
@@ -128,7 +127,6 @@ if (!isset($vacio))
 				echo "<tr><td>Veda: ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."</td></tr>";
 		} elseif (!empty($pezobj->tipoVeda->Nombre)) //Tipo de veda
 			echo "<tr><td>Tipo de veda: ".($pezobj->tipoVeda->Nombre)."</td></tr>";
-
 		
 		//Arte de pesca
 		if (!empty($pezobj->arte_pesca)) 

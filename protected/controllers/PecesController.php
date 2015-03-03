@@ -176,6 +176,22 @@ class PecesController extends Controller
 			
 			if (isset($params['tipo_captura']) && count($params['tipo_captura']) > 0)
 				$condiciones.= "tipo_captura IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
+
+			if (isset($params['recomendacion']) && count($params['recomendacion']) > 0)
+			{
+				$condiciones.= "recomendacion=1 AND ";
+				$condiciones.= "peor_peso!='NULL' AND ";
+				
+				if($params['recomendacion']==0){
+					$condiciones.= "peor_peso=0 OR peor_peso=1 AND ";
+				}
+				if($params['recomendacion']==1){
+					$condiciones.= "peor_peso=2 OR peor_peso=3 AND ";	
+				}
+				if($params['recomendacion']==2){
+					$condiciones.= "peor_peso > 3 AND ";
+				}
+			}
 			
 			if (isset($params['estado_conservacion']) && !empty($params['estado_conservacion']))
 			{
@@ -215,7 +231,7 @@ class PecesController extends Controller
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);			
 		}
-		
+
 		if (count($resultados) > 0){
 			if(isset($params['json']) && !empty($params['json']) && $params['json']==1){
 				header('Content-type: application/json; charset=UTF-8');
