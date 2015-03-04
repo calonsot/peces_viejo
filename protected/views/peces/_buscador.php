@@ -187,7 +187,32 @@ $(document).ready(function(){
 					align="center" class="intro_vecinosVerdes">
 					<strong>Peces marinos comerciales</strong>
 				</div></td>
-		</tr>		
+		</tr>	
+		<tr>
+			<td colspan="2">
+				<label style="font-size:12px;"> Recomendaci&oacute;n</label>
+			</td>
+		</tr>
+		<tr>
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="radio" name="recomendacion" id="buscador_recomendable" value="0">
+					Recomendable
+			</span></td>
+			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="radio" name="recomendacion" id="buscador_poco_recomendable" value="1">
+					Poco recomendable 
+			</span></td>			
+		</tr>
+		<tr>
+			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="radio" name="recomendacion" id="buscador_no_recomendable" value="2">
+					No recomendable
+			</span></td>
+			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
+					type="radio" name="recomendacion" id="buscador_libre" value="3">
+					Busqueda libre 
+			</span></td>
+		</tr>	
 		<tr>
 			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Nombre
 					<input type="text" name="nombre_comun"
@@ -210,31 +235,6 @@ $(document).ready(function(){
 				<label for="select"></label> <?php echo CHtml::dropDownList('estado_conservacion', null, CHtml::listData(EstadoConservacion::model()->options(), 'id', 'nombre', 'grupo'),
 				array('id'=>'buscador_estado_conservacion', 'prompt'=>'---Elija---')); 
 				echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion", 'width' => '25px')); ?></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<label style="font-size:12px;"> Recomendaci&oacute;n</label>
-			</td>
-		</tr>
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="radio" name="recomendacion[]" id="buscador_recomendable" value="0">
-					Recomendable
-			</span></td>
-			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="radio" name="recomendacion[]" id="buscador_poco_recomendable" value="1">
-					Poco recomendable 
-			</span></td>			
-		</tr>
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="radio" name="recomendacion[]" id="buscador_no_recomendable" value="2">
-					No recomendable
-			</span></td>
-			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="radio" name="recomendacion[]" id="buscador_libre" value="3">
-					Sin recomendaci&oacute;n 
-			</span></td>
 		</tr>
 		<tr>
 			<td colspan="2">
@@ -277,39 +277,7 @@ $(document).ready(function(){
 			<input type="checkbox" name="distribucion[]" id="buscador_importado" value="4"> 
 					Importado
 			</span></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<label style="font-size:12px;"> Tipo de captura</label>
-			</td>
-		</tr>
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="captura[]" id="buscador_objetiva" value="1">
-					Objetiva
-			</span></td>
-			<span class="txt_reforesta">
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="captura[]" id="buscador_incidental" value="2">
-					Incidental
-			</span></td>
-		</tr>
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
-			<input type="checkbox" name="captura[]" id="buscador_deportiva" value="3">
-					Deportiva
-			</span></td>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
-			<input type="checkbox" name="captura[]" id="buscador_fomento" value="4"> 
-					Fomento
-			</span></td>
-		</tr>
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
-			<input type="checkbox" name="captura[]" id="buscador_cultivada" value="5">
-					Cultivada
-			</span></td>
-		</tr>			
+		</tr>	
 	</table>	
 </form>
 

@@ -33,9 +33,22 @@ function filtros(filtro, accion){
 			else
 				values[filtro.attr('id')] = '0';
 			break;
+			
+		//Para los casos de radios
+		case 'buscador_recomendable':
+		case 'buscador_poco_recomendable':
+		case 'buscador_no_recomendable':
+		case 'buscador_libre':
+			if (filtro.is(':checked'))
+				values['buscador_recomendacion'] = filtro.val();			
+			else
+				values['buscador_recomendacion'] = null;
+			break;
 	}
 	
-	//Manda a guardar los filtros
+	console.log(values);
+	
+	//Asigna valor a los filtros
 	jQuery.ajax({
         success: function(html){
         	if(html != "")
@@ -67,6 +80,17 @@ function filtros(filtro, accion){
         			$('#buscador_fomento').prop('checked', true);
         		if (html_json.buscador_cultivada == "1")
         			$('#buscador_cultivada').prop('checked', true);
+        		if (html_json.buscador_recomendacion != "")
+        		{
+        			if (html_json.buscador_recomendacion == '0')
+        				$('#buscador_recomendable').prop('checked', true); 	
+        			if (html_json.buscador_recomendacion == '1')
+        				$('#buscador_poco_recomendable').prop('checked', true); 	
+        			if (html_json.buscador_recomendacion == '2')
+        				$('#buscador_no_recomendable').prop('checked', true); 			
+        			if (html_json.buscador_recomendacion == '3')
+        				$('#buscador_libre').prop('checked', true); 	
+        		}
         	}
         },
         fail: function(){

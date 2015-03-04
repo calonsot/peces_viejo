@@ -158,12 +158,14 @@ class PecesController extends Controller
 		$joins='';
 		$params = $_GET;
 		$select = 'SELECT * FROM peces p ';
+		$order = '';
 		$flag_ficha = false;
 		
-		if(isset($params['especie_id']) && !empty($params['especie_id'])){
+		if(isset($params['especie_id']) && !empty($params['especie_id']))
+		{
 			$flag_ficha = true;
 			$condiciones="especie_id = ".$params['especie_id']." AND ";
-		}else{
+		} else {
 			$flag_ficha = false;
 			if (isset($params['nombre_comun']) && !empty($params['nombre_comun']))
 				$condiciones.="nombre_comun LIKE '%".$params['nombre_comun']."%' AND ";
@@ -177,21 +179,25 @@ class PecesController extends Controller
 			if (isset($params['tipo_captura']) && count($params['tipo_captura']) > 0)
 				$condiciones.= "tipo_captura IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
 
-			if (isset($params['recomendacion']) && count($params['recomendacion']) > 0)
+			//Varia de 0 a 3 el valor de los radios
+			if (isset($params['recomendacion']) && ((Int)$params['recomendacion'] > -1 && (Int)$params['recomendacion'] < 3))
 			{
-				$condiciones.= "recomendacion=1 AND ";
-				$condiciones.= "peor_peso!='NULL' AND ";
+				$condiciones.= "peor_peso IS NOT NULL AND ";
+				$order.= ' ORDER BY peor_peso, tipo_imagen, nombre_cientifico ASC';
 				
-				if($params['recomendacion']==0){
-					$condiciones.= "peor_peso=0 OR peor_peso=1 AND ";
-				}
-				if($params['recomendacion']==1){
-					$condiciones.= "peor_peso=2 OR peor_peso=3 AND ";	
-				}
-				if($params['recomendacion']==2){
-					$condiciones.= "peor_peso > 3 AND ";
-				}
+				if((Int)$params['recomendacion']==0)  //Recomendable
+					$condiciones.= "peor_peso IN (0,1) AND ";	
+				if((Int)$params['recomendacion']==1)  //Poco recomendable
+					$condiciones.= "peor_peso IN (2,3) AND ";					
+				if((Int)$params['recomendacion']==2)  //No recomendable
+					$condiciones.= "peor_peso > 3 AND ";				
+			} elseif (isset($params['recomendacion']) && (Int)$params['recomendacion'] == 3) {    //busqueda libre
+				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';				
+			} else {   //busqueda sin recomendacion ni libre, te saca por default todos con recomendacion
+				$condiciones.= "peor_peso IS NOT NULL AND ";
+				$order.= ' ORDER BY peor_peso, tipo_imagen, nombre_cientifico ASC';
 			}
+			
 			
 			if (isset($params['estado_conservacion']) && !empty($params['estado_conservacion']))
 			{
@@ -203,44 +209,43 @@ class PecesController extends Controller
 			{
 				$joins.= PezDistribucion::join();
 				$condiciones.= "pd.distribucion_id IN (".implode(',', $params['distribucion']).") AND ";
-			}
-			
-			if (isset($params['captura']) && count($params['captura']) > 0)
-			{
-				$joins.= PezTipoCapturas::join();
-				$condiciones.= "ptc.tipo_capturas_id IN (".implode(',', $params['captura']).") AND ";
-			}			
+			}		
 		}
 		
 		//decide cual tipo de busqueda es
-		if (!empty($joins)){
-			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
-			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ".$joins." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+		if (!empty($joins))
+		{
+			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5).$order." LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ".$joins." WHERE ".substr($condiciones, 0, -5))->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
 		}
-		elseif (!empty($condiciones)){
-			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
-			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p WHERE ".substr($condiciones, 0, -5)." ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+		elseif (!empty($condiciones))
+		{
+			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5).$order." LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p WHERE ".substr($condiciones, 0, -5))->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
-		}
-		else{ //para ver todos los peces			
-			$resultados=Yii::app()->db->createCommand($select." ORDER BY tipo_imagen, nombre_cientifico ASC LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
-			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ORDER BY tipo_imagen, nombre_cientifico ASC")->queryAll();
+		} else { //para ver todos los peces			
+			$resultados=Yii::app()->db->createCommand($select.$order." LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p")->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);			
 		}
 
-		if (count($resultados) > 0){
-			if(isset($params['json']) && !empty($params['json']) && $params['json']==1){
+		if (count($resultados) > 0)  //Si hubo resultados en la busqueda
+		{
+			if(isset($params['json']) && !empty($params['json']) && (Int)$params['json']==1)
+			{
 				header('Content-type: application/json; charset=UTF-8');
 				$data = array();
 				$arr_obj = array();
 				
-				foreach($resultados as $k){
+				foreach($resultados as $k)
+				{
 					$json = array();
 					$pez = Peces::model()->findByPk($k["especie_id"]);
+					
 					if ($pez->tipo_imagen == 1)
 						$pez->imagen = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/peces/'.$pez->imagen));
 					elseif ($pez->tipo_imagen == 2)
@@ -249,30 +254,33 @@ class PecesController extends Controller
 					$json["peces"] = $pez->attributes;
 					$json["grupo"] = !empty($pez->grupo)?$pez->grupo->attributes:array();
 					$json["tipo_veda"] = !empty($pez->tipoVeda)?$pez->tipoVeda->attributes:array();
-					if($pez->cartaNacionals){
+					
+					if($pez->cartaNacionals)
+					{
 						$aux = array();
 						foreach ($pez->cartaNacionals as $k){
 							array_push($aux, $k->attributes);
 						}
 						$json["carta_nacional"] = $aux; 
 					} 
-					if($pez->distribucions){
+					if($pez->distribucions)
+					{
 						$aux = array();
 						foreach ($pez->distribucions as $k){
 							array_push($aux, $k->attributes);
 						}
 						$json["distribucion"] = $aux;
-					}
-					
-					if($pez->estadoConservacions){
+					}					
+					if($pez->estadoConservacions)
+					{
 						$aux = array();
 						foreach ($pez->estadoConservacions as $k){
 							array_push($aux, $k->attributes);
 						}
 						$json["estado_conservacion"] = $aux;
-					}
-					
-					if($pez->tipoCapturases){
+					}				
+					if($pez->tipoCapturases)
+					{
 						$aux = array();
 						foreach ($pez->tipoCapturases as $k){
 							array_push($aux, $k->attributes);
@@ -283,11 +291,14 @@ class PecesController extends Controller
 					if(!$flag_ficha)
 						array_push($data, $json);
 					else {
-						echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($json));
+						//echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($json));
+						echo json_encode($json, JSON_UNESCAPED_UNICODE);
 					}
 				}
-				if(!$flag_ficha)
-					echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($data));
+				if(!$flag_ficha){
+					//echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($data));
+					echo json_encode($data, JSON_UNESCAPED_UNICODE);
+				}	
 			} else
 				$this->render('resultado',array(
 					'resultados'=>$resultados,
@@ -295,10 +306,8 @@ class PecesController extends Controller
 					'page_size'=>50,
 					'pages'=>$pages,
 				));
-		}
-		else{
+		} else
 			$this->render('resultado',array('vacio' => '<b>Tu b&uacute;squeda no di&oacute; ning&uacute;n resultado</b>'));
-		}
 	}
 	/**
 	 * Guarda o lee los filtros
