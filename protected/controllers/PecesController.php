@@ -153,7 +153,6 @@ class PecesController extends Controller
 	 */
 	public function actionResultado()
 	{
-		$page = (isset($_GET['page']) ? $_GET['page'] : 1);
 		$condiciones='';
 		$union='';
 		$joins='';
@@ -181,19 +180,19 @@ class PecesController extends Controller
 			if (isset($params['recomendacion']) && ((Int)$params['recomendacion'] > -1 && (Int)$params['recomendacion'] < 3))
 			{
 				$condiciones.= "recomendacion=1 AND peor_peso IS NOT NULL AND peor_peso > -1 AND ";
-				$order.= ' ORDER BY peor_peso, tipo_imagen, nombre_cientifico ASC';
+				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';
 				
 				if((Int)$params['recomendacion']==0)  //Recomendable
-					$condiciones.= "peor_peso IN (0,1) AND ";	
+					$condiciones.= "peso REGEXP '^[01]|/[01]' AND peso != 0 AND ";	
 				if((Int)$params['recomendacion']==1)  //Poco recomendable
-					$condiciones.= "peor_peso IN (2,3) AND ";					
+					$condiciones.= "peso REGEXP '[23]' AND peso != 0 AND ";					
 				if((Int)$params['recomendacion']==2)  //No recomendable
-					$condiciones.= "peor_peso > 3 AND ";				
+					$condiciones.= "peso REGEXP '[456789]' AND peso != 0 AND ";				
 			} elseif (isset($params['recomendacion']) && (Int)$params['recomendacion'] == 3) {    //busqueda libre
 				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';				
 			} else {   //busqueda sin recomendacion ni libre, te saca por default todos con recomendacion
-				$condiciones.= "recomendacion=1 AND peor_peso IS NOT NULL AND peor_peso > -1 AND ";
-				$order.= ' ORDER BY peor_peso, tipo_imagen, nombre_cientifico ASC';
+				$condiciones.= "peso REGEXP '^[0123456789]|/[0123456789]' AND peso != 0 AND ";
+				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';
 			}
 			
 			
