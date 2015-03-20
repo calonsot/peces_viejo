@@ -177,10 +177,6 @@ class PecesController extends Controller
 			if (isset($params['grupo']) && !empty($params['grupo']))
 				$condiciones.="grupo_id = ".$params['grupo']." AND ";
 			
-			// Selectiva, no selectiva
-			if (isset($params['tipo_captura']) && count($params['tipo_captura']) > 0)
-				$condiciones.= "selectiva_noselectiva IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
-			
 			//Varia de 0 a 3 el valor de los radios
 			if (isset($params['recomendacion']) && ((Int)$params['recomendacion'] > -1 && (Int)$params['recomendacion'] < 3))
 			{
