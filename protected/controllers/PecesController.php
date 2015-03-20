@@ -147,6 +147,7 @@ class PecesController extends Controller
 		$this->render('migracion',array(
 				'db'=>$db));
 	}
+	
 	/**
 	 * Resulatdo de las busquedas
 	 */
@@ -176,13 +177,14 @@ class PecesController extends Controller
 			if (isset($params['grupo']) && !empty($params['grupo']))
 				$condiciones.="grupo_id = ".$params['grupo']." AND ";
 			
+			// Selectiva, no selectiva
 			if (isset($params['tipo_captura']) && count($params['tipo_captura']) > 0)
-				$condiciones.= "tipo_captura IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
-
+				$condiciones.= "selectiva_noselectiva IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
+			
 			//Varia de 0 a 3 el valor de los radios
 			if (isset($params['recomendacion']) && ((Int)$params['recomendacion'] > -1 && (Int)$params['recomendacion'] < 3))
 			{
-				$condiciones.= "peor_peso IS NOT NULL AND ";
+				$condiciones.= "recomendacion=1 AND peor_peso IS NOT NULL AND peor_peso > -1 AND ";
 				$order.= ' ORDER BY peor_peso, tipo_imagen, nombre_cientifico ASC';
 				
 				if((Int)$params['recomendacion']==0)  //Recomendable
@@ -194,7 +196,7 @@ class PecesController extends Controller
 			} elseif (isset($params['recomendacion']) && (Int)$params['recomendacion'] == 3) {    //busqueda libre
 				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';				
 			} else {   //busqueda sin recomendacion ni libre, te saca por default todos con recomendacion
-				$condiciones.= "peor_peso IS NOT NULL AND ";
+				$condiciones.= "recomendacion=1 AND peor_peso IS NOT NULL AND peor_peso > -1 AND ";
 				$order.= ' ORDER BY peor_peso, tipo_imagen, nombre_cientifico ASC';
 			}
 			
