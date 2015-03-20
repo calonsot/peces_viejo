@@ -5,7 +5,7 @@
 //header('Content-Type: text/html; charset=ISO-8859-1');
 if (!isset($vacio))
 {
-	echo "<span style=\"color:#323D2C;\"><b>Mostrando ".count($resultados)." resultados</b></span>";
+	echo "<div class='resul'>Mostrando ".count($resultados)." resultados</b></div><br>";
 ?>
 
 <div class="view">
@@ -15,53 +15,55 @@ if (!isset($vacio))
 		/*echo '<pre>';
 		print_r($peces);
 		echo '</pre>';*/
-	
-		foreach($resultados as $q){} // loop to get data
-		
+			
 		// the pagination widget with some options to mess
 		//echo "currentPage: ".$pages->getCurrentPage()."<br>";
 		//echo "itemCount: ".$count."<br>";
 		//print_r($count);
 		//echo "pageSize: ".$page_size."<br>";
+				
 		echo "<div style='margin-left:650px;'>";
 		$this->widget('CLinkPager', array(
-				'currentPage'=>$pages->getCurrentPage(),
-				'itemCount'=>$count,
-				'pageSize'=>$page_size,
-				'maxButtonCount'=>5,
-				///'nextPageLabel'=>'My text >',
-				'header'=>'',
-				'htmlOptions'=>array('class'=>'yiiPager'),
+			'currentPage'=>$pages->getCurrentPage(),
+			'itemCount'=>$count,
+			'pageSize'=>$page_size,
+			'maxButtonCount'=>5,
+			///'nextPageLabel'=>'My text >',
+			'header'=>'',
+			'htmlOptions'=>array('class'=>'yiiPager'),
 		));
 		echo "</div><br><br>";
-		
+	
 		foreach ($resultados as $k => $pez) {
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
 		//echo "ID: ".$pezobj->especie_id."<br>";		
-		echo "<table style='width:1000px;background:#C2BDA0;'>";
+		echo "<div id='dresul' class='dresul_all'>";
 		
-		
-		//Parte de los datos principales
-		echo "<tr><td width=\"500px\">";		
+		echo "<div class='dresul_head'>";
+		//Parte de los datos principales	
 		if(!empty($pezobj->nombre_comun))
 		{
 			if (!empty($pezobj->nombre_ingles))
-				echo "<span style=\"color:#323D2C;\"><b>".($pezobj->nombre_comun).", ".($pezobj->nombre_ingles)."</b></span> <i>(".$pezobj->nombre_cientifico.")</i>";
+				echo "<b>".($pezobj->nombre_comun).", ".($pezobj->nombre_ingles)."</b><br> <i>(".$pezobj->nombre_cientifico.")</i>";
 			else
-				echo "<span style=\"color:#323D2C;\"><b>".($pezobj->nombre_comun)."</b></span> <i>(".$pezobj->nombre_cientifico.")</i>";
+				echo "<b>".($pezobj->nombre_comun)."</b><br> <i>(".$pezobj->nombre_cientifico.")</i>";
 		} elseif (!empty($pezobj->nombre_ingles))
-			echo "<span style=\"color:#323D2C;\"><b>".($pezobj->ingles)."</b></span> <i>(".$pezobj->nombre_cientifico.")</i>";
+			echo "<b>".($pezobj->ingles)."</b><br> <i>(".$pezobj->nombre_cientifico.")</i>";
 		else
 			echo $pezobj->nombre_cientifico;				
-		echo "</td>";
+		echo "</div>";
+		
+		echo "<div class='ima'>";
+		//Imagenes
+		if ($pezobj->tipo_imagen == 1)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".($pezobj->imagen), $pezobj->nombre_cientifico, array('height'=>'60px;'));
+		elseif ($pezobj->tipo_imagen == 2)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pezobj->imagen), $pezobj->nombre_cientifico, array('height'=>'60px;'));
+		echo "</div>";
 		
 		
-		//Parte del grupo
-		if (!empty($pezobj->grupo->nombre)) {
-			echo "<td width=\"500px\">Grupo ".($pezobj->grupo->nombre)."</td>";
-		}
-		echo "</tr>";
+		echo "<div class='dresul_semaforo' onClick='vm()'>Poco recomendable</div><br>";
 		
 		
 		//Estados de conservacion
@@ -77,7 +79,19 @@ if (!isset($vacio))
 			if($j->Nivel1==3)
 				array_push($estados_conservacion, ($j->nombre).CHtml::link(' (NOM)', "http://www.biodiversidad.gob.mx/especies/catRiesMexico.html", array("style"=>"color:#584B05;font-size:10px;", "target" => "_blank")));
 		}
+
 		
+		//Parte del grupo
+		if (!empty($pezobj->grupo->nombre)) {
+			echo "<b>Grupo:</b> ".($pezobj->grupo->nombre);
+		}
+		echo "<br><br>";
+		
+		
+		//Generalidades
+		if (!empty($pezobj->generalidades))
+			echo "<b>Generalidades:</b> ".($pezobj->generalidades)."<br><br>";
+
 		
 		//Distribucion
 		$distribuciones = array();
@@ -85,25 +99,17 @@ if (!isset($vacio))
 			array_push($distribuciones, ($j->Nombre));
 		if (!empty($estados_conservacion))
 			if(!empty($distribuciones))
-				echo "<tr><td width=\"500px\">".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."</td><td width=\"500px\">Distribuci&oacute;n en: ".implode(', ', $distribuciones)."</td></tr>";
+				echo "<b>Estado de conservaci&oacute;n:</b> ".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."<br><br><b>Distribuci&oacute;n en:</b> ".implode(', ', $distribuciones)."<br><br>";
 			else
-				echo "<tr><td>".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."</td></tr>";
-		else { //Distribucion
+				echo "<b>Estado de conservaci&oacute;n:</b> ".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."<br><br>";
+			else {
+				echo "<b>Distribuci&oacute;n en:</b> ".implode(', ', $distribuciones)."<br><br>";
+			}	
 			
-			echo "<tr><td>Distribuci&oacute;n en: ".implode(', ', $distribuciones)."</td></tr>";
-		}
-		
-		echo "</table>"; // Termina primera tabla
-		echo "<table style='width:1000px;background:#d2ceb9;'>";  // Empieza segunda
-				
-		//Imagenes
-		if ($pezobj->tipo_imagen == 1)
-			echo "<tr><td>".CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".($pezobj->imagen), $pezobj->nombre_cientifico, array('width'=>'860px;'))."</td></tr>";
-		elseif ($pezobj->tipo_imagen == 2)
-			echo "<tr><td>".CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pezobj->imagen), $pezobj->nombre_cientifico, array('width'=>'860px;'))."</td></tr>";
-		
-		echo "</table>"; //Termina segunda tabla
-		echo "<table style='width:1000px;background:#d2ceb9;' cellpadding='10px' cellspacing='3px'>";  //Empieza tercera
+			
+		//Tipo de pesca
+			echo "<b>Tipo de pesca:</b> ".$pezobj->selectiva_noselectiva." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca"))."<br><br>";
+			
 		
 		//Capturas
 		$capturas = array();
@@ -112,37 +118,37 @@ if (!isset($vacio))
 		if (!empty($capturas))
 		{
 			if (!empty($pezobj->talla_captura))
-				echo "<tr><td width=\"500px\">Captura: ".implode(', ', $capturas)."</td><td width=\"500px\">Talla de captura ".($pezobj->talla_captura)." cm</td></tr>";
+				echo "<b>Captura:</b> ".implode(', ', $capturas)."<br>Talla de captura ".($pezobj->talla_captura)." cm<br><br>";
 			else
-				echo "<tr><td>Captura: ".implode(', ', $capturas)."</td></tr>";
-		} elseif (!empty($pezobj->talla_captura)) //Talla captura
-			echo "<tr><td>Talla captura ".($pezobj->talla_captura)." cm</td></tr>";	
+				echo "<b>Captura:</b> ".implode(', ', $capturas)."<br><br>";
+		} elseif (!empty($pezobj->talla_captura))
+			echo "Talla de captura ".($pezobj->talla_captura)." cm<br><br>";
+		
 		
 		//Veda
 		if (!empty($pezobj->veda))
 		{
 			if (!empty($pezobj->tipoVeda->Nombre))
-				echo "<tr><td width=\"500px\">Veda: ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."</td><td width=\"500px\">Tipo de veda: ".($pezobj->tipoVeda->Nombre)."</td></tr>";
+				echo "<b>Veda:</b> ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."<br><br><b>Tipo de veda:</b> ".($pezobj->tipoVeda->Nombre)."<br><br>";
 			else
-				echo "<tr><td>Veda: ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."</td></tr>";
-		} elseif (!empty($pezobj->tipoVeda->Nombre)) //Tipo de veda
-			echo "<tr><td>Tipo de veda: ".($pezobj->tipoVeda->Nombre)."</td></tr>";
+				echo "<b>Veda:</b> ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."<br><br>";
+		} elseif (!empty($pezobj->tipoVeda->Nombre))
+		
+		
+		//Tipo de veda
+			echo "<b>Tipo de veda:</b> ".($pezobj->tipoVeda->Nombre)."<br><br>";
+
 		
 		//Arte de pesca
 		if (!empty($pezobj->arte_pesca)) 
 		{
-			if(!empty($pezobj->tipo_captura))
-				echo "<tr><td width=\"500px\">Arte de pesca: ".($pezobj->arte_pesca)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."</td><td width=\"500px\">Tipo de pesca: ".($pezobj->tipo_captura)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca"))."</td></tr>";
+			if(!empty($pezobj->selectiva_noselectiva))
+				echo "<b>Arte de pesca:</b> ".($pezobj->arte_pesca)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."<br><br>";
 			else
-				echo "<tr><td>Arte de pesca: ".$pezobj->arte_pesca." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."</td></tr>";			
-		} elseif (!empty($pezobj->tipo_captura)) //Tipo de pesca
-			echo "<tr><td>Tipo de pesca: ".$pezobj->tipo_captura." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca"))."</td></tr>";
+				echo "<b>Arte de pesca:</b> ".$pezobj->arte_pesca." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."<br><br>";			
+		} elseif (!empty($pezobj->selectiva_noselectiva));
 		
-		
-		//Generalidades
-		if (!empty($pezobj->generalidades))
-			echo "<tr><td>Generalidades: ".($pezobj->generalidades)."</td></tr>";
-		
+
 		//Carta nacional
 		$cartas_nacionales = '';
 		foreach($pezobj->cartaNacionals as $j){
@@ -156,7 +162,7 @@ if (!isset($vacio))
 				$cartas_nacionales.= "<li>Pac&iacute;fico zona 3: ".($j->Nombre)."</li>";
 			
 			if($j->Nivel1==4)
-				$cartas_nacionales.= "<li>Golfo Mex y Caribe zona 1: ".($j->Nombre)."</li>";
+				$cartas_nacionales.= "<li>Pac&iacute;fico zona 1: ".($j->Nombre)."</li>";
 			
 			if($j->Nivel1==5)
 				$cartas_nacionales.= "<li>Golfo Mex y Caribe zona 2: ".($j->Nombre)."</li>";
@@ -166,23 +172,14 @@ if (!isset($vacio))
 			
 		}
 		if (!empty($cartas_nacionales))
-			echo "<tr><td><br>Carta Nacional Pesquera (2012): ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"carta_nacional"))."<ul style=\"font: Arial,Helvetica,sans-serif;color:black;font-size:16px;\">".$cartas_nacionales."</ul></td></tr>";
+			echo "<b>Carta Nacional Pesquera (2012):</b> ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"carta_nacional"))."<ul>".$cartas_nacionales."</ul>";
 		
-		echo "</table>";
+		
+		echo "</div>";
 		?>
-	<br/>
-	<?php } 
-	echo "<div style='margin-left:650px;'>";
-		$this->widget('CLinkPager', array(
-				'currentPage'=>$pages->getCurrentPage(),
-				'itemCount'=>$count,
-				'pageSize'=>$page_size,
-				'maxButtonCount'=>5,
-				///'nextPageLabel'=>'My text >',
-				'header'=>'',
-				'htmlOptions'=>array('class'=>'yiiPager'),
-		));
-		echo "</div>";?>
+
+		
+	<?php } ?>
 </div>
 
 <?php 	
