@@ -212,19 +212,19 @@ class PecesController extends Controller
 		//decide cual tipo de busqueda es
 		if (!empty($joins))
 		{
-			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5).$order." LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5).$order)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ".$joins." WHERE ".substr($condiciones, 0, -5))->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
 		}
 		elseif (!empty($condiciones))
 		{
-			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5).$order." LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5).$order)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p WHERE ".substr($condiciones, 0, -5))->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
 		} else { //para ver todos los peces			
-			$resultados=Yii::app()->db->createCommand($select.$order." LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$resultados=Yii::app()->db->createCommand($select.$order)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p")->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);			

@@ -22,17 +22,6 @@ if (!isset($vacio))
 		//print_r($count);
 		//echo "pageSize: ".$page_size."<br>";
 				
-		echo "<div style='margin-left:650px;'>";
-		$this->widget('CLinkPager', array(
-			'currentPage'=>$pages->getCurrentPage(),
-			'itemCount'=>$count,
-			'pageSize'=>$page_size,
-			'maxButtonCount'=>5,
-			///'nextPageLabel'=>'My text >',
-			'header'=>'',
-			'htmlOptions'=>array('class'=>'yiiPager'),
-		));
-		echo "</div><br><br>";
 	
 		foreach ($resultados as $k => $pez) {
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
