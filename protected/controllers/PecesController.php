@@ -153,7 +153,6 @@ class PecesController extends Controller
 	 */
 	public function actionResultado()
 	{
-		$page = (isset($_GET['page']) ? $_GET['page'] : 1);
 		$condiciones='';
 		$union='';
 		$joins='';
@@ -177,27 +176,23 @@ class PecesController extends Controller
 			if (isset($params['grupo']) && !empty($params['grupo']))
 				$condiciones.="grupo_id = ".$params['grupo']." AND ";
 			
-			// Selectiva, no selectiva
-			if (isset($params['tipo_captura']) && count($params['tipo_captura']) > 0)
-				$condiciones.= "selectiva_noselectiva IN (".Peces::junta_attributos_escapados($params['tipo_captura']).") AND ";
-			
 			//Varia de 0 a 3 el valor de los radios
 			if (isset($params['recomendacion']) && ((Int)$params['recomendacion'] > -1 && (Int)$params['recomendacion'] < 3))
 			{
 				$condiciones.= "recomendacion=1 AND peor_peso IS NOT NULL AND peor_peso > -1 AND ";
-				$order.= ' ORDER BY peor_peso, tipo_imagen, nombre_cientifico ASC';
+				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';
 				
 				if((Int)$params['recomendacion']==0)  //Recomendable
-					$condiciones.= "peor_peso IN (0,1) AND ";	
+					$condiciones.= "peso REGEXP '^[01]|/[01]' AND peso != 0 AND ";	
 				if((Int)$params['recomendacion']==1)  //Poco recomendable
-					$condiciones.= "peor_peso IN (2,3) AND ";					
+					$condiciones.= "peso REGEXP '[23]' AND peso != 0 AND ";					
 				if((Int)$params['recomendacion']==2)  //No recomendable
-					$condiciones.= "peor_peso > 3 AND ";				
+					$condiciones.= "peso REGEXP '[456789]' AND peso != 0 AND ";				
 			} elseif (isset($params['recomendacion']) && (Int)$params['recomendacion'] == 3) {    //busqueda libre
 				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';				
 			} else {   //busqueda sin recomendacion ni libre, te saca por default todos con recomendacion
-				$condiciones.= "recomendacion=1 AND peor_peso IS NOT NULL AND peor_peso > -1 AND ";
-				$order.= ' ORDER BY peor_peso, tipo_imagen, nombre_cientifico ASC';
+				$condiciones.= "peso REGEXP '^[0123456789]|/[0123456789]' AND peso != 0 AND ";
+				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';
 			}
 			
 			
@@ -217,19 +212,19 @@ class PecesController extends Controller
 		//decide cual tipo de busqueda es
 		if (!empty($joins))
 		{
-			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5).$order." LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5).$order)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ".$joins." WHERE ".substr($condiciones, 0, -5))->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
 		}
 		elseif (!empty($condiciones))
 		{
-			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5).$order." LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5).$order)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p WHERE ".substr($condiciones, 0, -5))->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
 		} else { //para ver todos los peces			
-			$resultados=Yii::app()->db->createCommand($select.$order." LIMIT 50 OFFSET ".($page-1)*50)->queryAll();
+			$resultados=Yii::app()->db->createCommand($select.$order)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p")->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);			

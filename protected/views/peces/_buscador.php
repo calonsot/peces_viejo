@@ -3,6 +3,7 @@
 {
 	display: none;
 }
+
 </style>
 
 <script>
@@ -26,7 +27,7 @@ $(document).ready(function(){
 </script>
 
 <div class="tooltiptext" id="veda_tip">
-			<p class="txt_reforesta">
+			<p>
 				<strong class="Utexconceptos">Vedas</strong><br> Con el fin de
 				optimizar el aprovechamiento de la pesca desde un punto de vista
 				biol&oacute;gico y socioecon&oacute;mico, la Comisi&oacute;n
@@ -48,13 +49,13 @@ $(document).ready(function(){
 </div>
 
 <div class="tooltiptext" id="arte_de_pesca_tip">
-			<p class="txt_reforesta">
+			<p>
 				<strong class="Utexconceptos">Artes de pesca</strong><br> 
 				Las artes de pesca son los diferentes métodos de captura o técnicas con las que los peces son atrapados.  
 				Existen 4 tipos principales de arte y de cada uno de ellos tienen variables y combinaciones diferentes:
 				
 			</p>
-			<p class="txt_reforesta">
+			<p>
 				<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
 					height="6"> L&iacute;neas:</strong> Este arte consiste en un hilo
 				con un anzuelo con carnada en su punta final. Existen variantes de
@@ -85,11 +86,11 @@ $(document).ready(function(){
 </div>
 
 <div class="tooltiptext" id="tipo_pesca_tip">
-			<p class="txt_reforesta"><strong class="Utexconceptos">Tipos de artes de pesca</strong><br> 
+			<p><strong class="Utexconceptos">Tipos de artes de pesca</strong><br> 
 			Algunas de las artes de pesca tienen un fuerte impacto sobre la biodiversidad marina 
 			y su ambiente y otras no lo tienen, por lo que es determinante que el consumidor conozca la informaci&oacute;n sobre 
 			el tipo de arte que es utilizado por especie, para esto se han separado las artes de pesca en dos grupos:</p>
-			<p class="txt_reforesta">
+			<p>
 				<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesAmigable.png" width="17" height="17"><strong>
 					Selectiva</strong> &nbsp;<br> Algunos tipos de artes de
 				pesca de bajo impacto: Red de arrastre para camarones
@@ -102,7 +103,7 @@ $(document).ready(function(){
 				central mexicano, a bordo de embarcaciones de mediana altura,
 				palangre para at&uacute;n: Golfo de M&eacute;xico y Caribe.
 			</p>
-			<p class="txt_reforesta">
+			<p>
 				<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesNoAmigable.png" width="17" height="17"> 
 				<strong>No selectiva</strong> <br> 
 				Se capturan diferentes especies y tama&ntilde;os que no son el objetivo. Puede afectar delfines, tortugas y 
@@ -118,7 +119,7 @@ $(document).ready(function(){
 </div>
 
 <div class="tooltiptext" id="carta_nacional_tip">
-			<p class="txt_reforesta">
+			<p>
 				<strong class="Utexconceptos">Carta Nacional Pesquera (CNP)</strong>
 				<br> Es el &uacute;nico documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos 
 				marinos comerciales en M&eacute;xico, adem&aacute;s plantea restricciones y limites en algunas pesquer&iacute;as.<br>
@@ -156,7 +157,7 @@ $(document).ready(function(){
 </div>
 
 <div class="tooltiptext" id="estado_conservacion_tip">
-			<p class="txt_reforesta">
+			<p>
 				<strong class="Utexconceptos">Peces comerciales en riesgo</strong><br>
 				Adem&aacute;s de La Carta Nacional Pesquera y sus regulaciones, existen otros convenios y normas de car&aacute;cter 
 				nacional e internacional, estas regulan y protegen a especies en riesgo. Entre ellas est&aacute;n:<br><br>    
@@ -178,109 +179,27 @@ $(document).ready(function(){
 			</p>
 </div>
 
-<form name="buscador" id="buscador" method="get"
-	action="<?php echo Yii::app()->request->baseUrl; ?>/index.php/peces/resultado">
-	<table width="320" border="0" align="center" cellpadding="8"
-		cellspacing="1">
-		<tr>
-			<td colspan="2" bgcolor="#C2BDA0" class="txt_reforesta"><div
-					align="center" class="intro_vecinosVerdes">
-					<strong>Peces marinos comerciales</strong>
-				</div></td>
-		</tr>	
-		<tr>
-			<td colspan="2">
-				<label style="font-size:12px;"> Recomendaci&oacute;n</label>
-			</td>
-		</tr>
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="radio" name="recomendacion" id="buscador_recomendable" value="0">
-					Recomendable
-			</span></td>
-			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="radio" name="recomendacion" id="buscador_poco_recomendable" value="1">
-					Poco recomendable 
-			</span></td>			
-		</tr>
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="radio" name="recomendacion" id="buscador_no_recomendable" value="2">
-					No recomendable
-			</span></td>
-			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="radio" name="recomendacion" id="buscador_libre" value="3">
-					Busqueda libre 
-			</span></td>
-		</tr>	
-		<tr>
-			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Nombre
-					<input type="text" name="nombre_comun"
-					id="buscador_nombre_comun">
-			</span></td>
-		</tr>		
-		<tr>
-			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Nombre
-					cient&iacute;fico <input type="text"
-					name="nombre_cientifico" id="buscador_nombre_cientifico">
-			</span></td>
-		</tr>
-		<tr>
-			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Grupo </span>
-				<label for="select"></label> <?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'),
-				array('id'=>'buscador_grupo', 'prompt'=>'---Todos---')); ?></td>
-		</tr>
-		<tr>
-			<td colspan="2" bgcolor="#D9D6C4"><span class="txt_reforesta">Conservacion </span>
-				<label for="select"></label> <?php echo CHtml::dropDownList('estado_conservacion', null, CHtml::listData(EstadoConservacion::model()->options(), 'id', 'nombre', 'grupo'),
-				array('id'=>'buscador_estado_conservacion', 'prompt'=>'---Elija---')); 
-				echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion", 'width' => '25px')); ?></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<label style="font-size:12px;"> Tipo de pesca <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca", 'width' => '25px')); ?></label>
-			</td>
-		</tr>		
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="tipo_captura[]" id="buscador_selectiva"	 value="Selectiva">
-					Pesca selectiva
-			</span></td>
-			<td width="150" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="tipo_captura[]" id="buscador_no_selectiva" value="No Selectiva">
-					Pesca no selectiva 
-			</span></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<label style="font-size:12px;"> Distribuci&oacute;n</label>
-			</td>
-		</tr>
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="distribucion[]" id="buscador_pacifico" value="3">
-					Pac&iacute;fico
-			</span></td>
-			<span class="txt_reforesta">
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"> <input
-					type="checkbox" name="distribucion[]" id="buscador_golfo" value="1"> Golfo de
-					M&eacute;xico
-			</span></td>
-		</tr>
-		<tr>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
-			<input
-					type="checkbox" name="distribucion[]" id="buscador_caribe" value="2">
-					Mar Caribe
-			</span></td>
-			<td width="165" bgcolor="#D9D6C4"><span class="txt_reforesta"><span class="txt_reforesta">
-			<input type="checkbox" name="distribucion[]" id="buscador_importado" value="4"> 
-					Importado
-			</span></td>
-		</tr>	
-	</table>	
+<form name="buscador" id="buscador" method="get" action="<?php echo Yii::app()->request->baseUrl; ?>/index.php/peces/resultado">
+	<table border="0" align="center" cellpadding="0" cellspacing="0"  class="txt_reforesta" >
+        <tr>
+		  <td>
+         <p class="titblue bborder"> Buscar por:</p>
+          	<b>Nombre</b> <input style="float:right" type="text" name="nombre_comun" id="buscador_nombre_comun"><br /><br />
+            <b>Nombre cient&iacute;fico</b> <input style="float:right" type="text" name="nombre_cientifico" id="buscador_nombre_cientifico"><br /><br />
+            <b>Grupo</b> <label for="select"></label> <?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'), array('id'=>'buscador_grupo', 'prompt'=>'---Todos---', 'style'=>'float:right')); ?><br /><br />
+            <b>Conservacion</b><label for="select"></label> <?php echo CHtml::dropDownList('estado_conservacion', null, CHtml::listData(EstadoConservacion::model()->options(), 'id', 'nombre', 'grupo'), array('id'=>'buscador_estado_conservacion', 'prompt'=>'---Elija---', 'style'=>'float:right')); echo " ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion", 'width' => '20px'));?><br /><br />
+            <b>Distribuci&oacute;n</b><br />
+            <input type="checkbox" name="distribucion[]" id="buscador_pacifico" value="3"> Pac&iacute;fico<br />
+            <input type="checkbox" name="distribucion[]" id="buscador_golfo" value="1"> Golfo de M&eacute;xico<br />
+            <input type="checkbox" name="distribucion[]" id="buscador_caribe" value="2"> Mar Caribe<br />
+            <input type="checkbox" name="distribucion[]" id="buscador_importado" value="4"> Importado
+            </td>
+	  </tr>
+        <tr>
+          <td><br><br><button type="button" id="limpiar">Limpiar</button><span style="float: right;"><?php echo CHtml::link('Ver todos los peces', Yii::app()->request->baseUrl.'/index.php/peces/resultado', array("style"=>"color:black;font-size:12px;")); ?></span></td>
+        </tr>
+			
+	</table>
 </form>
 
-<button type="button" id="limpiar">Limpiar</button>
-<span style="float: right;"><?php echo CHtml::link('[Ver todos los peces]', Yii::app()->request->baseUrl.'/index.php/peces/resultado', array("style"=>"color:black;font-size:12px;")); ?>
-</span>
+
