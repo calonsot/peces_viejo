@@ -2,7 +2,8 @@
  * Javascript del buscador
  */
 
-function filtros(filtro, accion){
+function filtros(filtro, accion)
+{
 	var values = {};
 	values['accion'] = accion;
 	
@@ -34,7 +35,7 @@ function filtros(filtro, accion){
 				values[filtro.attr('id')] = '0';
 			break;
 			
-		//Para los casos de radios
+		//Para los casos de radios, recomendacion
 		case 'buscador_recomendable':
 		case 'buscador_poco_recomendable':
 		case 'buscador_no_recomendable':
@@ -43,6 +44,19 @@ function filtros(filtro, accion){
 				values['buscador_recomendacion'] = filtro.val();			
 			else
 				values['buscador_recomendacion'] = null;
+			break;
+			
+			//Para los casos de radios, zona
+		case 'buscador_zona1':
+		case 'buscador_zona2':
+		case 'buscador_zona3':
+		case 'buscador_zona4':
+		case 'buscador_zona5':
+		case 'buscador_zona6':
+			if (filtro.is(':checked'))
+				values['buscador_zona'] = filtro.val();			
+			else
+				values['buscador_zona'] = null;
 			break;
 	}
 	
@@ -91,6 +105,21 @@ function filtros(filtro, accion){
         				$('#buscador_no_recomendable').prop('checked', true); 			
         			if (html_json.buscador_recomendacion == '3')
         				$('#buscador_libre').prop('checked', true); 	
+        		}
+        		if (html_json.buscador_zona != "")
+        		{
+        			if (html_json.buscador_zona == '1')
+        				$('#buscador_zona1').prop('checked', true); 	
+        			if (html_json.buscador_zona == '2')
+        				$('#buscador_zona2').prop('checked', true);
+        			if (html_json.buscador_zona == '3')
+        				$('#buscador_zona3').prop('checked', true);
+        			if (html_json.buscador_zona == '4')
+        				$('#buscador_zona4').prop('checked', true);
+        			if (html_json.buscador_zona == '5')
+        				$('#buscador_zona5').prop('checked', true);
+        			if (html_json.buscador_zona == '6')
+        				$('#buscador_zona6').prop('checked', true);
         		}
         	}
         },

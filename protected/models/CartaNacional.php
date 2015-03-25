@@ -76,6 +76,11 @@ class CartaNacional extends CActiveRecord
 			'fecha_creacion' => 'Fecha Creacion',
 		);
 	}
+	
+	public static function join()
+	{
+		return ' LEFT JOIN pez_carta_nacional pcn ON pcn.peces_especie_id=p.especie_id LEFT JOIN carta_nacional cn ON cn.id=pcn.carta_nacional_id ';
+	}
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.

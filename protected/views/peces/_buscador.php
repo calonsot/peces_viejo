@@ -190,6 +190,14 @@ $(document).ready(function(){
          	<input type="radio" name="recomendacion" value="2" id="buscador_no_recomendable">No recomendable
          	<input type="radio" name="recomendacion" value="3" id="buscador_libre">Busqueda libre
          	<br /><br />
+         	<b>Zona pesquera: </b><br> 
+         	<input type="radio" name="zona" value="1" id="buscador_zona1">Pacífico zona 1
+         	<input type="radio" name="zona" value="2" id="buscador_zona2">Pacífico zona 2
+         	<input type="radio" name="zona" value="3" id="buscador_zona3">Pacífico zona 3
+         	<input type="radio" name="zona" value="4" id="buscador_zona4">Golfo de México y Caribe zona 1
+         	<input type="radio" name="zona" value="5" id="buscador_zona5">Golfo de México y Caribe zona 2
+         	<input type="radio" name="zona" value="6" id="buscador_zona6">Golfo de México y Caribe zona 3
+         	<br /><br />
           	<b>Nombre</b> <input style="float:right" type="text" name="nombre_comun" id="buscador_nombre_comun"><br /><br />
             <b>Nombre cient&iacute;fico</b> <input style="float:right" type="text" name="nombre_cientifico" id="buscador_nombre_cientifico"><br /><br />
             <b>Grupo</b> <label for="select"></label> <?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'), array('id'=>'buscador_grupo', 'prompt'=>'---Todos---', 'style'=>'float:right')); ?><br /><br />
