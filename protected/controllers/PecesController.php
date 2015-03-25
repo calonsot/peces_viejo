@@ -193,19 +193,6 @@ class PecesController extends Controller
 			} else {   //busqueda sin recomendacion ni libre, te saca por default todos con recomendacion
 				$condiciones.= "peso REGEXP '^[0123456789]|/[0123456789]' AND peso != 0 AND ";
 				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';
-			}
-			
-			
-			if (isset($params['estado_conservacion']) && !empty($params['estado_conservacion']))
-			{
-				$joins.= PezEstadoConservacion::join();
-				$condiciones.="pec.estado_conservacion_id = ".$params['estado_conservacion']." AND ";
-			}
-			
-			if (isset($params['distribucion']) && count($params['distribucion']) > 0)
-			{
-				$joins.= PezDistribucion::join();
-				$condiciones.= "pd.distribucion_id IN (".implode(',', $params['distribucion']).") AND ";
 			}		
 		}
 		

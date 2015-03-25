@@ -11,18 +11,7 @@ if (!isset($vacio))
 <div class="view">
 
 
-	<?php 
-		/*echo '<pre>';
-		print_r($peces);
-		echo '</pre>';*/
-			
-		// the pagination widget with some options to mess
-		//echo "currentPage: ".$pages->getCurrentPage()."<br>";
-		//echo "itemCount: ".$count."<br>";
-		//print_r($count);
-		//echo "pageSize: ".$page_size."<br>";
-				
-	
+	<?php 					
 		foreach ($resultados as $k => $pez) {
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
