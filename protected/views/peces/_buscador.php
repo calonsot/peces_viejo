@@ -184,6 +184,12 @@ $(document).ready(function(){
         <tr>
 		  <td>
          <p class="titblue bborder"> Buscar por:</p>
+         	<b>Tipo de busqueda: </b><br> 
+         	<input type="radio" name="recomendacion" value="0" id="buscador_recomendable">Recomendable
+         	<input type="radio" name="recomendacion" value="1" id="buscador_poco_recomendable">Poco recomendable
+         	<input type="radio" name="recomendacion" value="2" id="buscador_no_recomendable">No recomendable
+         	<input type="radio" name="recomendacion" value="3" id="buscador_libre">Busqueda libre
+         	<br /><br />
           	<b>Nombre</b> <input style="float:right" type="text" name="nombre_comun" id="buscador_nombre_comun"><br /><br />
             <b>Nombre cient&iacute;fico</b> <input style="float:right" type="text" name="nombre_cientifico" id="buscador_nombre_cientifico"><br /><br />
             <b>Grupo</b> <label for="select"></label> <?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'), array('id'=>'buscador_grupo', 'prompt'=>'---Todos---', 'style'=>'float:right')); ?><br /><br />

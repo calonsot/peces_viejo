@@ -8,3 +8,5 @@ protected/config/main.php
 .buildpath
 .project
 .settings/
+protected/data/MER_peces_comerciales.mwb.bak
+protected/data/migracion_20-03-2015/

@@ -50,7 +50,8 @@ function filtros(filtro, accion){
 	
 	//Asigna valor a los filtros
 	jQuery.ajax({
-        success: function(html){
+        success: function(html)
+        {
         	if(html != "")
         	{
         		var html_json = JSON.parse(JSON.stringify(eval("(" + html + ")")));
