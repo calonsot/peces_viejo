@@ -86,7 +86,7 @@ class Peces extends CActiveRecord
 			'cartaNacionals' => array(self::MANY_MANY, 'CartaNacional', 'pez_carta_nacional(peces_especie_id, carta_nacional_id)'),
 			'distribucions' => array(self::MANY_MANY, 'Distribucion', 'pez_distribucion(peces_especie_id, distribucion_id)'),
 			'estadoConservacions' => array(self::MANY_MANY, 'EstadoConservacion', 'pez_estado_conservacion(peces_especie_id, estado_conservacion_id)'),
-			'tipoCapturases' => array(self::MANY_MANY, 'TipoCapturas', 'pez_selectiva_noselectivas(peces_especie_id, selectiva_noselectivas_id)'),
+			'tipoCapturases' => array(self::MANY_MANY, 'TipoCapturas', 'pez_tipo_capturas(peces_especie_id, tipo_capturas_id)'),
 		);
 	}
 
