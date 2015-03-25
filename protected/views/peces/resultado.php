@@ -11,7 +11,7 @@ if (!isset($vacio))
 <div class="view">
 
 
-	<?php 					
+	<?php 			
 		foreach ($resultados as $k => $pez) {
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		

@@ -63,13 +63,13 @@ class Peces extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nombre_comun, nombre_cientifico, grupo_id, tipo_veda_id, veda, fecha_creacion', 'required'),
-			array('grupo_id, tipo_veda_id', 'numerical', 'integerOnly'=>true),
-			array('nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, tipo_captura, veda, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion', 'length', 'max'=>255),
+			array('nombre_comun, nombre_cientifico, grupo_id, fecha_creacion', 'required'),
+			array('grupo_id, tipo_veda_id, peso_promedio', 'numerical', 'integerOnly'=>true),
+			array('nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, selectiva_noselectiva, veda, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion', 'length', 'max'=>255),
 			array('arte_pesca, generalidades', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('especie_id, nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, grupo_id, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, tipo_captura, arte_pesca, tipo_veda_id, veda, generalidades, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion, fecha_creacion', 'safe', 'on'=>'search'),
+			array('especie_id, nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, grupo_id, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, selectiva_noselectiva, arte_pesca, tipo_veda_id, veda, generalidades, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion, fecha_creacion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -86,7 +86,7 @@ class Peces extends CActiveRecord
 			'cartaNacionals' => array(self::MANY_MANY, 'CartaNacional', 'pez_carta_nacional(peces_especie_id, carta_nacional_id)'),
 			'distribucions' => array(self::MANY_MANY, 'Distribucion', 'pez_distribucion(peces_especie_id, distribucion_id)'),
 			'estadoConservacions' => array(self::MANY_MANY, 'EstadoConservacion', 'pez_estado_conservacion(peces_especie_id, estado_conservacion_id)'),
-			'tipoCapturases' => array(self::MANY_MANY, 'TipoCapturas', 'pez_tipo_capturas(peces_especie_id, tipo_capturas_id)'),
+			'tipoCapturases' => array(self::MANY_MANY, 'TipoCapturas', 'pez_selectiva_noselectivas(peces_especie_id, selectiva_noselectivas_id)'),
 		);
 	}
 
@@ -109,7 +109,7 @@ class Peces extends CActiveRecord
 			'imagen' => 'Imagen',
 			'triptico' => 'Triptico',
 			'talla_captura' => 'Talla Captura',
-			'tipo_captura' => 'Tipo Captura',
+			'selectiva_noselectiva' => 'Tipo Captura',
 			'arte_pesca' => 'Arte Pesca',
 			'tipo_veda_id' => 'Tipo Veda',
 			'veda' => 'Veda',
@@ -146,7 +146,7 @@ class Peces extends CActiveRecord
 		$criteria->compare('imagen',$this->imagen,true);
 		$criteria->compare('triptico',$this->triptico,true);
 		$criteria->compare('talla_captura',$this->talla_captura,true);
-		$criteria->compare('tipo_captura',$this->tipo_captura,true);
+		$criteria->compare('selectiva_noselectiva',$this->selectiva_noselectiva,true);
 		$criteria->compare('arte_pesca',$this->arte_pesca,true);
 		$criteria->compare('tipo_veda_id',$this->tipo_veda_id);
 		$criteria->compare('veda',$this->veda,true);
@@ -172,5 +172,36 @@ class Peces extends CActiveRecord
 			$sql.= "'".$att."',";
 		return substr($sql, 0, -1);
 			
+	}
+	
+	public function ordena()
+	{
+		foreach (Peces::model()->findAllByAttributes(array('recomendacion'=>1)) as $k => $pez)
+		{
+			echo "$pez->especie_id - $pez->nombre_cientifico<br>";
+			$peso = $pez->peso;
+			$zonas = explode("/", $peso);
+			$peso_promedio = 0;
+			print_r($zonas);
+			foreach ($zonas as $zona)
+			{
+				if ((Int)$zona >= 0 && (Int)$zona <= 1)   //Recomendable
+					$peso_promedio+= 10;
+				if ((Int)$zona >= 2 && (Int)$zona <= 3)   //Poco Recomendable
+					$peso_promedio+= 100;
+				if ((Int)$zona >= 4 && (Int)$zona <= 6)   //No recomendable
+					$peso_promedio+= 1000;
+				if ((Int)$zona > 6)                       //No recomendable e importado (peor caso)
+					$peso_promedio+= 10000;
+			}
+			$pez->peso_promedio = $peso_promedio;
+
+			if ($pez->save())
+				echo "---> Guardo<br>";
+			else {
+				echo "---> No guardo<br>";
+				print_r($pez->getErrors());
+			}
+		}
 	}
 }
