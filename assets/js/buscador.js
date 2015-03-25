@@ -53,15 +53,14 @@ function filtros(filtro, accion)
 		case 'buscador_zona4':
 		case 'buscador_zona5':
 		case 'buscador_zona6':
+		case 'buscador_zona7':
 			if (filtro.is(':checked'))
 				values['buscador_zona'] = filtro.val();			
 			else
 				values['buscador_zona'] = null;
 			break;
 	}
-	
-	console.log(values);
-	
+		
 	//Asigna valor a los filtros
 	jQuery.ajax({
         success: function(html)
@@ -120,6 +119,8 @@ function filtros(filtro, accion)
         				$('#buscador_zona5').prop('checked', true);
         			if (html_json.buscador_zona == '6')
         				$('#buscador_zona6').prop('checked', true);
+        			if (html_json.buscador_zona == '7')
+        				$('#buscador_zona7').prop('checked', true);
         		}
         	}
         },

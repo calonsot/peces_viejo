@@ -200,7 +200,8 @@ class PecesController extends Controller
 			{
 				$joins.= CartaNacional::join();							
 				$condiciones.= "cn.Nivel1=".(Int)$params['zona']." AND cn.Nombre != 'Sin datos.' AND ";
-			}
+			} elseif (isset($params['zona']) && ((Int)$params['zona'] == 7))  //Caso del importado
+				$condiciones.= "(nacional_Importado='Importado' OR nacional_Importado='Nacional e Importado') AND ";
 		}
 		
 		//decide cual tipo de busqueda es
