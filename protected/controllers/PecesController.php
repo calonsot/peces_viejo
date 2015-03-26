@@ -179,8 +179,8 @@ class PecesController extends Controller
 			//Varia de 0 a 3 el valor de los radios
 			if (isset($params['recomendacion']) && ((Int)$params['recomendacion'] > -1 && (Int)$params['recomendacion'] < 3))
 			{
-				$condiciones.= "recomendacion=1 AND peor_peso IS NOT NULL AND peor_peso > -1 AND ";
-				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';
+				$condiciones.= "recomendacion=1 AND peso_promedio IS NOT NULL AND peso_promedio > -1 AND ";
+				$order.= ' ORDER BY peso_promedio, tipo_imagen, nombre_cientifico ASC';
 				
 				if((Int)$params['recomendacion']==0)  //Recomendable
 					$condiciones.= "peso REGEXP '^[01]|/[01]' AND peso != 0 AND ";	
@@ -192,7 +192,7 @@ class PecesController extends Controller
 				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';				
 			} else {   //busqueda sin recomendacion ni libre, te saca por default todos con recomendacion
 				$condiciones.= "peso REGEXP '^[0123456789]|/[0123456789]' AND peso != 0 AND ";
-				$order.= ' ORDER BY tipo_imagen, nombre_cientifico ASC';
+				$order.= ' ORDER BY peso_promedio, tipo_imagen, nombre_cientifico ASC';
 			}
 
 			//Las zonas varia de 1 a 6

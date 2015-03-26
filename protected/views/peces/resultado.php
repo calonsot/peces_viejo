@@ -41,7 +41,7 @@ if (!isset($vacio))
 		echo "</div>";
 		
 		
-		echo "<div class='dresul_semaforo' onClick='vm()'>Poco recomendable</div><br>";
+		echo "<div class='dresul_semaforo' onClick='vm()'>".Peces::peso_a_nombre_imagen($pezobj->peso)."</div><br>";
 		
 		
 		//Estados de conservacion

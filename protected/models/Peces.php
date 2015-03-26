@@ -182,7 +182,7 @@ class Peces extends CActiveRecord
 			$peso = $pez->peso;
 			$zonas = explode("/", $peso);
 			$peso_promedio = 0;
-			print_r($zonas);
+
 			foreach ($zonas as $zona)
 			{
 				if ((Int)$zona >= 0 && (Int)$zona <= 1)   //Recomendable
@@ -203,5 +203,25 @@ class Peces extends CActiveRecord
 				print_r($pez->getErrors());
 			}
 		}
+	}
+	
+	public static function peso_a_nombre_imagen($peso)
+	{
+		$imagen = '';
+		$zonas = explode("/", $peso);
+		//echo $peso;
+		foreach ($zonas as $zona)
+		{
+			if ((Int)$zona >= 0 && (Int)$zona <= 1)   //Recomendable
+				$imagen.= 'v';
+			if ((Int)$zona >= 2 && (Int)$zona <= 3)   //Poco Recomendable
+				$imagen.= 'a';
+			if ((Int)$zona >= 4)                      //No recomendable
+				$imagen.= 'r';
+			if ((Int)$zona == -1)                     //Vacio o sin Datos
+				$imagen.= 'b';
+		}
+		
+		return $imagen.".jpg";
 	}
 }
