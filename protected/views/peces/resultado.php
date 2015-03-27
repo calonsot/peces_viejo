@@ -32,17 +32,19 @@ if (!isset($vacio))
 			echo $pezobj->nombre_cientifico;				
 		echo "</div>";
 		
-		echo "<div class='ima'>";
+		echo "<div class='dima'>";
 		//Imagenes
 		if ($pezobj->tipo_imagen == 1)
-			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".($pezobj->imagen), $pezobj->nombre_cientifico, array('height'=>'60px;'));
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
 		elseif ($pezobj->tipo_imagen == 2)
-			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pezobj->imagen), $pezobj->nombre_cientifico, array('height'=>'60px;'));
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
 		echo "</div>";
 		
+		echo "<div onClick='vm()'>";
+		echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".Peces::peso_a_nombre_imagen($pezobj->peso));
+		echo "</div>";
 		
-		echo "<div class='dresul_semaforo' onClick='vm()'>".Peces::peso_a_nombre_imagen($pezobj->peso)."</div><br>";
-		
+		echo "<div class='dresul_body'>";
 		
 		//Estados de conservacion
 		$estados_conservacion = array();
@@ -152,6 +154,7 @@ if (!isset($vacio))
 		if (!empty($cartas_nacionales))
 			echo "<b>Carta Nacional Pesquera (2012):</b> ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"carta_nacional"))."<ul>".$cartas_nacionales."</ul>";
 			
+		echo "</div>";
 		echo "</div>";
 		?>
 
