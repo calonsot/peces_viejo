@@ -16,7 +16,7 @@ if (!isset($vacio))
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
 		//echo "ID: ".$pezobj->especie_id."<br>";		
-		echo "<div class='dresul_all'>";
+		echo "<div id='dresul' class='dresul_all'>";
 		
 		echo "<div class='dresul_head'>";
 		//Parte de los datos principales	
@@ -42,7 +42,12 @@ if (!isset($vacio))
 		echo "</div>";
 		
 		echo "<div id='dat_".$pezobj->especie_id."'>";
-		echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".Peces::peso_a_nombre_imagen($pezobj->peso));
+		$imagenes = Peces::peso_a_nombre_imagen($pezobj->peso);
+		echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".$imagenes['zonas']);
+		
+		if($imagenes['importado'])
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/importado.png");
+			
 		echo "</div>";
 		
 		echo "<div id ='dresul_body_".$pezobj->especie_id."' class='dresul_body' style='display:none'>";
