@@ -186,7 +186,7 @@ class Peces extends CActiveRecord
 			foreach ($zonas as $zona)
 			{
 				if ((Int)$zona >= 0 && (Int)$zona <= 1)   //Recomendable
-					$peso_promedio+= 10;
+					$peso_promedio-= 200;
 				if ((Int)$zona >= 2 && (Int)$zona <= 3)   //Poco Recomendable
 					$peso_promedio+= 100;
 				if ((Int)$zona >= 4 && (Int)$zona <= 6)   //No recomendable
