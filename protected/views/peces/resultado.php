@@ -16,7 +16,7 @@ if (!isset($vacio))
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
 		//echo "ID: ".$pezobj->especie_id."<br>";		
-		echo "<div id='dresul' class='dresul_all'>";
+		echo "<div class='dresul_all'>";
 		
 		echo "<div class='dresul_head'>";
 		//Parte de los datos principales	
@@ -30,7 +30,8 @@ if (!isset($vacio))
 			echo "<b>".($pezobj->ingles)."</b><br> <i>(".$pezobj->nombre_cientifico.")</i>";
 		else
 			echo $pezobj->nombre_cientifico;				
-		echo "</div>";
+		
+		echo "</div>"; //cierra dresul_head
 		
 		echo "<div class='dima'>";
 		//Imagenes
@@ -40,11 +41,11 @@ if (!isset($vacio))
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
 		echo "</div>";
 		
-		echo "<div onClick='vm()'>";
+		echo "<div id='dat_".$pezobj->especie_id."'>";
 		echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".Peces::peso_a_nombre_imagen($pezobj->peso));
 		echo "</div>";
 		
-		echo "<div class='dresul_body'>";
+		echo "<div id ='dresul_body_".$pezobj->especie_id."' class='dresul_body' style='display:none'>";
 		
 		//Estados de conservacion
 		$estados_conservacion = array();
@@ -154,14 +155,12 @@ if (!isset($vacio))
 		if (!empty($cartas_nacionales))
 			echo "<b>Carta Nacional Pesquera (2012):</b> ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"carta_nacional"))."<ul>".$cartas_nacionales."</ul>";
 			
-		echo "</div>";
-		echo "</div>";
+		echo "</div>";  //cierra dresul_body_
+		echo "</div>";  //cierra dresul_all
 		?>
 
 		
 	<?php } ?>
-</div>
-
 <?php 	
 	} else
 	echo $vacio;

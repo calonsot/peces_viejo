@@ -156,4 +156,8 @@ $(document).ready(function(){
 	    });
 	});
 	
+	$("[id^='dat_']").on('click', function(){
+		var id = $(this).attr('id').substring(4);
+		$("#dresul_body_"+id).toggle();
+	});
 });
