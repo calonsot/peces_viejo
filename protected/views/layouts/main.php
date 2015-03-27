@@ -26,6 +26,8 @@
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
 <link rel="stylesheet" type="text/css"
 	href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.qtip.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="<?php echo Yii::app()->request->baseUrl; ?>/css/new_style.css" />
 	
 <script type="text/javascript">
 var YII_PATH = "<?php echo Yii::app()->request->baseUrl; ?>";
@@ -37,7 +39,7 @@ var YII_PATH = "<?php echo Yii::app()->request->baseUrl; ?>";
 	src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/buscador.js"></script>
 <script type="text/javascript"
 	src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/jquery.qtip.min.js"></script>
-<link href="/css/estilosgral.css" rel="stylesheet" type="text/css">
+
 
 <script type="text/javascript">
 function MM_preloadImages() { //v3.0
@@ -53,116 +55,7 @@ function vm() {
 }
 </script>
 
-<style type="text/css">
-<!--
-ul {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	line-height: 130%;
-	list-style-image: url(http://www.biodiversidad.gob.mx/prueba/peces/imagenes/aplicacion/b_pez.png);
-	list-style-position: outside;
-}
 
-.titblue {
-	font-size: 14px;
-	font-weight: 900;
-	color: #1E413E;
-}
-
-.preguntas {
-	color: #993300;
-	font-size: 14px;
-	line-height: 150%;
-	font-style: italic;
-	font-weight: bold;
-}
-
-.deg {
-	/* navegadores sin soporte */
-    /*background: #868159 url(../images/cabecera_degradado.jpg) repeat-y;*/
-    /* Safari 5.1+, Chrome 10+ */
-    background: -webkit-linear-gradient(#5E9B97, #D9D6C4);
-    /* Firefox 3.6+ */
-    background: -moz-linear-gradient(#5E9B97, #D9D6C4);
-    /* Opera 11.10+ */
-    background: -o-linear-background(#5E9B97, #D9D6C4);
-    /* IE 10 */
-    background: -ms-linear-background(#5E9B97, #D9D6C4);
-    /* estándar */
-    background: linear-background(#5E9B97, #D9D6C4);
-}
-
-.bborder {
-	border-bottom: 2px solid #1E413E;
-}
-
-.tp {
-	font-size: 11px !important;
-}
-
-.resul {
-	color: #993300;
-	font-size: 12px;
-	text-align: right;
-	font-weight: bold;
-}
-
-.dresul_all {
-	width: 250px;
-	height: 150px;
-	text-align: left;
-	float: left;
-	display: inline-block;
-	background: #B3C4B7;
-	margin-left: 10px;
-	margin-bottom: 10px;
-	padding: 10px;
-	overflow: hidden;
-	border-radius: 8px;
-}
-
-.ver {
-	height: auto;
-}
-.dresul_head {
-	/*border-bottom: 2px solid #1E413E;*/
-	height: 61px;
-	/* navegadores sin soporte */
-    /*background: #868159 url(../images/cabecera_degradado.jpg) repeat-y;*/
-    /* Safari 5.1+, Chrome 10+ */
-    background: -webkit-linear-gradient(#D9D6C4, #B3C4B7);
-    /* Firefox 3.6+ */
-    background: -moz-linear-gradient(#D9D6C4, #B3C4B7);
-    /* Opera 11.10+ */
-    background: -o-linear-background(#D9D6C4, #B3C4B7);
-    /* IE 10 */
-    background: -ms-linear-background(#D9D6C4, #B3C4B7);
-    /* estándar */
-    background: linear-background(#D9D6C4, #B3C4B7);
-	border-radius: 8px;
-	padding: 5px;
-}
-
-.ima {
-	height: 60px;
-	text-align: center;
-	margin: 5px 0px 5px 0px;
-}
-
-.dresul_semaforo {
-	background: #D56B12;
-	height: 18px;
-	text-align: center;
-	font-weight: bold;
-	font-size: 11px;
-	color: #D9D6C4;
-}
-
-.bor {
-	border-radius: 8px;
-}
-
--->
-</style>
 <!-- InstanceEndEditable -->
 <link href="http://www.biodiversidad.gob.mx/css/estilosgral.css"
 	rel="stylesheet" type="text/css">
@@ -320,15 +213,15 @@ input.gsc-search-button {
 											<span class="Ubarra_navega"><a
 												href="http://www.biodiversidad.gob.mx/index.html">Inicio</a>
 												- <a href="http://www.biodiversidad.gob.mx/usos/usos.html">Usos</a>
-												- <a
-												href="http://www.biodiversidad.gob.mx/usos/mAlimentacion.html">Alimentos</a>
+												- <a href="http://www.biodiversidad.gob.mx/usos/mAlimentacion.html">Alimentos</a>
 												- Peces</span>
 										</p>
-										<table width="910" border="0" align="center" cellpadding="30" cellspacing="0" bgcolor="#D9D6C4"  class="txt_reforesta">
+										<table width="910" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#D9D6C4"  class="txt_peces">
 											<tr>
-											<td width="500" class="deg">
-                                              <?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/header_peces.png", "Peces", array("width" => "500px;")), Yii::app()->request->baseUrl); ?>
-												<p class="titblue bborder">¿Te has preguntado?</p>
+											  <td colspan="2" class="deg_head"><?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/header_peces.png", "Peces", array("width" => "910px;")), Yii::app()->request->baseUrl); ?></td>
+										  </tr>
+											<tr>
+											<td width="300" class="c_texto"><p class="titblue bborder">¿Te has preguntado?</p>
 													<ul class="preguntas">
 														<li>&iquest;Qu&eacute; especie est&aacute;s comprando?</li>
 														<li>&iquest;De qu&eacute; lugar proviene?</li>
@@ -336,13 +229,15 @@ input.gsc-search-button {
 														<li>&iquest;C&oacute;mo fue capturada?</li>
 														<li>&iquest;Si es de una pequer&iacute;a legal?</li>
 													</ul>
-          
-												<p class="preguntas">¡Conviertete en un consumidor informado y consciente!</p>
-												* Recuerda que cuando compras un producto del mar lo que  t&uacute; elijas y compres en los mercados y supermercados tiene un efecto directo  positivo o negativo en la biodiversidad marina. <strong>&ldquo;Conoci&eacute;ndolos  saben mejor&rdquo;</strong></td>
-											  <td class="deg"><?php $this->renderPartial('/peces/_buscador');?></td>
+                                                    
+                                                    <p>Recuerda que cuando compras un producto del mar lo que  t&uacute; elijas y compres en los mercados y supermercados tiene un efecto directo  positivo o negativo en la biodiversidad marina.</p>
+                                                    
+                                                   <p class="preguntas">¡Conoci&eacute;ndolos  saben mejor, conviertete en un consumidor informado y consciente!</p>
+												</td>
+											  <td valign="top" class="c_buscador perspective"><?php $this->renderPartial('/peces/_buscador');?></td>
 											</tr>
 											<tr>
-											<td colspan="2" style="padding-top: 0px;"><?php echo $content; ?></td>
+											<td colspan="2"><?php echo $content; ?></td>
 											</tr>
 										</table>
 										</form> <!-- InstanceEndEditable -->

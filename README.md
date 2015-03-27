@@ -15,4 +15,3 @@ comandos.out     <---- comandos que te podrian servir para la migracion
 BASEDATOS PecesComerciales.xlsx      <---- el excel que te comentaba modifican y que se migrara a la base normalizada del archivo: MER_peces_comerciales.mwb
 
 La pagina principal esta en http://www.biodiversidad.gob.mx/usos/alimentacion/peces/
-

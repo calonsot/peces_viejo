@@ -22,9 +22,8 @@ body
 	border-top: 3px solid #ffffff;
 }
 
-#content
-{
-    padding: 10px;
+#content {
+	margin-top: 30px;
 }
 
 #sidebar
@@ -128,11 +127,8 @@ div.form .rememberMe label
 	display: inline;
 }
 
-div.view
-{
-	padding: 10px;
-	margin: 10px 0;
-	border: 1px solid #C9E0ED;
+div.view {
+	
 }
 
 div.breadcrumbs

@@ -9,9 +9,9 @@ $(document).ready(function(){
 });
 </script>
 
-<table width="880" border="0" align="center" cellpadding="0" cellspacing="0" class="txt_reforesta">
+<table width="910" border="0" align="center" cellpadding="0" cellspacing="0" class="txt_peces">
 	<tr>
-		<td width="510" valign="top" style="padding-right: 20px">
+		<td width="510" class="c_texto">
 				<strong><span class="titblue">Los peces </span>
 				</strong>constituyen un poco m&aacute;s de la mitad de todos los
 				vertebrados del mundo. Se han registrado alrededor de 30,000
@@ -35,7 +35,7 @@ $(document).ready(function(){
 				proviene del Pacífico, principalmente el Golfo de California.
 			</p>
 									
-			<table width="500" border="0" align="center" cellpadding="3" cellspacing="1" class="txt_reforesta tp">
+			<table width="600" border="0" align="center" cellpadding="3" cellspacing="1" class="txt_peces tp">
 				<tr>
 					<td align="center" nowrap bgcolor="#E3E1CE">
 						<span><strong>Pac&iacute;fico mexicano</strong></span>
@@ -207,7 +207,7 @@ $(document).ready(function(){
 			</p>
 			
 			
-				<br> <strong class="Utexconceptos">Estado de conservaci&oacute;n</strong>
+				<br> <strong class="titblue">Estado de conservaci&oacute;n</strong>
 				<br> La actividad pesquera en el pa&iacute;s comenz&oacute; su auge en los a&ntilde;os 40, y en un principio la explotaci&oacute;n 
 				pesquera ten&iacute;a como objetivo el extraer los mayores vol&uacute;menes posibles de peces sin considerar la 
 				capacidad de renovaci&oacute;n de las especies, lo que result&oacute; en que muchas de las poblaciones de estos 
@@ -216,47 +216,47 @@ $(document).ready(function(){
 			</p>
 			
 			
-				<strong class="Utexconceptos">Carta Nacional Pesquera (CNP)</strong>
+				<strong class="titblue">Carta Nacional Pesquera (CNP)</strong>
 				<br> Es el &uacute;nico documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos 
 				marinos comerciales en M&eacute;xico, adem&aacute;s plantea restricciones y limites en algunas pesquer&iacute;as.<br>
 				En base a estudios cient&iacute;ficos la carta agrupa en tres categor&iacute;as a los grupos de peces explotados:
 				<br><br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> En deterioro:</strong> El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminuci&oacute;n 
 					notable en la biomasa y una capacidad reducida de reclutamiento.<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> M&aacute;ximo aprovechamiento permisible:</strong> El nivel de utilizaci&oacute;n de las poblaciones de peces se considera &oacute;ptimo y 
 					no es posible aumentar la captura sin sobreexplotaci&oacute;n.<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Con potencial de desarrollo:</strong> Existe la posibilidad de aumentar las capturas de las poblaciones de peces, 
 					incrementando el esfuerzo pesquero, siempre y cuando se realice de manera precautoria y controlada.<br><br>
 				
 				De acuerdo a los sitios de pesca de cada especie, la carta nacional ha regionalizado los sitios de acuerdo a zonas y n&uacute;meros:
 				<strong>Pac&iacute;fico</strong><br> 
-				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Zona 1:</strong> Pen&iacute;nsula de Baja California (Costa del Pac&iacute;fico de Baja California y Baja California Norte
-				<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Zona 2:</strong> Golfo de California (Baja California, Baja California Sur, Sonora, Sinaloa, Nayarit)
-				<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Zona 3:</strong> Pac&iacute;fico centro-sur (Jalisco, Colima, Michoac&aacute;n, Guerrero, Oaxaca, Chiapas)
-				<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				<br>&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Zona 4:</strong> Archipi&eacute;lago de las Islas Revillagigedo.
 
 				<br><br><strong>Golfo de M&eacute;xico y Caribe</strong><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Zona 1:</strong> Tamaulipas y Veracruz
-				<br><strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				<br><strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Zona 2:</strong> Tabasco, Campeche y Yucat&aacute;n
-				<br><strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				<br><strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Zona 3:</strong> Quintana Roo				
 			</p>
 			
 			
-				<br> <strong class="Utexconceptos">Sustentabilidad pesquera</strong>
+				<br> <strong class="titblue">Sustentabilidad pesquera</strong>
 				<br> Diversos estudios e investigadores indican que las poblaciones de cerca de 500 especies de peces comerciales 
 				actualmente se encuentran en las siguientes condiciones:
 			</p>
-			<table border="0" cellpadding="1" cellspacing="1" class="txt_reforesta">
+			<table border="0" cellpadding="1" cellspacing="1" class="txt_peces">
 				<tr>
 					<td bgcolor="#E3E1CE"><span>
 					</span>					<span>sobreexplotadas:
@@ -283,26 +283,26 @@ $(document).ready(function(){
 				</tr>
 			</table><br>
 			
-				<strong class="Utexconceptos">Peces comerciales en riesgo</strong><br>
+				<strong class="titblue">Peces comerciales en riesgo</strong><br>
 				Adem&aacute;s de La Carta Nacional Pesquera y sus regulaciones, existen otros convenios y normas de car&aacute;cter 
 				nacional e internacional, estas regulan y protegen a especies en riesgo. Entre ellas est&aacute;n:<br><br>    
-				<strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				<strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> La Norma Mexicana de Especies en Riesgo</strong> (<a
 					href="http://www.biodiversidad.gob.mx/especies/catRiesMexico.html"
 					target="_blank" style="color: #323D2C">NOM-059-SEMARNAT-2010</a> ), y contiene dentro de sus
 					categorias a <strong>4</strong> peces de importancia comercial.<br>
-					<strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					<strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> La Convenci&oacute;n Internacional sobre el Comercio de Especies Amenazadas de Fauna y Flora</strong> 
 					(<a href="http://www.biodiversidad.gob.mx/planeta/cites/index.html"
 					target="_blank" style="color: #323D2C">CITES</a>) incluye <strong>5</strong> especies de peces de
 					importancia comercial.<br>
-					<strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+					<strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> La lista roja de la Uni&oacute;n Internacional para la Conservaci&oacute;n de la Naturaleza</strong> 
 					(<a href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html"
 					target="_blank" style="color: #323D2C">IUCN</a>),
 					 tiene a <strong>64</strong> especies de peces en las categor&iacute;as de mayor riesgo. 
 			</p>
-			<table width="500" border="0" align="center" cellpadding="3" cellspacing="1" class="txt_reforesta tp">
+			<table width="600" border="0" align="center" cellpadding="3" cellspacing="1" class="txt_peces tp">
 				<tr>
 					<td max-width="150" bgcolor="#E3E1CE">
                     	<span><strong>Especie</strong></span>
@@ -343,7 +343,7 @@ $(document).ready(function(){
 			<strong><?php echo CHtml::link('Ver todos', NULL, array("id"=>"despliega_estado_conservacion", "style" => "color:#584B05;")); ?></strong>
 			
 				<br><br>
-				<strong class="Utexconceptos">Vedas</strong><br> Con el fin de
+				<strong class="titblue">Vedas</strong><br> Con el fin de
 				optimizar el aprovechamiento de la pesca desde un punto de vista
 				biol&oacute;gico y socioecon&oacute;mico, la Comisi&oacute;n
 				Nacional de Acuacultura y Pesca (CONAPESCA) ha establecido regulaciones
@@ -354,38 +354,38 @@ $(document).ready(function(){
 				de reproducci&oacute;n o crianza.<br><br>
 				
 				<strong>Tipos de veda en M&eacute;xico:</strong><br>
-				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Veda permanente:</strong> La especie no puede ser explotada en ningún momento del a&ntilde;o de forma indefinida.<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Veda temporal fija:</strong> Se establece en un periodo definido y se repite anualmente.<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Veda temporal variable:</strong> Se establece por un periodo definido pero es actualizada anualmente.<br>
 			</p>
 			
 			
-				<strong class="Utexconceptos">Artes de pesca</strong><br> 
+				<strong class="titblue">Artes de pesca</strong><br> 
 				Las artes de pesca son los diferentes métodos de captura o técnicas con las que los peces son atrapados.  
 				Existen 4 tipos principales de arte y de cada uno de ellos tienen variables y combinaciones diferentes:
 				
 			</p>
 			
-				<strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6"
+				<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> L&iacute;neas:</strong> Este arte consiste en un hilo
 				con un anzuelo con carnada en su punta final. Existen variantes de
 				la l&iacute;nea como: l&iacute;nea de anzuelo, l&iacute;nea
 				cabrillera de fondo, l&iacute;nea de mano, troleado y carpiota o
-				pollito.<br> <br> <strong><img src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png"
+				pollito.<br> <br> <strong><img src="/peces/imagenes/aplicacion/bp.png"
 					width="6" height="6"> Palangres: </strong>Es una cuerda larga con
 				varios anzuelos con carnada sujetados a ciertos intervalos. Existen
 				diferentes tipos de palangres como palangres escameros, palangre
 				tiburonero, palangre viajero de fondo, rosario o ristra, dependiendo
 				de las especies &ldquo;objetivo&rdquo;.<br> <br> <strong><img
-					src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6" height="6"> Redes: </strong>Las
+					src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Redes: </strong>Las
 				redes son mallas construida de hilos finos. Los peces quedan
 				atrapados por las agallas o entre la cabeza y el cuerpo. Existen
 				diferentes tipos de redes entre ellas est&aacute;n la red agallera,
 				atarraya, red caritera, red corvinera y red sardinera.<br> <br> <strong><img
-					src="http://www.biodiversidad.gob.mx/usos/images/balazo_tiposUsos.png" width="6" height="6"> Trampas
+					src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Trampas
 					y nasas: </strong>Son cajas o compartimientos a los que son
 				atra&iacute;dos los peces. Las formas t&iacute;picas de las trampas
 				y nasas, son cajas, conos, cilindros, esferas o botellas. Su
@@ -397,7 +397,7 @@ $(document).ready(function(){
 				pulpo.
 			</p>
 			
-			<strong class="Utexconceptos">Tipos de artes de pesca</strong><br> 
+			<strong class="titblue">Tipos de artes de pesca</strong><br> 
 			Algunas de las artes de pesca tienen un fuerte impacto sobre la biodiversidad marina 
 			y su ambiente y otras no lo tienen, por lo que es determinante que el consumidor conozca la informaci&oacute;n sobre 
 			el tipo de arte que es utilizado por especie, para esto se han separado las artes de pesca en dos grupos:</p>
@@ -429,7 +429,7 @@ $(document).ready(function(){
 			</p>
 			
 			 
-				<strong class="Utexconceptos">Pesca Ribere&ntilde;a y de altura</strong> <br> 
+				<strong class="titblue">Pesca Ribere&ntilde;a y de altura</strong> <br> 
 				En el país la pesca en sus litorales se divide en dos grandes grupos:<br><br> 
 				<strong>Pesca ribereña</strong> 
 				Se lleva a cabo en ecosistemas costeros, no se realiza m&aacute;s all&aacute; de los 100 metros de profundidad y 
@@ -543,10 +543,10 @@ $(document).ready(function(){
 		</td>
 		
 		
-		<td width="250" align="center" valign="top" class="deg bor"><br>
-		<p align="center" class="Utexconceptos"><strong>Nuevo cartel. Peces comerciales<br>de M&eacute;xico: Oc&eacute;ano Pac&iacute;fico</strong></p>
+		<td width="250" class="c_izq">
+		<p align="center" class="titblue"><strong>Nuevo cartel. Peces comerciales<br>de M&eacute;xico: Oc&eacute;ano Pac&iacute;fico</strong></p>
 		<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_pacifico.png" width="250" height="167" />
-		<p align="center" class="Utexconceptos"><strong>Peces comerciales de M&eacute;xico:<br>Golfo y Caribe</strong></p>
+		<p align="center" class="titblue"><strong>Peces comerciales de M&eacute;xico:<br>Golfo y Caribe</strong></p>
 		<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_golfo_web.png" width="250" height="167" />
 		<div align="center" class="datospagprin">Disponibles en nuestro <a href="http://www.biodiversidad.gob.mx/publicaciones/publicaciones.php" target="_blank" style="color: #323D2C">cat&aacute;logo de publicaciones</a></div>
 			
@@ -585,7 +585,7 @@ $(document).ready(function(){
 		  <hr>
 			<p>
 				<br> <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12">
-				<span class="Utexconceptos">Videos</span>
+				<span class="titblue">Videos</span>
 			</p> <iframe width="250" height="141"
 				src="//www.youtube.com/embed/AZcTLXVL4_A?rel=0" frameborder="0"
 				allowfullscreen></iframe> <br>
@@ -598,13 +598,13 @@ $(document).ready(function(){
 			<hr>
 			<p class="datospagprin">
 				<br> <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12">
-				<span class="Utexconceptos">Carteles</span> (pr&oacute;ximamente)
+				<span class="titblue">Carteles</span> (pr&oacute;ximamente)
 			</p>
 			<p class="datospagprin">&nbsp;</p>
 			<hr> <br>
 			<p class="datospagprin">
 				<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12"> <span
-					class="Utexconceptos">Gu&iacute;as</span> (pr&oacute;ximamente)
+					class="titblue">Gu&iacute;as</span> (pr&oacute;ximamente)
 			</p>
 		</td>
 	</tr>
