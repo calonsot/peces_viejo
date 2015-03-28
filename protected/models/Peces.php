@@ -210,8 +210,7 @@ class Peces extends CActiveRecord
 		$imagen = '';
 		$zonas = explode("/", $peso);
 		$importado = $zonas[6];
-		//unset($zonas[6]);
-		//echo $peso;
+
 		foreach ($zonas as $zona)
 		{
 			if ((Int)$zona >= 0 && (Int)$zona <= 1)   //Recomendable
