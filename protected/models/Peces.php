@@ -186,7 +186,7 @@ class Peces extends CActiveRecord
 			foreach ($zonas as $zona)
 			{
 				if ((Int)$zona >= 0 && (Int)$zona <= 1)   //Recomendable
-					$peso_promedio+= 10;
+					$peso_promedio-= 200;
 				if ((Int)$zona >= 2 && (Int)$zona <= 3)   //Poco Recomendable
 					$peso_promedio+= 100;
 				if ((Int)$zona >= 4 && (Int)$zona <= 6)   //No recomendable
@@ -209,7 +209,8 @@ class Peces extends CActiveRecord
 	{
 		$imagen = '';
 		$zonas = explode("/", $peso);
-		//echo $peso;
+		$importado = $zonas[6];
+
 		foreach ($zonas as $zona)
 		{
 			if ((Int)$zona >= 0 && (Int)$zona <= 1)   //Recomendable
@@ -222,6 +223,6 @@ class Peces extends CActiveRecord
 				$imagen.= 'b';
 		}
 		
-		return $imagen.".jpg";
+		return array('zonas'=>$imagen.".jpg", 'importado'=>($importado == -1 ? false : true));
 	}
 }

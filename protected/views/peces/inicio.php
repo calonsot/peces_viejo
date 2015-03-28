@@ -324,14 +324,25 @@ $(document).ready(function(){
 					<td width="150" valign="bottom" nowrap bgcolor="#EBE9DB">
 						<span><?php echo $res["nombre"]; ?> </span>
 					</td>
+					
 					<td width="100" valign="bottom" nowrap bgcolor="#EBE9DB">
-						<span><em><?php echo $res["NOM"]; ?></em></span>
+						<span><em>
+						<?php
+						if (array_key_exists("3", $res["cat_riesgo"]))
+							echo $res["cat_riesgo"]["3"]; 
+						?></em></span>
 					</td>
 					<td width="100" valign="bottom" nowrap bgcolor="#EBE9DB">
-						<span><?php echo $res["CITES"]; ?></span>
+						<span><?php
+						if (array_key_exists("2", $res["cat_riesgo"]))
+							echo $res["cat_riesgo"]["2"]; 
+						?></span>
 					</td>
 					<td width="100" valign="bottom" nowrap bgcolor="#EBE9DB">
-						<span><?php echo $res["IUCN"]; ?></span>
+						<span><?php
+						if (array_key_exists("1", $res["cat_riesgo"]))
+							echo $res["cat_riesgo"]["1"]; 
+						?></span>
 					</td>
 				</tr>
 				<?php
