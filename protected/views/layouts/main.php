@@ -55,6 +55,42 @@ function vm() {
 }
 </script>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#s1, #s2, #s3, #s4" ).dialog({
+      autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "explode",
+        duration: 350
+      }
+    });
+ 
+    $( "#opens1" ).click(function() {
+      $( "#s1" ).dialog( "open" );
+    });
+	
+	$( "#opens2" ).click(function() {
+      $( "#s2" ).dialog( "open" );
+    });
+	
+	$( "#opens3" ).click(function() {
+      $( "#s3" ).dialog( "open" );
+    });
+	
+	$( "#opens4" ).click(function() {
+      $( "#s4" ).dialog( "open" );
+    });
+  });
+  </script>
+
 
 <!-- InstanceEndEditable -->
 <link href="http://www.biodiversidad.gob.mx/css/estilosgral.css"
@@ -229,11 +265,51 @@ input.gsc-search-button {
 														<li>&iquest;C&oacute;mo fue capturada?</li>
 														<li>&iquest;Si es de una pequer&iacute;a legal?</li>
 													</ul>
-                                                    
-                                                    <p>Recuerda que cuando compras un producto del mar lo que  t&uacute; elijas y compres en los mercados y supermercados tiene un efecto directo  positivo o negativo en la biodiversidad marina.</p>
-                                                    
-                                                   <p class="preguntas">¡Conoci&eacute;ndolos  saben mejor, conviertete en un consumidor informado y consciente!</p>
-												</td>
+                                              <p class="titblue bborder">Semáforo</p>
+                                              <p>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_verde.jpg");?> <span style="vertical-align:super"><b> Recomendable</b></span><br>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_amarillo.jpg");?> <span style="vertical-align:super"><b> Poco recomendable</b></span><br>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_rojo.jpg");?> <span style="vertical-align:super"><b> No recomendable</b></span><br>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_blanco.jpg");?> <span style="vertical-align:super"><b> No recomendable</b></span>
+                                               </p>
+                                                    <p class="titblue">Criterios del semáforo:</p>
+                                                    <ul>
+                                                    	<li id="opens1">Estado de las poblaciones</li>
+                                                        <li id="opens2">Selectividad en la captura</li>
+                                                        <li id="opens3">Especies en riesgo</li>
+                                                        <li id="opens4">Veda</li>
+                                                     </ul>
+                                                     
+                                                     <div id="s1" title="Estado de las poblaciones">
+                                                     <p>La Carta Nacional Pesquera es el único documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos marinos comerciales en México, además plantea restricciones y limites en algunas pesquerías. Se publica periódicamente. En base a estudios científicos la carta agrupa en tres categorías a los grupos de peces explotados.<br><br><br>
+                                                     <b>En deterioro:</b> El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminución notable en la abundancia (biomasa) y una capacidad reducida de incorporación a la población (reclutamiento).<br><br>
+                                                     <b> Máximo aprovechamiento permisible:</b> El nivel de utilización de las poblaciones de peces se considera óptimo y no es posible aumentar la captura sin sobreexplotación. <br><br>
+                                                     <b>Con potencial de desarrollo:</b> Existe la posibilidad de aumentar las capturas de las poblaciones de peces, incrementando el esfuerzo pesquero, siempre y cuando se realice de manera precautoria y controlada.<br><br><br>
+                                                     <b>Fuentes de información:</b><br>
+                                                     - <a href="http://www.inapesca.gob.mx/portal/documentos/publicaciones/CARTA%20NACIONAL%20PESQUERA/24082012%20SAGARPA.pdf" target="_blank">Carta Nacional Pesquera 2012</a>
+                                                     </div>
+                                                     
+                                                     <div id="s2" title="Selectividad en la captura">
+                                                     <p>Las artes de pesca son los diferentes métodos de captura o técnicas con las que los peces son atrapados.  Algunas de las artes de pesca tienen un fuerte impacto sobre la biodiversidad marina y su ambiente y otras no lo tienen. Es determinante que el consumidor conozca la información sobre el tipo de arte que es utilizado por especie.<br><br>
+                                                     Pesca selectiva: Se captura la especie objetivo de tamaño deseado y tiene un bajo impacto negativo sobre el ecosistema.<br>
+                                                     Algunos tipos de artes de pesca de bajo impacto: Red de arrastre para camarones RS-INP-MEX-110´para embarcaciones mayores en el Golfo de California, red agallera para lisa y liseta o lebrancha, línea de mano para peces pelágicos y demersales, curricán para pesca de especies pelágicas, palangre para peces pelágicos costeros, palangre para mero, palangre para la pesca de tiburones pelágicos del Pacífico central mexicano, a bordo de embarcaciones de mediana altura, palangre para atún: Golfo de México y Caribe.<br><br><br>
+                                                     Pesca no selectiva: Se capturan diferentes especies y tamaños que no son el objetivo. Puede afectar delfines, tortugas y aves, dañar el ambiente y destruir los ecosistemas marinos.<br>
+                                                     Algunos tipos de artes de pesca de alto impacto para el ambiente son el chinchorro playero, red de enmalle para tiburones y rayas en embarcaciones menores, red agallera para escama pelágica, red agallera para escama de fondo, red agallera para esteros y línea de costa, palangre para embalses, palangre escama de esteros, palangre para especies de fondo, palangre para tiburón oceánico y pez espada.<br><br><br>
+                                                     Fuentes de información:<br>
+                                                     - (Fuente: Cochrane, K. L. 2005. Guía del administrador pesquero. Medidas de ordenación y su aplicación. FAO. Documento Técnico de Pesca. No. 424. Roma: FAO.<br>
+                                                     - Carta Nacional Pesquera (2012)</p>
+                                                     </div>
+                                                     
+                                                     <div id="s3" title="Especies en riesgo">
+                                                     3
+                                                     </div>
+                                                     
+                                                     <div id="s4" title="Veda">
+                                                     4
+                                                     </div>
+                                                     
+                                                     
+                                                     </td>
 											  <td valign="top" class="c_buscador perspective"><?php $this->renderPartial('/peces/_buscador');?></td>
 											</tr>
 											<tr>
