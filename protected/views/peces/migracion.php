@@ -2,13 +2,13 @@
 
 header('Content-Type: text/html; charset=ISO-8859-1');
 //Se calcula el número de líneas que tiene tal archivo para iterar
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/filtros.sql");
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/tabla_grupos.sql");
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/tabla_carta_nacional.sql");
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/distribucion.sql");
-system("mysql -h localhost -u root -proot usos_pesos < protected/data/tabla_estado_conservacion.sql");
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/tipo_capturas.sql");
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/tipo_veda.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/filtros.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/tabla_grupos.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/tabla_carta_nacional.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/distribucion.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/tabla_estado_conservacion.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/tipo_capturas.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/tipo_veda.sql");
 //echo $db->get_id('carta_nacional', 'Nombre','id=1'));
 
 $n = system("wc -l protected/data/BD_VFINAL.csv | awk '{print $1}'");
@@ -16,9 +16,9 @@ system("echo \"SET FOREIGN_KEY_CHECKS=0; \" > protected/data/tabla_peces_migraci
 system("echo \"INSERT INTO peces(nombre_comun,nombre_ingles,nombre_cientifico,clase,orden,familia,grupo_id,nacional_importado,tipo_imagen,imagen,triptico,talla_captura,selectiva_noselectiva,arte_pesca,tipo_veda_id,veda,generalidades,descripcion_distribucion,cultivado_capturado,comercio,pais_importacion) VALUES \" >> protected/data/tabla_peces_migracion.sql");
 system("chmod 777 protected/data/tabla_peces_migracion.sql");
 echo "valor de n: ".$n."<br>";
-for($i=2;$i<=$n;$i++){
+for($i=1;$i<=$n;$i++){
 	//Se extrae campo grupo de la línea especificada
-	echo $i."<br>";
+	//echo $i."<br>";
 	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$11"" }\' protected/data/BD_VFINAL.csv';
 	//Se extrae el id del nombre del grupo
 	$grupo = $db->get_id('grupo', 'id','nombre="'.trim(system($cad)).'"');
@@ -38,21 +38,21 @@ for($i=2;$i<=$n;$i++){
 	//Da formato al id tipo_veda
 	$formato_veda = strip_tags($veda);
 	
-	echo "Formato grupo: ".$formato_grupo."<br>";
-	echo "Formato veda: ".$formato_veda."<br>";
+	//echo "Formato grupo: ".$formato_grupo."<br>";
+	//echo "Formato veda: ".$formato_veda."<br>";
 	//Se extraen los campos que requiere la tabla peces para ser creados y realiza un append en el archivo especificado
 	if($i==$n)
 		$cmd = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print "(\""$1"\",\""$2"\",\""$3"\",\""$4"\",\""$5"\",\""$6"\",'.$formato_grupo.',\""$12"\","$18",\""$43"\",NULL,\""$19"\",\""$20"\",\""$21"\",'.$formato_veda.',\""$26"\",\""$27"\",\""$28"\",\""$29"\",\""$30"\",\""$31"\")" }\' protected/data/BD_VFINAL.csv >> protected/data/tabla_peces_migracion.sql';
 	else
 		$cmd = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print "(\""$1"\",\""$2"\",\""$3"\",\""$4"\",\""$5"\",\""$6"\",'.$formato_grupo.',\""$12"\","$18",\""$43"\",NULL,\""$19"\",\""$20"\",\""$21"\",'.$formato_veda.',\""$26"\",\""$27"\",\""$28"\",\""$29"\",\""$30"\",\""$31"\")," }\' protected/data/BD_VFINAL.csv >> protected/data/tabla_peces_migracion.sql';
 	//Se imprime la inserción
-	echo $cmd."<br>";
+	//echo $cmd."<br>";
 	//Se efectua el comando
 	system($cmd);
 }
 
 //Se agrega la tabla a MySQL
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/tabla_peces_migracion.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/tabla_peces_migracion.sql");
 
 system("echo \"SET FOREIGN_KEY_CHECKS=0; \" > protected/data/tabla_pez_distribucion.sql");
 system("echo \"INSERT INTO pez_distribucion(peces_especie_id,distribucion_id) VALUES \" >> protected/data/tabla_pez_distribucion.sql");
@@ -66,7 +66,7 @@ system("echo \"INSERT INTO pez_estado_conservacion(peces_especie_id,estado_conse
 system("echo \"SET FOREIGN_KEY_CHECKS=0; \" > protected/data/tabla_pez_carta_nacional.sql");
 system("echo \"INSERT INTO pez_carta_nacional(peces_especie_id,carta_nacional_id) VALUES \" >> protected/data/tabla_pez_carta_nacional.sql");
 echo "El valor de n es: ".$n."<br>";
-for($i=2;$i<=$n;$i++){
+for($i=1;$i<=$n;$i++){
 	//Inicia inserción para tablas multirelaciona 	les
 	//Se extrae campo nombre_comun de la línea especificada
 	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$3"" }\' protected/data/BD_VFINAL.csv';
@@ -75,20 +75,19 @@ for($i=2;$i<=$n;$i++){
 	//$id_pez = $db->get_id('peces', 'especie_id','nombre_cientifico="'.system($cad).'"'));
 	//Imprime dicho id
 	//$id_pez = strip_tags($id_pez);
-	$id_pez = $i-1;
+	$id_pez = $i;
 	//if($i - $id_pez >= -1)
 		//$id_pez --;
-	echo "El valor de i es: ".$i."<br>";
-	echo "El id es: ".$id_pez."<br>";
-	if($id_pez == $n)
-		$id_pez -= 1;
+	//echo "El valor de i es: ".$i."<br>";
+	//echo "El id es: ".$id_pez."<br>";
+	/*if($id_pez == $n)
+		$id_pez -= 1;*/
 	
 //									SE LLENA TABLA: PEZ_DISTRIBUCION
 //-----------------------------------------------------------------------------------------------------------//
 	
 	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$7"" }\' protected/data/BD_VFINAL.csv';
-	//Sí el campo Golfo de México es 1 se calcula el id en la tabla tipo_distribucion
-	
+	//Sí el campo Golfo de México es 1 se calcula el id en la tabla tipo_distribucion	
 	if(system($cad)==1){
 		//Inserta a la tabla pez_tipo_distribucion con el id del pez y el id del tipo de distribucion
 		$cad = 'echo "('.$id_pez.',1)," >> protected/data/tabla_pez_distribucion.sql';
@@ -158,34 +157,38 @@ for($i=2;$i<=$n;$i++){
 		$cad = 'echo "('.$id_pez.',5)," >> protected/data/tabla_pez_tipo_capturas.sql';
 		system($cad);
 	}
-
+	echo "<br>****************** SE LLENA TABLA: PEZ_ESTADO_CONSERVACION ******************<br>";
 //									SE LLENA TABLA: PEZ_ESTADO_CONSERVACION
 //----------------------------------------------------------------------------------------------------------//
-	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$23"" }\' protected/data/BD_VFINAL.csv';
+	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$22"" }\' protected/data/BD_VFINAL.csv';
+	
+	echo "La cad es: ".system($cad);
+	echo "La cad UTF8 es: ".utf8_decode(system($cad));
 	
 	
-	
-	if(system($cad)!=""){
+	if(utf8_decode(system($cad))!=""){
 		echo "<br>Nombre Lista Roja: ".system($cad)."<br>";
-		$id_edo = $db->get_id('estado_conservacion', 'id','nombre="'.system($cad).'" AND Nivel1=1');
+		$id_edo = $db->get_id('estado_conservacion', 'id','nombre="'.utf8_decode(system($cad)).'" AND Nivel1=1');
 		$id_edo = strip_tags($id_edo);
 		$cad = 'echo "('.$id_pez.','.$id_edo.')," >> protected/data/tabla_pez_estado_conservacion.sql';
 		system($cad); 
 	}
 	
-	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$24"" }\' protected/data/BD_VFINAL.csv';
+	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$23"" }\' protected/data/BD_VFINAL.csv';
 	
-	if(system($cad)!=""){
-		$id_edo = $db->get_id('estado_conservacion', 'id','nombre="'.system($cad).'" AND Nivel1=2');
+	if(utf8_decode(system($cad))!=""){
+		echo "<br>Nombre Cites: ".system($cad)."<br>";
+		$id_edo = $db->get_id('estado_conservacion', 'id','nombre="'.utf8_decode(system($cad)).'" AND Nivel1=2');
 		$id_edo = strip_tags($id_edo);
 		$cad = 'echo "('.$id_pez.','.$id_edo.')," >> protected/data/tabla_pez_estado_conservacion.sql';
 		system($cad);
 	}
 	
-	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$25"" }\' protected/data/BD_VFINAL.csv';
+	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$24"" }\' protected/data/BD_VFINAL.csv';
 	
-	if(system($cad)!=""){
-		$id_edo = $db->get_id('estado_conservacion', 'id','nombre="'.system($cad).'" AND Nivel1=3');
+	if(utf8_decode(system($cad))!=""){
+		echo "<br>Nombre NOM: ".system($cad)."<br>";
+		$id_edo = $db->get_id('estado_conservacion', 'id','nombre="'.utf8_decode(system($cad)).'" AND Nivel1=3');
 		$id_edo = strip_tags($id_edo);
 		$cad = 'echo "('.$id_pez.','.$id_edo.')," >> protected/data/tabla_pez_estado_conservacion.sql';
 		system($cad);
@@ -198,75 +201,183 @@ for($i=2;$i<=$n;$i++){
 		$cad = 'echo "('.$id_pez.','.$id_cn.')," >> protected/data/tabla_pez_carta_nacional.sql';
 		system($cad);
 	}*/
+	echo "<br>************************************************************************<br>";
+	echo "<br>****************** SE LLENA TABLA: PEZ_CARTA_NACIONAL ******************<br>";
 //									SE LLENA TABLA: PEZ_CARTA_NACIONAL
 //----------------------------------------------------------------------------------------------------------//
+	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$32"" }\' protected/data/BD_VFINAL.csv';
+	$id_carta=0;	
+	if(system($cad)!=""){
+			switch (system($cad)) {
+			case 'Sin datos.': $id_carta = 2;
+				break;
+			case 'sin datos.': $id_carta = 2;
+				break;	
+			case 'Con potencial de desarrollo.': $id_carta = 3;
+				break;
+			case 'En deterioro.': $id_carta = 4;
+				break;
+			case 'Máximo aprovechamiento permisible.': $id_carta = 5;
+				break;			
+			default: $id_carta = 0;
+				break;
+		}
+
+		echo "El id de la carta_nacional es: ".$id_carta;		
+		$cad = 'echo "('.$id_pez.','.$id_carta.')," >> protected/data/tabla_pez_carta_nacional.sql';
+		system($cad);
+	}
+	
 	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$33"" }\' protected/data/BD_VFINAL.csv';
+	
 	if(strip_tags(system($cad))!=""){
-		$id_cn = $db->get_id('carta_nacional', 'id','Nombre="'.strip_tags(system($cad)).'" AND Nivel1=1');
-		$id_cn = strip_tags($id_cn);
-		$cad = 'echo "('.$id_pez.','.$id_cn.')," >> protected/data/tabla_pez_carta_nacional.sql';
+		switch (system($cad)) {
+			case 'Sin datos.': $id_carta = 10;
+				break;
+			case 'sin datos.': $id_carta = 10;
+				break;	
+			case 'Con potencial de desarrollo.': $id_carta = 7;
+				break;
+			case 'En deterioro.': $id_carta = 8;
+				break;
+			case 'Máximo aprovechamiento permisible.': $id_carta = 9;
+				break;			
+			default: $id_carta = 0;
+				break;
+		}
+		echo "El id de la carta_nacional es: ".$id_carta;		
+		$cad = 'echo "('.$id_pez.','.$id_carta.')," >> protected/data/tabla_pez_carta_nacional.sql';
 		system($cad);
 	}
 	
 	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$34"" }\' protected/data/BD_VFINAL.csv';
 	
 	if(strip_tags(system($cad))!=""){
-		$id_cn = $db->get_id('carta_nacional', 'id','Nombre="'.strip_tags(system($cad)).'" AND Nivel1=2');
+		switch (system($cad)) {
+			case 'Sin datos.': $id_carta = 15;
+				break;
+			case 'sin datos.': $id_carta = 15;
+				break;	
+			case 'Con potencial de desarrollo.': $id_carta = 12;
+				break;
+			case 'En deterioro.': $id_carta = 13;
+				break;
+			case 'Máximo aprovechamiento permisible.': $id_carta = 14;
+				break;			
+			default: $id_carta = 0;
+				break;
+		}
+		echo "El id de la carta_nacional es: ".$id_carta;		
+		$cad = 'echo "('.$id_pez.','.$id_carta.')," >> protected/data/tabla_pez_carta_nacional.sql';
+		system($cad);
+
+		/*$id_cn = $db->get_id('carta_nacional', 'id','Nombre="'.system($cad).'" AND Nivel1=3');
 		$id_cn = strip_tags($id_cn);
 		$cad = 'echo "('.$id_pez.','.$id_cn.')," >> protected/data/tabla_pez_carta_nacional.sql';
-		system($cad);
+		system($cad);*/
 	}
 	
 	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$35"" }\' protected/data/BD_VFINAL.csv';
 	
 	if(strip_tags(system($cad))!=""){
-		$id_cn = $db->get_id('carta_nacional', 'id','Nombre="'.system($cad).'" AND Nivel1=3');
+		switch (system($cad)) {
+			case 'Sin datos.': $id_carta = 20;
+				break;
+			case 'sin datos.': $id_carta = 20;
+				break;	
+			case 'Con potencial de desarrollo.': $id_carta = 17;
+				break;
+			case 'En deterioro.': $id_carta = 18;
+				break;
+			case 'Máximo aprovechamiento permisible.': $id_carta = 19;
+				break;			
+			default: $id_carta = 0;
+				break;
+		}
+		echo "El id de la carta_nacional es: ".$id_carta;		
+		$cad = 'echo "('.$id_pez.','.$id_carta.')," >> protected/data/tabla_pez_carta_nacional.sql';
+		system($cad);
+		/*$id_cn = $db->get_id('carta_nacional', 'id','Nombre="'.system($cad).'" AND Nivel1=4');
 		$id_cn = strip_tags($id_cn);
 		$cad = 'echo "('.$id_pez.','.$id_cn.')," >> protected/data/tabla_pez_carta_nacional.sql';
-		system($cad);
+		system($cad);*/
 	}
 	
 	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$36"" }\' protected/data/BD_VFINAL.csv';
 	
 	if(strip_tags(system($cad))!=""){
-		$id_cn = $db->get_id('carta_nacional', 'id','Nombre="'.system($cad).'" AND Nivel1=4');
+		switch (system($cad)) {
+			case 'Sin datos.': $id_carta = 25;
+				break;
+			case 'sin datos.': $id_carta = 25;
+				break;	
+			case 'Con potencial de desarrollo.': $id_carta = 22;
+				break;
+			case 'En deterioro.': $id_carta = 23;
+				break;
+			case 'Máximo aprovechamiento permisible.': $id_carta = 24;
+				break;			
+			default: $id_carta = 0;
+				break;
+		}
+		echo "El id de la carta_nacional es: ".$id_carta;		
+		$cad = 'echo "('.$id_pez.','.$id_carta.')," >> protected/data/tabla_pez_carta_nacional.sql';
+		system($cad);
+
+		/*$id_cn = $db->get_id('carta_nacional', 'id','Nombre="'.system($cad).'" AND Nivel1=5');
 		$id_cn = strip_tags($id_cn);
 		$cad = 'echo "('.$id_pez.','.$id_cn.')," >> protected/data/tabla_pez_carta_nacional.sql';
-		system($cad);
+		system($cad);*/
 	}
 	
 	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$37"" }\' protected/data/BD_VFINAL.csv';
-	
-	if(strip_tags(system($cad))!=""){
-		$id_cn = $db->get_id('carta_nacional', 'id','Nombre="'.system($cad).'" AND Nivel1=5');
-		$id_cn = strip_tags($id_cn);
-		$cad = 'echo "('.$id_pez.','.$id_cn.')," >> protected/data/tabla_pez_carta_nacional.sql';
-		system($cad);
-	}
-	
-	$cad = 'awk \'BEGIN { FS = "?"}; NR == '.$i.' {print ""$38"" }\' protected/data/BD_VFINAL.csv';
 
 	if(strip_tags(system($cad))!=""){
-		$id_cn = $db->get_id('carta_nacional', 'id','Nombre="'.system($cad).'" AND Nivel1=6');
+		switch (system($cad)) {
+			case 'Sin datos.': $id_carta = 30;
+				break;
+			case 'sin datos.': $id_carta = 30;
+				break;	
+			case 'Con potencial de desarrollo.': $id_carta = 27;
+				break;
+			case 'En deterioro.': $id_carta = 28;
+				break;
+			case 'Máximo aprovechamiento permisible.': $id_carta = 29;
+				break;			
+			default: $id_carta = 0;
+				break;
+		}
+		echo "El id de la carta_nacional es: ".$id_carta;		
+		$cad = 'echo "('.$id_pez.','.$id_carta.')," >> protected/data/tabla_pez_carta_nacional.sql';
+		system($cad);
+
+		/*$id_cn = $db->get_id('carta_nacional', 'id','Nombre="'.system($cad).'" AND Nivel1=6');
 		$id_cn = strip_tags($id_cn);
 		$cad = 'echo "('.$id_pez.','.$id_cn.')," >> protected/data/tabla_pez_carta_nacional.sql';
-		system($cad);
+		system($cad);*/
 	}
+	echo "<br>************************************************************************<br>";
 
 }
 system("cat protected/data/tabla_pez_carta_nacional.sql | sed '\$s/.\$//' > protected/data/aux_CN.txt");
 system("cat protected/data/aux_CN.txt > protected/data/tabla_pez_carta_nacional.sql");
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/tabla_pez_carta_nacional.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/tabla_pez_carta_nacional.sql");
 
 system("cat protected/data/tabla_pez_distribucion.sql | sed '\$s/.\$//' > protected/data/aux_D.txt");
 system("cat protected/data/aux_D.txt > protected/data/tabla_pez_distribucion.sql");
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/tabla_pez_distribucion.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/tabla_pez_distribucion.sql");
 
 system("cat protected/data/tabla_pez_estado_conservacion.sql | sed '\$s/.\$//' > protected/data/aux_EC.txt");
 system("cat protected/data/aux_EC.txt > protected/data/tabla_pez_estado_conservacion.sql");
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/tabla_pez_estado_conservacion.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/tabla_pez_estado_conservacion.sql");
 
 system("cat protected/data/tabla_pez_tipo_capturas.sql | sed '\$s/.\$//' > protected/data/aux_TP.txt");
 system("cat protected/data/aux_TP.txt > protected/data/tabla_pez_tipo_capturas.sql");
-system("mysql --default-character-set=utf8 -h localhost -u root -proot usos_pesos < protected/data/tabla_pez_tipo_capturas.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/tabla_pez_tipo_capturas.sql");
+
+system("protected/data/set_recomendacion.sh protected/data/BD_VFINAL.csv protected/data/recomendation.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/recomendation.sql");
+
+system("protected/data/asigna_pesos.sh protected/data/BD_VFINAL.csv protected/data/setPesos.sql");
+system("mysql --default-character-set=utf8 -h localhost -u root -proot usos < protected/data/setPesos.sql");
 ?>
