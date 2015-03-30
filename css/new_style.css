@@ -142,3 +142,10 @@ ul {
 	height: auto;
 }
 
+#opens1, #opens2, #opens3, #opens4 {
+	cursor: default;
+}
+
+#s1 {
+	width: 600px;
+}

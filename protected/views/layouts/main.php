@@ -54,6 +54,40 @@ function vm() {
    $( "#dresul" ).addClass( "ver" );
 }
 </script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui.css" />
+  <script>
+  $(function() {
+    $( "#s1, #s2, #s3, #s4" ).dialog({
+      width: 600,
+	  autoOpen: false,
+      show: {
+        effect: "blind",
+        duration: 1000
+      },
+      hide: {
+        effect: "clip",
+        duration: 350
+      }
+    });
+ 
+    $( "#opens1" ).click(function() {
+      $( "#s1" ).dialog( "open" );
+    });
+	
+	$( "#opens2" ).click(function() {
+      $( "#s2" ).dialog( "open" );
+    });
+	
+	$( "#opens3" ).click(function() {
+      $( "#s3" ).dialog( "open" );
+    });
+	
+	$( "#opens4" ).click(function() {
+      $( "#s4" ).dialog( "open" );
+    });
+  });
+  </script>
 
 
 <!-- InstanceEndEditable -->
@@ -229,11 +263,64 @@ input.gsc-search-button {
 														<li>&iquest;C&oacute;mo fue capturada?</li>
 														<li>&iquest;Si es de una pequer&iacute;a legal?</li>
 													</ul>
-                                                    
-                                                    <p>Recuerda que cuando compras un producto del mar lo que  t&uacute; elijas y compres en los mercados y supermercados tiene un efecto directo  positivo o negativo en la biodiversidad marina.</p>
-                                                    
-                                                   <p class="preguntas">¡Conoci&eacute;ndolos  saben mejor, conviertete en un consumidor informado y consciente!</p>
-												</td>
+                                              <p class="titblue bborder">Semáforo</p>
+                                              <p>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_verde.jpg");?> <span style="vertical-align:super"><b> Recomendable</b></span><br>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_amarillo.jpg");?> <span style="vertical-align:super"><b> Poco recomendable</b></span><br>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_rojo.jpg");?> <span style="vertical-align:super"><b> No recomendable</b></span><br>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_blanco.jpg");?> <span style="vertical-align:super"><b> No recomendable</b></span>
+                                               </p>
+                                                    <p class="titblue">Criterios del semáforo:</p>
+                                                    <ul>
+                                                    	<li id="opens1">Estado de las poblaciones</li>
+                                                        <li id="opens2">Selectividad en la captura</li>
+                                                        <li id="opens3">Veda</li>
+                                                        <li id="opens4">Especies en riesgo</li>
+                                                     </ul>
+                                                     
+                                                     <div id="s1" title="Estado de las poblaciones">
+                                                     <p>La Carta Nacional Pesquera es el único documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos marinos comerciales en México, además plantea restricciones y limites en algunas pesquerías. Se publica periódicamente. En base a estudios científicos la carta agrupa en tres categorías a los grupos de peces explotados.<br><br>
+                                                     <b>En deterioro:</b> El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminución notable en la abundancia (biomasa) y una capacidad reducida de incorporación a la población (reclutamiento).<br><br>
+                                                     <b> Máximo aprovechamiento permisible:</b> El nivel de utilización de las poblaciones de peces se considera óptimo y no es posible aumentar la captura sin sobreexplotación. <br><br>
+                                                     <b>Con potencial de desarrollo:</b> Existe la posibilidad de aumentar las capturas de las poblaciones de peces, incrementando el esfuerzo pesquero, siempre y cuando se realice de manera precautoria y controlada.<br><br><br>
+                                                     <b>Fuente de información:</b><br>
+                                                     - <a href="http://www.inapesca.gob.mx/portal/documentos/publicaciones/CARTA%20NACIONAL%20PESQUERA/24082012%20SAGARPA.pdf" target="_blank" style="color: #1B3138;">Carta Nacional Pesquera 2012</a>
+                                                     </div>
+                                                     
+                                                     <div id="s2" title="Selectividad en la captura">
+                                                     <p>Las artes de pesca son los diferentes métodos de captura o técnicas con las que los peces son atrapados.  Algunas de las artes de pesca tienen un fuerte impacto sobre la biodiversidad marina y su ambiente y otras no lo tienen. Es determinante que el consumidor conozca la información sobre el tipo de arte que es utilizado por especie.<br><br>
+                                                     <b>Pesca selectiva:</b> Se captura la especie objetivo de tamaño deseado y tiene un bajo impacto negativo sobre el ecosistema.<br>
+                                                     Algunos tipos de artes de pesca de bajo impacto: Red de arrastre para camarones RS-INP-MEX-110´para embarcaciones mayores en el Golfo de California, red agallera para lisa y liseta o lebrancha, línea de mano para peces pelágicos y demersales, curricán para pesca de especies pelágicas, palangre para peces pelágicos costeros, palangre para mero, palangre para la pesca de tiburones pelágicos del Pacífico central mexicano, a bordo de embarcaciones de mediana altura, palangre para atún: Golfo de México y Caribe.<br><br>
+                                                     <b>Pesca no selectiva:</b> Se capturan diferentes especies y tamaños que no son el objetivo. Puede afectar delfines, tortugas y aves, dañar el ambiente y destruir los ecosistemas marinos.<br>
+                                                     Algunos tipos de artes de pesca de alto impacto para el ambiente son el chinchorro playero, red de enmalle para tiburones y rayas en embarcaciones menores, red agallera para escama pelágica, red agallera para escama de fondo, red agallera para esteros y línea de costa, palangre para embalses, palangre escama de esteros, palangre para especies de fondo, palangre para tiburón oceánico y pez espada.<br><br><br>
+                                                     <b>Fuentes de información:</b><br>
+                                                     - (Fuente: Cochrane, K. L. 2005. Guía del administrador pesquero. Medidas de ordenación y su aplicación. FAO. Documento Técnico de Pesca. No. 424. Roma: FAO.<br>
+                                                     - <a href="http://www.inapesca.gob.mx/portal/documentos/publicaciones/CARTA%20NACIONAL%20PESQUERA/24082012%20SAGARPA.pdf" target="_blank" style="color: #1B3138;">Carta Nacional Pesquera 2012</a>
+                                                     </p>
+                                                     </div>
+                                                     
+                                                     <div id="s3" title="Veda">
+                                                     <p>Con el fin de optimizar el aprovechamiento de la pesca desde un punto de vista biológico y socioeconómico, la Comisión Nacional de Acuacultura y Pesca (CONAPESCA) ha establecido regulaciones y actos administrativos para proteger a las especies comerciales.<br><br>
+                                                     Las vedas consisten en prohibiciones de pesca durante periodos de tiempo o sitios específicos mediante acuerdos o normas oficiales. Tienen la finalidad de proteger a una o varias especies durante los periodos de reproducción o crianza.<br><br>
+                                                    <b> Tipos de vida en México:</b><br><br>
+                                                    <b>Veda permanente:</b> La especie no puede ser explotada en ningún momento del año de forma indefinida.<br><br>
+                                                    <b>Veda temporal fija:</b> Se establece en un periodo definido y se repite anualmente.<br><br>
+                                                    <b>Veda temporal variable:</b> Se establece por un periodo definido pero es actualizado anualmente.<br><br><br>
+                                                    <b>Fuente de información:</b><br>
+                                                    - <a href="http://www.conapesca.gob.mx/work/sites/cona/resources/PDFContent/14619/presentaioc.pdf" target="_blank" style="color: #1B3138;">Periodos de veda para especies marinas y dulceacuícolas</a>.
+                                                    </p>
+                                                     </div>
+                                                     
+                                                     <div id="s4" title="Especies en riesgo">
+                                                     <p> Además de la Carta Nacional Pesquera y sus regulaciones, existen otros convenios y normas de carácter nacional e internacional que regulan y protegen a especies en riesgo. Entre ellas están:<br><br>
+                                                     <b>La Norma Mexicana de Especies en Riesgo</b> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMexico.html" target="_blank" style="color: #1B3138;">NOM-059-SEMARNAT-2010</a>), que contiene dentro de sus categorías a <b>4</b> peces de importancia comercial.<br><br>
+                                                     <b>La Convención Internacional sobre el Comercio de Especies Amenazadas de Fauna y Flora</b> (<a href="http://www.biodiversidad.gob.mx/planeta/cites/index.html" target="_blank" style="color: #1B3138;">CITES</a>) que incluye 9 especies de peces de importancia comercial.<br><br>
+                                                     <b>La Lista Roja de la Unión Internacional para la Conservación de la Naturaleza</b> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html" target="_blank" style="color: #1B3138;">UICN</a>), tiene a 72 especies de peces comerciales de México en las categorías de mayor riesgo.<br><br><br>
+                                                     <b>Fuentes de información:</b></p>
+                                                     </div>
+                                                     
+                                                     
+                                                     </td>
 											  <td valign="top" class="c_buscador perspective"><?php $this->renderPartial('/peces/_buscador');?></td>
 											</tr>
 											<tr>

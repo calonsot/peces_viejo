@@ -453,6 +453,8 @@ $(document).ready(function(){
 				 at&uacute;n, anchoveta y sardina, es decir el 2% de las especies comerciales; sin embargo es la m&aacute;s importante de las 
 				 pesquer&iacute;as con el 70% del volumen de pesca. 
 			</p>
+            <p>Recuerda que cuando compras un producto del mar lo que t&uacute; elijas y compres en los mercados y supermercados tiene un efecto directo  positivo o negativo en la biodiversidad marina.</p>
+            <center><p class="preguntas">&ldquo;Conoci&eacute;ndolos  saben mejor&rdquo;</p></center>
 			<hr>
 			<p>&nbsp;</p>
 			<p>
