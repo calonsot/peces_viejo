@@ -149,8 +149,8 @@ $(document).ready(function(){
 				<input type="radio" name="zona" value="6" id="buscador_zona6">Golfo de México y Caribe zona 3
 				<input type="radio" name="zona" value="7" id="buscador_zona7">Importado
 				<br /><br />
-				<b>Nombre</b> <input style="float:right" type="text" name="nombre_comun" id="buscador_nombre_comun"><br /><br />
-				<b>Nombre cient&iacute;fico</b> <input style="float:right" type="text" name="nombre_cientifico" id="buscador_nombre_cientifico"><br /><br />
+				<b>Nombre</b> <input style="float:right; width:350px;" type="text" name="nombre_comun" id="buscador_nombre_comun"><br /><br />
+				<b>Nombre cient&iacute;fico</b> <input style="float:right; width:350px;" type="text" name="nombre_cientifico" id="buscador_nombre_cientifico"><br /><br />
 				<b>Grupo</b> <label for="select"></label> <?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'), array('id'=>'buscador_grupo', 'prompt'=>'---Todos---', 'style'=>'float:right')); ?><br /><br />
 			</td>
 	  </tr>
