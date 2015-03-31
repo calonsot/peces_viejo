@@ -179,7 +179,7 @@ class PecesController extends Controller
 			//Varia de 0 a 3 el valor de los radios
 			if (isset($params['recomendacion']) && ((Int)$params['recomendacion'] > -1 && (Int)$params['recomendacion'] < 3))
 			{
-				$condiciones.= "recomendacion=1 AND peso_promedio IS NOT NULL AND peso_promedio > -1 AND ";
+				$condiciones.= "recomendacion=1 AND peso_promedio IS NOT NULL AND ";
 				$order.= ' ORDER BY peso_promedio, tipo_imagen, nombre_cientifico ASC';
 				
 				if((Int)$params['recomendacion']==0)  //Recomendable
