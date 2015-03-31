@@ -155,7 +155,7 @@ $(document).ready(function(){
 			</td>
 	  </tr>
 	  <tr>
-	  	<td><br><br><button type="button" id="limpiar">Limpiar</button><span style="float: right;"><?php echo CHtml::link('Ver todos los peces', Yii::app()->request->baseUrl.'/index.php/peces/resultado', array("class"=>"b_verall")); ?></span></td>
+	  	<td><br><br><button type="button" id="limpiar">Limpiar</button><span style="float: right;"><?php echo CHtml::link('Ver todos los peces', Yii::app()->request->baseUrl.'/index.php/peces/resultado?recomendacion=3', array("class"=>"b_verall")); ?></span></td>
 	  </tr>
 	</table>
 </form>

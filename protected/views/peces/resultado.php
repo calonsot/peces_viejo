@@ -41,14 +41,19 @@ if (!isset($vacio))
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
 		echo "</div>";
 		
-		echo "<div id='dat_".$pezobj->especie_id."'>";
-		$imagenes = Peces::peso_a_nombre_imagen($pezobj->peso);
-		echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".$imagenes['zonas']);
-		
-		if($imagenes['importado'])
+		// Imagen de Importado
+		if($pezobj->nacional_Importado == "Importado" || $pezobj->nacional_Importado == "Nacional e importado")
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/importado.png");
-			
+		
+		//Cuando tiene datos en la zona
+		echo "<div id='dat_".$pezobj->especie_id."'>";
+		if ($pezobj->recomendacion == 1 && !empty($pezobj->peso))
+		{
+			$imagen = Peces::peso_a_nombre_imagen($pezobj->peso);
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".$imagen);
+		}	
 		echo "</div>";
+		
 		
 		echo "<div id ='dresul_body_".$pezobj->especie_id."' class='dresul_body' style='display:none'>";
 		
