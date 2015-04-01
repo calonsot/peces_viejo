@@ -265,10 +265,11 @@ input.gsc-search-button {
 													</ul>
                                               <p class="titblue bborder">Semáforo</p>
                                               <p>
-                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_verde.jpg");?> <span style="vertical-align:super"><b> Recomendable</b></span><br>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/semaforo_zonas.png");?><br><br>
+													<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_verde.jpg");?> <span style="vertical-align:super"><b> Recomendable</b></span><br>
                                                     <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_amarillo.jpg");?> <span style="vertical-align:super"><b> Poco recomendable</b></span><br>
                                                     <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_rojo.jpg");?> <span style="vertical-align:super"><b> No recomendable</b></span><br>
-                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_blanco.jpg");?> <span style="vertical-align:super"><b> No recomendable</b></span>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_blanco.jpg");?> <span style="vertical-align:super"><b> Sin datos</b></span>
                                                </p>
                                                     <p class="titblue">Criterios del semáforo:</p>
                                                     <ul>

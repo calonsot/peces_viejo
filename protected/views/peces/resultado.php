@@ -18,6 +18,8 @@ if (!isset($vacio))
 		//echo "ID: ".$pezobj->especie_id."<br>";		
 		echo "<div id='dresul' class='dresul_all'>";
 		
+		
+		
 		echo "<div class='dresul_head'>";
 		//Parte de los datos principales	
 		if(!empty($pezobj->nombre_comun))
@@ -33,6 +35,8 @@ if (!isset($vacio))
 		
 		echo "</div>"; //cierra dresul_head
 		
+		
+		
 		echo "<div class='dima'>";
 		//Imagenes
 		if ($pezobj->tipo_imagen == 1)
@@ -45,13 +49,17 @@ if (!isset($vacio))
 		$imagenes = Peces::peso_a_nombre_imagen($pezobj->peso);
 		echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".$imagenes['zonas']);
 		
+		echo "<div class='dimp'>";
 		if($imagenes['importado'])
-			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/importado.png");
-			
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/importado.png", "Importado", array("title"=>"Importado"));
 		echo "</div>";
+			
+		echo "</div>"; //cierra dima
+		
+		
 		
 		echo "<div id ='dresul_body_".$pezobj->especie_id."' class='dresul_body' style='display:none'>";
-		
+
 		//Estados de conservacion
 		$estados_conservacion = array();
 		foreach($pezobj->estadoConservacions as $j)
@@ -67,17 +75,37 @@ if (!isset($vacio))
 		}
 
 		
-		//Parte del grupo
-		if (!empty($pezobj->grupo->nombre)) {
-			echo "<b>Grupo:</b> ".($pezobj->grupo->nombre);
-		}
-		echo "<br><br>";
+		
+		//Tipo de pesca
+			echo "<b>Tipo de pesca:</b> ".$pezobj->selectiva_noselectiva." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca"))."<br><br>";
 		
 		
-		//Generalidades
-		if (!empty($pezobj->generalidades))
-			echo "<b>Generalidades:</b> ".($pezobj->generalidades)."<br><br>";
-
+		
+		//Arte de pesca
+		if (!empty($pezobj->arte_pesca)) 
+		{
+			if(!empty($pezobj->selectiva_noselectiva))
+				echo "<b>Arte de pesca:</b> ".($pezobj->arte_pesca)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."<br><br>";
+			else
+				echo "<b>Arte de pesca:</b> ".$pezobj->arte_pesca." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."<br><br>";			
+		} elseif (!empty($pezobj->selectiva_noselectiva));
+		
+		
+		
+		//Veda
+		if (!empty($pezobj->veda))
+		{
+			if (!empty($pezobj->tipoVeda->Nombre))
+				echo "<b>Veda:</b> ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."<br><br><b>Tipo de veda:</b> ".($pezobj->tipoVeda->Nombre)."<br><br>";
+			else
+				echo "<b>Veda:</b> ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."<br><br>";
+		} elseif (!empty($pezobj->tipoVeda->Nombre))
+		
+		
+		//Tipo de veda
+			echo "<b>Tipo de veda:</b> ".($pezobj->tipoVeda->Nombre)."<br><br>";
+			
+		
 		
 		//Distribucion
 		$distribuciones = array();
@@ -90,11 +118,8 @@ if (!isset($vacio))
 				echo "<b>Estado de conservaci&oacute;n:</b> ".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."<br><br>";
 			else {
 				echo "<b>Distribuci&oacute;n en:</b> ".implode(', ', $distribuciones)."<br><br>";
-			}	
-			
-			
-		//Tipo de pesca
-			echo "<b>Tipo de pesca:</b> ".$pezobj->selectiva_noselectiva." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca"))."<br><br>";
+			}
+		
 			
 		
 		//Capturas
@@ -111,29 +136,20 @@ if (!isset($vacio))
 			echo "Talla de captura ".($pezobj->talla_captura)." cm<br><br>";
 		
 		
-		//Veda
-		if (!empty($pezobj->veda))
-		{
-			if (!empty($pezobj->tipoVeda->Nombre))
-				echo "<b>Veda:</b> ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."<br><br><b>Tipo de veda:</b> ".($pezobj->tipoVeda->Nombre)."<br><br>";
-			else
-				echo "<b>Veda:</b> ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."<br><br>";
-		} elseif (!empty($pezobj->tipoVeda->Nombre))
+		
+		//Parte del grupo
+		if (!empty($pezobj->grupo->nombre)) {
+			echo "<b>Grupo:</b> ".($pezobj->grupo->nombre);
+		}
+		echo "<br><br>";
 		
 		
-		//Tipo de veda
-			echo "<b>Tipo de veda:</b> ".($pezobj->tipoVeda->Nombre)."<br><br>";
+		
+		//Generalidades
+		if (!empty($pezobj->generalidades))
+			echo "<b>Generalidades:</b> ".($pezobj->generalidades)."<br><br>";
+			
 
-		
-		//Arte de pesca
-		if (!empty($pezobj->arte_pesca)) 
-		{
-			if(!empty($pezobj->selectiva_noselectiva))
-				echo "<b>Arte de pesca:</b> ".($pezobj->arte_pesca)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."<br><br>";
-			else
-				echo "<b>Arte de pesca:</b> ".$pezobj->arte_pesca." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."<br><br>";			
-		} elseif (!empty($pezobj->selectiva_noselectiva));
-		
 
 		//Carta nacional
 		$cartas_nacionales = '';
