@@ -110,8 +110,8 @@ ul {
 	-moz-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
 	border-radius: 8px;
-	/*height: auto;
-	position: relative;*/
+	height: auto;
+	position: relative;
 }
 
 .dresul_head {
@@ -149,10 +149,10 @@ ul {
 	z-index: 1;
 }
 
-.ver {
+/*.ver {
 	height: auto;
 	position: absolute;
-}
+}*/
 
 #opens1, #opens2, #opens3, #opens4 {
 	cursor: default;

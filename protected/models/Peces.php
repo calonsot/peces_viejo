@@ -209,7 +209,6 @@ class Peces extends CActiveRecord
 	{
 		$imagen = '';
 		$zonas = explode("/", $peso);
-		$importado = $zonas[6];
 
 		foreach ($zonas as $zona)
 		{
@@ -223,6 +222,6 @@ class Peces extends CActiveRecord
 				$imagen.= 'b';
 		}
 		
-		return array('zonas'=>$imagen.".jpg", 'importado'=>($importado == -1 ? false : true));
+		return $imagen.".jpg";
 	}
 }

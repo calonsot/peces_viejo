@@ -38,27 +38,31 @@ if (!isset($vacio))
 		
 		
 		echo "<div class='dima'>";
-		//Imagenes
+		//Imagenes peces
 		if ($pezobj->tipo_imagen == 1)
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
 		elseif ($pezobj->tipo_imagen == 2)
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
 		echo "</div>";
 		
-		echo "<div id='dat_".$pezobj->especie_id."'>";
-		$imagenes = Peces::peso_a_nombre_imagen($pezobj->peso);
-		echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".$imagenes['zonas']);
-		
+
+		// Imagen de Importado
 		echo "<div class='dimp'>";
-		if($imagenes['importado'])
+		if($pezobj->nacional_Importado == "Importado" || $pezobj->nacional_Importado == "Nacional e importado")
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/importado.png", "Importado", array("title"=>"Importado"));
 		echo "</div>";
+		
+		//Cuando tiene datos en la zona
+		echo "<div id='dat_".$pezobj->especie_id."'>";
+		if ($pezobj->recomendacion == 1 && !empty($pezobj->peso))
+		{
+			$imagen = Peces::peso_a_nombre_imagen($pezobj->peso);
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".$imagen);
+		}	
+		echo "</div>";
 			
-		echo "</div>"; //cierra dima
-		
-		
-		
 		echo "<div id ='dresul_body_".$pezobj->especie_id."' class='dresul_body' style='display:none'>";
+		
 
 		//Estados de conservacion
 		$estados_conservacion = array();
