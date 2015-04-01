@@ -50,6 +50,10 @@ table {
 	font-weight: bold;
 }
 
+.sem {
+	font-size: 13px;
+}
+
 ul {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	line-height: 130%;
@@ -107,7 +111,7 @@ ul {
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
 	border-radius: 8px;
 	height: auto;
-	/*position: absolute;*/
+	position: relative;
 }
 
 .dresul_head {
@@ -138,14 +142,82 @@ ul {
 	max-height: 70px;
 }
 
-.ver {
-	height: auto;
+.dimp {
+	position: absolute;
+	top: 103px;
+	right: 10px;	
+	z-index: 1;
 }
+
+/*.ver {
+	height: auto;
+	position: absolute;
+}*/
 
 #opens1, #opens2, #opens3, #opens4 {
 	cursor: default;
 }
 
-#s1 {
-	width: 600px;
+input[type="checkbox"] {
+	display: none;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+input[type="checkbox"] + label span {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: -1px 3px 4px 0;
+  vertical-align: middle;
+  cursor:pointer;
+}
+
+input[id="buscador_recomendable"] + label span {
+  background: url(../imagenes/aplicacion/check_radio_v.png) left top no-repeat;
+}
+
+input[id="buscador_recomendable"]:checked + label span {
+  background: url(../imagenes/aplicacion/check_radio_v.png) -31px top no-repeat;
+}
+
+input[id="buscador_poco_recomendable"] + label span {
+  background: url(../imagenes/aplicacion/check_radio_a.png) left top no-repeat;
+}
+
+input[id="buscador_poco_recomendable"]:checked + label span {
+  background: url(../imagenes/aplicacion/check_radio_a.png) -31px top no-repeat;
+}
+
+input[id="buscador_no_recomendable"] + label span {
+  background: url(../imagenes/aplicacion/check_radio_r.png) left top no-repeat;
+}
+
+input[id="buscador_no_recomendable"]:checked + label span {
+  background: url(../imagenes/aplicacion/check_radio_r.png) -31px top no-repeat;
+}
+
+input[id="buscador_libre"] + label span {
+  background: url(../imagenes/aplicacion/check_radio_b.png) left top no-repeat;
+}
+
+input[id="buscador_libre"]:checked + label span {
+  background: url(../imagenes/aplicacion/check_radio_b.png) -31px top no-repeat;
+}
+
+
+input[type="radio"] + label span {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url(../imagenes/aplicacion/check_radio_sheet.png) -38px top no-repeat;
+	margin: -1px 4px 0 0;
+	vertical-align: middle;
+	cursor:pointer;
+}
+
+input[type="radio"]:checked + label span {
+	background: url(../imagenes/aplicacion/check_radio_sheet.png) -57px top no-repeat;
 }
