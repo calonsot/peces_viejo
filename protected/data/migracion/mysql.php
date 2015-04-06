@@ -34,7 +34,7 @@ class mysql
 		$sql = 'UPDATE '.$table.' SET ';
 		foreach ($data as $field => $value)
 		{
-			$values.= $field."='$value', ";
+			$values.= $field."=$value, ";
 		}
 		$sql.= substr($values, 0, -2).' WHERE '.$cond;
 		$query = $this->db->query($sql);

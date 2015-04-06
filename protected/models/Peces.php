@@ -186,9 +186,9 @@ class Peces extends CActiveRecord
 					$peso_promedio-= 200;
 				if ((Int)$zona >= 2 && (Int)$zona <= 3)   //Poco Recomendable
 					$peso_promedio+= 100;
-				if ((Int)$zona >= 4 && (Int)$zona <= 6)   //No recomendable
+				if ((Int)$zona >= 4 && (Int)$zona <= 19)  //No recomendable
 					$peso_promedio+= 1000;
-				if ((Int)$zona > 6)                       //No recomendable e importado (peor caso)
+				if ((Int)$zona >= 20)                     //Importado (peor caso)
 					$peso_promedio+= 10000;
 			}
 			$pez->peso_promedio = $peso_promedio;

@@ -168,14 +168,19 @@ if ($handle)
 	system("mysql --default-character-set=utf8 -h ".$host." -u ".$usuario." -p".$password." ".$database." < tabla_pez_carta_nacional.sql");
 	system("mysql --default-character-set=utf8 -h ".$host." -u ".$usuario." -p".$password." ".$database." < tabla_pez_estado_conservacion.sql");
 	
-	echo "Corriendo el script para el peso";
+	echo "Corriendo el script para el peso<br>";
 	//Llena la columna peso y la mete a la base
 	system("./asigna_pesos.sh $csv asigna_pesos.sql");
 	system("mysql --default-character-set=utf8 -h ".$host." -u ".$usuario." -p".$password." ".$database." < asigna_pesos.sql");
 	
+	echo "Corrigiendo las imagenes que no les pusieron la extension<br>";
+	//Pone las imagenes con extension .png
+	system("mysql --default-character-set=utf8 -h ".$host." -u ".$usuario." -p".$password." ".$database." < asigna_pesos.sql");
+	$db->update('peces', array('imagen'=>"CONCAT(imagen,'.png')"), "imagen NOT LIKE '%.png' AND imagen != ''");
+	
 	echo "Borrando los archivos generados";
 	//Borrando los archivos no necesarios
-	system("rm -f tabla_peces.sql tabla_pez_tipo_capturas.sql tabla_pez_distribucion.sql tabla_pez_carta_nacional.sql tabla_pez_estado_conservacion.sql asigna_pesos.sql log.log");
+	system("rm -f extrae_grupo.sql extrae_distribucion.sql extrae_capturas.sql extrae_veda.sql tabla_peces.sql tabla_pez_tipo_capturas.sql tabla_pez_distribucion.sql tabla_pez_carta_nacional.sql tabla_pez_estado_conservacion.sql asigna_pesos.sql log.log");
 	
 	fclose($handle);
 } else
