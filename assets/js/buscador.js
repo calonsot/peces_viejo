@@ -60,11 +60,12 @@ function filtros(filtro, accion)
 				values['buscador_zona'] = null;
 			break;
 	}
-		
+	
 	//Asigna valor a los filtros
 	jQuery.ajax({
         success: function(html)
         {
+        	
         	if(html != "")
         	{
         		var html_json = JSON.parse(JSON.stringify(eval("(" + html + ")")));
@@ -159,5 +160,11 @@ $(document).ready(function(){
 	$("[id^='dat_']").on('click', function(){
 		var id = $(this).attr('id').substring(4);
 		$("#dresul_body_"+id).addClass( "ver" ).toggle();
+	});
+	
+	$("[id^='zona']").on('click', function(){
+		$('#buscador_'+$(this).attr('id')).prop('checked', true);
+		filtros($(this), 'guarda');
+		$('#buscador').submit();
 	});
 });

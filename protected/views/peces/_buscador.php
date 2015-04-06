@@ -153,21 +153,23 @@ $(document).ready(function(){
                 <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/zonas_pesqueras_mapa.jpg", "Zonas", array("width" => "290px;", "usemap" => "#zona")); ?>
                 
 				<map name="zona">
-                  <area shape="poly" coords="172,106,195,105,194,114,194,135,195,156,185,153,176,146,168,133,166,116" href="#" title="Zona I">
-                  <area shape="poly" coords="196,155,205,153,211,152,214,152,217,148,219,144,220,139,222,134,228,132,231,132,235,130,239,130,244,130,251,127,249,119,246,111,242,106,235,104,226,104,219,104,209,106,204,107,200,109,195,112" href="#" title="Zona II">
-                  <area shape="poly" coords="243,154,248,155,253,154,256,152,255,149,258,146,259,144,256,139,254,132,252,127,247,130,247,134,244,137,243,139,242,143,243,146,242,149" href="#" title="Zona III">
-                  <area shape="poly" coords="5,93,9,99,17,103,24,107,28,108,35,115,39,116,42,124,47,131,54,137,60,140,65,143,75,141,80,137,82,129,81,124,79,120,75,117,70,112,67,110,66,107,67,103,65,99,61,97,58,95,55,94,51,89,48,88,53,87,55,85,53,80,49,75,45,73,43,66,41,61,38,55,32,56,29,59,28,62,27,67,25,71,19,71,10,73,3,73" href="#" title="Zona I">
-                  <area shape="poly" coords="67,146,76,152,87,157,97,163,107,170,118,176,128,181,140,186,153,189,165,193,174,196,180,198,190,196,193,197,196,197,209,181,200,175,195,171,188,171,184,174,180,175,174,174,166,172,157,169,151,166,144,164,139,162,138,160,128,160,124,155,119,151,114,149,111,145,111,141,106,141,100,141,95,138,90,135,86,134,83,133,82,137,79,141,75,144,71,144" href="#" title="Zona III">
-                  <area shape="poly" coords="54,61,58,63,61,66,63,68,65,74,68,80,72,86,76,90,78,92,82,95,84,98,87,99,86,102,86,106,90,107,94,110,95,113,97,114,102,119,108,125,110,129,111,132,113,134,113,138,113,140,100,140,95,137,91,134,85,132,83,128,83,124,85,122,83,118,81,116,78,115,77,112,77,111,75,106,73,103,73,99,70,96,66,90,62,83,58,77,55,74,53,73,53,68,53,65" href="#" title="Zona II">
+                  <area id="zona4" shape="poly" coords="172,106,195,105,194,114,194,135,195,156,185,153,176,146,168,133,166,116" href="#" title="Zona I">
+                  <area id="zona5" shape="poly" coords="196,155,205,153,211,152,214,152,217,148,219,144,220,139,222,134,228,132,231,132,235,130,239,130,244,130,251,127,249,119,246,111,242,106,235,104,226,104,219,104,209,106,204,107,200,109,195,112" href="#" title="Zona II">
+                  <area id="zona6" shape="poly" coords="243,154,248,155,253,154,256,152,255,149,258,146,259,144,256,139,254,132,252,127,247,130,247,134,244,137,243,139,242,143,243,146,242,149" href="#" title="Zona III">
+                  <area id="zona1" shape="poly" coords="5,93,9,99,17,103,24,107,28,108,35,115,39,116,42,124,47,131,54,137,60,140,65,143,75,141,80,137,82,129,81,124,79,120,75,117,70,112,67,110,66,107,67,103,65,99,61,97,58,95,55,94,51,89,48,88,53,87,55,85,53,80,49,75,45,73,43,66,41,61,38,55,32,56,29,59,28,62,27,67,25,71,19,71,10,73,3,73" href="#" title="Zona I">
+                  <area id="zona3" shape="poly" coords="67,146,76,152,87,157,97,163,107,170,118,176,128,181,140,186,153,189,165,193,174,196,180,198,190,196,193,197,196,197,209,181,200,175,195,171,188,171,184,174,180,175,174,174,166,172,157,169,151,166,144,164,139,162,138,160,128,160,124,155,119,151,114,149,111,145,111,141,106,141,100,141,95,138,90,135,86,134,83,133,82,137,79,141,75,144,71,144" href="#" title="Zona III">
+                  <area id="zona2" shape="poly" coords="54,61,58,63,61,66,63,68,65,74,68,80,72,86,76,90,78,92,82,95,84,98,87,99,86,102,86,106,90,107,94,110,95,113,97,114,102,119,108,125,110,129,111,132,113,134,113,138,113,140,100,140,95,137,91,134,85,132,83,128,83,124,85,122,83,118,81,116,78,115,77,112,77,111,75,106,73,103,73,99,70,96,66,90,62,83,58,77,55,74,53,73,53,68,53,65" href="#" title="Zona II">
                 </map>
                 
-                <!--<input type="radio" name="zona" value="1" id="buscador_zona1"><label for="buscador_recomendable" class="preguntas sem"><span></span> Pacífico zona 1</label>
-				<input type="radio" name="zona" value="2" id="buscador_zona2"><label for="buscador_recomendable" class="preguntas sem"><span></span> Pacífico zona 2</label>
-				<input type="radio" name="zona" value="3" id="buscador_zona3"><label for="buscador_recomendable" class="preguntas sem"><span></span> Pacífico zona 3</label>
-				<input type="radio" name="zona" value="4" id="buscador_zona4"><label for="buscador_recomendable" class="preguntas sem"><span></span> Golfo de México y Caribe zona 1</label>
-				<input type="radio" name="zona" value="5" id="buscador_zona5"><label for="buscador_recomendable" class="preguntas sem"><span></span> Golfo de México y Caribe zona 2</label>
-				<input type="radio" name="zona" value="6" id="buscador_zona6"><label for="buscador_recomendable" class="preguntas sem"><span></span> Golfo de México y Caribe zona 3</label>
-				<input type="radio" name="zona" value="7" id="buscador_zona7"><label for="buscador_recomendable" class="preguntas sem"><span></span> Importado</label>-->
+                <div style="display: none;">
+                	<input type="radio" name="zona" value="1" id="buscador_zona1"><label for="buscador_recomendable" class="preguntas sem"><span></span> Pacífico zona 1</label>
+					<input type="radio" name="zona" value="2" id="buscador_zona2"><label for="buscador_recomendable" class="preguntas sem"><span></span> Pacífico zona 2</label>
+					<input type="radio" name="zona" value="3" id="buscador_zona3"><label for="buscador_recomendable" class="preguntas sem"><span></span> Pacífico zona 3</label>
+					<input type="radio" name="zona" value="4" id="buscador_zona4"><label for="buscador_recomendable" class="preguntas sem"><span></span> Golfo de México y Caribe zona 1</label>
+					<input type="radio" name="zona" value="5" id="buscador_zona5"><label for="buscador_recomendable" class="preguntas sem"><span></span> Golfo de México y Caribe zona 2</label>
+					<input type="radio" name="zona" value="6" id="buscador_zona6"><label for="buscador_recomendable" class="preguntas sem"><span></span> Golfo de México y Caribe zona 3</label>
+					<input type="radio" name="zona" value="7" id="buscador_zona7"><label for="buscador_recomendable" class="preguntas sem"><span></span> Importado</label>
+				</div>
 				<br /><br />
                 </div>
                 
