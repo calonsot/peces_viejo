@@ -15,7 +15,6 @@
  * @property string $nacional_Importado
  * @property string $tipo_imagen
  * @property string $imagen
- * @property string $triptico
  * @property string $talla_captura
  * @property string $arte_pesca
  * @property integer $tipo_veda_id
@@ -65,11 +64,11 @@ class Peces extends CActiveRecord
 		return array(
 			array('nombre_comun, nombre_cientifico, grupo_id, fecha_creacion', 'required'),
 			array('grupo_id, tipo_veda_id, peso_promedio', 'numerical', 'integerOnly'=>true),
-			array('nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, selectiva_noselectiva, veda, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion', 'length', 'max'=>255),
+			array('nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, nacional_Importado, tipo_imagen, imagen, talla_captura, selectiva_noselectiva, veda, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion', 'length', 'max'=>255),
 			array('arte_pesca, generalidades', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('especie_id, nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, grupo_id, nacional_Importado, tipo_imagen, imagen, triptico, talla_captura, selectiva_noselectiva, arte_pesca, tipo_veda_id, veda, generalidades, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion, fecha_creacion', 'safe', 'on'=>'search'),
+			array('especie_id, nombre_comun, nombre_ingles, nombre_cientifico, clase, orden, familia, grupo_id, nacional_Importado, tipo_imagen, imagen, talla_captura, selectiva_noselectiva, arte_pesca, tipo_veda_id, veda, generalidades, descripcion_distribucion, cultivado_capturado, comercio, pais_importacion, fecha_creacion', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -107,7 +106,6 @@ class Peces extends CActiveRecord
 			'nacional_Importado' => 'Nacional Importado',
 			'tipo_imagen' => 'Tipo Imagen',
 			'imagen' => 'Imagen',
-			'triptico' => 'Triptico',
 			'talla_captura' => 'Talla Captura',
 			'selectiva_noselectiva' => 'Tipo Captura',
 			'arte_pesca' => 'Arte Pesca',
@@ -144,7 +142,6 @@ class Peces extends CActiveRecord
 		$criteria->compare('nacional_Importado',$this->nacional_Importado,true);
 		$criteria->compare('tipo_imagen',$this->tipo_imagen,true);
 		$criteria->compare('imagen',$this->imagen,true);
-		$criteria->compare('triptico',$this->triptico,true);
 		$criteria->compare('talla_captura',$this->talla_captura,true);
 		$criteria->compare('selectiva_noselectiva',$this->selectiva_noselectiva,true);
 		$criteria->compare('arte_pesca',$this->arte_pesca,true);
