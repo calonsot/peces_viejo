@@ -13,10 +13,10 @@ include 'mysql.php';
 $csv = "peces.csv";
 $separador = "\|";
 
-$database = "usos";
+$database = "tu-base";
 $host = "localhost";
-$usuario = "calonso";
-$password = "30113";
+$usuario = "tu-usuario";
+$password = "tu-passwd";
 
 $db = new mysql($database, $host, $usuario, $password);
 
