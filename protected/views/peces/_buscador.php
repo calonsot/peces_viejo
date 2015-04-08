@@ -139,27 +139,25 @@ $(document).ready(function(){
 
                 <div style="float:left; width:212px; height:250px">
                 
-                <b>Tipo de busqueda: </b><br><br>
+                <b>Semáforo</b><br><br>
 				<input type="checkbox" name="recomendacion" value="0" id="buscador_recomendable"><label for="buscador_recomendable" class="preguntas sem"><span></span> Recomendable</label><br />
 				<input type="checkbox" name="recomendacion" value="1" id="buscador_poco_recomendable"><label for="buscador_poco_recomendable" class="preguntas sem"><span></span> Poco recomendable</label><br />
-				<input type="checkbox" name="recomendacion" value="2" id="buscador_no_recomendable"><label for="buscador_no_recomendable" class="preguntas sem"><span></span> No recomendable</label><br />
-				<input type="checkbox" name="recomendacion" value="3" id="buscador_libre"><label for="buscador_libre" class="preguntas sem"><span></span> Busqueda libre</label>
-				<br /><br />
+				<input type="checkbox" name="recomendacion" value="2" id="buscador_no_recomendable"><label for="buscador_no_recomendable" class="preguntas sem"><span></span> No recomendable</label>
                 </div>
                 
 				<div style="float:left; width:290px; height:250px">
-                <b>Zona pesquera: </b><br> 
+                <b>Zona pesquera</b><br> 
 				
                 <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/zonas_pesqueras_mapa.jpg", "Zonas", array("width" => "290px;", "usemap" => "#zona")); ?>
                 
 				<map name="zona">
-                  <area id="zona4" shape="poly" coords="172,106,195,105,194,114,194,135,195,156,185,153,176,146,168,133,166,116" href="#" title="Zona I">
-                  <area id="zona5" shape="poly" coords="196,155,205,153,211,152,214,152,217,148,219,144,220,139,222,134,228,132,231,132,235,130,239,130,244,130,251,127,249,119,246,111,242,106,235,104,226,104,219,104,209,106,204,107,200,109,195,112" href="#" title="Zona II">
-                  <area id="zona6" shape="poly" coords="243,154,248,155,253,154,256,152,255,149,258,146,259,144,256,139,254,132,252,127,247,130,247,134,244,137,243,139,242,143,243,146,242,149" href="#" title="Zona III">
-                  <area id="zona1" shape="poly" coords="5,93,9,99,17,103,24,107,28,108,35,115,39,116,42,124,47,131,54,137,60,140,65,143,75,141,80,137,82,129,81,124,79,120,75,117,70,112,67,110,66,107,67,103,65,99,61,97,58,95,55,94,51,89,48,88,53,87,55,85,53,80,49,75,45,73,43,66,41,61,38,55,32,56,29,59,28,62,27,67,25,71,19,71,10,73,3,73" href="#" title="Zona I">
-                  <area id="zona3" shape="poly" coords="67,146,76,152,87,157,97,163,107,170,118,176,128,181,140,186,153,189,165,193,174,196,180,198,190,196,193,197,196,197,209,181,200,175,195,171,188,171,184,174,180,175,174,174,166,172,157,169,151,166,144,164,139,162,138,160,128,160,124,155,119,151,114,149,111,145,111,141,106,141,100,141,95,138,90,135,86,134,83,133,82,137,79,141,75,144,71,144" href="#" title="Zona III">
-                  <area id="zona2" shape="poly" coords="54,61,58,63,61,66,63,68,65,74,68,80,72,86,76,90,78,92,82,95,84,98,87,99,86,102,86,106,90,107,94,110,95,113,97,114,102,119,108,125,110,129,111,132,113,134,113,138,113,140,100,140,95,137,91,134,85,132,83,128,83,124,85,122,83,118,81,116,78,115,77,112,77,111,75,106,73,103,73,99,70,96,66,90,62,83,58,77,55,74,53,73,53,68,53,65" href="#" title="Zona II">
-                </map>
+                    <area id="zona4" shape="poly" coords="243,135,248,136,253,135,256,133,255,130,258,127,259,125,256,120,254,113,252,108,247,111,247,115,244,118,243,120,242,124,243,127,242,130" href="#" title="Zona III">
+                    <area id="zona5" shape="poly" coords="196,136,205,134,211,133,214,133,217,129,219,125,220,120,222,115,228,113,231,113,235,111,239,111,244,111,251,108,249,100,246,92,242,87,235,85,226,85,219,85,209,87,204,88,200,90,195,93" href="#" title="Zona II">
+                    <area id="zona6" shape="poly" coords="172,87,195,86,194,95,194,116,195,137,185,134,176,127,168,114,166,97" href="#" title="Zona I">
+                    <area id="zona1" shape="poly" coords="54,43,58,45,61,48,63,50,65,56,68,62,72,68,76,72,78,74,82,77,84,80,87,81,86,84,86,88,90,89,94,92,95,95,97,96,102,101,108,107,110,111,111,114,113,116,113,120,113,122,100,122,95,119,91,116,85,114,83,110,83,106,85,104,83,100,81,98,78,97,77,94,77,93,75,88,73,85,73,81,70,78,66,72,62,65,58,59,55,56,53,55,53,50,53,47" href="#" title="Zona II">
+                    <area id="zona3" shape="poly" coords="5,75,9,81,17,85,24,89,28,90,35,97,39,98,42,106,47,113,54,119,60,122,65,125,75,123,80,119,82,111,81,106,79,102,75,99,70,94,67,92,66,89,67,85,65,81,61,79,58,77,55,76,51,71,48,70,53,69,55,67,53,62,49,57,45,55,43,48,41,43,38,37,32,38,29,41,28,44,27,49,25,53,19,53,10,55,3,55" href="#" title="Zona I">
+                    <area id="zona2" shape="poly" coords="67,128,76,134,87,139,97,145,107,152,118,158,128,163,140,168,153,171,165,175,174,178,180,180,190,178,193,179,196,179,209,163,200,157,195,153,188,153,184,156,180,157,174,156,166,154,157,151,151,148,144,146,139,144,138,142,128,142,124,137,119,133,114,131,111,127,111,123,106,123,100,123,95,120,90,117,86,116,83,115,82,119,79,123,75,126,71,126" href="#" title="Zona III">
+                 </map>
                 
                 <div style="display: none;">
                 	<input type="radio" name="zona" value="1" id="buscador_zona1"><label for="buscador_recomendable" class="preguntas sem"><span></span> Pacífico zona 1</label>

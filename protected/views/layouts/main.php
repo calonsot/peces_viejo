@@ -255,7 +255,7 @@ input.gsc-search-button {
 											  <td colspan="2" class="deg_head"><?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/header_peces.png", "Peces", array("width" => "910px;")), Yii::app()->request->baseUrl); ?></td>
 										  </tr>
 											<tr>
-											<td width="300" class="c_texto"><p class="titblue bborder">¿Te has preguntado?</p>
+											<td width="300" rowspan="2" class="c_texto"><p class="titblue bborder">¿Te has preguntado?</p>
 													<ul class="preguntas">
 														<li>&iquest;Qu&eacute; especie est&aacute;s comprando?</li>
 														<li>&iquest;De qu&eacute; lugar proviene?</li>
@@ -264,21 +264,20 @@ input.gsc-search-button {
 														<li>&iquest;Si es de una pequer&iacute;a legal?</li>
 													</ul>
                                               <p class="titblue bborder">Semáforo</p>
-                                              <p>
-                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/semaforo_zonas.png");?><br><br>
-													<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_verde.jpg");?> <span style="vertical-align:super"><b> Recomendable</b></span><br>
-                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_amarillo.jpg");?> <span style="vertical-align:super"><b> Poco recomendable</b></span><br>
-                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_rojo.jpg");?> <span style="vertical-align:super"><b> No recomendable</b></span><br>
-                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/s_blanco.jpg");?> <span style="vertical-align:super"><b> Sin datos</b></span>
-                                               </p>
-                                                    <p class="titblue">Criterios del semáforo:</p>
+                                              <p>Para que puedas tomar una buena decisión en el consumo de pescado, se creó un un semáforo en el cual tú podrás tomar una buena decisión.<br>
+                                              Los <b>criterios para la creación del semáforo</b> son los siguientes:</p>
                                                     <ul>
                                                     	<li id="opens1">Estado de las poblaciones</li>
                                                         <li id="opens2">Selectividad en la captura</li>
                                                         <li id="opens3">Veda</li>
                                                         <li id="opens4">Especies en riesgo</li>
+                                                        <li id="opens5" class="bimp">Importado</li>
                                                      </ul>
-                                                     
+                                               <p>
+                                               En la ficha de cada especie podrás encontrar una barra que representa cada zona pesquera y su estado.<br>
+                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/semaforo_zonas.png");?>
+                                               </p> 
+                                               
                                                      <div id="s1" title="Estado de las poblaciones">
                                                      <p>La Carta Nacional Pesquera es el único documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos marinos comerciales en México, además plantea restricciones y limites en algunas pesquerías. Se publica periódicamente. En base a estudios científicos la carta agrupa en tres categorías a los grupos de peces explotados.<br><br>
                                                      <b>En deterioro:</b> El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminución notable en la abundancia (biomasa) y una capacidad reducida de incorporación a la población (reclutamiento).<br><br>
@@ -319,11 +318,13 @@ input.gsc-search-button {
                                                      <b>La Lista Roja de la Unión Internacional para la Conservación de la Naturaleza</b> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html" target="_blank" style="color: #1B3138;">UICN</a>), tiene a 72 especies de peces comerciales de México en las categorías de mayor riesgo.<br><br><br>
                                                      <b>Fuentes de información:</b></p>
                                                      </div>
-                                                     
-                                                     
+
                                                      </td>
 											  <td valign="top" class="c_buscador perspective"><?php $this->renderPartial('/peces/_buscador');?></td>
 											</tr>
+											<tr>
+											  <td valign="top"><p>&nbsp;</p></td>
+										  </tr>
 											<tr>
 											<td colspan="2"><?php echo $content; ?></td>
 											</tr>
