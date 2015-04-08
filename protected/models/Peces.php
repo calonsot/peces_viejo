@@ -202,6 +202,179 @@ class Peces extends CActiveRecord
 		}
 	}
 	
+	public function completa_pesos()
+	{	
+		foreach (Peces::model()->findAllByAttributes(array('recomendacion'=>1)) as $k => $pez)
+		{
+			$peso1 = $peso2 = $peso3 = $peso4 = $peso5 =$peso6 = -1;
+			$peso7 = -1;
+			$peso_comun = 0;
+			echo "<br><br>".$pez->nombre_cientifico."<br>";
+			
+			echo "nacional_Importado: ".$pez->nacional_Importado."<br>";
+			if ($pez->nacional_Importado == "Nacional e importado" || $pez->nacional_Importado == "Importado")
+				$peso7+=21;
+			
+			echo "selectiva_noselectiva: ".$pez->selectiva_noselectiva."<br>";
+			if ($pez->selectiva_noselectiva == "No selectiva")
+				$peso_comun+=1;
+			
+			if (!empty($pez->tipoVeda))
+			{
+				echo "Tipo de veda: ".$pez->tipoVeda->Nombre."<br>";
+				
+				switch ($pez->tipoVeda->Nombre)
+				{
+					case 'Permanente  (solo pesca deportiva)':
+						$peso_comun+=2;
+						break;
+					case 'Permanente':
+						$peso_comun+=3;
+						break;
+					case 'Temporal fija':
+						$peso_comun+=1;
+						break;
+				}
+			}
+			
+			foreach ($pez->estadoConservacions as $edo_cons)
+			{
+				if ($edo_cons->Nivel1 == 3)
+				{
+					echo "Estado de conservacion: ".$edo_cons->nombre."<br>";
+					
+					switch ($edo_cons->nombre)
+					{
+						case 'Amenazada':
+							$peso_comun+=4;
+							break;
+						case 'En peligro crítico':
+							$peso_comun+=4;
+							break;
+						case 'Extinto en vida silvestre':
+							$peso_comun+=4;
+							break;
+					}
+				}
+			}
+			
+			foreach ($pez->cartaNacionals as $carta)
+			{
+				switch ($carta->Nivel1)
+				{
+					case 1:
+						switch ($carta->Nombre)
+						{
+							case 'Con potencial de desarrollo.':
+								$peso1=0;
+								break;
+							case 'En deterioro.':
+								$peso1=4;
+								break;
+							case 'Máximo aprovechamiento permisible.':
+								$peso1=2;
+								break;
+						}
+						break;
+					case 2:
+						switch ($carta->Nombre)
+						{
+							case 'Con potencial de desarrollo.':
+								$peso2=0;
+								break;
+							case 'En deterioro.':
+								$peso2=4;
+								break;
+							case 'Máximo aprovechamiento permisible.':
+								$peso2=2;
+								break;
+						}
+						break;
+					case 3:
+						switch ($carta->Nombre)
+						{
+							case 'Con potencial de desarrollo.':
+								$peso3=0;
+								break;
+							case 'En deterioro.':
+								$peso3=4;
+								break;
+							case 'Máximo aprovechamiento permisible.':
+								$peso3=2;
+								break;
+						}
+						break;
+					case 4:
+						switch ($carta->Nombre)
+						{
+							case 'Con potencial de desarrollo.':
+								$peso4=0;
+								break;
+							case 'En deterioro.':
+								$peso4=4;
+								break;
+							case 'Máximo aprovechamiento permisible.':
+								$peso4=2;
+								break;
+						}
+						break;
+					case 5:
+						switch ($carta->Nombre)
+						{
+							case 'Con potencial de desarrollo.':
+								$peso5=0;
+								break;
+							case 'En deterioro.':
+								$peso5=4;
+								break;
+							case 'Máximo aprovechamiento permisible.':
+								$peso5=2;
+								break;
+						}
+						break;
+					case 6:
+						switch ($carta->Nombre)
+						{
+							case 'Con potencial de desarrollo.':
+								$peso6=0;
+								break;
+							case 'En deterioro.':
+								$peso6=4;
+								break;
+							case 'Máximo aprovechamiento permisible.':
+								$peso6=2;
+								break;
+						}
+						break;
+				} //iterador de niveles de la carta							
+			} //iterador de carta nacional
+			
+			if ($peso1 > -1)
+				$peso1+=$peso_comun;
+			if ($peso2 > -1)
+				$peso2+=$peso_comun;
+			if ($peso3 > -1)
+				$peso3+=$peso_comun;
+			if ($peso4 > -1)
+				$peso4+=$peso_comun;
+			if ($peso5 > -1)
+				$peso5+=$peso_comun;
+			if ($peso6 > -1)
+				$peso6+=$peso_comun;
+			
+			$peso = "$peso1/$peso2/$peso3/$peso4/$peso5/$peso6/$peso7";
+			echo "peso: $peso<br>";
+			
+			$pez->peso = $peso;
+			if ($pez->save())
+				echo "---> Guardo<br>";
+			else {
+				echo "---> No guardo<br>";
+				print_r($pez->getErrors());
+			}
+		} //iterador de los peces	
+	}
+	
 	public static function peso_a_nombre_imagen($peso)
 	{
 		$imagen = '';

@@ -25,7 +25,7 @@ class PecesController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('index','view', 'inicio', 'resultado', 'filtros', 'borrafiltros', 'migracion'),//, 'completa_promedio_pesos'),
+						'actions'=>array('index','view', 'inicio', 'resultado', 'filtros', 'borrafiltros', 'migracion'),// 'completa_pesos'),
 						'users'=>array('*'),
 				),
 				/*array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -348,9 +348,10 @@ class PecesController extends Controller
 			$filtro->delete();
 	}
 	
-	public function actionCompleta_promedio_pesos()
+	public function actionCompleta_pesos()
 	{
-		Peces::model()->ordena();	
+		Peces::model()->completa_pesos();
+		Peces::model()->ordena();
 	}
 
 	/**
