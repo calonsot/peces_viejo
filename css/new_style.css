@@ -17,29 +17,34 @@ table {
 }
 
 .deg_head {	
-	/* navegadores sin soporte */
-    /*background: #868159 url(../images/cabecera_degradado.jpg) repeat-y;*/
-    /* Safari 5.1+, Chrome 10+ */
+	background: #D9D6C4 url(/peces/imagenes/aplicacion/deg_head.png) repeat-x;
     background: -webkit-linear-gradient(#396676, #D9D6C4);
-    /* Firefox 3.6+ */
     background: -moz-linear-gradient(#396676, #D9D6C4);
-    /* Opera 11.10+ */
     background: -o-linear-background(#396676, #D9D6C4);
-    /* IE 10 */
     background: -ms-linear-background(#396676, #D9D6C4);
-    /* estándar */
     background: linear-background(#396676, #D9D6C4);
 	border-radius: 15px 15px 0px 0px;
 }
 
 .titblue {
 	font-size: 14px;
-	font-weight: 900;
-	color: #24434D;
+	font-weight: bold;
+	color: #D9D6C4;
+	background: url(/peces/imagenes/aplicacion/deg.png) no-repeat;
+	background: -webkit-linear-gradient(left, rgba(57,102,118,.8), rgba(57,102,118,0));
+    background: -moz-linear-gradient(left, rgba(57,102,118,.8), rgba(57,102,118,0));
+    background: -o-linear-background(left, rgba(57,102,118,.8), rgba(57,102,118,0));
+    background: -ms-linear-background(left, rgba(57,102,118,.8), rgba(57,102,118,0));
+    background: linear-background(left, rgba(57,102,118,.8), rgba(57,102,118,0));
+	padding: 3px;
+	padding-right: 6px;
+	text-shadow: 2px 2px 4px #1B3138;
 }
 
-.bborder {
-	border-bottom: 2px solid #1E413E;
+.titblue2 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #2A4B57;
 }
 
 .preguntas {
@@ -51,17 +56,18 @@ table {
 }
 
 .sem {
-	font-size: 13px;
+	height: 25px;
 }
 
 ul {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
-	line-height: 130%;
+	line-height: 160%;
 	list-style-image: url(/peces/imagenes/aplicacion/b_pez.png);
 	list-style-position: outside;
 }
 
 .c_buscador {
+	height: 500px;	
 	padding: 27px;
 	background: #EBE9DB;
 	-webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4),0 0 50px rgba(0, 0, 0, 0.2) inset;
@@ -91,27 +97,50 @@ ul {
 .resul {
 	font-size: 12px;
 	text-align: right;
-	margin-right: 30px;
-	font-weight: 900;
-	color: #24434D;
+	margin-right: 20px;
+	padding: 3px;
+	padding-right: 6px;
+	font-weight: bold;
+	color: #D9D6C4;
+	text-shadow: 2px 2px 4px #1B3138;
+	background: url(/peces/imagenes/aplicacion/deg_res.png) no-repeat;
+	background: -webkit-linear-gradient(left, rgba(57,102,118,0), rgba(57,102,118,.8));
+    background: -moz-linear-gradient(left, rgba(57,102,118,0), rgba(57,102,118,.8));
+    background: -o-linear-background(left, rgba(57,102,118,0), rgba(57,102,118,.8));
+    background: -ms-linear-background(left, rgba(57,102,118,0), rgba(57,102,118,.8));
+    background: linear-background(left, rgba(57,102,118,0), rgba(57,102,118,.8));
+}
+
+.view {
+	position: relative;
 }
 
 .dresul_all {
 	width: 280px;
-	height: 163px;
+	height: 170px;
 	text-align: left;
 	float: left;
 	display: inline-block;
 	margin-left: 18px;
 	margin-bottom: 18px;
-	overflow: hidden;
+	overflow: visible;
 	background: #EBE9DB;
 	-webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4),0 0 50px rgba(0, 0, 0, 0.2) inset;
 	-moz-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
+	-o-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
+	-ms-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
 	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
-	border-radius: 8px;
-	height: auto;
+	border-radius: 8px 8px 0px 0px;
 	position: relative;
+	z-index: 200;
+}
+
+.dresul_view {
+	height: 170px;
+}
+
+.ver {
+	z-index: 900;
 }
 
 .dresul_head {
@@ -122,10 +151,19 @@ ul {
     background: -o-linear-background(rgba(111, 140, 144, 0.7), rgba(111, 140, 144, 0));
     background: -ms-linear-background(rgba(111, 140, 144, 0.7), rgba(111, 140, 144, 0));
     background: linear-background(rgba(111, 140, 144, 0.7), rgba(111, 140, 144, 0));
+	border-radius: 8px 8px 0px 0px;
 }
 
 .dresul_body {
 	padding: 10px;
+	background: #EBE9DB;
+	-webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4),0 0 50px rgba(0, 0, 0, 0.2) inset;
+	-moz-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
+	-o-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
+	-ms-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
+	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;
+	border-radius: 0px 0px 8px 8px;
+	z-index: 900;
 }
 
 .dima {
@@ -134,6 +172,20 @@ ul {
 	padding: 0px;
 	text-align: center;
 	margin: 5px 0px 5px 0px;
+	transition: 1.5s ease;
+	-moz-transition: 1.5s ease; 
+	-webkit-transition: 1.5s ease;
+	-o-transition: 1.5s ease;
+	-ms-transition: 1.5s ease; 
+}
+
+.dima:hover{
+	transform : scale(2);
+	-moz-transform : scale(2); 
+	-webkit-transform : scale(2); 
+	-o-transform : scale(2);
+	-ms-transform : scale(2);
+	z-index: 20 !important;
 }
 
 .ima {
@@ -146,30 +198,22 @@ ul {
 	position: absolute;
 	top: 103px;
 	right: 10px;	
-	z-index: 1;
+	z-index: 100;
 }
 
-/*.ver {
-	height: auto;
-	position: absolute;
-}*/
-
 #opens1, #opens2, #opens3, #opens4 {
-	cursor: default;
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 input[type="checkbox"] {
 	display: none;
 }
 
-input[type="radio"] {
-	display: none;
-}
-
 input[type="checkbox"] + label span {
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   margin: -1px 3px 4px 0;
   vertical-align: middle;
   cursor:pointer;
@@ -180,7 +224,7 @@ input[id="buscador_recomendable"] + label span {
 }
 
 input[id="buscador_recomendable"]:checked + label span {
-  background: url(../imagenes/aplicacion/check_radio_v.png) -31px top no-repeat;
+  background: url(../imagenes/aplicacion/check_radio_v.png) -22px top no-repeat;
 }
 
 input[id="buscador_poco_recomendable"] + label span {
@@ -188,7 +232,7 @@ input[id="buscador_poco_recomendable"] + label span {
 }
 
 input[id="buscador_poco_recomendable"]:checked + label span {
-  background: url(../imagenes/aplicacion/check_radio_a.png) -31px top no-repeat;
+  background: url(../imagenes/aplicacion/check_radio_a.png) -22px top no-repeat;
 }
 
 input[id="buscador_no_recomendable"] + label span {
@@ -196,7 +240,7 @@ input[id="buscador_no_recomendable"] + label span {
 }
 
 input[id="buscador_no_recomendable"]:checked + label span {
-  background: url(../imagenes/aplicacion/check_radio_r.png) -31px top no-repeat;
+  background: url(../imagenes/aplicacion/check_radio_r.png) -22px top no-repeat;
 }
 
 input[id="buscador_libre"] + label span {
@@ -204,20 +248,10 @@ input[id="buscador_libre"] + label span {
 }
 
 input[id="buscador_libre"]:checked + label span {
-  background: url(../imagenes/aplicacion/check_radio_b.png) -31px top no-repeat;
+  background: url(../imagenes/aplicacion/check_radio_b.png) -22px top no-repeat;
 }
 
-
-input[type="radio"] + label span {
-	display: inline-block;
-	width: 30px;
-	height: 30px;
-	background: url(../imagenes/aplicacion/check_radio_sheet.png) -38px top no-repeat;
-	margin: -1px 4px 0 0;
-	vertical-align: middle;
-	cursor:pointer;
+.bimp {
+	list-style-image: url(/peces/imagenes/aplicacion/importado_p.png);
 }
 
-input[type="radio"]:checked + label span {
-	background: url(../imagenes/aplicacion/check_radio_sheet.png) -57px top no-repeat;
-}

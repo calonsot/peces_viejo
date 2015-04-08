@@ -12,7 +12,7 @@ $(document).ready(function(){
 <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" class="txt_peces">
 	<tr>
 		<td width="510" class="c_texto">
-				<strong><span class="titblue">Los peces </span>
+				<strong><span class="titblue2">Los peces </span>
 				</strong>constituyen un poco m&aacute;s de la mitad de todos los
 				vertebrados del mundo. Se han registrado alrededor de 30,000
 				especies, que incluyen tiburones, rayas, quimeras, peces
@@ -204,23 +204,23 @@ $(document).ready(function(){
 				Estados pesqueros en M&eacute;xico junto con sus vol&uacute;menes de
 				pesca (peso vivo en toneladas) del 2011. <span class="datospagprin">(Conapesca,
 					Sagarpa. Anuario Estad&iacute;stico de Acuacultura y Pesca 2011).</span>
-			</p>
+				</p>
 			
 			
-				<br> <strong class="titblue">Estado de conservaci&oacute;n</strong>
-				<br> La actividad pesquera en el pa&iacute;s comenz&oacute; su auge en los a&ntilde;os 40, y en un principio la explotaci&oacute;n 
+				<p class="titblue">Estado de conservaci&oacute;n</p>
+				<p>La actividad pesquera en el pa&iacute;s comenz&oacute; su auge en los a&ntilde;os 40, y en un principio la explotaci&oacute;n 
 				pesquera ten&iacute;a como objetivo el extraer los mayores vol&uacute;menes posibles de peces sin considerar la 
 				capacidad de renovaci&oacute;n de las especies, lo que result&oacute; en que muchas de las poblaciones de estos 
 				peces empezaran a tener una sobreexplotaci&oacute;n. Bajo este escenario se crea La Carta Nacional Pesquera (CNP) 
-				y publicada en el Diario de la Federaci&oacute;n el 18 de agosto del a&ntilde;o 2000. 
-			</p>
+				y publicada en el Diario de la Federaci&oacute;n el 18 de agosto del a&ntilde;o 2000.
+                </p>
 			
 			
-				<strong class="titblue">Carta Nacional Pesquera (CNP)</strong>
-				<br> Es el &uacute;nico documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos 
+				<p class="titblue">Carta Nacional Pesquera (CNP)</p>
+				<p>Es el &uacute;nico documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos 
 				marinos comerciales en M&eacute;xico, adem&aacute;s plantea restricciones y limites en algunas pesquer&iacute;as.<br>
-				En base a estudios cient&iacute;ficos la carta agrupa en tres categor&iacute;as a los grupos de peces explotados:
-				<br><br>
+				En base a estudios cient&iacute;ficos la carta agrupa en tres categor&iacute;as a los grupos de peces explotados:</p>
+
 					&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> En deterioro:</strong> El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminuci&oacute;n 
 					notable en la biomasa y una capacidad reducida de reclutamiento.<br>
@@ -252,10 +252,10 @@ $(document).ready(function(){
 			</p>
 			
 			
-				<br> <strong class="titblue">Sustentabilidad pesquera</strong>
-				<br> Diversos estudios e investigadores indican que las poblaciones de cerca de 500 especies de peces comerciales 
-				actualmente se encuentran en las siguientes condiciones:
-			</p>
+				<p class="titblue">Sustentabilidad pesquera</p>
+				<p>Diversos estudios e investigadores indican que las poblaciones de cerca de 500 especies de peces comerciales 
+				actualmente se encuentran en las siguientes condiciones:</p>
+
 			<table border="0" cellpadding="1" cellspacing="1" class="txt_peces">
 				<tr>
 					<td bgcolor="#E3E1CE"><span>
@@ -281,11 +281,11 @@ $(document).ready(function(){
 					</span>
 					</td>
 				</tr>
-			</table><br>
+			</table>
 			
-				<strong class="titblue">Peces comerciales en riesgo</strong><br>
-				Adem&aacute;s de La Carta Nacional Pesquera y sus regulaciones, existen otros convenios y normas de car&aacute;cter 
-				nacional e internacional, estas regulan y protegen a especies en riesgo. Entre ellas est&aacute;n:<br><br>    
+				<p class="titblue">Peces comerciales en riesgo</p>
+				<p>Adem&aacute;s de La Carta Nacional Pesquera y sus regulaciones, existen otros convenios y normas de car&aacute;cter 
+				nacional e internacional, estas regulan y protegen a especies en riesgo. Entre ellas est&aacute;n:</p>
 				<strong>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> La Norma Mexicana de Especies en Riesgo</strong> (<a
 					href="http://www.biodiversidad.gob.mx/especies/catRiesMexico.html"
@@ -354,15 +354,15 @@ $(document).ready(function(){
 			<strong><?php echo CHtml::link('Ver todos', NULL, array("id"=>"despliega_estado_conservacion", "style" => "color:#584B05;")); ?></strong>
 			
 				<br><br>
-				<strong class="titblue">Vedas</strong><br> Con el fin de
-				optimizar el aprovechamiento de la pesca desde un punto de vista
+				<p class="titblue">Vedas&nbsp;&nbsp;&nbsp;</p>
+                <p>Con el fin de optimizar el aprovechamiento de la pesca desde un punto de vista
 				biol&oacute;gico y socioecon&oacute;mico, la Comisi&oacute;n
 				Nacional de Acuacultura y Pesca (CONAPESCA) ha establecido regulaciones
 				y actos administrativos para proteger a las especies comerciales.<br>
 				Las vedas consisten en prohibiciones de pesca durante periodos de
 				tiempo o sitios espec&iacute;ficos mediante acuerdos o normas oficiales, estas 
 				tienen la finalidad de proteger a una o varias especies durante los periodos 
-				de reproducci&oacute;n o crianza.<br><br>
+				de reproducci&oacute;n o crianza.</p>
 				
 				<strong>Tipos de veda en M&eacute;xico:</strong><br>
 				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
@@ -371,17 +371,13 @@ $(document).ready(function(){
 					height="6"> Veda temporal fija:</strong> Se establece en un periodo definido y se repite anualmente.<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
 					height="6"> Veda temporal variable:</strong> Se establece por un periodo definido pero es actualizada anualmente.<br>
-			</p>
 			
 			
-				<strong class="titblue">Artes de pesca</strong><br> 
-				Las artes de pesca son los diferentes métodos de captura o técnicas con las que los peces son atrapados.  
-				Existen 4 tipos principales de arte y de cada uno de ellos tienen variables y combinaciones diferentes:
-				
-			</p>
-			
-				<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6"
-					height="6"> L&iacute;neas:</strong> Este arte consiste en un hilo
+				<p class="titblue">Artes de pesca&nbsp;&nbsp;&nbsp;</p> 
+				<p>Las artes de pesca son los diferentes métodos de captura o técnicas con las que los peces son atrapados.  
+				Existen 4 tipos principales de arte y de cada uno de ellos tienen variables y combinaciones diferentes:</p>
+                
+                <strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> L&iacute;neas:</strong> Este arte consiste en un hilo
 				con un anzuelo con carnada en su punta final. Existen variantes de
 				la l&iacute;nea como: l&iacute;nea de anzuelo, l&iacute;nea
 				cabrillera de fondo, l&iacute;nea de mano, troleado y carpiota o
@@ -408,14 +404,14 @@ $(document).ready(function(){
 				pulpo.
 			</p>
 			
-			<strong class="titblue">Tipos de artes de pesca</strong><br> 
-			Algunas de las artes de pesca tienen un fuerte impacto sobre la biodiversidad marina 
+			<p class="titblue">Tipos de artes de pesca&nbsp;&nbsp;&nbsp;</p> 
+			<p>Algunas de las artes de pesca tienen un fuerte impacto sobre la biodiversidad marina 
 			y su ambiente y otras no lo tienen, por lo que es determinante que el consumidor conozca la informaci&oacute;n sobre 
 			el tipo de arte que es utilizado por especie, para esto se han separado las artes de pesca en dos grupos:</p>
 			
-				<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesAmigable.png" width="17" height="17"><strong>
-					Selectiva</strong> &nbsp;<br> Algunos tipos de artes de
-				pesca de bajo impacto: Red de arrastre para camarones
+			<p><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesAmigable.png" width="17" height="17">
+            <strong>Selectiva</strong><br>
+            Algunos tipos de artes de pesca de bajo impacto: Red de arrastre para camarones
 				RS-INP-MEX-110&acute;para embarcaciones mayores en el Golfo de
 				California, red agallera para lisa y liseta o lebrancha,
 				l&iacute;nea de mano para peces pel&aacute;gicos y demersales,
@@ -426,12 +422,11 @@ $(document).ready(function(){
 				palangre para at&uacute;n: Golfo de M&eacute;xico y Caribe.
 			</p>
 			
-				<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesNoAmigable.png" width="17" height="17"> 
-				<strong>No selectiva</strong> <br> 
+			<p><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/imgPecesNoAmigable.png" width="17" height="17"> 
+				<strong>No selectiva</strong><br> 
 				Se capturan diferentes especies y tama&ntilde;os que no son el objetivo. Puede afectar delfines, tortugas y 
 				aves, da&ntilde;ar el ambiente y destruir los ecosistemas marinos.<br> 
-				Algunos tipos de artes de
-				pesca de alto impacto para el ambiente son el chinchorro playero,
+				Algunos tipos de artes de pesca de alto impacto para el ambiente son el chinchorro playero,
 				red de enmalle para tiburones y rayas en embarcaciones menores, red
 				agallera para escama pel&aacute;gica, red agallera para escama de
 				fondo, red agallera para esteros y l&iacute;nea de costa, palangre
@@ -440,26 +435,27 @@ $(document).ready(function(){
 			</p>
 			
 			 
-				<strong class="titblue">Pesca Ribere&ntilde;a y de altura</strong> <br> 
-				En el país la pesca en sus litorales se divide en dos grandes grupos:<br><br> 
-				<strong>Pesca ribereña</strong> 
+				<p class="titblue">Pesca Ribere&ntilde;a y de altura &nbsp; &nbsp; &nbsp;<p>
+               <p> En el país la pesca en sus litorales se divide en dos grandes grupos:</p>
+				<strong>Pesca ribereña</strong><br />
 				Se lleva a cabo en ecosistemas costeros, no se realiza m&aacute;s all&aacute; de los 100 metros de profundidad y 
 				generalmente est&aacute; ligada a comunidades de pescadores que usan embarcaciones peque&ntilde;as y medianas como 
 				pangas, lanchas, etc. Representa el 30 % del volumen de pesca a nivel nacional y el 98% de las especies 
 				comerciales capturadas.<br><br> 
 
-				<strong>Pesca de altura o industrial</strong> 
+				<strong>Pesca de altura o industrial</strong><br />
 				 Se realiza principalmente en alta mar por lo que usan barcos grandes. Su principal objetivo es la captura del 
 				 at&uacute;n, anchoveta y sardina, es decir el 2% de las especies comerciales; sin embargo es la m&aacute;s importante de las 
 				 pesquer&iacute;as con el 70% del volumen de pesca. 
 			</p>
             <p>Recuerda que cuando compras un producto del mar lo que t&uacute; elijas y compres en los mercados y supermercados tiene un efecto directo  positivo o negativo en la biodiversidad marina.</p>
             <center><p class="preguntas">&ldquo;Conoci&eacute;ndolos  saben mejor&rdquo;</p></center>
-			<hr>
-			<p>&nbsp;</p>
-			<p>
-				<strong class="datospagprin">Referencias</strong>
-			</p>
+			
+            <br />
+            <hr>
+            <br />
+
+			<p><strong class="datospagprin">Referencias</strong></p>
 			<ul>
 				<li>Arregu&iacute;n-S&aacute;nchez, F. y E. Arcos Huitr&oacute;n.
 					2011. <em>La pesca en M&eacute;xico: estado de la
@@ -491,10 +487,13 @@ $(document).ready(function(){
 					apoye el Manejo de Pesquer&iacute;as Basado en Ecosistemas. WWF
 					M&eacute;xico/Centroam&eacute;rica. 81 pp.</li>
 			</ul>
-			<hr>
-			<p>
-				<strong class="datospagprin">Lecturas recomendadas</strong>
-			</p>
+			
+            <br />
+            <hr>
+            <br />
+            
+
+			<p><strong class="datospagprin">Lecturas recomendadas</strong></p>
 			<ul>
 				<li>L&oacute;pez Jim&eacute;nez, L.N., Gonz&aacute;lez Solis, A.,
 					Torruco, D. 2014. <a
@@ -540,10 +539,12 @@ $(document).ready(function(){
 					Biodiversitas, 2:1-6.<br>
 				</li>
 			</ul>
-			<hr>
-			<p>
-				<strong class="datospagprin">Sitios web</strong>
-			</p>
+			
+            <br />
+            <hr>
+            <br />
+            
+			<p><strong class="datospagprin">Sitios web</strong></p>
 			<ul>
 				<li><a href="http://www.inapesca.gob.mx/portal/" target="_blank"
 					style="color: #330">Instituto Nacional de la Pesca</a>. (INAPESCA)<br>
@@ -557,11 +558,16 @@ $(document).ready(function(){
 		
 		
 		<td width="250" class="c_izq">
-		<p align="center" class="titblue"><strong>Nuevo cartel. Peces comerciales<br>de M&eacute;xico: Oc&eacute;ano Pac&iacute;fico</strong></p>
+		<p class="titblue">Carteles</p>
+        <p align="center" class="titblue2">Peces comerciales de M&eacute;xico: Oc&eacute;ano Pac&iacute;fico</p>
 		<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_pacifico.png" width="250" height="167" />
-		<p align="center" class="titblue"><strong>Peces comerciales de M&eacute;xico:<br>Golfo y Caribe</strong></p>
-		<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_golfo_web.png" width="250" height="167" />
+		<p align="center" class="titblue2"><strong>Peces comerciales de M&eacute;xico:<br>Golfo y Caribe</strong></p>
+		<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_golfo_web.png" width="250" height="167" /><br />
 		<div align="center" class="datospagprin">Disponibles en nuestro <a href="http://www.biodiversidad.gob.mx/publicaciones/publicaciones.php" target="_blank" style="color: #323D2C">cat&aacute;logo de publicaciones</a></div>
+        
+         <br />
+         <hr>
+         <br />
 			
 		  <p><?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgMeroCriollo.png", "Mero de Caribe", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=405'); ?>
 				<br>
@@ -593,32 +599,26 @@ $(document).ready(function(){
 					sierra<br> <br>
 				</em>
 					<?php echo CHtml::link(CHtml::image("http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/imgMeroE_Morio.png", "Mero", array("width"=>250, "height"=>253)), Yii::app()->request->baseUrl.'/index.php/peces/resultado?especie_id=404'); ?>
-					<br> Mero<br> <em class="datospagprin">Epinephelus
-					morio</em><em class="datospagprin"><br> <br> </em></p>
-		  <hr>
-			<p>
-				<br> <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12">
-				<span class="titblue">Videos</span>
-			</p> <iframe width="250" height="141"
-				src="//www.youtube.com/embed/AZcTLXVL4_A?rel=0" frameborder="0"
-				allowfullscreen></iframe> <br>
-			<p class="datospagprin">
-				<strong>N&uacute;meros Naturales - Sardinas</strong>. Descubre la
-				historia que se esconde tras la pesquer&iacute;a de sardinas del
-				Golfo de California
-			</p>
-			<p class="datospagprin">&nbsp;</p>
-			<hr>
-			<p class="datospagprin">
-				<br> <img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12">
-				<span class="titblue">Carteles</span> (pr&oacute;ximamente)
-			</p>
-			<p class="datospagprin">&nbsp;</p>
-			<hr> <br>
-			<p class="datospagprin">
-				<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12"> <span
-					class="titblue">Gu&iacute;as</span> (pr&oacute;ximamente)
-			</p>
+					<br>Mero<br>
+                    <em class="datospagprin">Epinephelus morio</em>
+                    </p>
+		  	
+            <br />
+            <hr>
+            <br />
+            
+			<p class="titblue">Videos&nbsp;&nbsp;&nbsp;</p>
+            <iframe width="250" height="141" src="//www.youtube.com/embed/AZcTLXVL4_A?rel=0" frameborder="0" allowfullscreen></iframe><br>
+			<p class="datospagprin"><strong>N&uacute;meros Naturales - Sardinas</strong><br />
+			Descubre la 	historia que se esconde tras la pesquer&iacute;a de sardinas del Golfo de California.</p>
+            
+			<br />
+            <hr>
+            <br />
+            
+			<p class="titblue">Gu&iacute;as&nbsp;&nbsp;&nbsp;</p>
+            <span class="datospagprin">(pr&oacute;ximamente)</span>
+            
 		</td>
 	</tr>
 	<tr>

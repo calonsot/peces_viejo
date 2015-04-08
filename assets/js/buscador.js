@@ -156,8 +156,11 @@ $(document).ready(function(){
 	    });
 	});
 	
-	$("[id^='dat_']").on('click', function(){
+	$("[id^='dat_']").on('click', function() { 
 		var id = $(this).attr('id').substring(4);
-		$("#dresul_body_"+id).addClass( "ver" ).toggle();
+		$(id == $(this)).slideToggle();
+		$(".dresul_all").removeClass('ver');
+		$("#dresul_body_"+id).slideToggle();
+		$("#dresul_"+id).addClass( "ver" );
 	});
 });

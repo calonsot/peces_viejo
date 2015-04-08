@@ -16,7 +16,10 @@ if (!isset($vacio))
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
 		
 		//echo "ID: ".$pezobj->especie_id."<br>";		
-		echo "<div id='dresul' class='dresul_all'>";
+		echo "<div id ='dresul_".$pezobj->especie_id."'class='dresul_all'>";
+		
+
+		echo "<div class='dresul_view'>";
 		
 		
 		
@@ -35,16 +38,7 @@ if (!isset($vacio))
 		
 		echo "</div>"; //cierra dresul_head
 		
-		
-		
-		echo "<div class='dima'>";
-		//Imagenes peces
-		if ($pezobj->tipo_imagen == 1)
-			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
-		elseif ($pezobj->tipo_imagen == 2)
-			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
-		echo "</div>";
-		
+
 
 		// Imagen de Importado
 		echo "<div class='dimp'>";
@@ -52,16 +46,35 @@ if (!isset($vacio))
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/importado.png", "Importado", array("title"=>"Importado"));
 		echo "</div>";
 		
+		
+		
 		//Cuando tiene datos en la zona
 		echo "<div id='dat_".$pezobj->especie_id."'>";
+		
+		
+		//Imagenes peces
+		echo "<div class='dima'>";
+		if ($pezobj->tipo_imagen == 1)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
+		elseif ($pezobj->tipo_imagen == 2)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
+		echo "</div>";
+		
+		
 		if ($pezobj->recomendacion == 1 && !empty($pezobj->peso))
 		{
 			$imagen = Peces::peso_a_nombre_imagen($pezobj->peso);
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".$imagen);
-		}	
-		echo "</div>";
+		}
+		echo "</div>"; // cierra  dat_
 			
-		echo "<div id ='dresul_body_".$pezobj->especie_id."' class='dresul_body' style='display:none'>";
+		
+		
+		echo "</div>"; //cierra dresul_view
+		
+		
+		
+		echo "<div id ='dresul_body_".$pezobj->especie_id."'class='dresul_body' style='display:none'>";
 		
 
 		//Estados de conservacion
@@ -80,6 +93,21 @@ if (!isset($vacio))
 
 		
 		
+		//Distribucion
+		$distribuciones = array();
+		foreach($pezobj->distribucions as $j)
+			array_push($distribuciones, ($j->Nombre));
+		if (!empty($estados_conservacion))
+			if(!empty($distribuciones))
+				echo "<b>Estado de conservaci&oacute;n:</b> ".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."<br><br><b>Distribuci&oacute;n en:</b> ".implode(', ', $distribuciones)."<br><br>";
+			else
+				echo "<b>Estado de conservaci&oacute;n:</b> ".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."<br><br>";
+			else {
+				echo "<b>Distribuci&oacute;n en:</b> ".implode(', ', $distribuciones)."<br><br>";
+			}
+		
+		
+			
 		//Tipo de pesca
 			echo "<b>Tipo de pesca:</b> ".$pezobj->selectiva_noselectiva." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca"))."<br><br>";
 		
@@ -108,24 +136,9 @@ if (!isset($vacio))
 		
 		//Tipo de veda
 			echo "<b>Tipo de veda:</b> ".($pezobj->tipoVeda->Nombre)."<br><br>";
-			
-		
-		
-		//Distribucion
-		$distribuciones = array();
-		foreach($pezobj->distribucions as $j)
-			array_push($distribuciones, ($j->Nombre));
-		if (!empty($estados_conservacion))
-			if(!empty($distribuciones))
-				echo "<b>Estado de conservaci&oacute;n:</b> ".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."<br><br><b>Distribuci&oacute;n en:</b> ".implode(', ', $distribuciones)."<br><br>";
-			else
-				echo "<b>Estado de conservaci&oacute;n:</b> ".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."<br><br>";
-			else {
-				echo "<b>Distribuci&oacute;n en:</b> ".implode(', ', $distribuciones)."<br><br>";
-			}
-		
-			
-		
+
+
+
 		//Capturas
 		$capturas = array();
 		foreach($pezobj->tipoCapturases as $j)
@@ -156,29 +169,29 @@ if (!isset($vacio))
 
 
 		//Carta nacional
-		$cartas_nacionales = '';
-		foreach($pezobj->cartaNacionals as $j){
-			if($j->Nivel1==1)
-				$cartas_nacionales.= "<li>Pac&iacute;fico zona 1: ".($j->Nombre)."</li>";
-			
-			if($j->Nivel1==2)
-				$cartas_nacionales.= "<li>Pac&iacute;fico zona 2: ".($j->Nombre)."</li>";
-			
-			if($j->Nivel1==3)
-				$cartas_nacionales.= "<li>Pac&iacute;fico zona 3: ".($j->Nombre)."</li>";
-			
-			if($j->Nivel1==4)
-				$cartas_nacionales.= "<li>Golfo de M&eacute;xico y Caribe zona 1: ".($j->Nombre)."</li>";
-			
-			if($j->Nivel1==5)
-				$cartas_nacionales.= "<li>Golfo de M&eacute;xico y Caribe zona 2: ".($j->Nombre)."</li>";
-			
-			if($j->Nivel1==6)
-				$cartas_nacionales.= "<li>Golfo de M&eacute;xico y Caribe zona 3: ".($j->Nombre)."</li>";
-			
-		}
-		if (!empty($cartas_nacionales))
-			echo "<b>Carta Nacional Pesquera (2012):</b> ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"carta_nacional"))."<ul>".$cartas_nacionales."</ul>";
+		//$cartas_nacionales = '';
+//		foreach($pezobj->cartaNacionals as $j){
+//			if($j->Nivel1==1)
+//				$cartas_nacionales.= "<li>Pac&iacute;fico zona 1: ".($j->Nombre)."</li>";
+//			
+//			if($j->Nivel1==2)
+//				$cartas_nacionales.= "<li>Pac&iacute;fico zona 2: ".($j->Nombre)."</li>";
+//			
+//			if($j->Nivel1==3)
+//				$cartas_nacionales.= "<li>Pac&iacute;fico zona 3: ".($j->Nombre)."</li>";
+//			
+//			if($j->Nivel1==4)
+//				$cartas_nacionales.= "<li>Golfo de M&eacute;xico y Caribe zona 1: ".($j->Nombre)."</li>";
+//			
+//			if($j->Nivel1==5)
+//				$cartas_nacionales.= "<li>Golfo de M&eacute;xico y Caribe zona 2: ".($j->Nombre)."</li>";
+//			
+//			if($j->Nivel1==6)
+//				$cartas_nacionales.= "<li>Golfo de M&eacute;xico y Caribe zona 3: ".($j->Nombre)."</li>";
+//			
+//		}
+//		if (!empty($cartas_nacionales))
+//			echo "<b>Carta Nacional Pesquera (2012):</b> ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"carta_nacional"))."<ul>".$cartas_nacionales."</ul>";
 			
 		echo "</div>";  //cierra dresul_body_
 		echo "</div>";  //cierra dresul_all
