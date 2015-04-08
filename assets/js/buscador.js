@@ -158,7 +158,6 @@ $(document).ready(function(){
 	
 	$("[id^='dat_']").on('click', function() { 
 		var id = $(this).attr('id').substring(4);
-		$(id == $(this)).slideToggle();
 		$(".dresul_all").removeClass('ver');
 		$("#dresul_body_"+id).slideToggle();
 		$("#dresul_"+id).addClass( "ver" );
