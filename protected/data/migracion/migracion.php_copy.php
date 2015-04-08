@@ -5,7 +5,7 @@
  * 2) Aegurarse que las columnas del nuevo csv correspondan con el orden y numero de las anteriores (campo separador "|")
  * 3) Limpiar la base correindo el MER_peces_comerciales.mwb para generar de nuevo las tablas
  * 4) Correr la pagina: http://localhost/peces/protected/data/migracion/migracion.php
- * 5) Descomentar en el controlador de peces la accion completa_promedio_pesos y correr: http://localhost/peces/index.php/peces/completa_promedio_pesos
+ * 5) Descomentar en el controlador de peces la accion completa_pesos y correr: http://localhost/peces/index.php/peces/completa_pesos
  */
 header('Content-Type: text/html; charset=UTF-8');
 include 'mysql.php';
@@ -13,10 +13,10 @@ include 'mysql.php';
 $csv = "peces.csv";
 $separador = "\|";
 
-$database = "tu-base";
+$database = "usos";
 $host = "localhost";
-$usuario = "tu-usuario";
-$password = "tu-passwd";
+$usuario = "usuario";
+$password = "passwd";
 
 $db = new mysql($database, $host, $usuario, $password);
 
@@ -60,7 +60,11 @@ if ($handle)
 			$linea++;
 		else {
 			$datos = explode("|", $line);
-		
+			
+			echo "<pre>";
+			print_r($datos);
+			echo "</pre>";
+			
 			$especie_id = $linea;
 			$grupo = $datos[10];
 			$tipo_veda = $datos[24];
@@ -168,11 +172,6 @@ if ($handle)
 	system("mysql --default-character-set=utf8 -h ".$host." -u ".$usuario." -p".$password." ".$database." < tabla_pez_carta_nacional.sql");
 	system("mysql --default-character-set=utf8 -h ".$host." -u ".$usuario." -p".$password." ".$database." < tabla_pez_estado_conservacion.sql");
 	
-	echo "Corriendo el script para el peso<br>";
-	//Llena la columna peso y la mete a la base
-	system("./asigna_pesos.sh $csv asigna_pesos.sql");
-	system("mysql --default-character-set=utf8 -h ".$host." -u ".$usuario." -p".$password." ".$database." < asigna_pesos.sql");
-	
 	echo "Corrigiendo las imagenes que no les pusieron la extension<br>";
 	//Pone las imagenes con extension .png
 	system("mysql --default-character-set=utf8 -h ".$host." -u ".$usuario." -p".$password." ".$database." < asigna_pesos.sql");
@@ -180,7 +179,7 @@ if ($handle)
 	
 	echo "Borrando los archivos generados";
 	//Borrando los archivos no necesarios
-	system("rm -f extrae_grupo.sql extrae_distribucion.sql extrae_capturas.sql extrae_veda.sql tabla_peces.sql tabla_pez_tipo_capturas.sql tabla_pez_distribucion.sql tabla_pez_carta_nacional.sql tabla_pez_estado_conservacion.sql asigna_pesos.sql log.log");
+	system("rm -f extrae_grupo.sql extrae_distribucion.sql extrae_capturas.sql extrae_veda.sql tabla_peces.sql tabla_pez_tipo_capturas.sql tabla_pez_distribucion.sql tabla_pez_carta_nacional.sql tabla_pez_estado_conservacion.sql");
 	
 	fclose($handle);
 } else
