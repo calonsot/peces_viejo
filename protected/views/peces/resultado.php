@@ -152,34 +152,8 @@ if (!isset($vacio))
 		//Generalidades
 		if (!empty($pezobj->generalidades))
 			echo "<b>Generalidades:</b> ".($pezobj->generalidades)."<br><br>";
-			
 
-
-		//Carta nacional
-		$cartas_nacionales = '';
-		foreach($pezobj->cartaNacionals as $j){
-			if($j->Nivel1==1)
-				$cartas_nacionales.= "<li>Pac&iacute;fico zona 1: ".($j->Nombre)."</li>";
-			
-			if($j->Nivel1==2)
-				$cartas_nacionales.= "<li>Pac&iacute;fico zona 2: ".($j->Nombre)."</li>";
-			
-			if($j->Nivel1==3)
-				$cartas_nacionales.= "<li>Pac&iacute;fico zona 3: ".($j->Nombre)."</li>";
-			
-			if($j->Nivel1==4)
-				$cartas_nacionales.= "<li>Golfo de M&eacute;xico y Caribe zona 1: ".($j->Nombre)."</li>";
-			
-			if($j->Nivel1==5)
-				$cartas_nacionales.= "<li>Golfo de M&eacute;xico y Caribe zona 2: ".($j->Nombre)."</li>";
-			
-			if($j->Nivel1==6)
-				$cartas_nacionales.= "<li>Golfo de M&eacute;xico y Caribe zona 3: ".($j->Nombre)."</li>";
-			
-		}
-		if (!empty($cartas_nacionales))
-			echo "<b>Carta Nacional Pesquera (2012):</b> ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"carta_nacional"))."<ul>".$cartas_nacionales."</ul>";
-			
+		
 		echo "</div>";  //cierra dresul_body_
 		echo "</div>";  //cierra dresul_all
 		?>
