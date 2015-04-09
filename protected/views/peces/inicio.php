@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 <table width="910" border="0" align="center" cellpadding="0" cellspacing="0" class="txt_peces">
 	<tr>
-		<td width="510" class="c_texto">
+		<td width="510" valign="top" class="c_texto">
 				<strong><span class="titblue2">Los peces </span>
 				</strong>constituyen un poco m&aacute;s de la mitad de todos los
 				vertebrados del mundo. Se han registrado alrededor de 30,000

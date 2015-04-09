@@ -21,7 +21,40 @@ $(document).ready(function(){
 	$('.estado_conservacion').qtip({
 		content: {text: $('#estado_conservacion_tip')}
 	});
+	$('.recomendable').qtip({
+		content: {text: $('#recomendable_tip')}
+	});
+	$('.precomendable').qtip({
+		content: {text: $('#precomendable_tip')}
+	});
+	$('.nrecomendable').qtip({
+		content: {text: $('#nrecomendable_tip')}
+	});
 });
+</script>
+
+<script type="text/javascript">
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
 </script>
 
 <div class="tooltiptext" id="veda_tip">
@@ -129,6 +162,18 @@ $(document).ready(function(){
 			(<a href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html" target="_blank" style="color: #323D2C">IUCN</a>), tiene a <strong>64</strong> especies de peces en las categor&iacute;as de mayor riesgo.</p>
 </div>
 
+<div class="tooltiptext" id="recomendable_tip">
+    <p>Especies que puedes consumir sin ninguna preocupación en base a que sus poblaciones están estables y son capturadas sin dañar al ambiente ni a otras especies.</p>
+</div>
+    
+<div class="tooltiptext" id="precomendable_tip">
+    <p>Especies que de preferencia no debes consumir ya que sus poblaciones están en un máximo aprovechamiento y de seguir consumiéndolos en exceso sus poblaciones pueden colapsarse. Además el tipo de captura puede dañar al ambiente y a otras especies.</p>
+</div>
+    
+<div class="tooltiptext" id="nrecomendable_tip">
+    <p>Especies que debes evitar consumir en su totalidad ya que sus poblaciones están considerablemente disminuidas y su captura daña al ambiente y a otras especies.</p>
+</div>
+
 
 
 <form name="buscador" id="buscador" method="get" action="<?php echo Yii::app()->request->baseUrl; ?>/index.php/peces/resultado">
@@ -148,15 +193,20 @@ $(document).ready(function(){
 				<div style="float:left; width:290px; height:250px">
                 <b>Zona pesquera</b><br> 
 				
-                <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/zonas_pesqueras_mapa.jpg", "Zonas", array("width" => "290px;", "usemap" => "#zona")); ?>
+                <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/zonas_pesqueras_mapa.jpg", "Zonas", array("width" => "290px;", "usemap" => "#zona", "id" => "mapaz")); ?>
                 
 				<map name="zona">
-                    <area id="zona6" shape="poly" coords="243,135,248,136,253,135,256,133,255,130,258,127,259,125,256,120,254,113,252,108,247,111,247,115,244,118,243,120,242,124,243,127,242,130" href="#" title="Zona III">
-                    <area id="zona5" shape="poly" coords="196,136,205,134,211,133,214,133,217,129,219,125,220,120,222,115,228,113,231,113,235,111,239,111,244,111,251,108,249,100,246,92,242,87,235,85,226,85,219,85,209,87,204,88,200,90,195,93" href="#" title="Zona II">
-                    <area id="zona4" shape="poly" coords="172,87,195,86,194,95,194,116,195,137,185,134,176,127,168,114,166,97" href="#" title="Zona I">
-                    <area id="zona2" shape="poly" coords="54,43,58,45,61,48,63,50,65,56,68,62,72,68,76,72,78,74,82,77,84,80,87,81,86,84,86,88,90,89,94,92,95,95,97,96,102,101,108,107,110,111,111,114,113,116,113,120,113,122,100,122,95,119,91,116,85,114,83,110,83,106,85,104,83,100,81,98,78,97,77,94,77,93,75,88,73,85,73,81,70,78,66,72,62,65,58,59,55,56,53,55,53,50,53,47" href="#" title="Zona II">
-                    <area id="zona1" shape="poly" coords="5,75,9,81,17,85,24,89,28,90,35,97,39,98,42,106,47,113,54,119,60,122,65,125,75,123,80,119,82,111,81,106,79,102,75,99,70,94,67,92,66,89,67,85,65,81,61,79,58,77,55,76,51,71,48,70,53,69,55,67,53,62,49,57,45,55,43,48,41,43,38,37,32,38,29,41,28,44,27,49,25,53,19,53,10,55,3,55" href="#" title="Zona I">
-                    <area id="zona3" shape="poly" coords="67,128,76,134,87,139,97,145,107,152,118,158,128,163,140,168,153,171,165,175,174,178,180,180,190,178,193,179,196,179,209,163,200,157,195,153,188,153,184,156,180,157,174,156,166,154,157,151,151,148,144,146,139,144,138,142,128,142,124,137,119,133,114,131,111,127,111,123,106,123,100,123,95,120,90,117,86,116,83,115,82,119,79,123,75,126,71,126" href="#" title="Zona III">
+                    <area id="zona6" shape="poly" coords="243,135,248,136,253,135,256,133,255,130,258,127,259,125,256,120,254,113,252,108,247,111,247,115,244,118,243,120,242,124,243,127,242,130" href="#" title="Zona III" onmouseover="MM_swapImage('mapaz','','<?php echo Yii::app()->request->baseUrl; ?>/imagenes/aplicacion/zonas_pesqueras_mapag_iii.jpg',1)" onmouseout="MM_swapImgRestore()">
+    
+    <area id="zona5" shape="poly" coords="196,136,205,134,211,133,214,133,217,129,219,125,220,120,222,115,228,113,231,113,235,111,239,111,244,111,251,108,249,100,246,92,242,87,235,85,226,85,219,85,209,87,204,88,200,90,195,93" href="#" title="Zona II" onmouseover="MM_swapImage('mapaz','','<?php echo Yii::app()->request->baseUrl; ?>/imagenes/aplicacion/zonas_pesqueras_mapag_ii.jpg',1)" onmouseout="MM_swapImgRestore()">
+    
+    <area id="zona4" shape="poly" coords="172,87,195,86,194,95,194,116,195,137,185,134,176,127,168,114,166,97" href="#" title="Zona I" onmouseover="MM_swapImage('mapaz','','<?php echo Yii::app()->request->baseUrl; ?>/imagenes/aplicacion/zonas_pesqueras_mapag_i.jpg',1)" onmouseout="MM_swapImgRestore()">
+    
+    <area id="zona2" shape="poly" coords="54,43,58,45,61,48,63,50,65,56,68,62,72,68,76,72,78,74,82,77,84,80,87,81,86,84,86,88,90,89,94,92,95,95,97,96,102,101,108,107,110,111,111,114,113,116,113,120,113,122,100,122,95,119,91,116,85,114,83,110,83,106,85,104,83,100,81,98,78,97,77,94,77,93,75,88,73,85,73,81,70,78,66,72,62,65,58,59,55,56,53,55,53,50,53,47" href="#" title="Zona II" onmouseover="MM_swapImage('mapaz','','<?php echo Yii::app()->request->baseUrl; ?>/imagenes/aplicacion/zonas_pesqueras_mapap_ii.jpg',1)" onmouseout="MM_swapImgRestore()">
+    
+    <area id="zona1" shape="poly" coords="5,75,9,81,17,85,24,89,28,90,35,97,39,98,42,106,47,113,54,119,60,122,65,125,75,123,80,119,82,111,81,106,79,102,75,99,70,94,67,92,66,89,67,85,65,81,61,79,58,77,55,76,51,71,48,70,53,69,55,67,53,62,49,57,45,55,43,48,41,43,38,37,32,38,29,41,28,44,27,49,25,53,19,53,10,55,3,55" href="#" title="Zona I" onmouseover="MM_swapImage('mapaz','','<?php echo Yii::app()->request->baseUrl; ?>/imagenes/aplicacion/zonas_pesqueras_mapap_i.jpg',1)" onmouseout="MM_swapImgRestore()">
+    
+    <area id="zona3" shape="poly" coords="67,128,76,134,87,139,97,145,107,152,118,158,128,163,140,168,153,171,165,175,174,178,180,180,190,178,193,179,196,179,209,163,200,157,195,153,188,153,184,156,180,157,174,156,166,154,157,151,151,148,144,146,139,144,138,142,128,142,124,137,119,133,114,131,111,127,111,123,106,123,100,123,95,120,90,117,86,116,83,115,82,119,79,123,75,126,71,126" href="#" title="Zona III" onmouseover="MM_swapImage('mapaz','','<?php echo Yii::app()->request->baseUrl; ?>/imagenes/aplicacion/zonas_pesqueras_mapap_iii.jpg',1)" onmouseout="MM_swapImgRestore()">
                  </map>
                 
                 <div style="display: none;">
