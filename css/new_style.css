@@ -83,7 +83,7 @@ ul {
 }
 
 .c_texto {
-	padding: 27px;
+	padding: 27px 27px 0px 27px;
 	vertical-align: text-top;
 }
 
@@ -201,7 +201,7 @@ ul {
 	z-index: 100;
 }
 
-#opens1, #opens2, #opens3, #opens4 {
+#opens1, #opens2, #opens3, #opens4, #opens5 {
 	cursor: pointer;
 	text-decoration: underline;
 }
@@ -255,3 +255,23 @@ input[id="buscador_libre"]:checked + label span {
 	list-style-image: url(/peces/imagenes/aplicacion/importado_p.png);
 }
 
+.t_re {
+	color: #7FB009;
+	font-weight: bold;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.t_pre {
+	color: #FE9D28;
+	font-weight: bold;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.t_nre {
+	color: #C42306;
+	font-weight: bold;
+	cursor: pointer;
+	text-decoration: underline;
+}

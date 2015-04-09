@@ -58,7 +58,7 @@ function vm() {
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui.css" />
   <script>
   $(function() {
-    $( "#s1, #s2, #s3, #s4" ).dialog({
+    $( "#s1, #s2, #s3, #s4, #s5" ).dialog({
       width: 600,
 	  autoOpen: false,
       show: {
@@ -85,6 +85,10 @@ function vm() {
 	
 	$( "#opens4" ).click(function() {
       $( "#s4" ).dialog( "open" );
+    });
+	
+	$( "#opens5" ).click(function() {
+      $( "#s5" ).dialog( "open" );
     });
   });
   </script>
@@ -273,10 +277,11 @@ input.gsc-search-button {
                                                         <li id="opens4">Especies en riesgo</li>
                                                         <li id="opens5" class="bimp">Importado</li>
                                                      </ul>
-                                               <p>
-                                               En la ficha de cada especie podrás encontrar una barra que representa cada zona pesquera y su estado.<br>
-                                                    <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/semaforo_zonas.png");?>
-                                               </p> 
+                                               
+                                               
+                                               <p class="titblue bborder">Ficha muestra</p>
+                                               <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/semaforo_zonas.png");?>
+                                                
                                                
                                                      <div id="s1" title="Estado de las poblaciones">
                                                      <p>La Carta Nacional Pesquera es el único documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos marinos comerciales en México, además plantea restricciones y limites en algunas pesquerías. Se publica periódicamente. En base a estudios científicos la carta agrupa en tres categorías a los grupos de peces explotados.<br><br>
@@ -318,12 +323,26 @@ input.gsc-search-button {
                                                      <b>La Lista Roja de la Unión Internacional para la Conservación de la Naturaleza</b> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html" target="_blank" style="color: #1B3138;">UICN</a>), tiene a 72 especies de peces comerciales de México en las categorías de mayor riesgo.<br><br><br>
                                                      <b>Fuentes de información:</b></p>
                                                      </div>
+                                                     
+                                                     <div id="s5" title="Especies importadas">
+                                                     <p>Todo lo que nosotros consumimos en nuestra vida diaria tiene un impacto en la naturaleza y más aún cuando decidimos comprar productos de otros países.<br><br>
+                                                     Para que llegue el pescado importado a nuestra mesa tuvo que viajar miles de kilómetros lo cual representa grandes cantidades de gases de efecto invernadero así como otros productos tóxicos haciendo que tengas una gran huella ecológica en tu manera de alimentarte.</p>
+                                                     </div>
+                                                     
+                                                     
 
                                                      </td>
 											  <td valign="top" class="c_buscador perspective"><?php $this->renderPartial('/peces/_buscador');?></td>
 											</tr>
 											<tr>
-											  <td valign="top"><p>&nbsp;</p></td>
+											  <td valign="top">
+                                              <br>
+                                              <p>En la ficha de cada especie podrás encontrar una barra que representa cada zona pesquera<br>
+                                              y si es <span class="t_re recomendable">recomendable</span>, <span class="t_pre precomendable">poco recomendable</span> o <span class="t_nre nrecomendable">no recomendable</span> su consumo en dicha zona.<br></p>
+                                              
+                                              <p class="datospagprin" style="width:500px"><b>Nota | Ilustraciones y siluetas</b><br>
+                                              Las 90 especies que se muestran con ilustración son las más consumidas en México, las 383 restantes solo se observa la silueta de cada especie.</p>
+                                              </td>
 										  </tr>
 											<tr>
 											<td colspan="2"><?php echo $content; ?></td>
