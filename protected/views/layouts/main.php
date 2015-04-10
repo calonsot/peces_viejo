@@ -326,7 +326,14 @@ input.gsc-search-button {
                                                      
                                                      <div id="s5" title="Especies importadas">
                                                      <p>Todo lo que nosotros consumimos en nuestra vida diaria tiene un impacto en la naturaleza y más aún cuando decidimos comprar productos de otros países.<br><br>
-                                                     Para que llegue el pescado importado a nuestra mesa tuvo que viajar miles de kilómetros lo cual representa grandes cantidades de gases de efecto invernadero así como otros productos tóxicos haciendo que tengas una gran huella ecológica en tu manera de alimentarte.</p>
+                                                     Para que llegue el pescado importado a nuestra mesa hay varias costos para el ambiente:</p>
+                                                     <ul>
+                                                     	<li><b>Transporte.</b> Los peces son transportados cientos o miles de kilómetros. En el viaje se utilizan combustibles y se producen grandes cantidades de gases de efecto invernadero así como otros productos tóxicos.</li>
+                                                        <li><b>Refrigeración.</b> Los pescados requieren refrigerarse para su transporte, con el consecuente consumo de energía.</li>
+                                                       <li><b>Empaque.</b> Los pescados son empacados en plástico, cartón y otros materiales, utilizando recursos y creando basura.</li>
+                                                        <li><b>Producción.</b> Algunos pescados cultivados en granja requieren insumos como alimentos balanceados (pescado), antibióticos y  hormonas. Esto tiene impacto en el ambiente local y puede tenerlo en tu salud.</li>
+                                                     </ul>
+                                                     <p>Con el consumo de peces importados, tu <b>huella ecológica</b> es mucho mayor que con el consumo de peces nacionales, y no beneficias al mercado nacional.</p>
                                                      </div>
                                                      
                                                      
@@ -337,11 +344,11 @@ input.gsc-search-button {
 											<tr>
 											  <td valign="top">
                                               <br>
-                                              <p>En la ficha de cada especie podrás encontrar una barra que representa cada zona pesquera<br>
-                                              y si es <span class="t_re recomendable">recomendable</span>, <span class="t_pre precomendable">poco recomendable</span> o <span class="t_nre nrecomendable">no recomendable</span> su consumo en dicha zona.<br></p>
+                                              <p>En la ficha de cada especie podrás encontrar una barra semáforo que representa cada<br>zona pesquera. Los colores indican si el consumo de las especies es <span class="t_re recomendable">recomendable</span>,<br>
+<span class="t_pre precomendable">poco recomendable</span> o <span class="t_nre nrecomendable">no recomendable</span> si proviene de esa zona.<br></p>
                                               
                                               <p class="datospagprin" style="width:500px"><b>Nota | Ilustraciones y siluetas</b><br>
-                                              Las 90 especies que se muestran con ilustración son las más consumidas en México, las 383 restantes solo se observa la silueta de cada especie.</p>
+                                              Las 90 especies que se muestran con ilustración son las más consumidas en México, para las 383 restantes solo se incluye la silueta de la especie.</p>
                                               </td>
 										  </tr>
 											<tr>
