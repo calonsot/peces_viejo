@@ -1,11 +1,10 @@
 <?php
 /**
  * Para correr el script es necesario y migrar la base es necesario:
- * 1) Renombrar el .htaccess de la ruta: protected/.htaccess
- * 2) Aegurarse que las columnas del nuevo csv correspondan con el orden y numero de las anteriores (campo separador "|")
- * 3) Limpiar la base correindo el MER_peces_comerciales.mwb para generar de nuevo las tablas
- * 4) Correr la pagina: http://localhost/peces/protected/data/migracion/migracion.php
- * 5) Descomentar en el controlador de peces la accion completa_pesos y correr: http://localhost/peces/index.php/peces/completa_pesos
+ * 1) Aegurarse que las columnas del nuevo csv correspondan con el orden y numero de las anteriores (campo separador "|")
+ * 2) Limpiar la base correindo el MER_peces_comerciales.mwb para generar de nuevo las tablas
+ * 3) Correr la pagina: http://localhost/peces/protected/data/migracion/migracion.php
+ * 4) Descomentar en el controlador de peces la accion completa_pesos y correr: http://localhost/peces/index.php/peces/completa_pesos
  */
 header('Content-Type: text/html; charset=UTF-8');
 include 'mysql.php';
