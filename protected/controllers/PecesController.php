@@ -25,7 +25,7 @@ class PecesController extends Controller
 	{
 		return array(
 				array('allow',  // allow all users to perform 'index' and 'view' actions
-						'actions'=>array('index','view', 'inicio', 'resultado', 'filtros', 'borrafiltros', 'migracion'),// 'completa_pesos'),
+						'actions'=>array('index','view', 'inicio', 'resultado', 'filtros', 'borrafiltros', 'migracion', 'grupos'),// 'completa_pesos'),
 						'users'=>array('*'),
 				),
 				/*array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -247,7 +247,7 @@ class PecesController extends Controller
 					
 					//Para la imgen del semaforo
 					if ($pez->recomendacion == 1)
-						$json["peces"]["imagen_semaforo"] = Yii::app()->createAbsoluteUrl('imagenes/semaforo/'.Peces::peso_a_nombre_imagen($pez->peso));
+						$json["peces"]["imagen_semaforo"] = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/semaforo/'.Peces::peso_a_nombre_imagen($pez->peso)));
 					else
 						$json["peces"]["imagen_semaforo"] = "";
 					
@@ -341,6 +341,7 @@ class PecesController extends Controller
 		$llaves = array_keys($params);
 		foreach ($llaves as $k => $llave)
 		{
+			$json["peces"] = $pez->attributes;
 			$filtro->$llave = $params[$llave];
 		}
 		return $filtro;
@@ -359,6 +360,27 @@ class PecesController extends Controller
 	{
 		Peces::model()->completa_pesos();
 		Peces::model()->ordena();
+	}
+	
+	/**
+	 * Para ver el catalogo de grupos
+	 */
+	public function actionGrupos()
+	{
+		header('Content-type: application/json; charset=UTF-8');
+		$resultados = Grupo::model()->findAll();
+		$data = array();
+		$json = array();
+		
+		foreach($resultados as $k)
+		{
+			$grupo = Grupo::model()->findByPk($k["id"]);
+			$json["grupos"] = $grupo->attributes;
+			array_push($data, $json);
+		}
+		
+		//echo json_encode($data, JSON_UNESCAPED_UNICODE);
+		echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($data));
 	}
 
 	/**
