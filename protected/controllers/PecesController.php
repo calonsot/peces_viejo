@@ -244,6 +244,13 @@ class PecesController extends Controller
 						$pez->imagen = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/siluetas/'.$pez->imagen));
 
 					$json["peces"] = $pez->attributes;
+					
+					//Para la imgen del semaforo
+					if ($pez->recomendacion == 1)
+						$json["peces"]["imagen_semaforo"] = Yii::app()->createAbsoluteUrl('imagenes/semaforo/'.Peces::peso_a_nombre_imagen($pez->peso));
+					else
+						$json["peces"]["imagen_semaforo"] = "";
+					
 					$json["grupo"] = !empty($pez->grupo)?$pez->grupo->attributes:array();
 					$json["tipo_veda"] = !empty($pez->tipoVeda)?$pez->tipoVeda->attributes:array();
 					
