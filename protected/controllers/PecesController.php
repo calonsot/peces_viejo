@@ -283,13 +283,13 @@ class PecesController extends Controller
 					if(!$flag_ficha)
 						array_push($data, $json);
 					else {
-						//echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($json));
-						echo json_encode($json, JSON_UNESCAPED_UNICODE);
+						echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($json));
+						//echo json_encode($json, JSON_UNESCAPED_UNICODE);
 					}
 				}
 				if(!$flag_ficha){
-					//echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($data));
-					echo json_encode($data, JSON_UNESCAPED_UNICODE);
+					echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($data));
+					//echo json_encode($data, JSON_UNESCAPED_UNICODE);
 				}	
 			} else
 				$this->render('resultado',array(
