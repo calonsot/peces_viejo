@@ -265,7 +265,7 @@ input.gsc-search-button {
 														<li>&iquest;De qu&eacute; lugar proviene?</li>
 														<li>&iquest;Si es mexicana o importada?</li>
 														<li>&iquest;C&oacute;mo fue capturada?</li>
-														<li>&iquest;Si es de una pequer&iacute;a legal?</li>
+														<li>&iquest;Si es de una pesquer&iacute;a legal?</li>
 													</ul>
                                               <p class="titblue bborder">Semáforo</p>
                                               <p>Para que puedas tomar una buena decisión en el consumo de pescado, se creó un un semáforo en el cual tú podrás tomar una buena decisión.<br>

@@ -17,7 +17,7 @@ table {
 }
 
 .deg_head {	
-	background: #D9D6C4 url(/peces/imagenes/aplicacion/deg_head.png) repeat-x;
+	background: #D9D6C4 url(../imagenes/aplicacion/deg_head.png) repeat-x;
     background: -webkit-linear-gradient(#396676, #D9D6C4);
     background: -moz-linear-gradient(#396676, #D9D6C4);
     background: -o-linear-background(#396676, #D9D6C4);
@@ -30,7 +30,7 @@ table {
 	font-size: 14px;
 	font-weight: bold;
 	color: #D9D6C4;
-	background: url(/peces/imagenes/aplicacion/deg.png) no-repeat;
+	background: url(../imagenes/aplicacion/deg.png) no-repeat;
 	background: -webkit-linear-gradient(left, rgba(57,102,118,.8), rgba(57,102,118,0));
     background: -moz-linear-gradient(left, rgba(57,102,118,.8), rgba(57,102,118,0));
     background: -o-linear-background(left, rgba(57,102,118,.8), rgba(57,102,118,0));
@@ -62,7 +62,7 @@ table {
 ul {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 	line-height: 160%;
-	list-style-image: url(/peces/imagenes/aplicacion/b_pez.png);
+	list-style-image: url(../imagenes/aplicacion/b_pez.png);
 	list-style-position: outside;
 }
 
@@ -103,7 +103,7 @@ ul {
 	font-weight: bold;
 	color: #D9D6C4;
 	text-shadow: 2px 2px 4px #1B3138;
-	background: url(/peces/imagenes/aplicacion/deg_res.png) no-repeat;
+	background: url(../imagenes/aplicacion/deg_res.png) no-repeat right;
 	background: -webkit-linear-gradient(left, rgba(57,102,118,0), rgba(57,102,118,.8));
     background: -moz-linear-gradient(left, rgba(57,102,118,0), rgba(57,102,118,.8));
     background: -o-linear-background(left, rgba(57,102,118,0), rgba(57,102,118,.8));
@@ -252,7 +252,7 @@ input[id="buscador_libre"]:checked + label span {
 }
 
 .bimp {
-	list-style-image: url(/peces/imagenes/aplicacion/importado_p.png);
+	list-style-image: url(../imagenes/aplicacion/importado_p.png);
 }
 
 .t_re {

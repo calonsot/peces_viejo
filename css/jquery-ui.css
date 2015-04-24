@@ -854,14 +854,11 @@ body .ui-tooltip {
 }
 .ui-widget-header {
 	border: 1px solid #aaaaaa;
+	background: url(../imagenes/aplicacion/deg_res.png) no-repeat right;
 	background: -webkit-linear-gradient(right, #396676, #D9D6C4);
-    /* Firefox 3.6+ */
     background: -moz-linear-gradient(right, #396676, #D9D6C4);
-    /* Opera 11.10+ */
     background: -o-linear-background(right, #396676, #D9D6C4);
-    /* IE 10 */
     background: -ms-linear-background(right, #396676, #D9D6C4);
-    /* estándar */
     background: linear-background(right, #396676, #D9D6C4);
 	font-size: 14px;
 	font-weight: 900;
