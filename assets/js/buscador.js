@@ -30,7 +30,7 @@ function MM_swapImage()
    if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
 
-function filtros(filtro, accion, es_zona)
+function filtros(filtro, accion)
 {
 	var values = {};
 	values['accion'] = accion;
@@ -93,7 +93,7 @@ function filtros(filtro, accion, es_zona)
 	jQuery.ajax({
         success: function(html)
         {
-        	
+        	//console.log(html);
         	if(html != "")
         	{
         		var html_json = JSON.parse(JSON.stringify(eval("(" + html + ")")));
@@ -139,32 +139,32 @@ function filtros(filtro, accion, es_zona)
         			if (html_json.buscador_zona == '1')
         			{
         				$('#buscador_zona1').prop('checked', true);
-        				MM_swapImage('mapaz','','http://172.16.3.222/peces/imagenes/aplicacion/zonas_pesqueras_mapap_i.jpg',1);
+        				MM_swapImage('mapaz','', YII_PATH + '/imagenes/aplicacion/zonas_pesqueras_mapap_i.jpg',1);
         			}
         			if (html_json.buscador_zona == '2')
         			{
         				$('#buscador_zona2').prop('checked', true);
-        				MM_swapImage('mapaz','','http://172.16.3.222/peces/imagenes/aplicacion/zonas_pesqueras_mapap_ii.jpg',1);
+        				MM_swapImage('mapaz','',YII_PATH + '/imagenes/aplicacion/zonas_pesqueras_mapap_ii.jpg',1);
         			}
         			if (html_json.buscador_zona == '3')
         			{
         				$('#buscador_zona3').prop('checked', true);
-        				MM_swapImage('mapaz','','http://172.16.3.222/peces/imagenes/aplicacion/zonas_pesqueras_mapap_iii.jpg',1);
+        				MM_swapImage('mapaz','',YII_PATH + '/imagenes/aplicacion/zonas_pesqueras_mapap_iii.jpg',1);
         			}
         			if (html_json.buscador_zona == '4')
         			{
         				$('#buscador_zona4').prop('checked', true);
-        				MM_swapImage('mapaz','','http://172.16.3.222/peces/imagenes/aplicacion/zonas_pesqueras_mapag_i.jpg',1);
+        				MM_swapImage('mapaz','',YII_PATH + '/imagenes/aplicacion/zonas_pesqueras_mapag_i.jpg',1);
         			}
         			if (html_json.buscador_zona == '5')
         			{
         				$('#buscador_zona5').prop('checked', true);
-        				MM_swapImage('mapaz','','http://172.16.3.222/peces/imagenes/aplicacion/zonas_pesqueras_mapag_ii.jpg',1);
+        				MM_swapImage('mapaz','',YII_PATH + '/imagenes/aplicacion/zonas_pesqueras_mapag_ii.jpg',1);
         			}
         			if (html_json.buscador_zona == '6')
         			{
         				$('#buscador_zona6').prop('checked', true);
-        				MM_swapImage('mapaz','','http://172.16.3.222/peces/imagenes/aplicacion/zonas_pesqueras_mapag_iii.jpg',1);
+        				MM_swapImage('mapaz','',YII_PATH + '/imagenes/aplicacion/zonas_pesqueras_mapag_iii.jpg',1);
         			}
         		}
         	}
@@ -183,7 +183,7 @@ $(document).ready(function(){
 	filtros($(this), 'leer');
 	
 	$("[id^='buscador_']").on('change', function(){
-		filtros($(this), 'guarda');
+		filtros($(this), 'guarda');		
 		$('#buscador').submit();
 	});
 	

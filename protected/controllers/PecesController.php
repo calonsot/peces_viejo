@@ -312,16 +312,15 @@ class PecesController extends Controller
 	 * Guarda o lee los filtros
 	 */
 	public function actionFiltros()
-	{
+	{		
 		$params = $_POST;
 		$sesion = Yii::app()->getSession()->getSessionId();
 		$filtro=Filtros::model()->findByAttributes(array('sesion'=>$sesion));
 		if (isset($params['accion']) && $params['accion'] == "guarda")
 		{
 			if (count($filtro) == 1)
-			{
 				$filtro_asigno = $this->asignaCampos($params, $filtro);
-			} else {
+			else {
 				$f=new Filtros();
 				$filtro_asigno = $this->asignaCampos($params, $f);
 				$filtro_asigno->sesion = $sesion;
@@ -340,10 +339,7 @@ class PecesController extends Controller
 		unset($params['accion']);
 		$llaves = array_keys($params);
 		foreach ($llaves as $k => $llave)
-		{
-			$json["peces"] = $pez->attributes;
 			$filtro->$llave = $params[$llave];
-		}
 		return $filtro;
 	}
 	/**
