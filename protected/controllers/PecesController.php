@@ -176,6 +176,15 @@ class PecesController extends Controller
 			if (isset($params['grupo']) && !empty($params['grupo']))
 				$condiciones.="grupo_id = ".$params['grupo']." AND ";
 			
+			//Las zonas varia de 1 a 6
+			if (isset($params['zona']) && ((Int)$params['zona'] > 0 && (Int)$params['zona'] < 7))
+			{
+				$joins.= CartaNacional::join();
+				$condiciones.= "cn.Nivel1=".(Int)$params['zona']." AND cn.Nombre != 'Sin datos.' AND ";
+			} elseif (isset($params['zona']) && ((Int)$params['zona'] == 7))  //Caso del importado
+			$condiciones.= "(nacional_Importado='Importado' OR nacional_Importado='Nacional e Importado') AND ";
+			
+				
 			//Varia de 0 a 3 el valor de los radios
 			if (isset($params['recomendacion']) && ((Int)$params['recomendacion'] > -1 && (Int)$params['recomendacion'] < 3))
 			{
@@ -187,21 +196,9 @@ class PecesController extends Controller
 				if((Int)$params['recomendacion']==1)  //Poco recomendable
 					$condiciones.= "peso REGEXP '[23]' AND peso != 0 AND ";					
 				if((Int)$params['recomendacion']==2)  //No recomendable
-					$condiciones.= "peso REGEXP '[456789]' AND peso != 0 AND ";				
-			} elseif (isset($params['recomendacion']) && (Int)$params['recomendacion'] == 3) {    //busqueda libre
-				$order.= ' ORDER BY tipo_imagen, nombre_comun ASC';				
-			} else {   //busqueda sin recomendacion ni libre, te saca por default todos con recomendacion
-				$condiciones.= "peso REGEXP '^[0123456789]|/[0123456789]' AND peso != 0 AND ";
-				$order.= ' ORDER BY peso_promedio, tipo_imagen, nombre_cientifico ASC';
-			}
-
-			//Las zonas varia de 1 a 6
-			if (isset($params['zona']) && ((Int)$params['zona'] > 0 && (Int)$params['zona'] < 7))
-			{
-				$joins.= CartaNacional::join();							
-				$condiciones.= "cn.Nivel1=".(Int)$params['zona']." AND cn.Nombre != 'Sin datos.' AND ";
-			} elseif (isset($params['zona']) && ((Int)$params['zona'] == 7))  //Caso del importado
-				$condiciones.= "(nacional_Importado='Importado' OR nacional_Importado='Nacional e Importado') AND ";
+					$condiciones.= "peso REGEXP '[456789]' AND peso != 0 AND ";						
+			} else   //busqueda sin recomendacion ni libre, te saca por default todos con recomendacion
+				$order.= ' ORDER BY ISNULL(peso_promedio), peso_promedio, tipo_imagen, nombre_cientifico ASC';
 		}
 		
 		//decide cual tipo de busqueda es
