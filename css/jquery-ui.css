@@ -94,6 +94,8 @@
 	padding: .5em .5em .5em .7em;
 	min-height: 0; /* support: IE7 */
 	font-size: 100%;
+	outline: none;
+	border: 1px solid #aaaaaa;
 }
 .ui-accordion .ui-accordion-icons {
 	padding-left: 2.2em;
@@ -848,6 +850,7 @@ body .ui-tooltip {
 	/*background: #EBE9DB url("../imagenes/aplicacion/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;*/
 	background: #EBE9DB;
 	color: #1B3138;
+	z-index: 3000;
 }
 .ui-widget-content a:hover {
 	color: #1B3138;

@@ -5,12 +5,11 @@
 //header('Content-Type: text/html; charset=ISO-8859-1');
 if (!isset($vacio))
 {
-	echo "<div class='resul'>Mostrando ".count($resultados)." resultados</b></div><br>";
+	echo "<div class='resul'>Número de resultados: ".count($resultados)."</b></div>";
 ?>
 
-<div class="view">
-
-
+<div id="vista_res">
+	<div class="view">
 	<?php 			
 		foreach ($resultados as $k => $pez) {
 		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
@@ -172,6 +171,9 @@ if (!isset($vacio))
 
 		
 	<?php } ?>
+	</div>
+</div>
+
 <?php 	
 	} else
 	echo $vacio;
