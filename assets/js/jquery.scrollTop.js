@@ -55,6 +55,6 @@ function scrollTop(opciones){
 									left:"0px",top:"0px",
 									height:"40px",
 									display:"block",
-									"background":"url(http://www.biodiversidad.gob.mx/usos/alimentacion/peces/imagenes/aplicacion/ome_03.png) no-repeat center",
+									"background":"url("+YII_PATH+"/imagenes/aplicacion/ome_03.png) no-repeat center",
 								});creado=1}});
 									function retirar(obj){obj.animate({bottom:config.position,opacity:0},config.time)}}
