@@ -83,6 +83,13 @@
     
 
 <div class="fila f1">
+  <p align="right">
+    <span class="Ubarra_navega">
+      <a href="http://www.biodiversidad.gob.mx/index.html">Inicio</a>
+    - <a href="http://www.biodiversidad.gob.mx/usos/usos.html">Usos</a>
+    - <a href="http://www.biodiversidad.gob.mx/usos/alimentos.html">Alimentos</a>
+    - Peces</span>
+  </p>
   <h1>Peces comerciales</h1>
   <!-- Slideshow -->
     <ul class="rslides" id="slider">
