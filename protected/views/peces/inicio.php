@@ -11,6 +11,7 @@ $(document).ready(function(){
 
 <div class="fila">
   <article class="bloque1">
+
     <p class="text_important">¿Te has preguntado?</p>
     <ul class="preguntas">
       <li>&iquest;Qu&eacute; especie est&aacute;s comprando?</li>
@@ -23,13 +24,16 @@ $(document).ready(function(){
   <article class="bloque2">
     <p class="text_frase">Recuerda, cuando compras un producto del mar lo que tú elijas y compres en los mercados<br>y supermercados tiene un efecto directo positivo o negativo en la biodiversidad marina.</p>
     <center><p class="text_important">“Conociéndolos saben mejor”</p></center>
+    <br><p style="font-size:11px;">
+    	* La información técnica de esta página web proviene de la Carta Nacional Pesquera 2012
+    </p>
   </article>
 </div>
 
 <div class="fila">
 	<article class="bloque3">
   		<p>
-  			<span class="titblue2">Los peces </span>constituyen un poco m&aacute;s de la mitad de todos los vertebrados del mundo. Se han registrado alrededor de 30,000 especies, que incluyen tiburones, rayas, quimeras, peces &oacute;seos y lampreas. M&eacute;xico tiene cerca de 2,250 peces marinos y 500 dulceacu&iacute;colas.
+  			<br><br><span class="titblue2">Los peces </span>constituyen un poco m&aacute;s de la mitad de todos los vertebrados del mundo. Se han registrado alrededor de 30,000 especies, que incluyen tiburones, rayas, quimeras, peces &oacute;seos y lampreas. M&eacute;xico tiene cerca de 2,250 peces marinos y 500 dulceacu&iacute;colas.
   		</p>
   		<p>
   			El Pac&iacute;fico mexicano se conocen cerca de <strong>1,120 </strong>especies,
