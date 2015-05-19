@@ -2,6 +2,15 @@
  * Javascript del buscador
  */
 
+function changeHeader()
+{
+    if (window.location.pathname.indexOf('resultado') != -1)
+    {
+        $('#slider').remove();
+        $('.otro_header').show();
+    }
+}
+
 function MM_swapImgRestore() 
 { //v3.0
   var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
@@ -201,9 +210,16 @@ $(document).ready(function(){
 	    });
 	});
 	
+    $("#b_buscar").on('click', function() {
+        //$(".c_buscador perspective").removeClass('ver');
+        $("#buscador").slideToggle();
+        $("#buscar_des").addClass( "vbuscador" );
+    });
+
 	$("[id^='dat_']").on('click', function() { 
 		var id = $(this).attr('id').substring(4);
-		$(".dresul_all").removeClass('ver');
+        $('.ver .dresul_body').slideToggle();
+		$(".ver").removeClass('ver');
 		$("#dresul_body_"+id).slideToggle();
 		$("#dresul_"+id).addClass( "ver" );
 	});
@@ -213,4 +229,6 @@ $(document).ready(function(){
 		filtros($('#buscador_'+$(this).attr('id')), 'guarda');
 		$('#buscador').submit();
 	});
+    changeHeader();
+    
 });
