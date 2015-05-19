@@ -135,13 +135,20 @@ function filtros(filtro, accion)
         		if (html_json.buscador_recomendacion != "")
         		{
         			if (html_json.buscador_recomendacion == '0')
-        				$('#buscador_recomendable').prop('checked', true); 	
+        			{
+        				$('#buscador_recomendable').prop('checked', true);
+        				$('#buscador_recomendable + label span').css({"background": "url("+YII_PATH+"/imagenes/aplicacion/check_radio_sheet.png) -19px top no-repeat"});	
+        			}
         			if (html_json.buscador_recomendacion == '1')
-        				$('#buscador_poco_recomendable').prop('checked', true); 	
+        			{
+        				$('#buscador_poco_recomendable').prop('checked', true); 
+        				$('#buscador_poco_recomendable + label span').css({"background": "url("+YII_PATH+"/imagenes/aplicacion/check_radio_sheet.png) -19px top no-repeat"});
+        			}
         			if (html_json.buscador_recomendacion == '2')
-        				$('#buscador_no_recomendable').prop('checked', true); 			
-        			if (html_json.buscador_recomendacion == '3')
-        				$('#buscador_libre').prop('checked', true); 	
+        			{	
+        				$('#buscador_no_recomendable').prop('checked', true);
+        				$('#buscador_no_recomendable + label span').css({"background": "url("+YII_PATH+"/imagenes/aplicacion/check_radio_sheet.png) -19px top no-repeat"});
+        			}	
         		}
         		if (html_json.buscador_zona != "")
         		{

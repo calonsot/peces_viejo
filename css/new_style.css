@@ -471,10 +471,7 @@ input[type="checkbox"] + label span {
   cursor: pointer;
 }
 
-input[id="buscador_recomendable"]:checked + label span {
-  background: url(../imagenes/aplicacion/check_radio_sheet.png) -19px top no-repeat;
 
-}
 
 .rec {
 	width: 337px;
