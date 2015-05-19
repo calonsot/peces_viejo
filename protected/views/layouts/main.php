@@ -110,7 +110,7 @@
         <area shape="rect" coords="407,143,505,158" href="#" title="Recomendable" class="recomendable">
         <area shape="rect" coords="510,143,646,158" href="#" title="Poco recomendable" class="precomendable">
         <area shape="rect" coords="337,160,456,176" href="#" title="No recomendable" class="nrecomendable">
-        <area shape="rect" coords="6,5,1027,63" href="#" title="Peces comerciales">
+        <area shape="rect" coords="6,5,1027,63" href="<?php echo Yii::app()->request->baseUrl; ?>" title="Peces comerciales">
         <area shape="rect" coords="57,192,243,217" href="#" title="Estado de las poblaciones" id="opens1">
         <area shape="rect" coords="57,216,243,241" href="#" title="Selectividad en la captura" id="opens2">
         <area shape="rect" coords="57,240,243,261" href="#" title="Vedas" id="opens3">
