@@ -25,7 +25,7 @@ $(document).ready(function(){
     <p class="text_frase">Recuerda, cuando compras un producto del mar lo que tú elijas y compres en los mercados<br>y supermercados tiene un efecto directo positivo o negativo en la biodiversidad marina.</p>
     <center><p class="text_important">“Conociéndolos saben mejor”</p></center>
     <br><p style="font-size:11px;">
-    	* La información técnica de esta página web proviene de la Carta Nacinoal Pesquera 2012
+    	* La información técnica de esta página web proviene de la Carta Nacional Pesquera 2012
     </p>
   </article>
 </div>
