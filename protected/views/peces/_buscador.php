@@ -235,7 +235,6 @@
 	</div>
 	<div style="float:right; width:30%;">
 	<button type="button" id="limpiar" class="b_verall">Limpiar</button>
-	<button type="button"class="b_verall">Buscar</button>
 	</div>
 
 </form>
