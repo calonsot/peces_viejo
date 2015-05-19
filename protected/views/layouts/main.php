@@ -107,16 +107,15 @@
     <div class="otro_header">
       <?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/header_06.jpg", "Ficha", array("width" => "1032px;", "usemap" => "#ficha", "id" => "ficham")); ?>
       <map name="ficha">  
-        <area shape="rect" coords="407,143,505,158" href="#" title="Recomendable" class="recomendable">
-        <area shape="rect" coords="510,143,646,158" href="#" title="Poco recomendable" class="precomendable">
-        <area shape="rect" coords="337,160,456,176" href="#" title="No recomendable" class="nrecomendable">
+        <area shape="rect" coords="322,139,406,153" href="#" title="Recomendable" class="recomendable">
+        <area shape="rect" coords="408,139,521,154" href="#" title="Poco recomendable" class="precomendable">
+        <area shape="rect" coords="530,139,630,155" href="#" title="No recomendable" class="nrecomendable">
         <area shape="rect" coords="6,5,1027,63" href="<?php echo Yii::app()->request->baseUrl; ?>" title="Peces comerciales">
-        <area shape="rect" coords="57,192,243,217" href="#" title="Estado de las poblaciones" id="opens1">
-        <area shape="rect" coords="57,216,243,241" href="#" title="Selectividad en la captura" id="opens2">
-        <area shape="rect" coords="57,240,243,261" href="#" title="Vedas" id="opens3">
-        <area shape="rect" coords="57,260,243,285" href="#" title="Especies en riesgo" id="opens4">
-        <area shape="rect" coords="57,284,243,309" href="#" title="Especies importadas" id="opens5">
-        
+        <area shape="rect" coords="78,274,264,299" href="#" title="Especies importadas" id="opens5">
+        <area shape="rect" coords="78,250,264,275" href="#" title="Especies en riesgo" id="opens4">
+        <area shape="rect" coords="78,230,264,251" href="#" title="Vedas" id="opens3">
+        <area shape="rect" coords="78,206,264,231" href="#" title="Selectividad en la captura" id="opens2">
+        <area shape="rect" coords="78,182,264,207" href="#" title="Estado de las poblaciones" id="opens1">
       </map>
     </div>
 </div>

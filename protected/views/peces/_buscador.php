@@ -68,23 +68,23 @@
 
 <div class="tooltiptext" id="carta_nacional_tip">
 	<p class="titblue">Carta Nacional Pesquera (CNP)</p>
-    <p>Es el &uacute;nico documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos marinos comerciales en M&eacute;xico, adem&aacute;s plantea restricciones y limites en algunas pesquer&iacute;as.</p>
-    <p>En base a estudios cient&iacute;ficos la carta agrupa en tres categor&iacute;as a los grupos de peces explotados:</p>
-    <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> En deterioro:</strong> El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminuci&oacute;n notable en la biomasa y una capacidad reducida de reclutamiento.</p>
-    <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> M&aacute;ximo aprovechamiento permisible:</strong> El nivel de utilizaci&oacute;n de las poblaciones de peces se considera &oacute;ptimo y no es posible aumentar la captura sin sobreexplotaci&oacute;n.</p>
-    <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Con potencial de desarrollo:</strong> Existe la posibilidad de aumentar las capturas de las poblaciones de peces, incrementando el esfuerzo pesquero, siempre y cuando se realice de manera precautoria y controlada.</p>
+  <p>Es el &uacute;nico documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos marinos comerciales en M&eacute;xico, adem&aacute;s plantea restricciones y limites en algunas pesquer&iacute;as.</p>
+  <p>En base a estudios cient&iacute;ficos la carta agrupa en tres categor&iacute;as a los grupos de peces explotados:</p>
+  <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> En deterioro:</strong> El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminuci&oacute;n notable en la biomasa y una capacidad reducida de reclutamiento.</p>
+  <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> M&aacute;ximo aprovechamiento permisible:</strong> El nivel de utilizaci&oacute;n de las poblaciones de peces se considera &oacute;ptimo y no es posible aumentar la captura sin sobreexplotaci&oacute;n.</p>
+  <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Con potencial de desarrollo:</strong> Existe la posibilidad de aumentar las capturas de las poblaciones de peces, incrementando el esfuerzo pesquero, siempre y cuando se realice de manera precautoria y controlada.</p>
 		
-		<p>De acuerdo a los sitios de pesca de cada especie, la carta nacional ha regionalizado los sitios de acuerdo a zonas y n&uacute;meros:</p>
-    <p class="titblue">Pac&iacute;fico</p>
-		<p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 1:</strong> Pen&iacute;nsula de Baja California (Costa del Pac&iacute;fico de Baja California y Baja California Norte.</p>
-		<p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 2:</strong> Golfo de California (Baja California, Baja California Sur, Sonora, Sinaloa, Nayarit).</p>
-		<p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 3:</strong> Pac&iacute;fico centro-sur (Jalisco, Colima, Michoac&aacute;n, Guerrero, Oaxaca, Chiapas).</p>
-		<p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 4:</strong> Archipi&eacute;lago de las Islas Revillagigedo.</p>
+	<p>De acuerdo a los sitios de pesca de cada especie, la carta nacional ha regionalizado los sitios de acuerdo a zonas y n&uacute;meros:</p>
+	<p class="titblue">Pac&iacute;fico</p>
+	<p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 1:</strong> Pen&iacute;nsula de Baja California (Costa del Pac&iacute;fico de Baja California y Baja California Norte.</p>
+	<p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 2:</strong> Golfo de California (Baja California, Baja California Sur, Sonora, Sinaloa, Nayarit).</p>
+	<p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 3:</strong> Pac&iacute;fico centro-sur (Jalisco, Colima, Michoac&aacute;n, Guerrero, Oaxaca, Chiapas).</p>
+	<p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 4:</strong> Archipi&eacute;lago de las Islas Revillagigedo.</p>
 
-		<p class="titblue">Golfo de M&eacute;xico y Caribe</p>
-    <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 1:</strong> Tamaulipas y Veracruz.</p>
-    <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 2:</strong> Tabasco, Campeche y Yucat&aacute;n.</p>
-    <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 3:</strong> Quintana Roo.</p>
+	<p class="titblue">Golfo de M&eacute;xico y Caribe</p>
+  <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 1:</strong> Tamaulipas y Veracruz.</p>
+  <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 2:</strong> Tabasco, Campeche y Yucat&aacute;n.</p>
+  <p><strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 3:</strong> Quintana Roo.</p>
 </div>
 
 <div class="tooltiptext" id="estado_conservacion_tip">
@@ -148,11 +148,12 @@
 </div>
 
 <div id="s4" title="Especies en riesgo">
-	<p> Además de la Carta Nacional Pesquera y sus regulaciones, existen otros convenios y normas de carácter nacional e internacional que regulan y protegen a especies en riesgo. Entre ellas están:<br><br>
-	<b>La Norma Mexicana de Especies en Riesgo</b> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMexico.html" target="_blank" style="color: #1B3138;">NOM-059-SEMARNAT-2010</a>), que contiene dentro de sus categorías a <b>4</b> peces de importancia comercial.<br><br>
-	<b>La Convención Internacional sobre el Comercio de Especies Amenazadas de Fauna y Flora</b> (<a href="http://www.biodiversidad.gob.mx/planeta/cites/index.html" target="_blank" style="color: #1B3138;">CITES</a>) que incluye 9 especies de peces de importancia comercial.<br><br>
-	<b>La Lista Roja de la Unión Internacional para la Conservación de la Naturaleza</b> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html" target="_blank" style="color: #1B3138;">UICN</a>), tiene a 72 especies de peces comerciales de México en las categorías de mayor riesgo.<br><br><br>
-	<b>Fuentes de información:</b></p>
+	<p>
+		Además de la Carta Nacional Pesquera y sus regulaciones, existen otros convenios y normas de carácter nacional e internacional que regulan y protegen a especies en riesgo. Entre ellas están:<br><br>
+		<b>La Norma Mexicana de Especies en Riesgo</b> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMexico.html" target="_blank" style="color: #1B3138;">NOM-059-SEMARNAT-2010</a>), que contiene dentro de sus categorías a <b>4</b> peces de importancia comercial.<br><br>
+		<b>La Convención Internacional sobre el Comercio de Especies Amenazadas de Fauna y Flora</b> (<a href="http://www.biodiversidad.gob.mx/planeta/cites/index.html" target="_blank" style="color: #1B3138;">CITES</a>) que incluye 9 especies de peces de importancia comercial.<br><br>
+		<b>La Lista Roja de la Unión Internacional para la Conservación de la Naturaleza</b> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html" target="_blank" style="color: #1B3138;">UICN</a>), tiene a 72 especies de peces comerciales de México en las categorías de mayor riesgo.
+	</p>
 </div>
 
 <div id="s5" title="Especies importadas">
@@ -229,11 +230,10 @@
 	</div>
 	</div>
 
-	<div style="float:left; width:70%;">
-	<button type="button"><?php echo CHtml::link('Ver todos los peces con recomendación', Yii::app()->request->baseUrl.'/index.php/peces/resultado', array("class"=>"b_verall")); ?></button>
+	<div style="float:left; width:90%;">
 	<button type="button"><?php echo CHtml::link('Ver todos los peces', Yii::app()->request->baseUrl.'/index.php/peces/resultado?recomendacion=3', array("class"=>"b_verall")); ?></button>
 	</div>
-	<div style="float:right; width:30%;">
+	<div style="float:right; width:10%;">
 	<button type="button" id="limpiar" class="b_verall">Limpiar</button>
 	</div>
 
