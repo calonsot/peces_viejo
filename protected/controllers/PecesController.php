@@ -220,9 +220,13 @@ class PecesController extends Controller
 			if(isset($params['json']) && !empty($params['json']) && (Int)$params['json']==1)
 			{
 				header('Content-type: application/json; charset=UTF-8');
-				// Para poder consumir la respuesta del lado del cliente en cualquier servidor, ojo cambiar cuando se tenga el dominio correcto
-				header("Access-Control-Allow-Origin: *");
-				header("Access-Control-Allow-Methods: GET");
+				
+				if (isset($params['allow_o']) && $params['allow_o'] == '1')
+				{
+					// Para poder consumir la respuesta del lado del cliente en cualquier servidor, ojo cambiar cuando se tenga el dominio correcto
+					header("Access-Control-Allow-Origin: *");
+					header("Access-Control-Allow-Methods: GET");
+				}	
 				
 				$data = array();
 				$arr_obj = array();
