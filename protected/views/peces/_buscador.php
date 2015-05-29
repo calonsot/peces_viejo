@@ -171,7 +171,7 @@
 
 <div id="buscar_des" class="c_buscador perspective">
 
-<p id="b_buscar"><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/ic_buscar.png", "Buscador", array("title"=>"Buscador")); ?></p>
+
 <form name="buscador" id="buscador" method="get" action="<?php echo Yii::app()->request->baseUrl; ?>/index.php/peces/resultado">
 
 	<div style="float:left; width:100%; padding-bottom:15px;">
@@ -236,7 +236,8 @@
 	<div style="float:right; width:10%;">
 	<button type="button" id="limpiar" class="b_verall">Limpiar</button>
 	</div>
-
 </form>
+<p id="b_buscar"><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/ic_buscar.png", "Buscador", array("title"=>"Buscador")); ?></p>
+
 </div>
 

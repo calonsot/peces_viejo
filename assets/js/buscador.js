@@ -217,18 +217,33 @@ $(document).ready(function(){
 	    });
 	});
 	
-    $("#b_buscar").on('click', function() {
-        //$(".c_buscador perspective").removeClass('ver');
-        $("#buscador").slideToggle();
-        $("#buscar_des").addClass( "vbuscador" );
-    });
+  $("#b_buscar").on('click', function() {
+    if($("#buscador").is(':visible'))
+    {
+        $("#buscador").slideUp('slow', function(){
+            $("#buscar_des").removeClass("vbuscador");
+        });
+    } 
+    else
+    {
+        $("#buscador").slideDown('slow');
+        $("#buscar_des").addClass("vbuscador");
+    }
+  });
 
-	$("[id^='dat_']").on('click', function() { 
+	$("[id^='dat_']").on('click', function(event) {
 		var id = $(this).attr('id').substring(4);
         $('.ver .dresul_body').slideToggle();
 		$(".ver").removeClass('ver');
-		$("#dresul_body_"+id).slideToggle();
-		$("#dresul_"+id).addClass( "ver" );
+        if ($("#dresul_body_"+id).is(':visible'))
+        {
+
+        }
+        else
+        {
+            $("#dresul_body_"+id).slideToggle();
+            $("#dresul_"+id).addClass( "ver" );
+        }
 	});
 	
 	$("[id^='zona']").on('click', function() {
