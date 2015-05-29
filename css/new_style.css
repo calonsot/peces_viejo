@@ -123,11 +123,12 @@ h1 {
   margin: 0 auto;
   padding: 0px 27px 0px 27px;
   background: rgb(234, 232, 219) url(../imagenes/aplicacion/f_deg2.png) left top repeat-x;
-	-webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.8),0 0 50px rgba(0, 0, 0, 0.2) inset;
-	-moz-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.8), 0 0 50px rgba(0, 0, 0, 0.2) inset;
-	box-shadow: 0 2px 7px rgba(0, 0, 0, 0.8), 0 0 50px rgba(0, 0, 0, 0.2) inset;
-	border-radius: 0px 0px 10px 10px;
-	position: absolute;
+  -webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.8),0 0 50px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.8), 0 0 50px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.8), 0 0 50px rgba(0, 0, 0, 0.2) inset;
+  border-radius: 0px 0px 10px 10px;
+  position: absolute;
+  z-index: 1200;
 }
 
 #buscador {
@@ -137,6 +138,7 @@ h1 {
 
 .vbuscador {
 	z-index: 1200;
+	top: 70px;
 }
 
 #content {
