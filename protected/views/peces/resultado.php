@@ -62,16 +62,14 @@ if (!isset($vacio))
 		
 		if ($pezobj->recomendacion == 1 && !empty($pezobj->peso))
 		{
-			$imagen = Peces::peso_a_nombre_imagen($pezobj->peso);
-			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".$imagen);
+			$imagenes = $pezobj->peso_a_nombre_imagen();
+			
+			foreach ($imagenes as $index => $imagen)
+				echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/semaforo/".$imagen.".jpg");
 		}
 		echo "</div>"; // cierra  dat_
 			
-		
-		
 		echo "</div>"; //cierra dresul_view
-		
-		
 		
 		echo "<div id ='dresul_body_".$pezobj->especie_id."'class='dresul_body' style='display:none'>";
 		

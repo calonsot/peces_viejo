@@ -146,7 +146,7 @@ class PecesController extends Controller
 	 */
 	public function actionResultado()
 	{
-		$condiciones='';
+		$condiciones=array();
 		$union='';
 		$joins='';
 		$params = $_GET;
@@ -157,55 +157,66 @@ class PecesController extends Controller
 		if(isset($params['especie_id']) && !empty($params['especie_id']))
 		{
 			$flag_ficha = true;
-			$condiciones="especie_id = ".$params['especie_id']." AND ";
+			array_push($condiciones, "especie_id = ".$params['especie_id']);
+			
 		} else {
 			$flag_ficha = false;
+			
 			if (isset($params['nombre_comun']) && !empty($params['nombre_comun']))
-				$condiciones.="nombre_comun LIKE '%".$params['nombre_comun']."%' AND ";
+				array_push($condiciones, "nombre_comun LIKE '%".$params['nombre_comun']."%'");
 			
 			if (isset($params['nombre_cientifico']) && !empty($params['nombre_cientifico']))
-				$condiciones.="nombre_cientifico LIKE '%".$params['nombre_cientifico']."%' AND ";
+				array_push($condiciones, "nombre_cientifico LIKE '%".$params['nombre_cientifico']."%'");
 			
 			if (isset($params['grupo']) && !empty($params['grupo']))
-				$condiciones.="grupo_id = ".$params['grupo']." AND ";
+				array_push($condiciones, "grupo_id = ".$params['grupo']);
 			
 			//Las zonas varia de 1 a 6
 			if (isset($params['zona']) && ((Int)$params['zona'] > 0 && (Int)$params['zona'] < 7))
 			{
 				$joins.= CartaNacional::join();
-				$condiciones.= "cn.Nivel1=".(Int)$params['zona']." AND cn.Nombre != 'Sin datos.' AND ";
-			} elseif (isset($params['zona']) && ((Int)$params['zona'] == 7))  //Caso del importado
-			$condiciones.= "(nacional_Importado='Importado' OR nacional_Importado='Nacional e Importado') AND ";
+				array_push($condiciones, "cn.Nivel1=".(Int)$params['zona']." AND cn.Nombre != 'Sin datos.'");
 			
-				
-			//Varia de 0 a 3 el valor de los radios
-			if (isset($params['recomendacion']) && ((Int)$params['recomendacion'] > -1 && (Int)$params['recomendacion'] < 3))
+			} elseif (isset($params['zona']) && ((Int)$params['zona'] == 7))  
+			
+			//Caso del importado
+			array_push($condiciones, "(nacional_Importado='Importado' OR nacional_Importado='Nacional e Importado')");		
+			
+			//Caso de una o mas recomendaciones
+			$colores = array('V+', 'V-', 'A-', 'A+', 'R');
+			$interseccion = array_intersect($colores, $params['recomendacion']);
+			
+			if (count($interseccion) > 0)
 			{
-				$condiciones.= "recomendacion=1 AND peso_promedio IS NOT NULL AND ";
+				array_push($condiciones, "recomendacion=1 AND peso_promedio IS NOT NULL AND peso IS NOT NULL");
 				$order.= ' ORDER BY peso_promedio, tipo_imagen, nombre_comun ASC';
+				$recomendaciones = array();
 				
-				if((Int)$params['recomendacion']==0)  //Recomendable
-					$condiciones.= "peso REGEXP '^[01]|/[01]' AND peso != 0 AND ";	
-				if((Int)$params['recomendacion']==1)  //Poco recomendable
-					$condiciones.= "peso REGEXP '[23]' AND peso != 0 AND ";					
-				if((Int)$params['recomendacion']==2)  //No recomendable
-					$condiciones.= "peso REGEXP '[456789]' AND peso != 0 AND ";						
+				foreach ($interseccion as $index => $recomendacion)
+					array_push($recomendaciones, "peso LIKE '%$recomendacion%'");
+				
+				array_push($condiciones, "(".implode(" OR ", $recomendaciones).")");	
+				
 			} else   //busqueda sin recomendacion ni libre, te saca por default todos con recomendacion
 				$order.= ' ORDER BY ISNULL(peso_promedio), peso_promedio, tipo_imagen, nombre_cientifico ASC';
 		}
 		
+		//Para ponerlas como sql
+		if (count($condiciones) > 0) 
+			$condiciones = implode(" AND ", $condiciones); 
+		
 		//decide cual tipo de busqueda es
 		if (!empty($joins))
 		{
-			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".substr($condiciones, 0, -5).$order)->queryAll();
-			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ".$joins." WHERE ".substr($condiciones, 0, -5))->queryAll();
+			$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".$condiciones.$order)->queryAll();
+			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ".$joins." WHERE ".$condiciones)->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
 		}
-		elseif (!empty($condiciones))
+		elseif (count($condiciones) > 0)
 		{
-			$resultados=Yii::app()->db->createCommand($select." WHERE ".substr($condiciones, 0, -5).$order)->queryAll();
-			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p WHERE ".substr($condiciones, 0, -5))->queryAll();
+			$resultados=Yii::app()->db->createCommand($select." WHERE ".$condiciones.$order)->queryAll();
+			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p WHERE ".$condiciones)->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
 		} else { //para ver todos los peces			
@@ -243,11 +254,13 @@ class PecesController extends Controller
 
 					$json["peces"] = $pez->attributes;
 					
+					/*
 					//Para la imgen del semaforo
 					if ($pez->recomendacion == 1)
 						$json["peces"]["imagen_semaforo"] = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/semaforo/'.Peces::peso_a_nombre_imagen($pez->peso)));
 					else
 						$json["peces"]["imagen_semaforo"] = "";
+					*/
 					
 					$json["grupo"] = !empty($pez->grupo)?$pez->grupo->attributes:array();
 					$json["tipo_veda"] = !empty($pez->tipoVeda)?$pez->tipoVeda->attributes:array();

@@ -375,23 +375,11 @@ class Peces extends CActiveRecord
 		} //iterador de los peces	
 	}
 	
-	public static function peso_a_nombre_imagen($peso)
+	public function peso_a_nombre_imagen()
 	{
-		$imagen = '';
-		$zonas = explode("/", $peso);
-
-		foreach ($zonas as $zona)
-		{
-			if ((Int)$zona >= 0 && (Int)$zona <= 1)   //Recomendable
-				$imagen.= 'v';
-			if ((Int)$zona >= 2 && (Int)$zona <= 3)   //Poco Recomendable
-				$imagen.= 'a';
-			if ((Int)$zona >= 4)                      //No recomendable
-				$imagen.= 'r';
-			if ((Int)$zona == -1)                     //Vacio o sin Datos
-				$imagen.= 'b';
-		}
+		$zonas = explode("/", $this->peso);
+		array_pop($zonas);
 		
-		return $imagen.".jpg";
+		return $zonas;
 	}
 }
