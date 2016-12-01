@@ -2,15 +2,6 @@
  * Javascript del buscador
  */
 
-function changeHeader()
-{
-    if (window.location.pathname.indexOf('resultado') != -1)
-    {
-        $('#slider').remove();
-        $('.otro_header').show();
-    }
-}
-
 function MM_swapImgRestore() 
 { //v3.0
   var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
@@ -196,11 +187,30 @@ function filtros(filtro, accion)
 
 
 $(document).ready(function(){
-	filtros($(this), 'leer');
+	//filtros($(this), 'leer');
 	
-	$("[id^='buscador_']").on('change', function(){
-		filtros($(this), 'guarda');		
-		$('#buscador').submit();
+	// Cuando cambia algun filtro en la busqueda
+	$("[id^='buscador_']").on('change', function() {
+		
+		if (window.location.pathname.indexOf('resultado') == -1){
+			var params = $('#buscador').serialize();
+			window.location.replace(YII_PATH + '/index.php/peces/resultado?' + params);
+		
+		} else {	
+			jQuery.ajax({
+				type:'GET',
+		        url:YII_PATH + '/index.php/peces/resultado',
+		        data: $('#buscador').serialize() + '&ajax=1',
+				success: function(peces){
+		        	$('#contenido_peces').html(peces);
+		        },
+		        fail: function(){
+		            $('#notice').html('Hubo un error al cargar los filtros, por favor intentalo de nuevo.');
+		        }
+		    });
+		}
+		
+		return false;
 	});
 	
 	$("#limpiar").on('click', function(){
@@ -217,40 +227,49 @@ $(document).ready(function(){
 	    });
 	});
 	
-  $("#b_buscar").on('click', function() {
-    if($("#buscador").is(':visible'))
-    {
-        $("#buscador").slideUp('slow', function(){
-            $("#buscar_des").removeClass("vbuscador");
-        });
-    } 
-    else
-    {
-        $("#buscador").slideDown('slow');
-        $("#buscar_des").addClass("vbuscador");
-    }
-  });
+	
+	$("[id^='zona']").on('click', function() {
+		$('#buscador_'+$(this).attr('id')).prop('checked', true);
 
-	$("[id^='dat_']").on('click', function(event) {
+		switch ($(this).attr('id').substring(4)) {
+		case '1':
+			console.log("pacifico 1");
+			$('#mapaz').attr('src', YII_PATH + "/imagenes/aplicacion/zonas_pesqueras_mapap_i.jpg");
+			break;
+		}
+		
+		if (window.location.pathname.indexOf('resultado') == -1){
+			var params = $('#buscador').serialize();
+			window.location.replace(YII_PATH + '/index.php/peces/resultado?' + params);
+		
+		} else {	
+			jQuery.ajax({
+				type:'GET',
+		        url:YII_PATH + '/index.php/peces/resultado',
+		        data: $('#buscador').serialize() + '&ajax=1',
+				success: function(peces){
+		        	$('#contenido_peces').html(peces);
+		        },
+		        fail: function(){
+		            $('#notice').html('Hubo un error al cargar los filtros, por favor intentalo de nuevo.');
+		        }
+		    });
+		}
+		
+		return false;
+	});    
+	
+	$(document).on('click', "[id^='dat_']", function(event) {
 		var id = $(this).attr('id').substring(4);
         $('.ver .dresul_body').slideToggle();
 		$(".ver").removeClass('ver');
-        if ($("#dresul_body_"+id).is(':visible'))
+        
+		if ($("#dresul_body_"+id).is(':visible'))
         {
 
-        }
-        else
-        {
+        } else {
             $("#dresul_body_"+id).slideToggle();
             $("#dresul_"+id).addClass( "ver" );
         }
 	});
-	
-	$("[id^='zona']").on('click', function() {
-		$('#buscador_'+$(this).attr('id')).prop('checked', true);
-		filtros($('#buscador_'+$(this).attr('id')), 'guarda');
-		$('#buscador').submit();
-	});
-    changeHeader();
-    
 });

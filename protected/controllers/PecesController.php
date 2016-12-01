@@ -183,10 +183,13 @@ class PecesController extends Controller
 			array_push($condiciones, "(nacional_Importado='Importado' OR nacional_Importado='Nacional e Importado')");		
 			
 			//Caso de una o mas recomendaciones
-			$colores = array('V+', 'V-', 'A-', 'A+', 'R');
-			$interseccion = array_intersect($colores, $params['recomendacion']);
+			if (isset($params['recomendacion']) && is_array($params['recomendacion']))
+			{
+				$colores = array('V+', 'V-', 'A-', 'A+', 'R');
+				$interseccion = array_intersect($colores, $params['recomendacion']);
+			}
 			
-			if (count($interseccion) > 0)
+			if (isset($interseccion) && count($interseccion) > 0)
 			{
 				array_push($condiciones, "recomendacion=1 AND peso_promedio IS NOT NULL AND peso IS NOT NULL");
 				$order.= ' ORDER BY peso_promedio, tipo_imagen, nombre_comun ASC';
@@ -213,13 +216,13 @@ class PecesController extends Controller
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
 		}
-		elseif (count($condiciones) > 0)
+		elseif (!empty($condiciones))
 		{
 			$resultados=Yii::app()->db->createCommand($select." WHERE ".$condiciones.$order)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p WHERE ".$condiciones)->queryAll();
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
-		} else { //para ver todos los peces			
+		} else { //para ver todos los peces	
 			$resultados=Yii::app()->db->createCommand($select.$order)->queryAll();
 			$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p")->queryAll();
 			$pages = new CPagination($count[0]["count"]);
@@ -228,7 +231,7 @@ class PecesController extends Controller
 
 		if (count($resultados) > 0)  //Si hubo resultados en la busqueda
 		{
-			if(isset($params['json']) && !empty($params['json']) && (Int)$params['json']==1)
+			/*if(isset($params['json']) && !empty($params['json']) && (Int)$params['json']==1)
 			{
 				header('Content-type: application/json; charset=UTF-8');
 				
@@ -254,13 +257,13 @@ class PecesController extends Controller
 
 					$json["peces"] = $pez->attributes;
 					
-					/*
+					\/*
 					//Para la imgen del semaforo
 					if ($pez->recomendacion == 1)
 						$json["peces"]["imagen_semaforo"] = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/semaforo/'.Peces::peso_a_nombre_imagen($pez->peso)));
 					else
 						$json["peces"]["imagen_semaforo"] = "";
-					*/
+					*\/
 					
 					$json["grupo"] = !empty($pez->grupo)?$pez->grupo->attributes:array();
 					$json["tipo_veda"] = !empty($pez->tipoVeda)?$pez->tipoVeda->attributes:array();
@@ -309,15 +312,27 @@ class PecesController extends Controller
 					echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($data));
 					//echo json_encode($data, JSON_UNESCAPED_UNICODE);
 				}	
-			} else
-				$this->render('resultado',array(
+			} else */
+					
+				if (isset($params['ajax']) && $params['ajax'] == '1')
+				{
+					$this->renderPartial('_resultado',array(
+							'resultados'=>$resultados,
+							'count'=>$count[0]["count"],
+							'page_size'=>50,
+							'pages'=>$pages
+					));
+				} else { 
+
+					$this->render('resultado',array(
 					'resultados'=>$resultados,
 					'count'=>$count[0]["count"],
 					'page_size'=>50,
-					'pages'=>$pages,
+					'pages'=>$pages
 				));
+				}
 		} else
-			$this->render('resultado',array('vacio' => '<b>Tu b&uacute;squeda no di&oacute; ning&uacute;n resultado</b>'));
+			$this->renderPartial('_resultado',array('vacio' => '<b>Tu b&uacute;squeda no di&oacute; ning&uacute;n resultado</b>'));
 	}
 	/**
 	 * Guarda o lee los filtros

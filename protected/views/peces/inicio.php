@@ -4,11 +4,37 @@
 <script>
 $(document).ready(function(){
 	$("#despliega_estado_conservacion").click(function() {
-	$('.faltantes').toggle();
+		$('.faltantes').toggle();
+	});
+	
+	$("#togglea_buscador_en_inicio").click(function(){
+		$("#buscador_en_inicio").toggle();
 	});
 });
 </script>
-
+  <!-- Slideshow -->
+    <ul class="rslides" id="slider">
+      <li>
+         <?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/header_01.jpg", "Peces"), Yii::app()->request->baseUrl); ?>
+      </li>
+      <li>
+          <?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/header_02.jpg", "Peces"), Yii::app()->request->baseUrl); ?>
+      </li>
+      <li>
+         <?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/header_03.jpg", "Peces"), Yii::app()->request->baseUrl); ?>
+      </li>
+      <li>
+          <?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/header_04.jpg", "Peces"), Yii::app()->request->baseUrl); ?>
+      </li>
+      <li>
+          <?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/header_05.jpg", "Peces"), Yii::app()->request->baseUrl); ?>
+      </li>
+    </ul>
+    <!-- End Slideshow -->
+    <button id="togglea_buscador_en_inicio" type="button">¡Utiliza nuestro buscador!</button>
+    <div id="buscador_en_inicio">
+    <?php $this->renderPartial('/peces/_buscador');?>
+    </div>
 <div class="fila">
   <article class="bloque1">
 
@@ -23,7 +49,7 @@ $(document).ready(function(){
   </article>
   <article class="bloque2">
     <p class="text_frase">Recuerda, cuando compras un producto del mar lo que tú elijas y compres en los mercados<br>y supermercados tiene un efecto directo positivo o negativo en la biodiversidad marina.</p>
-    <center><p class="text_important">“Conociéndolos saben mejor”</p></center>
+    <p class="text_important">“Conociéndolos saben mejor”</p>
     <br><p style="font-size:11px;">
     	* La información técnica de esta página web proviene de la Carta Nacional Pesquera 2012
     </p>
