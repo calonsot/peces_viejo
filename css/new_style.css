@@ -123,18 +123,28 @@ h1 {
 	margin-top: 5px;
 	display: block;
 }
-#buscador div {
+#buscador div  {
 	display: inline-block; 
 	vertical-align: middle;
 	text-align: center;
 	padding: 0 3em;
 }
-#mapa{
+#mapa, #pez_explicado{
 	border: 1px solid rgba(204,204,204,.5);
 	border-radius: 4px;
+	min-height: 210px;
 }
 #botones{
 	display: table-cell!important;
+}
+#pez_explicado, #pez_explicado div{
+	padding: 0!important;
+	width: 280px;
+	color: #4E4D49;
+	background-color: #D4D2C7;
+}
+#pez_explicado span.color_estilo{
+	margin-left: 0;	
 }
 .vbuscador {
 	z-index: 1200;
@@ -304,7 +314,7 @@ button {
 .dresul_all {
 
   width: 280px;
-  height: 170px;
+  height: 185px;
   text-align: left;
   float: left;
   display: inline-block;
@@ -342,7 +352,7 @@ button {
 }
 
 .dresul_body {
-	padding: 10px;
+	padding: 20px 10px 10px 10px;
 	background: #EBE9DB;
 	-webkit-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4),0 0 50px rgba(0, 0, 0, 0.2) inset;
 	-moz-box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4), 0 0 50px rgba(0, 0, 0, 0.2) inset;

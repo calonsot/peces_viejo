@@ -14,7 +14,10 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'), array('id'=>'buscador_grupo', 'prompt'=>'---Grupo---')); ?>
 		</div>
 
-		<div>		
+		<div style="width: 100%;text-align: left;color: #4E4D49;">
+			<span>También puedes buscar los peces seleccionando su recomendación en el semáforo y/o zona pesquera:</span>
+		</div>
+	
 			<div id="recomendaciones">
 
 			<label  for="buscador_muy_recomendable" class="recomendacion_pez color_V+">
@@ -60,8 +63,8 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 
 			<div id="mapa">
 			
-	<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/zonas_pesqueras_mapa.jpg", "Zonas", array("width" => "290px;", "usemap" => "#zona", "id" => "mapaz")); ?>
-    <map name="zona">
+		<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/zonas_pesqueras_mapa.jpg", "Zonas", array("width" => "290px;", "usemap" => "#zona", "id" => "mapaz")); ?>
+    		<map name="zona">
 					<area id="zona6" shape="poly"
 						coords="243,135,248,136,253,135,256,133,255,130,258,127,259,125,256,120,254,113,252,108,247,111,247,115,244,118,243,120,242,124,243,127,242,130"
 						href="#" title="Zona III"
@@ -98,7 +101,6 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 						onmouseover="MM_swapImage('mapaz','','<?php echo Yii::app()->request->baseUrl; ?>/imagenes/aplicacion/zonas_pesqueras_mapap_iii.jpg',1)"
 						onmouseout="MM_swapImgRestore()">
 				</map>
-
 				<div style="display: none;">
 					<input type="radio" name="zona" value="1" id="buscador_zona1"><label
 						for="buscador_recomendable" class="preguntas sem"><span></span>
@@ -121,10 +123,35 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 						class="preguntas sem"><span></span> Importado</label>
 				</div>
 			</div>
+			<div id="pez_explicado">
+			<div>
+				<strong>Ejemplo de división por zonas</strong>
+				<hr />
+				<div>
+					<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/EpinephelusStriatus.png", "Ejemplo de resultado", array('class'=>'ima')); ?>
+				</div>
+				<span class="color_estilo bgcolor_pacifico bgcolor_zonas"></span>
+				<span class="color_estilo bgcolor_golfo bgcolor_zonas"></span>
+				<br />
+				<span class="color_estilo color_V+ "></span>
+				<span class="color_estilo color_V- "></span>
+				<span class="color_estilo color_A- "></span>
+				<span class="color_estilo color_A+ "></span>
+				<span class="color_estilo color_R "></span>
+				<span class="color_estilo color_B "></span>
+				
+				<span class="color_estilo color_pacifico"><strong><small>Zona I</small></strong></span>
+				<span class="color_estilo color_pacifico"><strong><small>Zona II</small></strong></span>
+				<span class="color_estilo color_pacifico"><strong><small>Zona III</small></strong></span>
+				<span class="color_estilo color_golfo"><strong><small>Zona I</small></strong></span>
+				<span class="color_estilo color_golfo"><strong><small>Zona II</small></strong></span>
+				<span class="color_estilo color_golfo"><strong><small>Zona III</small></strong></span>
+				<br />
+				<span class="color_estilo color_pacifico" style="width: 45%;"><strong>&#8627;Pacifico&#8626;</strong></span>
+				<span class="color_estilo color_golfo" style="width: 45%;"><strong>&#8627;Golfo y caribe&#8626;</strong></span>
+			</div>
+			</div>
 		</div>
 	</form>
-	<div style="width: 100%;" >
-		<h2>Puedes buscar por nombre común, nombre científico y también puedes buscar los peces seleccionando su recomendación en el semáforo y/o zona pesquera</h2>
-	</div>
 </div>
 

@@ -64,6 +64,8 @@ if (!isset($vacio))
 		if ($pezobj->recomendacion == 1 && !empty($pezobj->peso))
 		{
 			$imagenes = $pezobj->peso_a_nombre_imagen();
+			echo '<span class="color_estilo bgcolor_pacifico bgcolor_zonas"></span>';
+			echo '<span class="color_estilo bgcolor_golfo bgcolor_zonas"></span><br />';
 			
 			foreach ($imagenes as $index => $imagen)
 				echo "<span class=\"color_estilo color_$imagen \"></span>";
