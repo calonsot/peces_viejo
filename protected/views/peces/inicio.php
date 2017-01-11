@@ -245,7 +245,7 @@ $(document).ready(function(){
 			<p>
 				<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12">
 				Estados pesqueros en M&eacute;xico junto con sus vol&uacute;menes de
-				pesca (peso vivo en toneladas) del 2011. <span class="datospagprin">(Conapesca, Sagarpa. Anuario Estad&iacute;stico de Acuacultura y Pesca 2011).</span>
+				pesca (peso vivo en toneladas) del 2011. <span class="piefoto">(Conapesca, Sagarpa. Anuario Estad&iacute;stico de Acuacultura y Pesca 2011).</span>
 			</p>
 
 			<div id="accordion">
@@ -321,7 +321,7 @@ $(document).ready(function(){
 				</tr>
 				<tr>
 					<td colspan="5" bgcolor="#D9D6C4"><span><span
-							class="datospagprin">(Arregu&iacute;n &amp; Arcos 2011)</span>
+							class="piefoto">(Arregu&iacute;n &amp; Arcos 2011)</span>
 					</span>
 					</td>
 				</tr>
@@ -621,7 +621,7 @@ $(document).ready(function(){
 		<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_pacifico.png" width="250" height="167" />
 		<p align="center" class="titblue2"><strong>Peces comerciales de M&eacute;xico:<br>Golfo y Caribe</strong></p>
 		<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_golfo_web.png" width="250" height="167" /><br />
-		<div align="center" class="datospagprin">Disponibles en nuestro <a href="http://www.biodiversidad.gob.mx/publicaciones/publicaciones.php" target="_blank" style="color: #323D2C">cat&aacute;logo de publicaciones</a></div>
+		<div align="center" class="piefoto">Disponibles en nuestro <a href="http://www.biodiversidad.gob.mx/publicaciones/publicaciones.php" target="_blank" style="color: #323D2C">cat&aacute;logo de publicaciones</a></div>
 		  	
     <br />
     <hr>
@@ -629,12 +629,12 @@ $(document).ready(function(){
 
     <p class="titblue">Videos&nbsp;&nbsp;&nbsp;</p>
     <iframe width="250" height="141" src="//www.youtube.com/embed/AZcTLXVL4_A?rel=0" frameborder="0" allowfullscreen></iframe><br>
-		<p class="datospagprin"><strong>N&uacute;meros Naturales - Sardinas</strong><br />
+		<p class="piefoto"><strong>N&uacute;meros Naturales - Sardinas</strong><br />
 			Descubre la 	historia que se esconde tras la pesquer&iacute;a de sardinas del Golfo de California.</p>
             
 		<br /><hr><br />
             
 		<p class="titblue">Gu&iacute;as&nbsp;&nbsp;&nbsp;</p>
-    <span class="datospagprin">(pr&oacute;ximamente)</span>
+    <span class="piefoto">(pr&oacute;ximamente)</span>
   </article>
 </div>
