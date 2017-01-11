@@ -172,10 +172,17 @@ article {
 .bloque3 {
 	width: 65%;
   padding: 0px 35px 0px 30px;
+	color:#e8e6d8;
 }
 
 .bloque4 {
 	width: 25%;
+	color:#e8e6d8;
+}
+
+.piefoto {
+	font-size:11px;
+	color:#e8e6d8;
 }
 
 ul {
@@ -238,7 +245,7 @@ table {
 .titblue2 {
 	font-size: 14px;
 	font-weight: bold;
-	color: #2A4B57;
+	color: #3a8fac;
 }
 
 .sem {
