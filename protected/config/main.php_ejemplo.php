@@ -91,10 +91,10 @@ return array(
 		// uncomment the following to use a MySQL database
 
 		'db'=>array(
-		'connectionString' => 'mysql:host=tu_servidor;dbname=tu_base',
+		'connectionString' => 'mysql:host=localhost;dbname=usos',
 		'emulatePrepare' => true,
-		'username' => 'tu_usuario',
-		'password' => 'tu_passwd',
+		'username' => 'tu-usuario',
+		'password' => 'tu-passwd',
 		'charset' => 'utf8',
 		),
 
@@ -123,6 +123,6 @@ return array(
 		// using Yii::app()->params['paramName']
 		'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'calonso@conabio.gob.mx',
+		'adminEmail'=>'admin-correo@conabio.gob.mx',
 		),
 );
