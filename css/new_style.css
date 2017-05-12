@@ -252,6 +252,12 @@ table {
 	color: #3a8fac;
 }
 
+.tabla_semaforo {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+
 .sem {
 	height: 25px;
 }

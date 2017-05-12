@@ -58,211 +58,320 @@ $(document).ready(function(){
 
 <div class="fila">
 	<article class="bloque3">
-  		<p>
-  			<br><br><span class="titblue2">Los peces </span>constituyen un poco m&aacute;s de la mitad de todos los vertebrados del mundo. Se han registrado alrededor de 30,000 especies, que incluyen tiburones, rayas, quimeras, peces &oacute;seos y lampreas. M&eacute;xico tiene cerca de 2,250 peces marinos y 500 dulceacu&iacute;colas.
-  		</p>
-  		<p>
-  			El Pac&iacute;fico mexicano se conocen cerca de <strong>1,120 </strong>especies,
-				el 20% son aprovechadas comercialmente, y el Golfo de California tiene la mayor
-				diversidad de especies.
-			</p>
-			<p>
-				En el Golfo de México y Caribe mexicano se conocen cerca de <strong>2,057 </strong> 
-				especies de estas el 11% son aprovechadas  y el Golfo de México tiene el mayor número.
-			</p>
-			<p>
-				De las 32 entidades federativas que hay en el país, 17 de ellas tienen apertura al mar, 
-				11 en el Pacífico y 6 en el Golfo de México y mar Caribe. De estos estados costeros 
-				se extraen cerca de  1.2 millones de toneladas de peces anualmente. El 80% de la captura 
-				proviene del Pacífico, principalmente el Golfo de California.
-			</p>
-
-			<table width="600" border="0" align="center" cellpadding="3" cellspacing="1" class="txt_peces tp">
-				<tr>
-					<td align="center" nowrap bgcolor="#E3E1CE">
-						<span><strong>Pac&iacute;fico mexicano</strong></span>
-					</td>
-					<td align="center" nowrap bgcolor="#E3E1CE">
-						<span>&nbsp;<strong>Toneladas<br> de peso desembarcado</strong></span>
-					</td>
-					<td align="center" nowrap bgcolor="#E3E1CE">
-						<span><strong>Golfo de M&eacute;xico y<br> Mar Caribe</strong></span>
-					</td>
-					<td align="center" nowrap bgcolor="#E3E1CE">
-						<span>&nbsp;<strong>Toneladas <br> de peso desembarcado</strong></span>
-					</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Sonora</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>487,047</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Veracruz</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>42,650 </span>
-					</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Sinaloa</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>236,687 </span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Tamaulipas</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>26,078 </span>
-					</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Baja California Sur </span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>114,561 </span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Campeche</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>24,791</span>
-					</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Baja California &nbsp;</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>87,050 </span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Tabasco</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>21,821 </span>
-					</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Chiapas</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>31,106 </span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Yucat&aacute;n</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>17,599 </span>
-					</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Colima</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>29,524</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Quintana Roo</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>2,511 </span>
-					</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Nayarit</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>23,093 </span>
-					</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Michoac&aacute;n</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>15,434 </span>
-					</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Jalisco</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>9,351</span>
-					</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Guerrero</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>7,635</span>
-					</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>Oaxaca</span>
-					</td>
-					<td align="center" nowrap bgcolor="#EBE9DB">
-						<span>5,902</span>
-					</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-					<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
-				</tr>
-				<tr>
-					<td align="center" nowrap bgcolor="#E3E1CE">
-						<span>&nbsp;<strong>Total </strong></span>
-					</td>
-					<td align="center" nowrap bgcolor="#E3E1CE">
-						<span>1,047,398 </span>
-					</td>
-					<td align="center" nowrap bgcolor="#E3E1CE">
-						<span>&nbsp;&nbsp;<strong>Total</strong></span>
-					</td>
-					<td align="center" nowrap bgcolor="#E3E1CE">
-						<span>135,454 </span>
-					</td>
-				</tr>
-			</table>
-
-			<p>
-				<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12">
-				Estados pesqueros en M&eacute;xico junto con sus vol&uacute;menes de
-				pesca (peso vivo en toneladas) del 2011. <span class="piefoto">(Conapesca, Sagarpa. Anuario Estad&iacute;stico de Acuacultura y Pesca 2011).</span>
-			</p>
+  		XXXXXXXXX
 
 			<div id="accordion">
 
 				<h3 class="titblue">
-					Estado de conservaci&oacute;n
+					Acerca de esta página
 				</h3>
 				<div>
 					<p>
-						La actividad pesquera en el pa&iacute;s comenz&oacute; su auge en los a&ntilde;os 40, y en un principio la explotaci&oacute;n pesquera ten&iacute;a como objetivo el extraer los mayores vol&uacute;menes posibles de peces sin considerar la capacidad de renovaci&oacute;n de las especies, lo que result&oacute; en que muchas de las poblaciones de estos peces empezaran a tener una sobreexplotaci&oacute;n. Bajo este escenario se crea La Carta Nacional Pesquera (CNP) y publicada en el Diario de la Federaci&oacute;n el 18 de agosto del a&ntilde;o 2000.
+						Esta página tiene el propósito de orientar a los usuarios sobre el consumo responsable de los peces marinos de México, intentando reducir la presión pesquera sobre las especies con mayor demanda en los mercados y ayudando a diversificar los hábitos de consumo.<br><br>
+						La página contiene la información de 475 especies de peces. Para la mitad de las especies (244) existe información que nos permite incluirlas en un semáforo de consumo responsable.<br><br>
+						Cada especie tiene una ficha que incluye el nombre común y científico, una ilustración (si es de gran importancia comercial) o silueta de la especie, su distribución, el tipo de pesca, el arte de captura, talla de captura, descripción general de la especie, alimentación, nivel trófico, resiliencia, vulnerabilidad, color dentro del semáforo de consumo responsable (en su caso), si la especie está dentro de una veda, temporada de la veda, si la especie se encuentra dentro de alguna lista de especies en peligro.
+
 					</p>
 				</div>
-
+				
 				<h3 class="titblue">
-					Carta Nacional Pesquera (CNP)
+					Acerca del semáforo
 				</h3>
 				<div>
+					<p>
+						Las especies de peces con información (244 especies) se encuentran contenidas en el semáforo con cinco categorías:
+					</p>
+						<table width="400" border="0" align="center" cellpadding="3" cellspacing="1" class="txt_peces tp tabla_semaforo">
+							<tr>
+								<th>Categorías</td>
+								<th>Suma de criterios</td>
+							</tr>
+							<tr class="color_V+">
+								<td>Muy recomendable</td>
+								<td>0 a 3</td>
+							</tr>
+							<tr class="color_V-">
+								<td>Recomendable</td>
+								<td>4 a 10</td>
+							</tr>
+							<tr class="color_A-">
+								<td>Poco recomendable</td>
+								<td>11 a 15</td>
+							</tr>
+							<tr class="color_A+">
+								<td>No recomendable</td>
+								<td>16 a 19</td>
+							</tr>
+							<tr class="color_R">
+								<td>Evita</td>
+								<td>20 a 34</td>
+							</tr>
+						</table>
+							
+						<p><span class="recomendacion_pez color_V+"><b>Muy recomendable:</b></span> Especies que no tienen mucha presión pesquera, no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</p>
+
+						<p><span class="recomendacion_pez color_V-"><b>Recomendable:</b></span> Especies que tienen cierta presión pesquera, pero no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</p>
+
+						<p><span class="recomendacion_pez color_A-"><b>Poco recomendable:</b></span> Especies con presión pesquera alta, con veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen un poco vulnerables a la presión pesquera.</p>
+
+						<p><span class="recomendacion_pez color_A+"><b>No recomendable:</b></span> Especies con gran presión pesquera, con alguna veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen vulnerables a la presión pesquera.</p>
+
+						<p><span class="recomendacion_pez color_R"><b>Evita:</b></span> Especies con poblaciones en deterioro a nivel pesquero, que están en una lista de especies en riesgo, tienen veda y muchas de ellas se encuentran en veda permanente. Sus características biológicas las hacen muy vulnerables a la presión pesquera.</p>
+
+						
+						<p><b>Criterios del semáforo</b><br>
+						Entre más alto es el valor, menos recomendable es la especie</p>
+
+						<p><b>1. Procedencia</b>
+						<blockquote>
+						<b>Nacional:</b> (Valor=0) Especie capturada dentro del litoral mexicano.<br><br>
+						<b>Importada:</b> (Valor=20) Especie capturada o cultivada en otros países o fuera del litoral mexicano.<br><br>
+						Al comprar especies importadas tu huella ecológica (impacto negativo en el ambiente), aumenta, ya que para que llegue a tu mesa, tuvo que pasar por refrigeración, empaque y transporte, lo cual se traduce contaminación.
+						</blockquote>
+						</p> 
+
+						<p><b>2. Estado de las poblaciones</b>
+						<blockquote>
+						En base a estudios científicos la Carta Nacional Pesquera agrupa en tres categorías a los peces que son aprovechados.<br><br>
+						<b>Con potencial de desarrollo:</b> (Valor = 0) Existe la posibilidad de aumentar las capturas de las poblaciones de peces, incrementando el esfuerzo pesquero, siempre y cuando se realice de manera precautoria y controlada.<br><br>
+						<b>Máximo aprovechamiento permisible:</b> (Valor = 5) El nivel de utilización de las poblaciones de peces se considera óptimo y ya no es posible aumentar la captura sin llevarla a la sobreexplotación.<br><br>
+						<b>En deterioro:</b> (Valor=10) El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminución notable en la abundancia (biomasa) y una capacidad reducida de incorporación a la población (reclutamiento).
+						</blockquote>
+						</p>
+
+						<p><b>3. Especies en riesgo</b>
+						<blockquote>
+						Existen convenios y normas de carácter nacional e internacional que regulan y protegen a las especies en riesgo. Para este semáforo se tomaron en cuenta las categorías incluidas en la Norma Oficial Mexicana de Especies en Riesgo (NOM-059-SEMARNAT-2010) y en la Lista Roja de la Unión Internacional para la Conservación de la Naturaleza (UICN 2016).<br><br>
+						<b>Especies fuera de las listas:</b> (Valor = 0)<br><br>
+						<b>Especies en alguna categoría:</b> (Valor = 5)
+						</blockquote>
+						</p>
+
+						<p><b>4. Vedas</b>
+						<blockquote>
+						Las vedas consisten en prohibiciones de pesca durante periodos de tiempo o sitios específicos mediante acuerdos o normas oficiales. Tienen la finalidad de proteger a una o varias especies durante los periodos de reproducción o crianza (CONAPESCA).<br>
+						Las vedas pueden ser:<br><br>
+						<b>Sin veda:</b> (Valor = 0)<br><br>
+						<b>Temporal fija:</b> (Valor = 1) Se establece en un periodo definido y se repite anualmente.<br><br>
+						<b>Temporal variable:</b> (Valor = 1) Se establece por un periodo definido pero es actualizado anualmente.<br><br>
+						<b>Permanente:</b> (Valor = 3) La especie no puede ser aprovechada en ningún momento del año de forma indefinida.
+						</blockquote></p>
+
+						<p><b>5. Selectividad en la captura</b> 
+						<blockquote>
+						Las artes de pesca son los diferentes métodos de captura o técnicas con las que los peces son atrapados. El impacto de las artes de pesca en la biodiversidad marina es distinto.<br><br>
+						<b>Selectiva:</b> (Valor = 0) Se captura la especie objetivo de tamaño deseado y no es destructiva con el ecosistema.<br><br>
+						<b>No selectiva:</b> (Valor = 1) Se capturan diferentes especies y tamaños que no son el objetivo. Puede afectar a delfines, tortugas y aves, dañar el ambiente y destruir los ecosistemas marinos.
+						</blockquote>
+						</p>
+						 
+				</div>
+				
+				<h3 class="titblue">
+					La pesca en México
+				</h3>
+				<div>
+					<p><span class="titblue2">Los peces </span>constituyen un poco m&aacute;s de la mitad de todos los vertebrados del mundo. Se han registrado alrededor de 30,000 especies, que incluyen tiburones, rayas, quimeras, peces &oacute;seos y lampreas. M&eacute;xico tiene cerca de 2,250 peces marinos y 500 dulceacu&iacute;colas.
+  					</p>
+  					<p>
+  						El Pac&iacute;fico mexicano se conocen cerca de <strong>1,120 </strong>especies,
+				el 20% son aprovechadas comercialmente, y el Golfo de California tiene la mayor
+				diversidad de especies.
+					</p>
+					<p>
+						En el Golfo de México y Caribe mexicano se conocen cerca de <strong>2,057 </strong> 
+				especies de estas el 11% son aprovechadas  y el Golfo de México tiene el mayor número.
+					</p>
+					<p>
+						De las 32 entidades federativas que hay en el país, 17 de ellas tienen apertura al mar, 
+				11 en el Pacífico y 6 en el Golfo de México y mar Caribe. De estos estados costeros 
+				se extraen cerca de 1 millón de toneladas de peces anualmente. El 90% de la captura 
+				proviene del Pacífico, principalmente el Golfo de California.
+					</p>
+
+					<table width="600" border="0" align="center" cellpadding="3" cellspacing="1" class="txt_peces tp">
+						<tr>
+							<td align="center" nowrap bgcolor="#E3E1CE">
+								<span><strong>Pac&iacute;fico mexicano</strong></span>
+							</td>
+							<td align="center" nowrap bgcolor="#E3E1CE">
+								<span>&nbsp;<strong>Toneladas<br> de peso desembarcado</strong></span>
+							</td>
+							<td align="center" nowrap bgcolor="#E3E1CE">
+								<span><strong>Golfo de M&eacute;xico y<br> Mar Caribe</strong></span>
+							</td>
+							<td align="center" nowrap bgcolor="#E3E1CE">
+								<span>&nbsp;<strong>Toneladas <br> de peso desembarcado</strong></span>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Sonora</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>487,047</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Veracruz</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>42,650 </span>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Sinaloa</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>236,687 </span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Tamaulipas</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>26,078 </span>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Baja California Sur </span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>114,561 </span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Campeche</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>24,791</span>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Baja California &nbsp;</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>87,050 </span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Tabasco</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>21,821 </span>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Chiapas</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>31,106 </span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Yucat&aacute;n</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>17,599 </span>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Colima</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>29,524</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Quintana Roo</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>2,511 </span>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Nayarit</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>23,093 </span>
+							</td>
+							<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+							<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Michoac&aacute;n</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>15,434 </span>
+							</td>
+							<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+							<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Jalisco</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>9,351</span>
+							</td>
+							<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+							<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Guerrero</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>7,635</span>
+							</td>
+							<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+							<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>Oaxaca</span>
+							</td>
+							<td align="center" nowrap bgcolor="#EBE9DB">
+								<span>5,902</span>
+							</td>
+							<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+							<td align="center" valign="bottom" nowrap bgcolor="#EBE9DB">&nbsp;</td>
+						</tr>
+						<tr>
+							<td align="center" nowrap bgcolor="#E3E1CE">
+								<span>&nbsp;<strong>Total </strong></span>
+							</td>
+							<td align="center" nowrap bgcolor="#E3E1CE">
+								<span>1,047,398 </span>
+							</td>
+							<td align="center" nowrap bgcolor="#E3E1CE">
+								<span>&nbsp;&nbsp;<strong>Total</strong></span>
+							</td>
+							<td align="center" nowrap bgcolor="#E3E1CE">
+								<span>135,454 </span>
+							</td>
+						</tr>
+					</table>
+
+					<p>
+						<img src="http://www.biodiversidad.gob.mx/usos/images/balazo_circulo.png" width="12" height="12">
+						Estados pesqueros en M&eacute;xico junto con sus vol&uacute;menes de
+						pesca (peso vivo en toneladas) del 2011. <span class="piefoto">(Conapesca, Sagarpa. Anuario Estad&iacute;stico de Acuacultura y Pesca 2011).</span>
+					</p>
+				</div>
+				
+				<h3 class="titblue">
+					Estado de aprovechamiento
+				</h3>
+				<div>
+					<strong>Estado de conservación</strong>
+					<p>
+						La actividad pesquera en el pa&iacute;s comenz&oacute; su auge en los a&ntilde;os 40, y en un principio la explotaci&oacute;n pesquera ten&iacute;a como objetivo el extraer los mayores vol&uacute;menes posibles de peces sin considerar la capacidad de renovaci&oacute;n de las especies, lo que result&oacute; en que muchas de las poblaciones de estos peces empezaran a tener una sobreexplotaci&oacute;n. Bajo este escenario se crea La Carta Nacional Pesquera (CNP) y publicada en el Diario de la Federaci&oacute;n el 18 de agosto del a&ntilde;o 2000.
+					</p>
+					
+					
+					<strong>Carta Nacional Pesquera (CNP)</strong>
 					<p>
 						Es el &uacute;nico documento oficial e instrumento regulatorio pesquero ambiental que indica el estado de salud de organismos marinos comerciales en M&eacute;xico, adem&aacute;s plantea restricciones y limites en algunas pesquer&iacute;as.<br><br>
 						En base a estudios cient&iacute;ficos la carta agrupa en tres categor&iacute;as a los grupos de peces explotados:
@@ -530,11 +639,7 @@ $(document).ready(function(){
 								peces en M&eacute;xico</em>. Revista Mexicana de Biodiversidad.
 							Supl. 85:S450-S459. <br> <br>
 						</li>
-						<li>IUCN 2013. <em><a href="http://www.iucnredlist.org/"
-								target="_blank" style="color: #584B05">La Lista Roja de Especies
-									Amenazadas</a>
-						</em>. Versi&oacute;n 2013.1 <a href="http://www.iucnredlist.org/"></a>
-							<br> <br>
+						<li>IUCN 2016. <em><a href="http://www.iucnredlist.org/" target="_blank" style="color: #584B05">La Lista Roja de Especies Amenazadas</a></em>. Versi&oacute;n 2016.2<br><br>
 						</li>
 						<li>WWF. 2006. Mejores pr&aacute;cticas de pesca en arrecifes
 							coralinos. Gu&iacute;a para la colecta de informaci&oacute;n que
@@ -618,9 +723,9 @@ $(document).ready(function(){
 		Carteles
 		</p>
 		<p align="center" class="titblue2">Peces comerciales de M&eacute;xico: Oc&eacute;ano Pac&iacute;fico</p>
-		<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_pacifico.png" width="250" height="167" />
+		<a href="http://200.12.166.51/janium-bin/janium_zui.pl?jzd=/janium/Documentos/ETAPA06/AP/7390/7390.jzd&fn=7390" target="_blank"><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_pacifico.png" width="250" height="167" /></a>
 		<p align="center" class="titblue2"><strong>Peces comerciales de M&eacute;xico:<br>Golfo y Caribe</strong></p>
-		<img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_golfo_web.png" width="250" height="167" /><br />
+		<a href="http://200.12.166.51/janium-bin/janium_zui.pl?jzd=/janium/Documentos/ETAPA06/AP/7389/7389.jzd&fn=7389" target="_blank"><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_golfo_web.png" width="250" height="167" /></a><br />
 		<div align="center" class="piefoto">Disponibles en nuestro <a href="http://www.biodiversidad.gob.mx/publicaciones/publicaciones.php" target="_blank">cat&aacute;logo de publicaciones</a></div>
 		  	
     <br />
@@ -628,9 +733,14 @@ $(document).ready(function(){
     <br />
 
     <p class="titblue">Videos&nbsp;&nbsp;&nbsp;</p>
-    <iframe width="250" height="141" src="//www.youtube.com/embed/AZcTLXVL4_A?rel=0" frameborder="0" allowfullscreen></iframe><br>
-		<p class="piefoto"><strong>N&uacute;meros Naturales - Sardinas</strong><br />
-			Descubre la 	historia que se esconde tras la pesquer&iacute;a de sardinas del Golfo de California.</p>
+    	<iframe src="https://player.vimeo.com/video/177267769?title=0&byline=0&portrait=0" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <p class="piefoto"><strong>N&uacute;meros Naturales - Agregaciones de Desove</strong>
+        </p>
+        
+        <iframe src="https://player.vimeo.com/video/177265355?title=0&byline=0&portrait=0" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <p class="piefoto"><strong>N&uacute;meros Naturales - Sardinas</strong><br/>
+			Descubre la historia que se esconde tras la pesquer&iacute;a de sardinas del Golfo de California.
+        </p>
             
 		<br /><hr><br />
             
