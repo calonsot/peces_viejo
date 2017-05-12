@@ -58,7 +58,6 @@ $(document).ready(function(){
 
 <div class="fila">
 	<article class="bloque3">
-  		XXXXXXXXX
 
 			<div id="accordion">
 
