@@ -268,4 +268,13 @@ class Peces extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	public static function nom_cites_iucn()
+	{
+		return Yii::app()->db->createCommand()
+				->select('nombre_comun, nombre_cientifico, nom, iucn, cites')
+				->from('peces')
+				->where('nom_valor=1 OR iucn_valor=1 OR cites_valor=1')
+				->queryAll();		
+	}
 }
