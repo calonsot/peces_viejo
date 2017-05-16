@@ -277,4 +277,14 @@ class Peces extends CActiveRecord
 				->where('nom_valor=1 OR iucn_valor=1 OR cites_valor=1')
 				->queryAll();		
 	}
+	
+	public static function grupos_conabio()
+	{
+		return Yii::app()->db->createCommand()
+				->select('grupo_conabio')
+				->from('peces')
+				->group('grupo_conabio')
+				->order('grupo_conabio')
+				->queryAll();
+	}
 }

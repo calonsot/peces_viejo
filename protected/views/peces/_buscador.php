@@ -11,9 +11,30 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<input type="text" name="nombre_comun" id="buscador_nombre_comun" placeholder="Nombre común">
 			<input type="text" name="nombre_cientifico" id="buscador_nombre_cientifico" placeholder="Nombre cient&iacute;fico">
 			<label for="select"></label> 
-			<?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'), array('id'=>'buscador_grupo', 'prompt'=>'---Grupo---')); ?>
+			<?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Peces::grupos_conabio(), 'grupo_conabio', 'grupo_conabio'), array('id'=>'buscador_grupo', 'prompt'=>'---Grupo---')); ?>
 		</div>
 
+		<div>
+			Nacional <input type="checkbox" name="nacional_importado[]" value="0,2">
+			Importado <input type="checkbox" name="nacional_importado[]" value="1,2">
+		</div>
+		
+		<div>
+			NOM 059 <input type="checkbox" name="cat_riesgo[]" value="nom">
+			IUCN <input type="checkbox" name="cat_riesgo[]" value="iucn">
+			CITES <input type="checkbox" name="cat_riesgo[]" value="cites">
+		</div>
+		
+		<div>
+			Sin veda <input type="checkbox" name="veda[]" value="0">
+			Con veda <input type="checkbox" name="veda[]" value="1,2,3">
+		</div>
+		
+		<div>
+			Selectiva <input type="checkbox" name="selectiva[]" value="1">
+			No selectiva <input type="checkbox" name="selectiva[]" value="2">
+		</div>
+		
 		<div style="width: 100%;text-align: left;color: #4E4D49;">
 			<span>También puedes buscar los peces seleccionando su recomendación en el semáforo y/o zona pesquera:</span>
 		</div>
@@ -152,6 +173,8 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			</div>
 			</div>
 		</div>
+		
+		<button type="submit">Aqui</button>
 	</form>
 </div>
 

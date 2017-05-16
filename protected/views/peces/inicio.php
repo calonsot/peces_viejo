@@ -33,7 +33,7 @@ $(document).ready(function(){
     <!-- End Slideshow -->
     <button id="togglea_buscador_en_inicio" type="button">¡Utiliza nuestro buscador!</button>
     <div id="buscador_en_inicio">
-    <?php //$this->renderPartial('/peces/_buscador');?>
+    <?php $this->renderPartial('/peces/_buscador'); ?>
     </div>
 <div class="fila">
   <article class="bloque1">
