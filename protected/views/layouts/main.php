@@ -16,6 +16,8 @@
   <link href="http://www.biodiversidad.gob.mx/css/estilosgral.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/new_style.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/responsiveslides.css" />
+  <script src="https://use.typekit.net/shb5zji.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
   <script type="text/javascript">var YII_PATH = "<?php echo Yii::app()->request->baseUrl; ?>";</script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/jquery-1.9.1.min.js"></script>
@@ -34,37 +36,38 @@
   <div class="fila">
     <div id="ide_menu">
       <nav>
-        <a href="http://www.biodiversidad.gob.mx/index.html" style="border-style: none;"><img src="http://www.biodiversidad.gob.mx/images/index_nw_03.png"></a><br>
-        <span class="diagramas" style="padding-bottom:5px;">Comisi&oacute;n Nacional para el Conocimiento y Uso de la Biodiversidad<br><br></span>
-        <a href="http://www.biodiversidad.gob.mx/menusup/recursos.html">Recursos y servicios</a>
-        <a href="http://www.biodiversidad.gob.mx/menusup/difusion.html">Difusi&oacute;n</a>
-        <a href="http://www.biodiversidad.gob.mx/ninos/ninos.html">Ni&ntilde;os</a>
-        <a href="http://www.biodiversidad.gob.mx/menusup/mapa.html">Mapa del sitio</a>
-        <div id="cse-search-form" style="width: 275px; display:inline-block;">Loading</div>
-        <script src="http://www.google.com/jsapi" type="text/javascript"></script>
-        <script type="text/javascript">
-        google.load('search', '1', {language : 'es'});
-        google.setOnLoadCallback(function() {
-          var customSearchControl = new google.search.CustomSearchControl('008095775353890783041:z5grsg1hkxe');
-          customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
-          var options = new google.search.DrawOptions();
-          options.enableSearchboxOnly("http://www.google.com/cse?cx=008095775353890783041:z5grsg1hkxe");
-          customSearchControl.draw('cse-search-form', options);
-        }, true);
-        </script>
-        <link rel="stylesheet" href="http://www.google.com/cse/style/look/default.css" type="text/css" />
-        <style type="text/css">
-          input.gsc-input {
-          border-color: #666666;
-          }
-          input.gsc-search-button {
-          border-color: #666666;
-          background-color: #c0c0c0;
-          }
-        </style>
+        <a href="http://www.biodiversidad.gob.mx/index.html"><img title="" alt="Biodiversidad Mexicana" class="main-logo" src="http://www.biodiversidad.gob.mx/assets/images/logo.png"/></a>
+        <ul class="main-nav text-right hidden-xs">
+			<li><a class="name" href="http://www.conabio.gob.mx" target="_blank" >Comisión Nacional para el Conocimiento y Uso de la Biodiversidad</a></li><br>
+			<li><a class="scroll" href="http://www.biodiversidad.gob.mx/index.html#eventos">Eventos</a></li>
+			<li><a class="scroll" href="http://www.biodiversidad.gob.mx/index.html#temas">Temas</a></li>
+			<li><a class="scroll" href="http://www.biodiversidad.gob.mx/index.html#recursos">Productos</a></li>
+			<li><a class="scroll" href="http://www.biodiversidad.gob.mx/index.html#actua">¡Conoce y actúa!</a></li>
+			<li><a class="scroll" href="http://www.biodiversidad.gob.mx/index.html#contacto">Contacto</a></li>
+			<li><a href="http://www.biodiversidad.gob.mx/v_ingles/" class="name" title="English">EN</a></li>
+		</ul>
+       
+        <!--<div id="cse-search-form" style="width: 40%; display:inline-block;">Cargando</div>
+					<script src="//www.google.com/jsapi" type="text/javascript"></script>
+                    <script type="text/javascript">
+                    google.load('search', '1', {language: 'es', style: google.loader.themes.DEFAULT});
+                    google.setOnLoadCallback(function() {
+                      var customSearchOptions = {};
+                      var orderByOptions = {};
+                      orderByOptions['keys'] = [{label: 'Relevance', key: ''} , {label: 'Date', key: 'date'}];
+                      customSearchOptions['enableOrderBy'] = true;
+                      customSearchOptions['orderByOptions'] = orderByOptions;
+                      var customSearchControl =   new google.search.CustomSearchControl('008095775353890783041:h-_r2kr0x5u', customSearchOptions);
+                      customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+                      var options = new google.search.DrawOptions();
+                      options.enableSearchboxOnly('https://www.google.com/cse?cx=008095775353890783041:h-_r2kr0x5u', null, true);
+                      options.setAutoComplete(true);
+                      customSearchControl.draw('cse-search-form', options);
+                    }, true);
+                    </script>-->
       </nav>
     </div>  
-    <div id="idiomas">
+    <!--<div id="idiomas">
       <span class="idioma">English</span><span class="linea_roja">| </span><span class="idioma">Espa&ntilde;ol</span><br>
       <div id="google_translate_element"></div>
       <script>
@@ -77,12 +80,12 @@
         }
         </script>
         <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    </div>
+    </div>-->
   </div>
 </div>
     
 
-<div class="fila f1">
+<!--<div class="fila f1">
   <p align="right">
     <span class="Ubarra_navega">
       <a href="http://www.biodiversidad.gob.mx/index.html">Inicio</a>
@@ -90,14 +93,20 @@
     - <a href="http://www.biodiversidad.gob.mx/usos/alimentos.html">Alimentos</a>
     - Peces</span>
   </p>
-</div>
+</div>-->
 
+<div class="fila_title">
+  <div class="fila f1">
+ 		<a href="" id="limpiar" class="b_verall"><h1>Peces marinos comerciales</h1></a>
+  <div class="liner liner-dark"></div>
+  </div>
+</div> 
 
 <?php echo $content; ?>
 
 
 <div class="fila">
-  <a href="#" style="color: #330">Subir</a>
+  <!--<a href="#" style="color: #330">Subir</a>-->
 </div>
 
 <div class="tooltiptext" id="veda_tip">

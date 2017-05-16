@@ -93,6 +93,7 @@
 	margin: 2px 0 0 0;
 	padding: .5em .5em .5em .7em;
 	min-height: 0; /* support: IE7 */
+	font-family: "acumin-pro-extra-condensed";
 	font-size: 100%;
 	outline: none;
 	border: 1px solid #aaaaaa;
@@ -832,17 +833,17 @@ body .ui-tooltip {
 /* Component containers
 ----------------------------------*/
 .ui-widget {
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 12px;
+	font-family: "freight-sans-pro";
+	font-size: 15px;
 }
 .ui-widget .ui-widget {
-	font-size: 12px;
+	font-size: 13px;
 }
 .ui-widget input,
 .ui-widget select,
 .ui-widget textarea,
 .ui-widget button {
-	font-family: Verdana,Arial,sans-serif;
+	font-family: "freight-sans-pro";
 	font-size: 1em;
 }
 .ui-widget-content {
