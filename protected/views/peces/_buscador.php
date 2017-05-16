@@ -3,7 +3,7 @@
 <div id="buscar_des" class="c_buscador perspective">
 <?php 
 if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
-	echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/titulo.png", "Ficha", array("id" => "ficham")), Yii::app()->request->baseUrl); 
+	/*echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/titulo.png", "Ficha", array("id" => "ficham")), Yii::app()->request->baseUrl);*/ 
 ?>
 
 	<form name="buscador" id="buscador" method="get" action="<?php echo Yii::app()->request->baseUrl; ?>/index.php/peces/resultado">
@@ -14,7 +14,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Grupo::model()->findAll(array('order'=>'nombre ASC')), 'id', 'nombre'), array('id'=>'buscador_grupo', 'prompt'=>'---Grupo---')); ?>
 		</div>
 
-		<div style="width: 100%;text-align: left;color: #4E4D49;">
+		<div style="width: 100%;text-align:center;color: #4E4D49;">
 			<span>También puedes buscar los peces seleccionando su recomendación en el semáforo y/o zona pesquera:</span>
 		</div>
 	
