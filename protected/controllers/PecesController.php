@@ -161,11 +161,12 @@ class PecesController extends Controller
 		//$joins='';
 		$params = $_GET;
 		$select = 'id,nombre_comun,nombre_ingles,nombre_cientifico,presente_pacifico,presente_golfo,presente_caribe,nacional_importado_valor,
-tipo_captura,arte_pesca,objetivo,incidental,deportiva,fomento,cultivada,talla_captura,grupo_conabio,generalidades,distribucion,
-CONCAT(zona1_valor,zona2_valor,zona3_valor,zona4_valor,zona5_valor,zona6_valor) AS zonas,imagen,tipo_imagen,
-nom,iucn,cites,nom_valor,iucn_valor,cites_valor,tipo_veda,tipo_veda_fecha,cnp,
+arte_pesca,objetivo,incidental,deportiva,fomento,cultivada,talla_captura,grupo_conabio,generalidades,distribucion,
+zona1_valor,zona2_valor,zona3_valor,zona4_valor,zona5_valor,zona6_valor,CONCAT(zona1_valor,zona2_valor,zona3_valor,zona4_valor,zona5_valor,zona6_valor) AS zonas,imagen,tipo_imagen,
+zona1_peso+zona2_peso+zona3_peso+zona4_peso+zona5_peso+zona6_peso AS zonas_peso,
+nom,iucn,cites,nom_valor,iucn_valor,cites_valor,tipo_veda,tipo_veda_fecha,cnp,tipo_captura,tipo_captura_valor,
 nacional_importado_peso+tipo_captura_peso+nom_peso+iucn_peso+cites_peso+tipo_veda_peso+zona1_peso+zona2_peso+zona3_peso+zona4_peso+zona5_peso+zona6_peso AS peso';
-		$order = 'peso ASC, cnp ASC, tipo_imagen ASC';
+		$order = 'peso ASC, cnp DESC, zonas_peso ASC, tipo_imagen ASC';
 		//$flag_ficha = false;
 		
 		/*if(isset($params['especie_id']) && !empty($params['especie_id']))
@@ -263,7 +264,6 @@ nacional_importado_peso+tipo_captura_peso+nom_peso+iucn_peso+cites_peso+tipo_ved
 			$resultados = Yii::app()->db->createCommand()
 							->select($select)
 							->from('peces')
-							->where('cnp=1')
 							->order($order)
 							->queryAll();
 			$count = count($resultados);

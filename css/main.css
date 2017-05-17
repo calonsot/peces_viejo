@@ -201,7 +201,7 @@ div.search-form {
 	margin-left: 3px;
 }
 
-.color_V\+ {
+.color_cnp_1 {
 	background: rgba(151, 173, 151, 1);
 	background: -moz-linear-gradient(top, rgba(151, 173, 151, 1) 0%,
 		rgba(0, 100, 0, 1) 100%);
@@ -255,7 +255,7 @@ div.search-form {
 		endColorstr='#f57936', GradientType=0);
 }
 
-.color_A- {
+.color_cnp_2 {
 	background: rgba(255, 241, 184, 1);
 	background: -moz-linear-gradient(top, rgba(255, 241, 184, 1) 0%,
 		rgba(255, 174, 41, 1) 100%);
@@ -273,7 +273,7 @@ div.search-form {
 		endColorstr='#ffae29', GradientType=0);
 }
 
-.color_R {
+.color_cnp_3 {
 	background: rgba(242, 131, 109, 1);
 	background: -moz-linear-gradient(top, rgba(242, 131, 109, 1) 0%,
 		rgba(122, 26, 7, 1) 100%);
@@ -291,7 +291,7 @@ div.search-form {
 		endColorstr='#7a1a07', GradientType=0);
 }
 
-.color_B {
+.color_cnp_0, .color_cnp_4 {
 	background: rgba(255, 255, 255, 1);
 	background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%,
 		rgba(221, 221, 221, 1) 100%);
