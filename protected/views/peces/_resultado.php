@@ -51,11 +51,11 @@ if (!isset($vacio))
 		for ($i=1;$i<7;$i++)
 		{
 			if ($pez['zona'.$i.'_valor'] == 2)
-				echo "<span class=\"color_estilo color_cnp_".$pez['zona'.$i.'_valor']."\"> +5 </span>";
+				echo "<span class=\"color_estilo color_cnp_".$pez['zona'.$i.'_valor']."\"></span>";
 			else if ($pez['zona'.$i.'_valor'] == 3)
-				echo "<span class=\"color_estilo color_cnp_".$pez['zona'.$i.'_valor']."\"> +20 </span>";
+				echo "<span class=\"color_estilo color_cnp_".$pez['zona'.$i.'_valor']."\"></span>";
 			else
-				echo "<span class=\"color_estilo color_cnp_".$pez['zona'.$i.'_valor']."\"> </span>";
+				echo "<span class=\"color_estilo color_cnp_".$pez['zona'.$i.'_valor']."\"></span>";
 		}
 		
 		echo "</div>"; // cierra  dat_

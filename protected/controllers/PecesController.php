@@ -163,9 +163,8 @@ class PecesController extends Controller
 		$select = 'id,nombre_comun,nombre_ingles,nombre_cientifico,presente_pacifico,presente_golfo,presente_caribe,nacional_importado_valor,
 arte_pesca,objetivo,incidental,deportiva,fomento,cultivada,talla_captura,grupo_conabio,generalidades,distribucion,
 zona1_valor,zona2_valor,zona3_valor,zona4_valor,zona5_valor,zona6_valor,CONCAT(zona1_valor,zona2_valor,zona3_valor,zona4_valor,zona5_valor,zona6_valor) AS zonas,imagen,tipo_imagen,
-zona1_peso+zona2_peso+zona3_peso+zona4_peso+zona5_peso+zona6_peso AS zonas_peso,
-nom,iucn,cites,nom_valor,iucn_valor,cites_valor,tipo_veda,tipo_veda_fecha,cnp,tipo_captura,tipo_captura_valor,
-nacional_importado_peso+tipo_captura_peso+nom_peso+iucn_peso+cites_peso+tipo_veda_peso+zona1_peso+zona2_peso+zona3_peso+zona4_peso+zona5_peso+zona6_peso AS peso';
+zona1_peso+zona2_peso+zona3_peso+zona4_peso+zona5_peso+zona6_peso AS zonas_peso,peso,
+nom,iucn,cites,nom_valor,iucn_valor,cites_valor,tipo_veda,tipo_veda_fecha,cnp,tipo_captura,tipo_captura_valor';
 		$order = 'peso ASC, cnp DESC, zonas_peso ASC, tipo_imagen ASC';
 		//$flag_ficha = false;
 		
@@ -203,6 +202,22 @@ nacional_importado_peso+tipo_captura_peso+nom_peso+iucn_peso+cites_peso+tipo_ved
 		
 		if (isset($params['selectiva']) && is_array($params['selectiva']) && count($params['selectiva']) > 0)
 			array_push($condiciones, "tipo_captura_valor IN (".implode(",", $params['selectiva']).")");
+		
+		if (isset($params['recomendacion']) && is_array($params['recomendacion']) && count($params['recomendacion']) > 0)
+		{
+			$condiciones_rec = array();
+			foreach ($params['recomendacion'] as $rec)
+			{
+				$rangos = explode("-", $rec);
+				if (count($rangos) == 1)
+					array_push($condiciones_rec, "peso=".$rangos[0]);
+				else if(count($rangos) == 2)
+					array_push($condiciones_rec, "peso BETWEEN ".$rangos[0]." AND ".$rangos[1]);
+			}
+			
+			array_push($condiciones, "(".implode(" OR ", $condiciones_rec).")");
+		}
+				
 						/*
 						//Las zonas varia de 1 a 6
 						if (isset($params['zona']) && ((Int)$params['zona'] > 0 && (Int)$params['zona'] < 7))
@@ -256,6 +271,7 @@ nacional_importado_peso+tipo_captura_peso+nom_peso+iucn_peso+cites_peso+tipo_ved
 							->where(implode(" AND ", $condiciones))
 							->order($order)
 							->queryAll();
+			
 			$count = count($resultados);
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
@@ -266,6 +282,7 @@ nacional_importado_peso+tipo_captura_peso+nom_peso+iucn_peso+cites_peso+tipo_ved
 							->from('peces')
 							->order($order)
 							->queryAll();
+			
 			$count = count($resultados);
 			$pages = new CPagination($count[0]["count"]);
 			$pages->setPageSize(50);
