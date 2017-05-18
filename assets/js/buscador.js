@@ -25,9 +25,8 @@ function MM_findObj(n, d)
 
 function MM_swapImage() 
 { //v3.0
-	//alert(1);
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+  if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
 
 function getParams(url){
@@ -53,11 +52,22 @@ function pone_opciones()
     		case 'grupo':	
     			$('#buscador_' + key).val(value);
     			break;
-    		case 'algo':
+    		case 'nacional_importado[]':
+    		case 'cat_riesgo[]':
+    		case 'veda[]':
+    		case 'selectiva[]':
+    		case 'recomendacion[]':	
+    			var div_id = '#' + key.replace('[]', '');
+    			var checkbox = $(div_id + " :input[value='"+ value +"']");
+    			checkbox.prop('checked', true);
+    			break;	
+    		case 'zonas[]':
+    			var div_id = '#' + key.replace('[]', '');
+    			var checkbox = $(div_id + " :input[value='"+ value +"']");
+    			checkbox.prop('checked', true);
+    			MM_swapImage('mapaz','',base_url + '/imagenes/aplicacion/zonas_pesqueras_mapa_' + value + '.jpg',1);
     			
     			break;
-    		default:
-    			
 	}
 	});
 	
@@ -270,10 +280,10 @@ $(document).ready(function(){
 		$('#buscador_'+$(this).attr('id')).prop('checked', true);
 
 		switch ($(this).attr('id').substring(4)) {
-		case '1':
-			$('#mapaz').attr('src', YII_PATH + "/imagenes/aplicacion/zonas_pesqueras_mapap_i.jpg");
-			break;
-		}
+			case '1':
+				$('#mapaz').attr('src', YII_PATH + "/imagenes/aplicacion/zonas_pesqueras_mapap_i.jpg");
+				break;
+			}
 		
 		if (window.location.pathname.indexOf('resultado') == -1){
 			var params = $('#buscador').serialize();
@@ -311,4 +321,5 @@ $(document).ready(function(){
 	});
 	
 	pone_opciones();
+	console.log(base_url);
 });
