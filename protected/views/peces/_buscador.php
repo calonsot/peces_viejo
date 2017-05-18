@@ -3,7 +3,7 @@
 <div id="buscar_des" class="c_buscador perspective">
 <?php 
 if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
-	echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/titulo.png", "Ficha", array("id" => "ficham")), Yii::app()->request->baseUrl); 
+	/*echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/titulo.png", "Ficha", array("id" => "ficham")), Yii::app()->request->baseUrl);*/ 
 ?>
 
 	<form name="buscador" id="buscador" method="get" action="<?php echo Yii::app()->request->baseUrl; ?>/index.php/peces/resultado">

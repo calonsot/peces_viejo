@@ -218,6 +218,15 @@ nom,iucn,cites,nom_valor,iucn_valor,cites_valor,tipo_veda,tipo_veda_fecha,cnp,ti
 			array_push($condiciones, "(".implode(" OR ", $condiciones_rec).")");
 		}
 				
+		if (isset($params['zonas']) && is_array($params['zonas']) && count($params['zonas']) > 0)
+		{
+			$condiciones_zonas = array();
+			foreach ($params['zonas'] as $num)
+				array_push($condiciones_zonas, "zona".$num."_valor > 0");
+			
+			array_push($condiciones, "(".implode(" OR ", $condiciones_zonas).")");
+		}
+		
 						/*
 						//Las zonas varia de 1 a 6
 						if (isset($params['zona']) && ((Int)$params['zona'] > 0 && (Int)$params['zona'] < 7))

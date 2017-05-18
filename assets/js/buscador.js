@@ -66,7 +66,6 @@ function pone_opciones()
     			var checkbox = $(div_id + " :input[value='"+ value +"']");
     			checkbox.prop('checked', true);
     			MM_swapImage('mapaz','',base_url + '/imagenes/aplicacion/zonas_pesqueras_mapa_' + value + '.jpg',1);
-    			
     			break;
 	}
 	});
