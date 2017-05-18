@@ -12,20 +12,13 @@ $(document).ready(function(){
 	});
 });
 </script>
-
-
-
    
-   
-
     <!--<button id="togglea_buscador_en_inicio" type="button">¡Utiliza nuestro buscador!</button>
     <div id="buscador_en_inicio">-->
     <?php $this->renderPartial('/peces/_buscador');?>
     <!--</div>-->
-    
-    
-    
-<div class="fila">
+      
+  <div class="fila">
   <article class="bloque1">
 
     <p class="text_important">¿Te has preguntado?</p>
@@ -449,36 +442,26 @@ $(document).ready(function(){
 							SEMARNAT 2010</strong></span>
 						</td>
 						<td max-width="100" bgcolor="#E3E1CE">
-	        		<span><strong>CITES</strong></span>
+	        		<span><strong>IUCN</strong></span>
 						</td>
 						<td max-width="100" bgcolor="#E3E1CE">
-							<span><strong>IUCN</strong></span>
+							<span><strong>CITES</strong></span>
 						</td>
 					</tr>
 					<?php $contador = 0; ?>
-					<?php foreach (PezEstadoConservacion::nom_cites_iucn() as $res) { ?>
+					<?php foreach (Peces::nom_cites_iucn() as $res) { ?>
 					<tr class="<?php echo $contador > 10 ? "faltantes" : "sobrantes"; ?>">
 						<td width="150" valign="bottom" nowrap bgcolor="#EBE9DB">
-							<span><?php echo $res["nombre"]; ?> </span>
+							<span><?php echo $res["nombre_comun"]." (".$res["nombre_cientifico"].")"; ?> </span>
 						</td>
 						<td width="100" valign="bottom" nowrap bgcolor="#EBE9DB">
-							<span><em>
-							<?php
-							if (array_key_exists("3", $res["cat_riesgo"]))
-								echo $res["cat_riesgo"]["3"]; 
-							?></em></span>
+							<span><?php echo $res["nom"]; ?></span>
 						</td>
 						<td width="100" valign="bottom" nowrap bgcolor="#EBE9DB">
-							<span><?php
-							if (array_key_exists("2", $res["cat_riesgo"]))
-								echo $res["cat_riesgo"]["2"]; 
-							?></span>
+							<span><?php echo $res["iucn"]; ?></span>
 						</td>
 						<td width="100" valign="bottom" nowrap bgcolor="#EBE9DB">
-							<span><?php
-							if (array_key_exists("1", $res["cat_riesgo"]))
-								echo $res["cat_riesgo"]["1"]; 
-							?></span>
+							<span><?php echo $res["cites"]; ?></span>
 						</td>
 					</tr>
 					<?php

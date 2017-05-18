@@ -2,11 +2,17 @@
 /* @var $this PecesController */
 /* @var $dataProvider CActiveDataProvider */
 
+$this->breadcrumbs=array(
+	'Peces',
+);
 
-
+$this->menu=array(
+	array('label'=>'Create Peces', 'url'=>array('create')),
+	array('label'=>'Manage Peces', 'url'=>array('admin')),
+);
 ?>
 
-<h3 style="font-family:verdana;color:#033B42;">Peces marinos comerciales</h3>
+<h1>Peces</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

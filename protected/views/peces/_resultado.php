@@ -6,164 +6,133 @@
 
 if (!isset($vacio))
 {
-	echo "<div class='resul'>Número de resultados: ".count($resultados)."</b></div>";
+	echo "<div class='resul'>Número de resultados: ".count($resultados)."</strong></div>";
 	?>
 
 <div id="vista_res">
 	<div class="view">
 	<?php 			
 		foreach ($resultados as $k => $pez) {
-		$pezobj = Peces::model()->findByPk($pez["especie_id"]);
+		//$pez = Peces::model()->findByPk($pez["especie_id"]);
 		
-		//echo "ID: ".$pezobj->especie_id."<br>";		
-		echo "<div id ='dresul_".$pezobj->especie_id."'class='dresul_all'>";
-		
-
+		//echo "ID: ".$pez->especie_id."<br>";		
+		echo "<div id ='dresul_".$pez['id']."'class='dresul_all'>";	
 		echo "<div class='dresul_view'>";
-		
-		
-		
 		echo "<div class='dresul_head'>";
-		//Parte de los datos principales	
-		if(!empty($pezobj->nombre_comun))
-		{
-			if (!empty($pezobj->nombre_ingles))
-				echo "<b>".($pezobj->nombre_comun).", ".($pezobj->nombre_ingles)."</b><br> <i>(".$pezobj->nombre_cientifico.")</i>";
-			else
-				echo "<b>".($pezobj->nombre_comun)."</b><br> <i>(".$pezobj->nombre_cientifico.")</i>";
-		} elseif (!empty($pezobj->nombre_ingles))
-			echo "<b>".($pezobj->ingles)."</b><br> <i>(".$pezobj->nombre_cientifico.")</i>";
-		else
-			echo $pezobj->nombre_cientifico;				
 		
+		// Parte de los nombres	
+		echo "<strong>".($pez['nombre_comun']).", ".($pez['nombre_ingles'])."</strong><br> <i>(".$pez['nombre_cientifico'].")</i>";
+		
+		// Parte del peso
+		echo "<br /><strong>".$pez['peso']."</strong>";
+						
 		echo "</div>"; //cierra dresul_head
 		
-
-
-		// Imagen de Importado
+		// Logo de Importado
 		echo "<div class='dimp'>";
-		if($pezobj->nacional_Importado == "Importado" || $pezobj->nacional_Importado == "Nacional e importado")
-			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/importado.png", "Importado", array("title"=>"Importado"));
+		if($pez['nacional_importado_valor'] == 1)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/importado.png", "Pez importado", array("title"=>"Importado"))." +20";
 		echo "</div>";
 		
+		echo "<div id='dat_".$pez['id']."'>";
 		
-		
-		//Cuando tiene datos en la zona
-		echo "<div id='dat_".$pezobj->especie_id."'>";
-		
-		
-		//Imagenes peces
+		// Imagenes peces
 		echo "<div class='dima'>";
-		if ($pezobj->tipo_imagen == 1)
-			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
-		elseif ($pezobj->tipo_imagen == 2)
-			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pezobj->imagen), $pezobj->nombre_cientifico, array('class'=>'ima'));
+		if ($pez['tipo_imagen'] == 1)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/".($pez['imagen']), $pez['nombre_comun'], array('class'=>'ima'));
+		elseif ($pez['tipo_imagen'] == 2)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/siluetas/".($pez['imagen']), $pez['nombre_comun'], array('class'=>'ima'));
 		echo "</div>";
 		
+		// Zonas de la CNP
+		echo '<span class="color_estilo bgcolor_pacifico bgcolor_zonas"></span>';
+		echo '<span class="color_estilo bgcolor_golfo bgcolor_zonas"></span><br />';
 		
-		if ($pezobj->recomendacion == 1 && !empty($pezobj->peso))
+		for ($i=1;$i<7;$i++)
 		{
-			$imagenes = $pezobj->peso_a_nombre_imagen();
-			echo '<span class="color_estilo bgcolor_pacifico bgcolor_zonas"></span>';
-			echo '<span class="color_estilo bgcolor_golfo bgcolor_zonas"></span><br />';
-			
-			foreach ($imagenes as $index => $imagen)
-				echo "<span class=\"color_estilo color_$imagen \"></span>";
+			if ($pez['zona'.$i.'_valor'] == 2)
+				echo "<span class=\"color_estilo color_cnp_".$pez['zona'.$i.'_valor']."\"></span>";
+			else if ($pez['zona'.$i.'_valor'] == 3)
+				echo "<span class=\"color_estilo color_cnp_".$pez['zona'.$i.'_valor']."\"></span>";
+			else
+				echo "<span class=\"color_estilo color_cnp_".$pez['zona'.$i.'_valor']."\"></span>";
 		}
+		
 		echo "</div>"; // cierra  dat_
-			
 		echo "</div>"; //cierra dresul_view
-		
-		echo "<div id ='dresul_body_".$pezobj->especie_id."'class='dresul_body' style='display:none'>";
-		
+		echo "<div id ='dresul_body_".$pez['id']."'class='dresul_body' style='display:none'>";
 
-		//Estados de conservacion
-		$estados_conservacion = array();
-		foreach($pezobj->estadoConservacions as $j)
-		{
-			if($j->Nivel1==1)
-				array_push($estados_conservacion, $j->nombre.CHtml::link(' (IUCN)', "http://www.biodiversidad.gob.mx/especies/catRiesMundo.html", array("style"=>"color:#584B05;font-size:10px;", "target" => "_blank")));
-				
-			if($j->Nivel1==2)
-				array_push($estados_conservacion, $j->nombre.CHtml::link(' (CITES)', "http://www.biodiversidad.gob.mx/planeta/cites/index.html", array("style"=>"color:#584B05;font-size:10px;", "target" => "_blank")));
-				
-			if($j->Nivel1==3)
-				array_push($estados_conservacion, ($j->nombre).CHtml::link(' (NOM)', "http://www.biodiversidad.gob.mx/especies/catRiesMexico.html", array("style"=>"color:#584B05;font-size:10px;", "target" => "_blank")));
-		}
-
+		// Categorias de riesgo
+		$cat_riesgo = array();
 		
-		
-		//Distribucion
-		$distribuciones = array();
-		foreach($pezobj->distribucions as $j)
-			array_push($distribuciones, ($j->Nombre));
-		if (!empty($estados_conservacion))
-			if(!empty($distribuciones))
-				echo "<b>Estado de conservaci&oacute;n:</b> ".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."<br><br><b>Distribuci&oacute;n en:</b> ".implode(', ', $distribuciones)."<br><br>";
-			else
-				echo "<b>Estado de conservaci&oacute;n:</b> ".implode(', ', $estados_conservacion)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."<br><br>";
-			else {
-				echo "<b>Distribuci&oacute;n en:</b> ".implode(', ', $distribuciones)."<br><br>";
-			}
-		
-		
+		if($pez['nom_valor'] == 1)
+			array_push($cat_riesgo, $pez['nom'].CHtml::link(' (NOM)', "http://www.biodiversidad.gob.mx/especies/catRiesMexico.html", array("style"=>"color:#584B05;font-size:10px;", "target" => "_blank"))." +20");		
+		if($pez['iucn_valor'] == 1)
+			array_push($cat_riesgo, $pez['iucn'].CHtml::link(' (IUCN)', "http://www.biodiversidad.gob.mx/especies/catRiesMundo.html", array("style"=>"color:#584B05;font-size:10px;", "target" => "_blank"))." +5");			
+		if($pez['cites_valor'] == 1)
+			array_push($cat_riesgo, $pez['cites'].CHtml::link(' (CITES)', "http://www.biodiversidad.gob.mx/planeta/cites/index.html", array("style"=>"color:#584B05;font-size:10px;", "target" => "_blank"))." +5");	
+		if (count($cat_riesgo) > 0)
+			echo "<strong>Categorias de riesgo:</strong> ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"estado_conservacion"))."<br />".implode('<br />', $cat_riesgo)."<br /><br />";
 			
-		//Tipo de pesca
-			echo "<b>Tipo de pesca:</b> ".$pezobj->selectiva_noselectiva." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca"))."<br><br>";
+		// Distribuciones
+		$distribuciones = array();
 		
+		if ($pez['presente_pacifico'] == 1)
+			array_push($distribuciones, 'Ocenano pacífico');
+		if ($pez['presente_golfo'] == 1)
+			array_push($distribuciones, 'Golfo de México');
+		if ($pez['presente_caribe'] == 1)
+			array_push($distribuciones, 'Mar y caribe');
+		if (count($distribuciones) > 0)
+			echo "<strong>Distribuci&oacute;n en:</strong> ".implode(', ', $distribuciones)."<br /><br />";	
+			
+		// Tipo de pesca
+		if ($pez['tipo_captura_valor'] == 1)
+			echo "<strong>Tipo de pesca:</strong> ".$pez['tipo_captura']." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca"))."<br /><br />";
+			else if  ($pez['tipo_captura_valor'] == 2)
+			echo "<strong>Tipo de pesca:</strong> ".$pez['tipo_captura']." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"tipo_pesca"))." +5 <br /><br />";
 		
-		
-		//Arte de pesca
-		if (!empty($pezobj->arte_pesca)) 
+		// Arte de pesca
+		if (!empty($pez['arte_pesca'])) 
+			echo "<strong>Arte de pesca:</strong> ".$pez['arte_pesca']." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."<br /><br />";			
+				
+		// Veda
+		if (!empty($pez['tipo_veda']))
 		{
-			if(!empty($pezobj->selectiva_noselectiva))
-				echo "<b>Arte de pesca:</b> ".($pezobj->arte_pesca)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."<br><br>";
+			if (!empty($pez['tipo_veda_fecha']))
+				echo "<strong>Veda:</strong> ".$pez['tipo_veda']." (".$pez['tipo_veda_fecha'].") ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))." +20 <br /><br />";
 			else
-				echo "<b>Arte de pesca:</b> ".$pezobj->arte_pesca." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"arte_de_pesca"))."<br><br>";			
-		} elseif (!empty($pezobj->selectiva_noselectiva));
-		
-		
-		
-		//Veda
-		if (!empty($pezobj->veda))
-		{
-			if (!empty($pezobj->tipoVeda->Nombre))
-				echo "<b>Veda:</b> ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."<br><br><b>Tipo de veda:</b> ".($pezobj->tipoVeda->Nombre)."<br><br>";
-			else
-				echo "<b>Veda:</b> ".($pezobj->veda)." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))."<br><br>";
-		} elseif (!empty($pezobj->tipoVeda->Nombre))		
-		//Tipo de veda
-			echo "<b>Tipo de veda:</b> ".($pezobj->tipoVeda->Nombre)."<br><br>";
-
-
-
-		//Capturas
-		$capturas = array();
-		foreach($pezobj->tipoCapturases as $j)
-			array_push($capturas, ($j->nombre));			
-		if (!empty($capturas))
-		{
-			if (!empty($pezobj->talla_captura))
-				echo "<b>Captura:</b> ".implode(', ', $capturas)."<br>Talla de captura ".($pezobj->talla_captura)." cm<br><br>";
-			else
-				echo "<b>Captura:</b> ".implode(', ', $capturas)."<br><br>";
-		} elseif (!empty($pezobj->talla_captura))
-			echo "Talla de captura ".($pezobj->talla_captura)." cm<br><br>";
-		
-		
-		
-		//Parte del grupo
-		if (!empty($pezobj->grupo->nombre)) {
-			echo "<b>Grupo:</b> ".($pezobj->grupo->nombre);
+				echo "<strong>Veda:</strong> ".$pez['tipo_veda']." ".CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/helptip.png", "Ayuda", array("class"=>"veda"))." +20 <br /><br />";
 		}
-		echo "<br><br>";
+
+		// Capturas
+		$capturas = array();
 		
+		if ($pez['objetivo'] == 1)
+			array_push($capturas, 'objetivo');
+		if ($pez['incidental'] == 1)
+			array_push($capturas, 'incidental');
+		if ($pez['deportiva'] == 1)
+			array_push($capturas, 'deportiva');
+		if ($pez['fomento'] == 1)
+			array_push($capturas, 'fomento');
+		if ($pez['cultivada'] == 1)
+			array_push($capturas, 'cultivada');
+		if (count($capturas) > 0)
+			echo "<strong>Tipo de captura:</strong> ".implode(', ', $capturas)."<br /><br />";
+				
+		// Talla captura
+		if (!empty($pez['talla captura']))
+			echo "Talla del pez: ".($pez['talla_captura'])." cm.<br /><br />";	
 		
+		// Grupo
+		if (!empty($pez['grupo_conabio']))
+			echo "<strong>Grupo:</strong> ".($pez['grupo_conabio'])."<br /><br />";
 		
 		//Generalidades
-		if (!empty($pezobj->generalidades))
-			echo "<b>Generalidades:</b> ".($pezobj->generalidades)."<br><br>";
-
+		if (!empty($pez['generalidades']))
+			echo "<strong>Generalidades:</strong> ".($pez['generalidades'])."<br /><br />";
+			
 		echo "</div>";  //cierra dresul_body_
 		echo "</div>";  //cierra dresul_all
 		?>
