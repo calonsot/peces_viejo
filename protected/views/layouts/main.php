@@ -7,6 +7,9 @@
 
 <head>
   <title>Peces comestibles</title>
+  <script type="text/javascript">
+  	var base_url = "<?php echo Yii::app()->request->baseUrl; ?>";
+  </script>
 
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
