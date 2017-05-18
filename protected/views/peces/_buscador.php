@@ -1,6 +1,7 @@
 <!-- BUSCADOR -->
 
-<div id="buscar_des" class="c_buscador perspective">
+<div class="c_buscador perspective">
+
 <?php 
 if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 	/*echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/titulo.png", "Ficha", array("id" => "ficham")), Yii::app()->request->baseUrl);*/ 
@@ -139,12 +140,12 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 				<span class="color_estilo bgcolor_pacifico bgcolor_zonas"></span>
 				<span class="color_estilo bgcolor_golfo bgcolor_zonas"></span>
 				<br />
-				<span class="color_estilo color_V+ "></span>
-				<span class="color_estilo color_V- "></span>
-				<span class="color_estilo color_A- "></span>
-				<span class="color_estilo color_A+ "></span>
-				<span class="color_estilo color_R "></span>
-				<span class="color_estilo color_B "></span>
+				<span class="color_estilo color_cnp_1 "></span>
+				<span class="color_estilo color_cnp_1 "></span>
+				<span class="color_estilo color_cnp_2 "></span>
+				<span class="color_estilo color_cnp_0 "></span>
+				<span class="color_estilo color_cnp_2 "></span>
+				<span class="color_estilo color_cnp_3 "></span>
 				
 				<span class="color_estilo color_pacifico"><strong><small>Zona I</small></strong></span>
 				<span class="color_estilo color_pacifico"><strong><small>Zona II</small></strong></span>

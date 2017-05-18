@@ -65,13 +65,15 @@ function pone_opciones()
     			var div_id = '#' + key.replace('[]', '');
     			var checkbox = $(div_id + " :input[value='"+ value +"']");
     			checkbox.prop('checked', true);
-    			MM_swapImage('mapaz','',base_url + '/imagenes/aplicacion/zonas_pesqueras_mapa_' + value + '.jpg',1);
+    			MM_swapImage('mapaz','',YII_PATH + '/imagenes/aplicacion/zonas_pesqueras_mapa_' + value + '.jpg',1);
     			break;
 	}
-	});
-	
-	//console.log(params);
-	
+	});	
+}
+
+function set_url() 
+{
+	window.history.pushState('page3', 'Peces comestibles', '/page3.php');
 }
 
 /*
@@ -274,15 +276,8 @@ $(document).ready(function(){
 	    });*/
 	});
 	
-	
 	$("[id^='zona']").on('click', function() {
 		$('#buscador_'+$(this).attr('id')).prop('checked', true);
-
-		switch ($(this).attr('id').substring(4)) {
-			case '1':
-				$('#mapaz').attr('src', YII_PATH + "/imagenes/aplicacion/zonas_pesqueras_mapap_i.jpg");
-				break;
-			}
 		
 		if (window.location.pathname.indexOf('resultado') == -1){
 			var params = $('#buscador').serialize();
@@ -320,5 +315,4 @@ $(document).ready(function(){
 	});
 	
 	pone_opciones();
-	console.log(base_url);
 });

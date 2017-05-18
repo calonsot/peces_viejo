@@ -25,6 +25,17 @@ if (!isset($vacio))
 		
 		// Parte del peso
 		echo "<br /><strong>".$pez['peso']."</strong>";
+		
+		if ($pez['peso'] == 0)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo recomendacion_pez color_V+"));
+		else if ($pez['peso'] == 5)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo recomendacion_pez color_V-"));
+		else if ($pez['peso'] >= 10 && $pez['peso'] <= 15)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo recomendacion_pez color_A-"));
+		else if ($pez['peso'] == 20)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo recomendacion_pez color_A+"));
+		else if ($pez['peso'] > 20)
+			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo recomendacion_pez color_R"));
 						
 		echo "</div>"; //cierra dresul_head
 		
