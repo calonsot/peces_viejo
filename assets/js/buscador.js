@@ -25,11 +25,58 @@ function MM_findObj(n, d)
 
 function MM_swapImage() 
 { //v3.0
-	//alert(1);
   var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+  if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
 }
 
+function getParams(url){
+    var regex = /[?&]([^=#]+)=([^&#]*)/g,
+        params = {},
+        match;
+    while(match = regex.exec(url)) {
+        params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]).replace(/\+/g," ");
+    }
+    return params;
+}
+
+function pone_opciones()
+{
+	var params = getParams(window.location.href);
+	
+	$.each( params, function( key, value ) {
+		if (value === "") return;
+	
+		switch(key) {
+    		case 'nombre_comun':
+    		case 'nombre_cientifico':	
+    		case 'grupo':	
+    			$('#buscador_' + key).val(value);
+    			break;
+    		case 'nacional_importado[]':
+    		case 'cat_riesgo[]':
+    		case 'veda[]':
+    		case 'selectiva[]':
+    		case 'recomendacion[]':	
+    			var div_id = '#' + key.replace('[]', '');
+    			var checkbox = $(div_id + " :input[value='"+ value +"']");
+    			checkbox.prop('checked', true);
+    			break;	
+    		case 'zonas[]':
+    			var div_id = '#' + key.replace('[]', '');
+    			var checkbox = $(div_id + " :input[value='"+ value +"']");
+    			checkbox.prop('checked', true);
+    			MM_swapImage('mapaz','',YII_PATH + '/imagenes/aplicacion/zonas_pesqueras_mapa_' + value + '.jpg',1);
+    			break;
+	}
+	});	
+}
+
+function set_url() 
+{
+	window.history.pushState('page3', 'Peces comestibles', '/page3.php');
+}
+
+/*
 function filtros(filtro, accion)
 {
 	var values = {};
@@ -184,7 +231,7 @@ function filtros(filtro, accion)
         data: values
     });
 }
-
+*/
 
 $(document).ready(function(){
 	//filtros($(this), 'leer');
@@ -214,9 +261,11 @@ $(document).ready(function(){
 	});
 	
 	$("#limpiar").on('click', function(){
+		window.location = YII_PATH + "/index.php/peces/resultado";
+		/*
 		jQuery.ajax({
 	        success: function(){
-	        	window.location = YII_PATH + "/index.php/peces/inicio";
+	        	window.location = YII_PATH + "/index.php/peces/resultado";
 	        },
 	        fail: function(){
 	            $('#notice').html('Hubo un error al cargar los filtros, por favor intentalo de nuevo.');
@@ -224,19 +273,11 @@ $(document).ready(function(){
 	        type:'POST',
 	        url:YII_PATH + '/index.php/peces/borrafiltros',
 	        cache:true
-	    });
+	    });*/
 	});
-	
 	
 	$("[id^='zona']").on('click', function() {
 		$('#buscador_'+$(this).attr('id')).prop('checked', true);
-
-		switch ($(this).attr('id').substring(4)) {
-		case '1':
-			console.log("pacifico 1");
-			$('#mapaz').attr('src', YII_PATH + "/imagenes/aplicacion/zonas_pesqueras_mapap_i.jpg");
-			break;
-		}
 		
 		if (window.location.pathname.indexOf('resultado') == -1){
 			var params = $('#buscador').serialize();
@@ -272,4 +313,6 @@ $(document).ready(function(){
             $("#dresul_"+id).addClass( "ver" );
         }
 	});
+	
+	pone_opciones();
 });

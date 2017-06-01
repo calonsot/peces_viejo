@@ -97,7 +97,7 @@
 
 <div class="fila_title">
   <div class="fila f1">
- 		<a href="" id="limpiar" class="b_verall"><h1>Peces marinos comerciales</h1></a>
+ 		<a href="<?php echo Yii::app()->request->baseUrl; ?>" class="b_verall"><h1>Peces marinos comerciales</h1></a>
   <div class="liner liner-dark"></div>
   </div>
 </div> 
