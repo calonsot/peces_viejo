@@ -4,7 +4,7 @@ body {
 	padding: 0;
 	background-color: #fff;
 	font-family: "freight-sans-pro";
-	font-size: 17px;
+	font-size: 15px;
 	color: #333;
 }
 
@@ -193,7 +193,7 @@ div.search-form {
 	width: 15%;
 	border: 0px solid #ccc;
 	display: inline-block;
-	height: 20px;
+	height: 15px;
 	margin-left: 1.45%;
 }
 

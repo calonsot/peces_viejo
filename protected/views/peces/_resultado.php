@@ -6,7 +6,7 @@
 
 if (!isset($vacio))
 {
-	echo "<div class='resul'>Número de resultados: ".count($resultados)."</strong></div>";
+	echo "<div class='resul'>Número de resultados: <span class='numero'>".count($resultados)."</span></div>";
 	?>
 
 <div id="vista_res">
@@ -24,7 +24,8 @@ if (!isset($vacio))
 		echo "<strong>".($pez['nombre_comun']).", ".($pez['nombre_ingles'])."</strong><br> <i>(".$pez['nombre_cientifico'].")</i>";
 		
 		// Parte del peso
-		echo "<br /><strong>".$pez['peso']."</strong>";
+		echo "<div class='peso_recomendacion'>";
+		echo "<span class='numpeso'>".$pez['peso']."</span>";
 		
 		if ($pez['peso'] == 0)
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo recomendacion_pez color_V+"));
@@ -36,7 +37,8 @@ if (!isset($vacio))
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo recomendacion_pez color_A+"));
 		else if ($pez['peso'] > 20)
 			echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo recomendacion_pez color_R"));
-						
+		echo "</div>";
+			
 		echo "</div>"; //cierra dresul_head
 		
 		// Logo de Importado

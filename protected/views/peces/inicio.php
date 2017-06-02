@@ -18,28 +18,37 @@ $(document).ready(function(){
     <?php $this->renderPartial('/peces/_buscador');?>
     <!--</div>-->
       
-  <div class="fila">
-  <article class="bloque1">
+<div class="fila2">
+	<article class="bloque1">
+	<table width="100%" border="0">
+		<tbody>
+		<tr>
+		  <td>
+		  <p class="text_important">¿Te has preguntado?</p>
+			<ul class="preguntas">
+			  <li>&iquest;Qu&eacute; especie est&aacute;s comprando?</li>
+			  <li>&iquest;De qu&eacute; lugar proviene?</li>
+			  <li>&iquest;Si es mexicana o importada?</li>
+			  <li>&iquest;C&oacute;mo fue capturada?</li>
+			  <li>&iquest;Si es de una pesquer&iacute;a legal?</li>
+			</ul>
+		  </td>
+		  <td>
+		  	<p class="text_frase">Recuerda, cuando compras un producto del mar lo que tú elijas y compres en los mercados<br>y supermercados tiene un efecto directo positivo o negativo en la biodiversidad marina.</p>
+			<p class="text_important">“Conociéndolos saben mejor”</p>
+			<br>
+			<p style="font-size:12px;">
+				* La información técnica de esta página web proviene de la <a href="http://www.inapesca.gob.mx/portal/documentos/publicaciones/CARTA%20NACIONAL%20PESQUERA/24082012%20SAGARPA.pdf" target="_blank">Carta Nacional Pesquera 2012</a>
+			</p>
+		  </td>
+		</tr>
+		</tbody>
+	</table>
+	</article>
 
-    <p class="text_important">¿Te has preguntado?</p>
-    <ul class="preguntas">
-      <li>&iquest;Qu&eacute; especie est&aacute;s comprando?</li>
-      <li>&iquest;De qu&eacute; lugar proviene?</li>
-      <li>&iquest;Si es mexicana o importada?</li>
-      <li>&iquest;C&oacute;mo fue capturada?</li>
-      <li>&iquest;Si es de una pesquer&iacute;a legal?</li>
-    </ul>
-  </article>
-  <article class="bloque2">
-    <p class="text_frase">Recuerda, cuando compras un producto del mar lo que tú elijas y compres en los mercados<br>y supermercados tiene un efecto directo positivo o negativo en la biodiversidad marina.</p>
-    <p class="text_important">“Conociéndolos saben mejor”</p>
-    <br><p style="font-size:12px;">
-    	* La información técnica de esta página web proviene de la Carta Nacional Pesquera 2012
-    	</p>
-  </article>
 </div>
 
-<div class="fila">
+<div class="fila2">
 	<article class="bloque3">
 
 			<div id="accordion">
@@ -90,15 +99,30 @@ $(document).ready(function(){
 							</tr>
 						</table>
 							
-						<p><span class="recomendacion_pez color_V+"><b>Muy recomendable:</b></span> Especies que no tienen mucha presión pesquera, no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</p>
+						<p>
+						<div class="recomendacion_pez color_V+ d30"><span>Muy recomendable<br>(0)</span></div>
+						<div class="d70">Especies que no tienen mucha presión pesquera, no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</div>
+						</p>
 
-						<p><span class="recomendacion_pez color_V-"><b>Recomendable:</b></span> Especies que tienen cierta presión pesquera, pero no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</p>
+						<p>
+						<div class="recomendacion_pez color_V- d30"><span>Recomendable</span></div> 
+						<div class="d70">Especies que tienen cierta presión pesquera, pero no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</div>
+						</p>
 
-						<p><span class="recomendacion_pez color_A-"><b>Poco recomendable:</b></span> Especies con presión pesquera alta, con veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen un poco vulnerables a la presión pesquera.</p>
+						<p>
+						<div class="recomendacion_pez color_A- d30"><span>Poco recomendable</span></div> 
+						<div class="d70">Especies con presión pesquera alta, con veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen un poco vulnerables a la presión pesquera.</div>
+						</p>
 
-						<p><span class="recomendacion_pez color_A+"><b>No recomendable:</b></span> Especies con gran presión pesquera, con alguna veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen vulnerables a la presión pesquera.</p>
+						<p>
+						<div class="recomendacion_pez color_A+ d30"><span>No recomendable</span></div> 
+						<div class="d70">Especies con gran presión pesquera, con alguna veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen vulnerables a la presión pesquera.</div>
+						</p>
 
-						<p><span class="recomendacion_pez color_R"><b>Evita:</b></span> Especies con poblaciones en deterioro a nivel pesquero, que están en una lista de especies en riesgo, tienen veda y muchas de ellas se encuentran en veda permanente. Sus características biológicas las hacen muy vulnerables a la presión pesquera.</p>
+						<p>
+						<div class="recomendacion_pez color_R d30"><span>Evita</span></div> 
+						<div class="d70">Especies con poblaciones en deterioro a nivel pesquero, que están en una lista de especies en riesgo, tienen veda y muchas de ellas se encuentran en veda permanente. Sus características biológicas las hacen muy vulnerables a la presión pesquera.</div>
+						</p>
 
 						
 						<p><b>Criterios del semáforo</b><br>
@@ -114,7 +138,7 @@ $(document).ready(function(){
 
 						<p><b>2. Estado de las poblaciones</b>
 						<blockquote>
-						En base a estudios científicos la Carta Nacional Pesquera agrupa en tres categorías a los peces que son aprovechados.<br><br>
+						En base a estudios científicos la <a href="http://www.inapesca.gob.mx/portal/documentos/publicaciones/CARTA%20NACIONAL%20PESQUERA/24082012%20SAGARPA.pdf" target="_blank">Carta Nacional Pesquera</a> agrupa en tres categorías a los peces que son aprovechados.<br><br>
 						<b>Con potencial de desarrollo:</b> (Valor = 0) Existe la posibilidad de aumentar las capturas de las poblaciones de peces, incrementando el esfuerzo pesquero, siempre y cuando se realice de manera precautoria y controlada.<br><br>
 						<b>Máximo aprovechamiento permisible:</b> (Valor = 5) El nivel de utilización de las poblaciones de peces se considera óptimo y ya no es posible aumentar la captura sin llevarla a la sobreexplotación.<br><br>
 						<b>En deterioro:</b> (Valor=10) El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminución notable en la abundancia (biomasa) y una capacidad reducida de incorporación a la población (reclutamiento).
@@ -123,7 +147,7 @@ $(document).ready(function(){
 
 						<p><b>3. Especies en riesgo</b>
 						<blockquote>
-						Existen convenios y normas de carácter nacional e internacional que regulan y protegen a las especies en riesgo. Para este semáforo se tomaron en cuenta las categorías incluidas en la Norma Oficial Mexicana de Especies en Riesgo (NOM-059-SEMARNAT-2010) y en la Lista Roja de la Unión Internacional para la Conservación de la Naturaleza (UICN 2016).<br><br>
+						Existen convenios y normas de carácter nacional e internacional que regulan y protegen a las especies en riesgo. Para este semáforo se tomaron en cuenta las categorías incluidas en la <a href="http://dof.gob.mx/nota_detalle.php?codigo=5173091&fecha=30/12/2010" target="_blank">Norma Oficial Mexicana de Especies en Riesgo</a> (NOM-059-SEMARNAT-2010) y en la <a href="http://www.iucnredlist.org/" target="_blank">Lista Roja de la Unión Internacional para la Conservación de la Naturaleza</a> (UICN 2016).<br><br>
 						<b>Especies fuera de las listas:</b> (Valor = 0)<br><br>
 						<b>Especies en alguna categoría:</b> (Valor = 5)
 						</blockquote>
@@ -131,7 +155,7 @@ $(document).ready(function(){
 
 						<p><b>4. Vedas</b>
 						<blockquote>
-						Las vedas consisten en prohibiciones de pesca durante periodos de tiempo o sitios específicos mediante acuerdos o normas oficiales. Tienen la finalidad de proteger a una o varias especies durante los periodos de reproducción o crianza (CONAPESCA).<br>
+						Las vedas consisten en prohibiciones de pesca durante periodos de tiempo o sitios específicos mediante acuerdos o normas oficiales. Tienen la finalidad de proteger a una o varias especies durante los periodos de reproducción o crianza (<a href="http://www.conapesca.gob.mx/work/sites/cona/dgop/VEDASVIGENTES170518.pdf" target="_blank">CONAPESCA</a>).<br>
 						Las vedas pueden ser:<br><br>
 						<b>Sin veda:</b> (Valor = 0)<br><br>
 						<b>Temporal fija:</b> (Valor = 1) Se establece en un periodo definido y se repite anualmente.<br><br>
@@ -141,7 +165,7 @@ $(document).ready(function(){
 
 						<p><b>5. Selectividad en la captura</b> 
 						<blockquote>
-						Las artes de pesca son los diferentes métodos de captura o técnicas con las que los peces son atrapados. El impacto de las artes de pesca en la biodiversidad marina es distinto.<br><br>
+						<a href="http://www.inapesca.gob.mx/portal/documentos/publicaciones/CARTA%20NACIONAL%20PESQUERA/24082012%20SAGARPA.pdf" target="_blank">Las artes de pesca</a> son los diferentes métodos de captura o técnicas con las que los peces son atrapados. El impacto de las artes de pesca en la biodiversidad marina es distinto.<br><br>
 						<b>Selectiva:</b> (Valor = 0) Se captura la especie objetivo de tamaño deseado y no es destructiva con el ecosistema.<br><br>
 						<b>No selectiva:</b> (Valor = 1) Se capturan diferentes especies y tamaños que no son el objetivo. Puede afectar a delfines, tortugas y aves, dañar el ambiente y destruir los ecosistemas marinos.
 						</blockquote>
@@ -528,7 +552,7 @@ $(document).ready(function(){
 				</div>
 
 				<h3 class="titblue">
-					Tipos de artes de pesca
+					Selectividad y artes de pesca
 				</h3>
 				<div>
 					<p>
@@ -687,36 +711,56 @@ $(document).ready(function(){
 				</div>
 
 			</div>
-			<br><br>
+			<br />
+			<br />
   </article>
 
   <article class="bloque4">
-  	<p class="titblue">
+	<p class="titblue">
 		Carteles
 		</p>
-		<p align="center" class="titblue2">Peces comerciales de M&eacute;xico: Oc&eacute;ano Pac&iacute;fico</p>
-		<a href="http://200.12.166.51/janium-bin/janium_zui.pl?jzd=/janium/Documentos/ETAPA06/AP/7390/7390.jzd&fn=7390" target="_blank"><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_pacifico.png" width="250" height="167" /></a>
-		<p align="center" class="titblue2"><strong>Peces comerciales de M&eacute;xico:<br>Golfo y Caribe</strong></p>
-		<a href="http://200.12.166.51/janium-bin/janium_zui.pl?jzd=/janium/Documentos/ETAPA06/AP/7389/7389.jzd&fn=7389" target="_blank"><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_golfo_web.png" width="250" height="167" /></a><br />
+		<table width="100%" border="0">
+		  <tbody>
+			<tr>
+			  <td width="50%" align="center" class="titblue2">Peces comerciales de M&eacute;xico: Oc&eacute;ano Pac&iacute;fico</td>
+			  <td width="50%" align="center" class="titblue2">Peces comerciales de M&eacute;xico: Golfo y Caribe</td>
+			</tr>
+			<tr>
+			  <td width="50%" align="center"><a href="http://200.12.166.51/janium-bin/janium_zui.pl?jzd=/janium/Documentos/ETAPA06/AP/7390/7390.jzd&fn=7390" target="_blank"><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_pacifico.png" width="250" height="167" /></a></td>
+			  <td width="50%" align="center"><a href="http://200.12.166.51/janium-bin/janium_zui.pl?jzd=/janium/Documentos/ETAPA06/AP/7389/7389.jzd&fn=7389" target="_blank"><img src="http://www.biodiversidad.gob.mx/usos/alimentacion/images/peces/cartel_peces_golfo_web.png" width="250" height="167" /></a></td>
+			</tr>
+			<tr>
+			  <td width="50%" align="center">&nbsp;</td>
+			  <td width="50%" align="center">&nbsp;</td>
+			</tr>
+		  </tbody>
+		</table>
+		
 		<div align="center" class="piefoto">Disponibles en nuestro <a href="http://www.biodiversidad.gob.mx/publicaciones/publicaciones.php" target="_blank">cat&aacute;logo de publicaciones</a></div>
 		  	
-    <br />
-    <hr>
-    <br />
 
     <p class="titblue">Videos&nbsp;&nbsp;&nbsp;</p>
-    	<iframe src="https://player.vimeo.com/video/177267769?title=0&byline=0&portrait=0" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        <p class="piefoto"><strong>N&uacute;meros Naturales - Agregaciones de Desove</strong>
-        </p>
-        
-        <iframe src="https://player.vimeo.com/video/177265355?title=0&byline=0&portrait=0" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-        <p class="piefoto"><strong>N&uacute;meros Naturales - Sardinas</strong><br/>
-			Descubre la historia que se esconde tras la pesquer&iacute;a de sardinas del Golfo de California.
-        </p>
-            
-		<br /><hr><br />
+    	<table width="100%" border="0">
+		  <tbody>
+			<tr>
+			  <td width="50%" align="center" class="titblue2">N&uacute;meros Naturales - Agregaciones de Desove</td>
+			  <td width="50%" align="center" class="titblue2">N&uacute;meros Naturales - Sardinas<br/>
+			Descubre la historia que se esconde tras la pesquer&iacute;a de sardinas del Golfo de California.</td>
+			</tr>
+			<tr>
+			  <td width="50%" align="center"><iframe src="https://player.vimeo.com/video/177267769?title=0&byline=0&portrait=0" width="80%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></td>
+			  <td width="50%" align="center"><iframe src="https://player.vimeo.com/video/177265355?title=0&byline=0&portrait=0" width="80%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></td>
+			</tr>
+			<tr>
+			  <td width="50%" align="center">&nbsp;</td>
+			  <td width="50%" align="center">&nbsp;</td>
+			</tr>
+		  </tbody>
+		</table>
+       
+       
             
 		<p class="titblue">Gu&iacute;as&nbsp;&nbsp;&nbsp;</p>
-    <span class="piefoto">(pr&oacute;ximamente)</span>
+    <span class="piefoto">(pr&oacute;ximamente)</span><br><br>
   </article>
 </div>

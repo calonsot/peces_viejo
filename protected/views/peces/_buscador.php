@@ -6,19 +6,24 @@
 if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 	/*echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/titulo.png", "Ficha", array("id" => "ficham")), Yii::app()->request->baseUrl);*/ 
 ?>
-
+	<center><b>Buscador</b></center>
+	
 	<form name="buscador" id="buscador" method="get" action="<?php echo Yii::app()->request->baseUrl; ?>/index.php/peces/resultado">
-		<div style="width: 100%; padding-bottom: 15px;">
+		<div>
 			<input type="text" name="nombre_comun" id="buscador_nombre_comun" placeholder="Nombre común">
 			<input type="text" name="nombre_cientifico" id="buscador_nombre_cientifico" placeholder="Nombre cient&iacute;fico">
-			<label for="select"></label> 
+			<label for="select"></label>
 			<?php echo CHtml::dropDownList('grupo', null, CHtml::listData(Peces::grupos_conabio(), 'grupo_conabio', 'grupo_conabio'), array('id'=>'buscador_grupo', 'prompt'=>'---Grupo---')); ?>
 		</div>
+		
+		<hr>
 
 		<div id="nacional_importado">
 			Nacional <input type="checkbox" name="nacional_importado[]" id="buscador_nac" value="0,2">
 			Importado <input type="checkbox" name="nacional_importado[]" id="buscador_imp" value="1,2">
 		</div>
+		
+		<hr>
 		
 		<div id="cat_riesgo">
 			NOM 059 <input type="checkbox" name="cat_riesgo[]" id="buscador_nom" value="nom">
@@ -26,60 +31,79 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			CITES <input type="checkbox" name="cat_riesgo[]" id="buscador_cites" value="cites">
 		</div>
 		
+		<hr>
+		
 		<div id="veda">
 			Sin veda <input type="checkbox" name="veda[]" id="buscador_sin_veda" value="0">
 			Con veda <input type="checkbox" name="veda[]" id="buscador_con_veda" value="1,2,3">
 		</div>
+		
+		<hr>
 		
 		<div id="selectiva">
 			Selectiva <input type="checkbox" name="selectiva[]" id="buscador_selectiva" value="1">
 			No selectiva <input type="checkbox" name="selectiva[]" id="buscador_no_selectiva" value="2">
 		</div>
 		
-		<div style="width: 100%;text-align: left;color: #4E4D49;">
+		<hr>
+		
+		<div id="botones">
+			<button type="button"><?php echo CHtml::link('Ver todos los peces', Yii::app()->request->baseUrl.'/index.php/peces/resultado', array("class"=>"b_verall")); ?></button>
+			<button type="button" id="limpiar" class="b_verall">Limpiar</button>
+			</div>
+			
+			
+	    <hr>
+		
+		<div>
 			<span>También puedes buscar los peces seleccionando su recomendación en el semáforo y/o zona pesquera:</span>
 		</div>
 	
-			<div id="recomendacion">
+		<div id="recomendacion">
 
 			<label  for="buscador_muy_recomendable" class="recomendacion_pez color_V+">
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
+
 			<input type="checkbox" name="recomendacion[]" value="0" id="buscador_muy_recomendable">
-				<hr />
-				<b>Muy recomendable (0)</b> 
-				</label>
-				
-				<label for="buscador_recomendable"class="recomendacion_pez color_V-">
+			<b>Muy recomendable <span class="numpeso">(0)</span></b> 
+
+			</label>
+
+			<label for="buscador_recomendable"class="recomendacion_pez color_V-">
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
+
 			<input type="checkbox" name="recomendacion[]" value="5" id="buscador_recomendable">
-				<hr /> <b>Recomendable (5)</b>
-				</label>
-				
-				<label for="buscador_poco_recomendable"class="recomendacion_pez color_A-">
+			<b>Recomendable <span class="numpeso">(5)</span></b>
+
+			</label>
+
+			<label for="buscador_poco_recomendable"class="recomendacion_pez color_A-">
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
+
 			<input type="checkbox" name="recomendacion[]" value="10-15"id="buscador_poco_recomendable">
-					<hr /> <b>Poco recomendable (10-15)</b>
-				</label> 
-				
-				<label for="buscador_no_recomendable"
-					class="recomendacion_pez color_A+">
+			<b>Poco recomendable <span class="numpeso">(10-15)</span></b>
+
+			</label>
+
+			<label for="buscador_no_recomendable"
+			class="recomendacion_pez color_A+">
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
+
 			<input type="checkbox" name="recomendacion[]" value="20" id="buscador_no_recomendable">
-					<hr /> <b>No recomendable (20)</b>
-				</label>
-				
-				<label for="buscador_evita"
-					class="recomendacion_pez color_R">
+			<b>No recomendable <span class="numpeso">(20)</span></b>
+
+			</label>
+
+			<label for="buscador_evita"
+			class="recomendacion_pez color_R">
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
+
 			<input type="checkbox" name="recomendacion[]" value="25-200" id="buscador_evita">
-					<hr /> <b>Evita (>20)</b>
-				</label>
-				
-				<div id="botones">
-					<button type="button"><?php echo CHtml::link('Ver todos los peces', Yii::app()->request->baseUrl.'/index.php/peces/resultado', array("class"=>"b_verall")); ?></button>
-					<button type="button" id="limpiar" class="b_verall">Limpiar</button>
-				</div>
-			</div>
+			<b>Evita <span class="numpeso">(>20)</span></b>
+
+			</label><br>
+
+		</div>
 
 			<div id="mapa">
 			
@@ -130,13 +154,16 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 					<input type="checkbox" name="zonas[]" value="6" id="buscador_zona6">
 				</div>
 			</div>
+			
+			<hr>
+			
+			
+		
+			<center><b>Ejemplo de división por zonas</b></center>
 			<div id="pez_explicado">
-			<div>
-				<strong>Ejemplo de división por zonas</strong>
-				<hr />
-				<div>
-					<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/EpinephelusStriatus.png", "Ejemplo de resultado", array('class'=>'ima')); ?>
-				</div>
+				<br>
+				<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/peces/EpinephelusStriatus.png", "Ejemplo de resultado", array('class'=>'ima')); ?>
+
 				<span class="color_estilo bgcolor_pacifico bgcolor_zonas"></span>
 				<span class="color_estilo bgcolor_golfo bgcolor_zonas"></span>
 				<br />
@@ -146,17 +173,17 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 				<span class="color_estilo color_cnp_0 "></span>
 				<span class="color_estilo color_cnp_2 "></span>
 				<span class="color_estilo color_cnp_3 "></span>
-				
-				<span class="color_estilo color_pacifico"><strong><small>Zona I</small></strong></span>
-				<span class="color_estilo color_pacifico"><strong><small>Zona II</small></strong></span>
-				<span class="color_estilo color_pacifico"><strong><small>Zona III</small></strong></span>
-				<span class="color_estilo color_golfo"><strong><small>Zona I</small></strong></span>
-				<span class="color_estilo color_golfo"><strong><small>Zona II</small></strong></span>
-				<span class="color_estilo color_golfo"><strong><small>Zona III</small></strong></span>
+
+				<span class="color_estilo color_pacifico"><small>Zona I</small></span>
+				<span class="color_estilo color_pacifico"><small>Zona II</small></span>
+				<span class="color_estilo color_pacifico"><small>Zona III</small></span>
+				<span class="color_estilo color_golfo"><small>Zona I</small></span>
+				<span class="color_estilo color_golfo"><small>Zona II</small></span>
+				<span class="color_estilo color_golfo"><small>Zona III</small></span>
 				<br />
-				<span class="color_estilo color_pacifico" style="width: 45%;"><strong>&#8627;Pacifico&#8626;</strong></span>
-				<span class="color_estilo color_golfo" style="width: 45%;"><strong>&#8627;Golfo y caribe&#8626;</strong></span>
-			</div>
+				<span class="color_estilo color_pacifico" style="width: 45%;">&#8627;Pacifico&#8626;</span>
+				<span class="color_estilo color_golfo" style="width: 45%;">&#8627;Golfo y caribe&#8626;</span>
+			
 			</div>
 		</div>
 		
