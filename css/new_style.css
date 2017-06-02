@@ -299,9 +299,15 @@ table {
 }
 
 .tabla_semaforo {
-	font-size: 16px !important;
+	font-size: 18px !important;
 	font-weight: bold;
 	text-align: center;
+	font-family: "acumin-pro-extra-condensed";
+	color: #6a4d1c;
+}
+
+.tabla_semaforo td {
+	    background-color: rgba(255,255,255,.3);
 }
 
 .sem {
@@ -321,11 +327,15 @@ table {
 }
 
 button {
+	font-family: "acumin-pro-extra-condensed";
+	font-size: 15px;
 	padding: 6px 18px;
 	text-decoration: none;
-	border: solid 1px rgba(204,204,204,.5);
+	/*border: solid 1px rgba(204,204,204,.5);*/
 	border-radius: 4px;
 }
+
+
 
 .c_izq {
 	padding: 27px;
@@ -357,9 +367,11 @@ button {
 .numpeso {
 	font-family: "acumin-pro-extra-condensed";
 	font-size: 20px;
-	vertical-align: super;
+	vertical-align: bottom;
+	line-height: 23px;
 	padding-right: 3px;
 	font-weight: bold;
+    color: #6a4d1c;
 }
 .otro_header {
 	display: none;
@@ -480,7 +492,7 @@ input[id="buscador_nombre_comun"]:focus, input[id="buscador_nombre_cientifico"]:
 }
 
 select, input[id="buscador_nombre_comun"] , input[id="buscador_nombre_cientifico"] {
-	height: 30px;
+	height: 20px;
 	padding: 4px 4px;
 	border: solid 1px rgba(204,204,204,.5);
 	border-radius: 4px;
@@ -490,6 +502,9 @@ select, input[id="buscador_nombre_comun"] , input[id="buscador_nombre_cientifico
 	margin-bottom: 8px;
 }
 
+select, input[id="buscador_grupo"] {
+	height: 28px;
+}
 
 select:hover{
 	outline: none;
@@ -510,20 +525,24 @@ input[type="checkbox"] + label span {
 .recomendacion_pez {
 	display: inline-block;
     border-radius: 4px;
-    font-size: 8px;
+	font-family: "acumin-pro-extra-condensed";
     text-align: center;
     margin-top: 6px;
 	width: 55px;
-	
-	height: 65px;
+	height: 73px;
 	vertical-align: top;	
 }
 
 .recomendacion_pez b {
 	background-color: rgba(255,255,255,.3);
+	font-size: 11px;
+	line-height: 10px;
+	color: #6a4d1c;
 	display: block;
-	padding: 5px;
+	padding: 3px;
+	padding-bottom: 13px;
 }
+
 	
 img.pez_circulo
 {
@@ -603,6 +622,29 @@ img.pez_circulo
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d8d7cb', endColorstr='#f9f8ed',GradientType=0 );
 }
 
+
+.d70 {
+	display: inline-block;
+    width: 70%;
+	padding-top: 15px;
+}
+
+.d30 {
+	display: inline-block;
+    width: 20%;
+    font-size: 20px;
+    margin-right: 10px;
+    line-height: 68px;
+	color: #6a4d1c;
+	background-color: rgba(255,255,255,.3);
+	font-weight: bold;
+}
+
+.d30 span {
+	background-color: rgba(255,255,255,.3);
+	display: block;
+    padding-bottom: 10px;
+}
 
 
 /* Nuevo header */

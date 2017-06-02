@@ -99,15 +99,30 @@ $(document).ready(function(){
 							</tr>
 						</table>
 							
-						<p><span class="recomendacion_pez color_V+"><b>Muy recomendable:</b></span> Especies que no tienen mucha presión pesquera, no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</p>
+						<p>
+						<div class="recomendacion_pez color_V+ d30"><span>Muy recomendable<br>(0)</span></div>
+						<div class="d70">Especies que no tienen mucha presión pesquera, no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</div>
+						</p>
 
-						<p><span class="recomendacion_pez color_V-"><b>Recomendable:</b></span> Especies que tienen cierta presión pesquera, pero no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</p>
+						<p>
+						<div class="recomendacion_pez color_V- d30"><span>Recomendable</span></div> 
+						<div class="d70">Especies que tienen cierta presión pesquera, pero no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</div>
+						</p>
 
-						<p><span class="recomendacion_pez color_A-"><b>Poco recomendable:</b></span> Especies con presión pesquera alta, con veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen un poco vulnerables a la presión pesquera.</p>
+						<p>
+						<div class="recomendacion_pez color_A- d30"><span>Poco recomendable</span></div> 
+						<div class="d70">Especies con presión pesquera alta, con veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen un poco vulnerables a la presión pesquera.</div>
+						</p>
 
-						<p><span class="recomendacion_pez color_A+"><b>No recomendable:</b></span> Especies con gran presión pesquera, con alguna veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen vulnerables a la presión pesquera.</p>
+						<p>
+						<div class="recomendacion_pez color_A+ d30"><span>No recomendable</span></div> 
+						<div class="d70">Especies con gran presión pesquera, con alguna veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen vulnerables a la presión pesquera.</div>
+						</p>
 
-						<p><span class="recomendacion_pez color_R"><b>Evita:</b></span> Especies con poblaciones en deterioro a nivel pesquero, que están en una lista de especies en riesgo, tienen veda y muchas de ellas se encuentran en veda permanente. Sus características biológicas las hacen muy vulnerables a la presión pesquera.</p>
+						<p>
+						<div class="recomendacion_pez color_R d30"><span>Evita</span></div> 
+						<div class="d70">Especies con poblaciones en deterioro a nivel pesquero, que están en una lista de especies en riesgo, tienen veda y muchas de ellas se encuentran en veda permanente. Sus características biológicas las hacen muy vulnerables a la presión pesquera.</div>
+						</p>
 
 						
 						<p><b>Criterios del semáforo</b><br>

@@ -65,7 +65,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
 
 			<input type="checkbox" name="recomendacion[]" value="0" id="buscador_muy_recomendable">
-			<b>Muy recomendable<br>(0)</b> 
+			<b>Muy recomendable <span class="numpeso">(0)</span></b> 
 
 			</label>
 
@@ -73,7 +73,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
 
 			<input type="checkbox" name="recomendacion[]" value="5" id="buscador_recomendable">
-			<b>Recomendable<br>(5)</b>
+			<b>Recomendable <span class="numpeso">(5)</span></b>
 
 			</label>
 
@@ -81,7 +81,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
 
 			<input type="checkbox" name="recomendacion[]" value="10-15"id="buscador_poco_recomendable">
-			<b>Poco recomendable<br>(10-15)</b>
+			<b>Poco recomendable <span class="numpeso">(10-15)</span></b>
 
 			</label>
 
@@ -90,7 +90,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
 
 			<input type="checkbox" name="recomendacion[]" value="20" id="buscador_no_recomendable">
-			<b>No recomendable<br>(20)</b>
+			<b>No recomendable <span class="numpeso">(20)</span></b>
 
 			</label>
 
@@ -99,7 +99,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
 
 			<input type="checkbox" name="recomendacion[]" value="25-200" id="buscador_evita">
-			<b>Evita<br>(>20)</b>
+			<b>Evita <span class="numpeso">(>20)</span></b>
 
 			</label><br>
 
