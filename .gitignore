@@ -1,5 +1,6 @@
 !assets/.gitignore
 !assets/js
+assets/
 protected/runtime/*.log
 !protected/runtime/.gitignore
 protected/data/*.db
