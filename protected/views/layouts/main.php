@@ -7,22 +7,23 @@
 
 <head>
   <title>Peces comestibles</title>
+  
+  <script src="https://use.typekit.net/shb5zji.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.qtip.min.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery-ui.css" />
-  <link href="http://www.biodiversidad.gob.mx/css/estilosgral.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/new_style.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/responsiveslides.css" />
-  <script src="https://use.typekit.net/shb5zji.js"></script>
-  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+  
 
   <script type="text/javascript">var YII_PATH = "<?php echo Yii::app()->request->baseUrl; ?>";</script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/jquery-1.9.1.min.js"></script>
-  <script type="text/javascript"	src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/buscador.js"></script>
-  <script type="text/javascript"	src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/jquery.qtip.min.js"></script>
+  <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/buscador.js"></script>
+  <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/jquery.qtip.min.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/jquery-ui.js"></script>
   <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/assets/js/new.js"></script>
   <script src="http://bdi.conabio.gob.mx/fotoweb/googleAnalytics.js"></script>

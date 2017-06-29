@@ -56,7 +56,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 	    <hr>
 		
 		<div>
-			<span>También puedes buscar los peces seleccionando su recomendación en el semáforo y/o zona pesquera:</span>
+			<span>También puedes buscar los peces seleccionando su recomendación en el semáforo y/o zona pesquera:<br><br></span>
 		</div>
 	
 		<div id="recomendacion">
@@ -65,7 +65,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
 
 			<input type="checkbox" name="recomendacion[]" value="0" id="buscador_muy_recomendable">
-			<b>Muy recomendable <span class="numpeso">(0)</span></b> 
+			<b>Muy recomendable (0)</b> 
 
 			</label>
 
@@ -73,7 +73,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
 
 			<input type="checkbox" name="recomendacion[]" value="5" id="buscador_recomendable">
-			<b>Recomendable <span class="numpeso">(5)</span></b>
+			<b>Recomendable (5)</b>
 
 			</label>
 
@@ -81,7 +81,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
 
 			<input type="checkbox" name="recomendacion[]" value="10-15"id="buscador_poco_recomendable">
-			<b>Poco recomendable <span class="numpeso">(10-15)</span></b>
+			<b>Poco recomendable (10-15)</b>
 
 			</label>
 
@@ -90,7 +90,7 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
 
 			<input type="checkbox" name="recomendacion[]" value="20" id="buscador_no_recomendable">
-			<b>No recomendable <span class="numpeso">(20)</span></b>
+			<b>No recomendable (20)</b>
 
 			</label>
 
@@ -99,9 +99,9 @@ if (strrpos($_SERVER['REQUEST_URI'], 'resultado'))
 			<?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/pez.png", "Pez", array('class' => "pez_circulo")); ?>
 
 			<input type="checkbox" name="recomendacion[]" value="25-200" id="buscador_evita">
-			<b>Evita <span class="numpeso">(>20)</span></b>
+			<b>Evita (>20)</b>
 
-			</label><br>
+			</label>
 
 		</div>
 

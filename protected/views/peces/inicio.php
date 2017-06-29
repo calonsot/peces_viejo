@@ -23,7 +23,7 @@ $(document).ready(function(){
 	<table width="100%" border="0">
 		<tbody>
 		<tr>
-		  <td>
+		  <td width="30%" rowspan="2" valign="top">
 		  <p class="text_important">¿Te has preguntado?</p>
 			<ul class="preguntas">
 			  <li>&iquest;Qu&eacute; especie est&aacute;s comprando?</li>
@@ -33,15 +33,23 @@ $(document).ready(function(){
 			  <li>&iquest;Si es de una pesquer&iacute;a legal?</li>
 			</ul>
 		  </td>
-		  <td>
-		  	<p class="text_frase">Recuerda, cuando compras un producto del mar lo que tú elijas y compres en los mercados<br>y supermercados tiene un efecto directo positivo o negativo en la biodiversidad marina.</p>
-			<p class="text_important">“Conociéndolos saben mejor”</p>
-			<br>
-			<p style="font-size:12px;">
-				* La información técnica de esta página web proviene de la <a href="http://www.inapesca.gob.mx/portal/documentos/publicaciones/CARTA%20NACIONAL%20PESQUERA/24082012%20SAGARPA.pdf" target="_blank">Carta Nacional Pesquera 2012</a>
-			</p>
-		  </td>
+		  <td width="70%" colspan="2">
+		  	<p class="text_frase">Recuerda, cuando compras un producto del mar lo que tú elijas y compres en los mercados y supermercados tiene un efecto directo positivo o negativo en la biodiversidad marina.</p></td>
 		</tr>
+		<tr>
+		  <td>
+		  	<span class="text_important">“Conociéndolos saben mejor”</span>
+			<br><br>
+			<span style="font-size:12px;">
+				* La información técnica de esta página web proviene de la <a href="http://www.inapesca.gob.mx/portal/documentos/publicaciones/CARTA%20NACIONAL%20PESQUERA/24082012%20SAGARPA.pdf" target="_blank">Carta Nacional Pesquera 2012</a>
+			</span>
+		  </td>
+		  <td align="center">
+		  	Con la colaboración de<br><br>
+          <a href="http://cobi.org.mx" target="_blank"><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/logo-cobi-hd.png");?></a>
+          
+          </td>
+		  </tr>
 		</tbody>
 	</table>
 	</article>
@@ -57,13 +65,128 @@ $(document).ready(function(){
 					Acerca de esta página
 				</h3>
 				<div>
-					<p>
-						Esta página tiene el propósito de orientar a los usuarios sobre el consumo responsable de los peces marinos de México, intentando reducir la presión pesquera sobre las especies con mayor demanda en los mercados y ayudando a diversificar los hábitos de consumo.<br><br>
-						La página contiene la información de 475 especies de peces. Para la mitad de las especies (244) existe información que nos permite incluirlas en un semáforo de consumo responsable.<br><br>
-						Cada especie tiene una ficha que incluye el nombre común y científico, una ilustración (si es de gran importancia comercial) o silueta de la especie, su distribución, el tipo de pesca, el arte de captura, talla de captura, descripción general de la especie, alimentación, nivel trófico, resiliencia, vulnerabilidad, color dentro del semáforo de consumo responsable (en su caso), si la especie está dentro de una veda, temporada de la veda, si la especie se encuentra dentro de alguna lista de especies en peligro.
+					<p>Esta página tiene el propósito de orientar a los usuarios sobre el consumo responsable de los peces marinos de México, intentando reducir la presión pesquera sobre las especies con mayor demanda en los mercados y ayudando a diversificar los hábitos de consumo.</p>
+					
+					<p>Sin embargo, no existe información detallada sobre el estado de las pesquerías en México. Por lo que hemos reunido la información disponible que nos puede ayudar a tomar decisiones.  A medida que la información mejore, la página se irá actualizando.</p>
+
+					<p>La página contiene la información de <strong>475</strong> especies de peces marinos comerciales. Para la mitad de las especies (<strong>244</strong>) existe información que nos permite tener una orientación e incluirlas en un semáforo de consumo responsable (Carta Nacional Pesquera, Norma Mexicana Oficial 059, IUCN 2016).</p>
+
+					<p>Cada especie tiene una ficha que incluye el nombre común y científico, una ilustración (si es de gran importancia comercial) o silueta de la especie, su distribución, el tipo de pesca, el arte de captura, talla de captura, descripción general de la especie, alimentación, nivel trófico, resiliencia, vulnerabilidad, color dentro del semáforo de consumo responsable (en su caso), si la especie está dentro de una veda, temporada de la veda, si la especie se encuentra dentro de alguna lista de especies en peligro.</p>
+
 
 					</p>
 				</div>
+				
+				<h3 class="titblue">
+					Sustentabilidad pesquera
+				</h3>
+				<div>
+					<p>Entre las organizaciones interesadas en promover las pesquerías sustentables han acordado la necesidad de evaluar cuatro criterios (<a href="http://cobi.org.mx/" target="_blank">Comunidad y Biodiversidad 2017</a>).</p>
+
+					<p>
+					<b>1. La salud de la población de peces</b><br>
+					La salud de la población se conoce por la abundancia y tendencia de la población que depende del balance entre cuantos nacen y cuantos mueren, entre cuantos llegan y cuantos se van (migraciones).  Cuando una población disminuye quiere decir que la estamos afectando, mientras que si su población se mantiene o aumenta, quiere decir que se encuentra en buenas condiciones o en recuperación.
+					</p> 
+
+					<p>
+					<b>Dentro de este criterio es importante</b><br>
+					
+					<blockquote>
+					<b>a. </b>Evaluar la población. Para conocer la salud de la población es necesario evaluarla (evaluación del stock) con índices dependientes e independientes de la pesquería.<br>
+					<b>b. </b>Seleccionar e implementar los instrumentos de manejo pesquero como cuotas, reservas marinas, vedas, tallas mínimas, esfuerzo pesquero.<br>
+					<b>c. </b>Evaluar la acción de los instrumentos de manejo pesquero.<br>
+					<b>d. </b>Adaptar las medidas de acuerdo con los resultados obtenidos.
+					</blockquote>
+					</p>
+
+					<p>
+					<b>2.	La salud del ecosistema</b><br>
+					La salud del ecosistema se conoce por su composición, estructura y funcionamiento.  La pesca puede tener impacto sobre terceros.
+					</p>
+
+					<p>
+					<b>Dentro de este criterio es importante</b><br>
+					<blockquote>
+					<b>a. </b>Conocer el impacto de la pesca en la red trófica, particularmente en las especies protegidas  y en el hábitat. Además es importante conocer los efectos indirectos de remover la biomasa del ecosistema.<br>
+					<b>b. </b>Definir e implementar estrategias para reducir los impactos.<br>
+					<b>c. </b>Evaluar los resultados de las estrategias.<br>
+					<b>d. </b>Adaptar las estrategias de acuerdo con los resultados obtenidos.
+					</blockquote>
+					</p>
+
+					<p>
+					<p><b>3.	El manejo de la pesquería</b><br>
+					El manejo de la pesquería debe ser confiable y basado en</p> 
+
+					<blockquote>
+					<b>a. </b>Planes o reglas formales e informales de manejo con objetivos de corto, mediano y largo plazo y puntos de referencia.<br>
+					<b>b. </b>Establecimiento de un grupo que opera el plan o las reglas de manejo.<br>
+					<b>c. </b>Transparencia en la toma de decisiones.<br>
+					<b>d. </b>Difusión de la información y decisiones.</blockquote>
+					</p>
+
+					<p>
+					<b>4.	La gobernanza en los involucrados </b><br>
+					La gobernanza varios aspectos sociales entre ellos:<br>
+					<blockquote>
+					<b>a. </b>Los derechos de acceso, como permisos, demarcación del área (polígono) de aprovechamiento, concesiones.<br>
+					<b>b. </b>Salud ocupacional que incluye el cumplimiento de los requisitos de Capitanía de Puerto, y prestaciones de salud<br>
+					<b>c. </b>Precios justos<br>
+					<b>d. </b>Acceso a compradores y mercados que incentivan la pesca responsable<br>
+					<b>e. </b>Certificación de la pesquería.
+					</blockquote>
+					</p>
+
+					<p>En México, muy pocas pesquerías tienen información sobre estos criterios.<br>
+					Diversos estudios e investigadores indican que las poblaciones de cerca de <b>500</b> especies de peces comerciales actualmente se encuentran en las siguientes condiciones:</p>
+
+					</p>
+					<table border="0" cellpadding="1" cellspacing="1" class="txt_peces">
+				<tr>
+					<td bgcolor="#E3E1CE"><span>
+					</span>					<span>sobreexplotadas:
+							20% </span>
+					</td>
+					<td width="18" bgcolor="#E3E1CE"><span>
+					</span>
+					</td>
+					<td bgcolor="#E3E1CE"><span> en
+							aprovechamiento m&aacute;ximo: 70% </span>
+					</td>
+					<td width="18" bgcolor="#E3E1CE"><span>
+					</span>
+					</td>
+					<td bgcolor="#E3E1CE"><span>en
+							desarrollo: 10% </span>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="5" bgcolor="#D9D6C4"><span><span
+							class="piefoto">(Arregu&iacute;n &amp; Arcos 2011)</span>
+					</span>
+					</td>
+				</tr>
+					</table>
+					
+					<p><b>Criterios de los Certificados Internacionales</b></p>
+					
+					<ul>
+						<li>
+							<a href="https://www.msc.org/acerca-del-msc/estandares/estandares/estandar-msc-para-la-pesca-sostenible" target="_blank">Marine Stewardship Council (MSC)</a>
+						</li>
+						<li>
+						<a href="https://www.seafoodwatch.org/-/m/sfw/pdf/criteria/mba_seafood%20watch_fisheries%20standard_version%20f3.2.pdf?la=en" target="_blank">Monterey Bay Aquarium – Seafood Watch Program(MBA)</a>
+						</li>
+						<li>
+						<a href="http://fairtradeusa.org/sites/all/files/wysiwyg/filemanager/standards/spanish/FTUSA_standards_principles_SP_022713.pdf " target="_blank">Fair Trade USA</a>
+						</li>
+					</ul>
+					
+					  
+					
+					
+				</div>
+
 				
 				<h3 class="titblue">
 					Acerca del semáforo
@@ -100,27 +223,27 @@ $(document).ready(function(){
 						</table>
 							
 						<p>
-						<div class="recomendacion_pez color_V+ d30"><span>Muy recomendable<br>(0)</span></div>
+						<div class="recomendacion_pez color_V+ d30"><span>&nbsp;&nbsp;&nbsp;Muy recomendable</span></div>
 						<div class="d70">Especies que no tienen mucha presión pesquera, no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</div>
 						</p>
 
 						<p>
-						<div class="recomendacion_pez color_V- d30"><span>Recomendable</span></div> 
+						<div class="recomendacion_pez color_V- d30"><span>&nbsp;&nbsp;&nbsp;Recomendable</span></div> 
 						<div class="d70">Especies que tienen cierta presión pesquera, pero no tienen veda, no se encuentran dentro de ninguna lista de especies en riesgo. Sus características biológicas les ayudan a tolerar la presión pesquera.</div>
 						</p>
 
 						<p>
-						<div class="recomendacion_pez color_A- d30"><span>Poco recomendable</span></div> 
+						<div class="recomendacion_pez color_A- d30"><span>&nbsp;&nbsp;&nbsp;Poco recomendable</span></div> 
 						<div class="d70">Especies con presión pesquera alta, con veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen un poco vulnerables a la presión pesquera.</div>
 						</p>
 
 						<p>
-						<div class="recomendacion_pez color_A+ d30"><span>No recomendable</span></div> 
+						<div class="recomendacion_pez color_A+ d30"><span>&nbsp;&nbsp;&nbsp;No recomendable</span></div> 
 						<div class="d70">Especies con gran presión pesquera, con alguna veda, y/o que están dentro de alguna lista de especies en riesgo. Sus características biológicas las hacen vulnerables a la presión pesquera.</div>
 						</p>
 
 						<p>
-						<div class="recomendacion_pez color_R d30"><span>Evita</span></div> 
+						<div class="recomendacion_pez color_R d30"><span>&nbsp;&nbsp;&nbsp;Evita</span></div> 
 						<div class="d70">Especies con poblaciones en deterioro a nivel pesquero, que están en una lista de especies en riesgo, tienen veda y muchas de ellas se encuentran en veda permanente. Sus características biológicas las hacen muy vulnerables a la presión pesquera.</div>
 						</p>
 
@@ -383,9 +506,9 @@ $(document).ready(function(){
 						En base a estudios cient&iacute;ficos la carta agrupa en tres categor&iacute;as a los grupos de peces explotados:
 					<p>
 					<p>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> En deterioro:</strong> El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminuci&oacute;n notable en la biomasa y una capacidad reducida de reclutamiento.<br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> M&aacute;ximo aprovechamiento permisible:</strong> El nivel de utilizaci&oacute;n de las poblaciones de peces se considera &oacute;ptimo y no es posible aumentar la captura sin sobreexplotaci&oacute;n.<br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Con potencial de desarrollo:</strong> Existe la posibilidad de aumentar las capturas de las poblaciones de peces, incrementando el esfuerzo pesquero, siempre y cuando se realice de manera precautoria y controlada.
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> En deterioro:</strong> El esfuerzo pesquero es excesivo sobre las poblaciones de peces. Existe una disminuci&oacute;n notable en la biomasa y una capacidad reducida de reclutamiento.<br>
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> M&aacute;ximo aprovechamiento permisible:</strong> El nivel de utilizaci&oacute;n de las poblaciones de peces se considera &oacute;ptimo y no es posible aumentar la captura sin sobreexplotaci&oacute;n.<br>
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Con potencial de desarrollo:</strong> Existe la posibilidad de aumentar las capturas de las poblaciones de peces, incrementando el esfuerzo pesquero, siempre y cuando se realice de manera precautoria y controlada.
 					</p>
 					<p>
 						De acuerdo a los sitios de pesca de cada especie, la carta nacional ha regionalizado los sitios de acuerdo a zonas y n&uacute;meros:
@@ -394,55 +517,21 @@ $(document).ready(function(){
 						<strong>Pac&iacute;fico</strong>
 					</p>
 					<p>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 1:</strong> Pen&iacute;nsula de Baja California (Costa del Pac&iacute;fico de Baja California y Baja California Norte<br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 2:</strong> Golfo de California (Baja California, Baja California Sur, Sonora, Sinaloa, Nayarit)<br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 3:</strong> Pac&iacute;fico centro-sur (Jalisco, Colima, Michoac&aacute;n, Guerrero, Oaxaca, Chiapas)<br>
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Zona 1:</strong> Pen&iacute;nsula de Baja California (Costa del Pac&iacute;fico de Baja California y Baja California Norte<br>
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Zona 2:</strong> Golfo de California (Baja California, Baja California Sur, Sonora, Sinaloa, Nayarit)<br>
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Zona 3:</strong> Pac&iacute;fico centro-sur (Jalisco, Colima, Michoac&aacute;n, Guerrero, Oaxaca, Chiapas)<br>
 					</p>
 					<p>
 						<strong>Golfo de M&eacute;xico y Caribe</strong>
 					</p>
 					<p>
-					<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 1:</strong> Tamaulipas y Veracruz<br>
-					<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 2:</strong> Tabasco, Campeche y Yucat&aacute;n<br>
-					<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Zona 3:</strong> Quintana Roo				
+					<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Zona 1:</strong> Tamaulipas y Veracruz<br>
+					<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Zona 2:</strong> Tabasco, Campeche y Yucat&aacute;n<br>
+					<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Zona 3:</strong> Quintana Roo				
 					</p>
 				</div>
 				
-				<h3 class="titblue">
-					Sustentabilidad pesquera
-				</h3>
-				<div>
-					<p>
-						Diversos estudios e investigadores indican que las poblaciones de cerca de 500 especies de peces comerciales actualmente se encuentran en las siguientes condiciones:
-					</p>
-					<table border="0" cellpadding="1" cellspacing="1" class="txt_peces">
-				<tr>
-					<td bgcolor="#E3E1CE"><span>
-					</span>					<span>sobreexplotadas:
-							20% </span>
-					</td>
-					<td width="18" bgcolor="#E3E1CE"><span>
-					</span>
-					</td>
-					<td bgcolor="#E3E1CE"><span> en
-							aprovechamiento m&aacute;ximo: 70% </span>
-					</td>
-					<td width="18" bgcolor="#E3E1CE"><span>
-					</span>
-					</td>
-					<td bgcolor="#E3E1CE"><span>en
-							desarrollo: 10% </span>
-					</td>
-				</tr>
-				<tr>
-					<td colspan="5" bgcolor="#D9D6C4"><span><span
-							class="piefoto">(Arregu&iacute;n &amp; Arcos 2011)</span>
-					</span>
-					</td>
-				</tr>
-					</table>
-				</div>
-
+				
 				<h3 class="titblue">
 					Peces comerciales en riesgo
 				</h3>
@@ -451,9 +540,9 @@ $(document).ready(function(){
 						Adem&aacute;s de La Carta Nacional Pesquera y sus regulaciones, existen otros convenios y normas de car&aacute;cter nacional e internacional, estas regulan y protegen a especies en riesgo. Entre ellas est&aacute;n:
 					</p>
 					<p>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> La Norma Mexicana de Especies en Riesgo</strong> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMexico.html" target="_blank" style="color: #323D2C">NOM-059-SEMARNAT-2010</a>), y contiene dentro de sus categorias a <strong>4</strong> peces de importancia comercial.<br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> La Convenci&oacute;n Internacional sobre el Comercio de Especies Amenazadas de Fauna y Flora</strong> (<a href="http://www.biodiversidad.gob.mx/planeta/cites/index.html" target="_blank" style="color: #323D2C">CITES</a>) incluye <strong>5</strong> especies de peces de importancia comercial.<br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> La lista roja de la Uni&oacute;n Internacional para la Conservaci&oacute;n de la Naturaleza</strong> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html" target="_blank" style="color: #323D2C">IUCN</a>), tiene a <strong>64</strong> especies de peces en las categor&iacute;as de mayor riesgo.
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> La Norma Mexicana de Especies en Riesgo</strong> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMexico.html" target="_blank" style="color: #323D2C">NOM-059-SEMARNAT-2010</a>), y contiene dentro de sus categorias a <strong>4</strong> peces de importancia comercial.<br>
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> La Convenci&oacute;n Internacional sobre el Comercio de Especies Amenazadas de Fauna y Flora</strong> (<a href="http://www.biodiversidad.gob.mx/planeta/cites/index.html" target="_blank" style="color: #323D2C">CITES</a>) incluye <strong>5</strong> especies de peces de importancia comercial.<br>
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> La lista roja de la Uni&oacute;n Internacional para la Conservaci&oacute;n de la Naturaleza</strong> (<a href="http://www.biodiversidad.gob.mx/especies/catRiesMundo.html" target="_blank" style="color: #323D2C">IUCN</a>), tiene a <strong>64</strong> especies de peces en las categor&iacute;as de mayor riesgo.
 					</p>
 
 					<table width="600" border="0" align="center" cellpadding="3" cellspacing="1" class="txt_peces tp">
@@ -511,35 +600,35 @@ $(document).ready(function(){
 					</p>
 					<p>
 						<strong>Tipos de veda en M&eacute;xico:</strong><br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Veda permanente:</strong> La especie no puede ser explotada en ningún momento del a&ntilde;o de forma indefinida.<br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Veda temporal fija:</strong> Se establece en un periodo definido y se repite anualmente.<br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Veda temporal variable:</strong> Se establece por un periodo definido pero es actualizada anualmente.
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Veda permanente:</strong> La especie no puede ser explotada en ningún momento del a&ntilde;o de forma indefinida.<br>
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Veda temporal fija:</strong> Se establece en un periodo definido y se repite anualmente.<br>
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Veda temporal variable:</strong> Se establece por un periodo definido pero es actualizada anualmente.
 					</p>
 				</div>
 
 				
 
 				<h3 class="titblue">
-					Artes de pesca
+					Artes de pesca y selectividad
 				</h3>
 				<div>
 					<p>
 						Las artes de pesca son los diferentes métodos de captura o técnicas con las que los peces son atrapados. Existen 4 tipos principales de arte y de cada uno de ellos tienen variables y combinaciones diferentes:
 					</p>
 					<p>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> L&iacute;neas:</strong> Este arte consiste en un hilo con un anzuelo con carnada en su punta final. Existen variantes de la l&iacute;nea como: l&iacute;nea de anzuelo, l&iacute;nea
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> L&iacute;neas:</strong> Este arte consiste en un hilo con un anzuelo con carnada en su punta final. Existen variantes de la l&iacute;nea como: l&iacute;nea de anzuelo, l&iacute;nea
 						cabrillera de fondo, l&iacute;nea de mano, troleado y carpiota o
 						pollito.<br><br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Palangres: </strong>Es una cuerda larga con
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Palangres: </strong>Es una cuerda larga con
 						varios anzuelos con carnada sujetados a ciertos intervalos. Existen
 						diferentes tipos de palangres como palangres escameros, palangre
 						tiburonero, palangre viajero de fondo, rosario o ristra, dependiendo
 						de las especies &ldquo;objetivo&rdquo;.<br><br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Redes: </strong>Las redes son mallas construida de hilos finos. Los peces quedan
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Redes: </strong>Las redes son mallas construida de hilos finos. Los peces quedan
 						atrapados por las agallas o entre la cabeza y el cuerpo. Existen
 						diferentes tipos de redes entre ellas est&aacute;n la red agallera,
 						atarraya, red caritera, red corvinera y red sardinera.<br><br>
-						<strong><img src="/peces/imagenes/aplicacion/bp.png" width="6" height="6"> Trampas y nasas: </strong>Son cajas o compartimientos a los que son
+						<strong><?php echo CHtml::image(Yii::app()->request->baseUrl."/imagenes/aplicacion/bp.png");?> Trampas y nasas: </strong>Son cajas o compartimientos a los que son
 						atra&iacute;dos los peces. Las formas t&iacute;picas de las trampas
 						y nasas, son cajas, conos, cilindros, esferas o botellas. Su
 						tama&ntilde;o var&iacute;a seg&uacute;n la especie a capturar.
@@ -548,14 +637,10 @@ $(document).ready(function(){
 						escape. Existen diferentes tipos de trampas y nasas, como la nasa o
 						trampa langostera, casitas cubanas, trampa para bacalao, trampa para
 						pulpo.
-					</p>
-				</div>
-
-				<h3 class="titblue">
-					Selectividad y artes de pesca
-				</h3>
-				<div>
+					</p><br>
+					
 					<p>
+						<b>Selectividad</b><br><br>
 						Algunas de las artes de pesca tienen un fuerte impacto sobre la biodiversidad marina y su ambiente y otras no lo tienen, por lo que es determinante que el consumidor conozca la informaci&oacute;n sobre el tipo de arte que es utilizado por especie, para esto se han separado las artes de pesca en dos grupos:
 					</p>
 
@@ -612,9 +697,10 @@ $(document).ready(function(){
 			<div id="accordion2">
 
 				<h3 class="titblue">
-						Referencias
+						Para conocer más
 				</h3>
 				<div>
+					<p><b>Referencias</b><br>
 					<ul>
 						<li>Arregu&iacute;n-S&aacute;nchez, F. y E. Arcos Huitr&oacute;n.
 							2011. <em>La pesca en M&eacute;xico: estado de la
@@ -641,20 +727,21 @@ $(document).ready(function(){
 							coralinos. Gu&iacute;a para la colecta de informaci&oacute;n que
 							apoye el Manejo de Pesquer&iacute;as Basado en Ecosistemas. WWF
 							M&eacute;xico/Centroam&eacute;rica. 81 pp.</li>
-					</ul>
-				</div>
-				
-	      <h3 class="titblue">
-						Lecturas recomendadas
-				</h3>
-				<div>
+					</ul></p><br>
+					
+					
+					<p><b>Lecturas recomendadas</b><br>
 					<ul>
-						<li>L&oacute;pez Jim&eacute;nez, L.N., Gonz&aacute;lez Solis, A.,
-							Torruco, D. 2014. <a
-							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv113art3.pdf"
-							target="_blank" style="color: #584B05">Peces bent&oacute;nicos y
-								demersales de la Sonda de Campeche: sur del Golfo de M&eacute;xico</a>.
-							CONABIO. Biodiversitas, 113:12-16.<br> <br>
+						<li>Aburto, O. 2007. <a
+							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv73art2.pdf"
+							target="_blank" style="color: #584B05">El pargo amarillo:
+								depredador de los arrecifes rocosos</a>. CONABIO. Biodiversitas,
+							73:8-11.<br> <br>
+						</li>
+						<li>Castillo G&eacute;niz, M. 2009. <a
+							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv84art1.pdf"
+							target="_blank" style="color: #584B05">Conservar los tiburones</a>.
+							CONABIO. Biodiversitas, 84:1-5.<br> <br>
 						</li>
 						<li>Del Moral Flores, L. F., G. P&eacute;rez Ponce de Le&oacute;n.
 							2013. <a
@@ -663,23 +750,12 @@ $(document).ready(function(){
 								de M&eacute;xico</a>. CONABIO. Biodiversitas, 111:1-6.<br> <br> <a
 							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv111art1.pdf"></a>
 						</li>
-						<li>Paredes, G.A., B. Erisman, I. Mascare&ntilde;as Osorio, J. Cota
-							Nieto, K. Gherard y O. Aburto Oropeza. 2010. <a
-							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv91art1.pdf"
-							target="_blank" style="color: #584B05">La curvina golfina:
-								Biolog&iacute;a, pesquer&iacute;a y su gente</a>. CONABIO.
-							Biodiversitas, 91:1-5.<br> <br>
-						</li>
-						<li>Castillo G&eacute;niz, M. 2009. <a
-							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv84art1.pdf"
-							target="_blank" style="color: #584B05">Conservar los tiburones</a>.
-							CONABIO. Biodiversitas, 84:1-5.<br> <br>
-						</li>
-						<li>Aburto, O. 2007. <a
-							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv73art2.pdf"
-							target="_blank" style="color: #584B05">El pargo amarillo:
-								depredador de los arrecifes rocosos</a>. CONABIO. Biodiversitas,
-							73:8-11.<br> <br>
+						<li>L&oacute;pez Jim&eacute;nez, L.N., Gonz&aacute;lez Solis, A.,
+							Torruco, D. 2014. <a
+							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv113art3.pdf"
+							target="_blank" style="color: #584B05">Peces bent&oacute;nicos y
+								demersales de la Sonda de Campeche: sur del Golfo de M&eacute;xico</a>.
+							CONABIO. Biodiversitas, 113:12-16.<br> <br>
 						</li>
 						<li>Monteforte, M., y M. Cari&ntilde;o. 2005.<a
 							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv61art1.pdf"
@@ -687,28 +763,50 @@ $(document).ready(function(){
 								piscicultura marina en el Golfo de California</a>. CONABIO.
 							Biodiversitas, 61:1-7.<br> <br>
 						</li>
+						<li>Paredes, G.A., B. Erisman, I. Mascare&ntilde;as Osorio, J. Cota
+							Nieto, K. Gherard y O. Aburto Oropeza. 2010. <a
+							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv91art1.pdf"
+							target="_blank" style="color: #584B05">La curvina golfina:
+								Biolog&iacute;a, pesquer&iacute;a y su gente</a>. CONABIO.
+							Biodiversitas, 91:1-5.<br> <br>
+						</li>
 						<li>Romeu, E. 1995. <a
 							href="http://www.biodiversidad.gob.mx/Biodiversitas/Articulos/biodiv2art1.pdf"
 							target="_blank" style="color: #584B05">Tiburones</a>.
 							Biodiversitas, 2:1-6.<br>
 						</li>
-					</ul>
+					</ul></p><br>
+					
+					
+					<p><b>Sitios web</b><br>
+					<ul>
+						<li><a href="http://www.inapesca.gob.mx/portal/" target="_blank" style="color: #330">Instituto Nacional de la Pesca</a> (INAPESCA)</li>
+						<br>
+						
+						<li><a href="http://www.conapesca.gob.mx/wb/" target="_blank" style="color: #330">Comisi&oacute;n Nacional de Acuacultura y Pesca</a> (CONAPESCA)</li>
+						<br>
+						
+						<li><a href="http://fairtradeusa.org/sites/all/files/wysiwyg/filemanager/standards/spanish/FTUSA_standards_principles_SP_022713.pdf" target="_blank" style="color: #330">Fair Trade USA</a></li>
+						<br>
+						
+						<li><a href="https://www.msc.org/acerca-del-msc/estandares/estandares/estandar-msc-para-la-pesca-sostenible" target="_blank" style="color: #330">Marine Stewardship Council (MSC)</a></li>
+						<br>
+						
+						<li><a href="https://www.seafoodwatch.org/-/m/sfw/pdf/criteria/mba_seafood%20watch_fisheries%20standard_version%20f3.2.pdf?la=en" target="_blank" style="color: #330">Monterey Bay Aquarium – Seafood Watch Program(MBA)</a></li>
+						<br>
+						
+						<li><a href="http://cobi.org.mx/" target="_blank" style="color: #330">Comunidad y Biodiversidad</a></li>
+						<br>
+						
+						<li><a href="http://www.oceanoutcomes.org/" target="_blank" style="color: #330">Ocean Outcomes</a></li>
+						<br>
+
+					</ul></p>
+					
+					
+					
 				</div>
 
-				<h3 class="titblue">
-						Sitios web
-				</h3>
-				<div>
-					<ul>
-						<li><a href="http://www.inapesca.gob.mx/portal/" target="_blank"
-							style="color: #330">Instituto Nacional de la Pesca</a>. (INAPESCA)<br>
-							<br> <a href="http://www.inapesca.gob.mx/portal/"></a>
-						</li>
-						<li><a href="http://www.conapesca.gob.mx/wb/" target="_blank"
-							style="color: #330">Comisi&oacute;n Nacional de Acuacultura y Pesca</a>.
-							(CONAPESCA)<br></li>
-					</ul>
-				</div>
 
 			</div>
 			<br />
@@ -716,7 +814,7 @@ $(document).ready(function(){
   </article>
 
   <article class="bloque4">
-	<p class="titblue">
+	<p class="text_important">
 		Carteles
 		</p>
 		<table width="100%" border="0">
@@ -739,7 +837,7 @@ $(document).ready(function(){
 		<div align="center" class="piefoto">Disponibles en nuestro <a href="http://www.biodiversidad.gob.mx/publicaciones/publicaciones.php" target="_blank">cat&aacute;logo de publicaciones</a></div>
 		  	
 
-    <p class="titblue">Videos&nbsp;&nbsp;&nbsp;</p>
+    <p class="text_important">Videos</p>
     	<table width="100%" border="0">
 		  <tbody>
 			<tr>
@@ -760,7 +858,7 @@ $(document).ready(function(){
        
        
             
-		<p class="titblue">Gu&iacute;as&nbsp;&nbsp;&nbsp;</p>
-    <span class="piefoto">(pr&oacute;ximamente)</span><br><br>
+		<p class="text_important">Gu&iacute;as</p>
+    <span class="piefoto">(pr&oacute;ximamente)</span><br><br><br><br><br>
   </article>
 </div>
