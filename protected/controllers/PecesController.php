@@ -50,10 +50,19 @@ class PecesController extends Controller
 	 * @param integer $id the ID of the model to be displayed
 	 */
 	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+	{		
+		if (isset($_GET['json']) && $_GET['json'] == '1')
+		{
+			header('Content-type: application/json; charset=UTF-8');
+			$this->layout=false;
+			
+			$pez = Yii::app()->db->createCommand()->select("*")->from('peces')->where("id=". (Int) $id)->queryAll();
+			echo json_encode($pez[0], JSON_UNESCAPED_UNICODE);
+			Yii::app()->end();
+		} else {
+			$pez=$this->loadModel($id);
+			$this->render('view',array('model'=>$pez));
+		}
 	}
 
 	/**
@@ -157,8 +166,6 @@ class PecesController extends Controller
 	public function actionResultado()
 	{
 		$condiciones=array();
-		//$union='';
-		//$joins='';
 		$params = $_GET;
 		$select = 'id,nombre_comun,nombre_ingles,nombre_cientifico,presente_pacifico,presente_golfo,presente_caribe,nacional_importado_valor,
 arte_pesca,objetivo,incidental,deportiva,fomento,cultivada,talla_captura,grupo_conabio,generalidades,distribucion,
@@ -166,239 +173,114 @@ zona1_valor,zona2_valor,zona3_valor,zona4_valor,zona5_valor,zona6_valor,CONCAT(z
 zona1_peso+zona2_peso+zona3_peso+zona4_peso+zona5_peso+zona6_peso AS zonas_peso,peso,
 nom,iucn,cites,nom_valor,iucn_valor,cites_valor,tipo_veda,tipo_veda_fecha,cnp,tipo_captura,tipo_captura_valor';
 		$order = 'peso ASC, cnp DESC, zonas_peso ASC, tipo_imagen ASC';
-		//$flag_ficha = false;
 		
-		/*if(isset($params['especie_id']) && !empty($params['especie_id']))
+		if (isset($params['especie_id']) && !empty($params['especie_id']))
 		{
-			$flag_ficha = true;
-			array_push($condiciones, "especie_id = ".$params['especie_id']);
-			
-		} else {*/
-			//$flag_ficha = false;
-			
-		if (isset($params['nombre_comun']) && !empty($params['nombre_comun']))
-			array_push($condiciones, "nombre_comun LIKE '%".$params['nombre_comun']."%'");
+			array_push($condiciones, "id = ".$params['especie_id']);
+			$select = '*, CONCAT(zona1_valor,zona2_valor,zona3_valor,zona4_valor,zona5_valor,zona6_valor) AS zonas_valores,
+zona1_peso+zona2_peso+zona3_peso+zona4_peso+zona5_peso+zona6_peso AS zonas_peso';
+			$order = 'nombre_cientifico ASC';
+		
+		} else {
 				
-		if (isset($params['nombre_cientifico']) && !empty($params['nombre_cientifico']))
-			array_push($condiciones, "nombre_cientifico LIKE '%".$params['nombre_cientifico']."%'");
+			if (isset($params['nombre_comun']) && !empty($params['nombre_comun']))
+				array_push($condiciones, "nombre_comun LIKE '%".$params['nombre_comun']."%'");
 					
-		if (isset($params['grupo']) && !empty($params['grupo']))
-			array_push($condiciones, "grupo_conabio = '".$params['grupo']."'");
-		
-		if (isset($params['nacional_importado']) && is_array($params['nacional_importado']) && count($params['nacional_importado']) > 0)
-			array_push($condiciones, "nacional_importado_valor IN (".implode(",", $params['nacional_importado']).")");
-		
-		if (isset($params['cat_riesgo']) && is_array($params['cat_riesgo']) && count($params['cat_riesgo']) > 0)
-		{
-			$condiciones_cat = array();
-			foreach ($params['cat_riesgo'] as $cat)
-				array_push($condiciones_cat, $cat."_valor=1");
+			if (isset($params['nombre_cientifico']) && !empty($params['nombre_cientifico']))
+				array_push($condiciones, "nombre_cientifico LIKE '%".$params['nombre_cientifico']."%'");
+						
+			if (isset($params['grupo']) && !empty($params['grupo']))
+				array_push($condiciones, "grupo_conabio = '".$params['grupo']."'");
 			
-			array_push($condiciones, "(".implode(" OR ", $condiciones_cat).")");
-		}	
-		
-		if (isset($params['veda']) && is_array($params['veda']) && count($params['veda']) > 0)
-			array_push($condiciones, "tipo_veda_valor IN (".implode(",", $params['veda']).")");
-		
-		if (isset($params['selectiva']) && is_array($params['selectiva']) && count($params['selectiva']) > 0)
-			array_push($condiciones, "tipo_captura_valor IN (".implode(",", $params['selectiva']).")");
-		
-		if (isset($params['recomendacion']) && is_array($params['recomendacion']) && count($params['recomendacion']) > 0)
-		{
-			$condiciones_rec = array();
-			foreach ($params['recomendacion'] as $rec)
+			if (isset($params['nacional_importado']) && is_array($params['nacional_importado']) && count($params['nacional_importado']) > 0)
+				array_push($condiciones, "nacional_importado_valor IN (".implode(",", $params['nacional_importado']).")");
+			
+			if (isset($params['cat_riesgo']) && is_array($params['cat_riesgo']) && count($params['cat_riesgo']) > 0)
 			{
-				$rangos = explode("-", $rec);
-				if (count($rangos) == 1)
-					array_push($condiciones_rec, "peso=".$rangos[0]);
-				else if(count($rangos) == 2)
-					array_push($condiciones_rec, "peso BETWEEN ".$rangos[0]." AND ".$rangos[1]);
+				$condiciones_cat = array();
+				foreach ($params['cat_riesgo'] as $cat)
+					array_push($condiciones_cat, $cat."_valor=1");
+				
+				array_push($condiciones, "(".implode(" OR ", $condiciones_cat).")");
+			}	
+			
+			if (isset($params['veda']) && is_array($params['veda']) && count($params['veda']) > 0)
+				array_push($condiciones, "tipo_veda_valor IN (".implode(",", $params['veda']).")");
+			
+			if (isset($params['selectiva']) && is_array($params['selectiva']) && count($params['selectiva']) > 0)
+				array_push($condiciones, "tipo_captura_valor IN (".implode(",", $params['selectiva']).")");
+			
+			if (isset($params['recomendacion']) && is_array($params['recomendacion']) && count($params['recomendacion']) > 0)
+			{
+				$condiciones_rec = array();
+				foreach ($params['recomendacion'] as $rec)
+				{
+					$rangos = explode("-", $rec);
+					if (count($rangos) == 1)
+						array_push($condiciones_rec, "peso=".$rangos[0]);
+					else if(count($rangos) == 2)
+						array_push($condiciones_rec, "peso BETWEEN ".$rangos[0]." AND ".$rangos[1]);
+				}
+				
+				array_push($condiciones, "(".implode(" OR ", $condiciones_rec).")");
+			}
+					
+			if (isset($params['zonas']) && is_array($params['zonas']) && count($params['zonas']) > 0)
+			{
+				$condiciones_zonas = array();
+				foreach ($params['zonas'] as $num)
+					array_push($condiciones_zonas, "zona".$num."_valor > 0");
+				
+				array_push($condiciones, "(".implode(" OR ", $condiciones_zonas).")");
+			}
+		}  // fin de consulta ficha
+		
+		$resultados = Yii::app()->db->createCommand()
+								->select($select)
+								->from('peces');
+		
+		if (count($condiciones) > 0)  // Pega condiciones
+			$resultados = $resultados->where(implode(" AND ", $condiciones));
+		
+		$resultados = $resultados->order($order)->queryAll();  // Contiene los resultados
+		
+		
+		if(isset($params['json']) && !empty($params['json']) && (Int)$params['json']==1)  // Para consultar en json
+		{
+			header('Content-type: application/json; charset=UTF-8');
+			
+			if (isset($params['allow_o']) && $params['allow_o'] == '1')
+			{
+				// Para poder consumir la respuesta del lado del cliente en cualquier servidor, ojo cambiar cuando se tenga el dominio correcto
+				header("Access-Control-Allow-Origin: *");
+				header("Access-Control-Allow-Methods: GET");	
 			}
 			
-			array_push($condiciones, "(".implode(" OR ", $condiciones_rec).")");
-		}
-				
-		if (isset($params['zonas']) && is_array($params['zonas']) && count($params['zonas']) > 0)
-		{
-			$condiciones_zonas = array();
-			foreach ($params['zonas'] as $num)
-				array_push($condiciones_zonas, "zona".$num."_valor > 0");
-			
-			array_push($condiciones, "(".implode(" OR ", $condiciones_zonas).")");
-		}
+			echo json_encode($resultados, JSON_UNESCAPED_UNICODE);
 		
-						/*
-						//Las zonas varia de 1 a 6
-						if (isset($params['zona']) && ((Int)$params['zona'] > 0 && (Int)$params['zona'] < 7))
-						{
-							$joins.= CartaNacional::join();
-							array_push($condiciones, "cn.Nivel1=".(Int)$params['zona']." AND cn.Nombre != 'Sin datos.'");
-							
-						} elseif (isset($params['zona']) && ((Int)$params['zona'] == 7))
-						*/
-						
-						
-						/*
-						//Caso de una o mas recomendaciones
-						if (isset($params['recomendacion']) && is_array($params['recomendacion']))
-						{
-							$colores = array('V+', 'V-', 'A-', 'A+', 'R');
-							$interseccion = array_intersect($colores, $params['recomendacion']);
-						}
-						
-						if (isset($interseccion) && count($interseccion) > 0)
-						{
-							array_push($condiciones, "recomendacion=1 AND peso_promedio IS NOT NULL AND peso IS NOT NULL");
-							$order.= ' ORDER BY peso_promedio, tipo_imagen, nombre_comun ASC';
-							$recomendaciones = array();
-							
-							foreach ($interseccion as $index => $recomendacion)
-								array_push($recomendaciones, "peso LIKE '%$recomendacion%'");
-								
-								array_push($condiciones, "(".implode(" OR ", $recomendaciones).")");
-								
-						} else   //busqueda sin recomendacion ni libre, te saca por default todos con recomendacion
-							$order.= ' ORDER BY ISNULL(peso_promedio), peso_promedio, tipo_imagen, nombre_cientifico ASC';*/
-		//}
-	
-		//Para ponerlas como sql
-		//if (count($condiciones) > 0)
+		} else {  // Para consultar en html
+			$count = count($resultados);
+			$pages = new CPagination($count[0]["count"]);
+			$pages->setPageSize(50);
 			
-			//decide cual tipo de busqueda es
-			/*if (!empty($joins))
+			if (isset($params['ajax']) && $params['ajax'] == '1')  // Si es un request con ajax
 			{
-				$resultados=Yii::app()->db->createCommand($select.$joins." WHERE ".$condiciones.$order)->queryAll();
-				$count=Yii::app()->db->createCommand("SELECT COUNT(*) as count FROM peces p ".$joins." WHERE ".$condiciones)->queryAll();
-				$pages = new CPagination($count[0]["count"]);
-				$pages->setPageSize(50);
-			}*/
-		if (count($condiciones) > 0)
-		{
-			$resultados = Yii::app()->db->createCommand()
-							->select($select)
-							->from('peces')
-							->where(implode(" AND ", $condiciones))
-							->order($order)
-							->queryAll();
-			
-			$count = count($resultados);
-			$pages = new CPagination($count[0]["count"]);
-			$pages->setPageSize(50);
+				$this->renderPartial('_resultado',array(
+						'resultados'=>$resultados,
+						'count'=>$count[0]["count"],
+						'page_size'=>50,
+						'pages'=>$pages
+				));
+			} else {  // Si es la primera vez que carga resultados
+				$this->render('resultado',array(
+						'resultados'=>$resultados,
+						'count'=>$count[0]["count"],
+						'page_size'=>50,
+						'pages'=>$pages
+				));
+			}
 		
-		} else { //para ver todos los peces
-			$resultados = Yii::app()->db->createCommand()
-							->select($select)
-							->from('peces')
-							->order($order)
-							->queryAll();
-			
-			$count = count($resultados);
-			$pages = new CPagination($count[0]["count"]);
-			$pages->setPageSize(50);
-		}
-		
-		if (count($resultados) > 0)  //Si hubo resultados en la busqueda
-		{
-				/*if(isset($params['json']) && !empty($params['json']) && (Int)$params['json']==1)
-				 {
-				 header('Content-type: application/json; charset=UTF-8');
-				 
-				 if (isset($params['allow_o']) && $params['allow_o'] == '1')
-				 {
-				 // Para poder consumir la respuesta del lado del cliente en cualquier servidor, ojo cambiar cuando se tenga el dominio correcto
-				 header("Access-Control-Allow-Origin: *");
-				 header("Access-Control-Allow-Methods: GET");
-				 }
-				 
-				 $data = array();
-				 $arr_obj = array();
-				 
-				 foreach($resultados as $k)
-				 {
-				 $json = array();
-				 $pez = Peces::model()->findByPk($k["especie_id"]);
-				 
-				 if ($pez->tipo_imagen == 1)
-				 $pez->imagen = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/peces/'.$pez->imagen));
-				 elseif ($pez->tipo_imagen == 2)
-				 $pez->imagen = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/siluetas/'.$pez->imagen));
-				 $json["peces"] = $pez->attributes;
-				 
-				 \/*
-				 //Para la imgen del semaforo
-				 if ($pez->recomendacion == 1)
-				 $json["peces"]["imagen_semaforo"] = str_replace('index.php/', '', Yii::app()->createAbsoluteUrl('imagenes/semaforo/'.Peces::peso_a_nombre_imagen($pez->peso)));
-				 else
-				 $json["peces"]["imagen_semaforo"] = "";
-				 *\/
-				 
-				 $json["grupo"] = !empty($pez->grupo)?$pez->grupo->attributes:array();
-				 $json["tipo_veda"] = !empty($pez->tipoVeda)?$pez->tipoVeda->attributes:array();
-				 
-				 if($pez->cartaNacionals)
-				 {
-				 $aux = array();
-				 foreach ($pez->cartaNacionals as $k){
-				 array_push($aux, $k->attributes);
-				 }
-				 $json["carta_nacional"] = $aux;
-				 }
-				 if($pez->distribucions)
-				 {
-				 $aux = array();
-				 foreach ($pez->distribucions as $k){
-				 array_push($aux, $k->attributes);
-				 }
-				 $json["distribucion"] = $aux;
-				 }
-				 if($pez->estadoConservacions)
-				 {
-				 $aux = array();
-				 foreach ($pez->estadoConservacions as $k){
-				 array_push($aux, $k->attributes);
-				 }
-				 $json["estado_conservacion"] = $aux;
-				 }
-				 if($pez->tipoCapturases)
-				 {
-				 $aux = array();
-				 foreach ($pez->tipoCapturases as $k){
-				 array_push($aux, $k->attributes);
-				 }
-				 $json["tipo_captura"] = $aux;
-				 }
-				 
-				 if(!$flag_ficha)
-				 array_push($data, $json);
-				 else {
-				 echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($json));
-				 //echo json_encode($json, JSON_UNESCAPED_UNICODE);
-				 }
-				 }
-				 if(!$flag_ficha){
-				 echo preg_replace("/\\\\u([a-f0-9]{4})/e", "iconv('UCS-4LE','UTF-8',pack('V', hexdec('U$1')))", json_encode($data));
-				 //echo json_encode($data, JSON_UNESCAPED_UNICODE);
-				 }
-				 } else */
-				 
-				 if (isset($params['ajax']) && $params['ajax'] == '1')
-				 {
-				 	$this->renderPartial('_resultado',array(
-				 			'resultados'=>$resultados,
-				 			'count'=>$count[0]["count"],
-				 			'page_size'=>50,
-				 			'pages'=>$pages
-				 	));
-				 } else {
-				 	$this->render('resultado',array(
-				 			'resultados'=>$resultados,
-				 			'count'=>$count[0]["count"],
-				 			'page_size'=>50,
-				 			'pages'=>$pages
-				 	));
-				 }
-			} else
-				$this->renderPartial('_resultado',array('vacio' => '<b>Tu b&uacute;squeda no di&oacute; ning&uacute;n resultado</b>'));
+		}  // else, consultar HTML
 	}
 	
 	/**
